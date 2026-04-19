@@ -1,0 +1,43 @@
+/* Single-column card grid override */
+.single-col.grid.cards {
+  grid-template-columns: 1fr !important;
+}
+
+/* Hide the GitHub repo version badge — shows stale stable tag instead of pre-release */
+.md-header__source .md-source__facts {
+  display: none;
+}
+
+/* FAQ question styling — make bold question lines stand out */
+[data-md-component="content"] .md-content__inner > p > strong:only-child,
+[data-md-component="content"] .md-content__inner > p:has(> strong:only-child) {
+  font-size: 1.05rem;
+  color: #ffffff;
+}
+
+/* Fix spacing between search bar, Discord, and GitHub */
+.md-header__discord {
+  margin-left: 0.8rem;
+}
+.md-header__source {
+  margin-left: 0.8rem !important;
+  width: auto !important;
+}
+.md-source__repository {
+  max-width: none !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* Larger logo and tighter spacing between logo and site name */
+.md-header__button.md-logo img {
+  width: 48px;
+  height: 48px;
+}
+.md-header__button.md-logo {
+  margin-right: 2px;
+  padding: 4px;
+}
+.md-header__title {
+  margin-left: 0 !important;
+}
