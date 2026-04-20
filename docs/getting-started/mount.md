@@ -56,7 +56,7 @@ Before proceeding, confirm the mount is working by listing your mount path:
 
 === "Decypharr"
     ```bash
-    ls /mnt/data/debrid
+    ls /path/to/debrid
     ```
 
 You should see your debrid files listed. If the folder is empty or the command fails, fix the mount before continuing.
