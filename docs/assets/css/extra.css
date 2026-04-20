@@ -11,7 +11,7 @@
 /* FAQ question styling — make bold question lines stand out */
 [data-md-component="content"] .md-content__inner > p > strong:only-child,
 [data-md-component="content"] .md-content__inner > p:has(> strong:only-child) {
-  font-size: 1.05rem;
+  font-size: .95rem;
   color: #ffffff;
 }
 

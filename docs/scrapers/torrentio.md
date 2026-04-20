@@ -35,7 +35,7 @@ Torrentio is a torrent metadata API that aggregates results from multiple public
 ## Notes
 
 - Torrentio is a public service with no authentication required
-- Results include both cached and uncached torrents — CLI_Debrid will filter based on your [Uncached Content Handling](../configuration/scraping.md#uncached-content-handling) setting
+- Results include both cached and uncached torrents — CLI_Debrid will filter based on your [Uncached Content Handling](../configuration/versions.md#uncached-content) setting
 - For better results on anime, use [Nyaa](nyaa.md) alongside Torrentio
 
 ---

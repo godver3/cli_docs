@@ -101,7 +101,7 @@ Checking means cli_debrid is waiting for the file to appear at the mount path. C
 - The mount path isn't accessible inside the container
 - Zurg/rclone isn't running or the mount is stale — try remounting
 
-Items stay in Checking for up to 1 hour before being moved back. For uncached content, enable **Hybrid Mode** in Advanced Settings.
+Items stay in Checking for up to 1 hour before being moved back. For uncached content, set **Uncached Content Handling** to `Hybrid` in **Settings → Versions → Other Scraping Settings**.
 
 ---
 
@@ -140,7 +140,7 @@ The torrent was added to debrid but contained no valid video files (e.g. only RA
 
 **How do I use uncached content?**
 
-In **Advanced Settings → Content Processing**, set **Uncached Content Handling** to `Full` (downloads everything) or enable **Hybrid Mode** (tries cache first, falls back to uncached). Note: uncached downloads can take hours.
+In **Settings → Versions → Other Scraping Settings**, set **Uncached Content Handling** to `Hybrid` (tries cache first, falls back to uncached if nothing found) or `Full` (always takes the best result regardless of cache status). Note: uncached downloads can take hours.
 
 ---
 

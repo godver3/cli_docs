@@ -18,7 +18,6 @@ Configure advanced and debug options.
 | **Check For Updates** | On | Check for updates and display update indicator in the header |
 | **Enable Tracemalloc** | Off | Enable Python's tracemalloc for detailed memory usage tracking per task. Adds overhead — use only for debugging memory leaks. |
 | **Tracemalloc Sample Rate** | `100` | Sample rate for tracemalloc (1 in X tasks). Lower values give more frequent data but increase overhead. |
-| **Enable Crash Test** | Off | Enable crash testing functionality |
 
 ---
 
@@ -39,7 +38,6 @@ Configure advanced and debug options.
 
 | Setting | Default | Description |
 |---|---|---|
-| **Disable Not Wanted Check** | Off | Disable the not-wanted check for items in the queue |
 | **Do Not Add Plex Watch History Items To Queue** | Off | Do not add Plex watch history items to the queue |
 | **Item Process Delay (Seconds)** | `0` | Pause between processing each queue item. Useful to reduce API rate limiting. |
 | **Disable Content Source Caching** | Off | Disable content source caching |
@@ -54,6 +52,8 @@ Configure advanced and debug options.
 | **Sort By Uncached Status** | Off | Sort results by uncached status over cached status |
 | **Checking Queue Period** | `3600` | Max time (in seconds) before moving items from the Checking queue back to Wanted |
 | **Ignore Wanted Queue Throttling** | Off | Allow the Wanted queue to move all eligible items to Scraping regardless of queue size. Use with caution. |
+| **Disable Not Wanted Check** | Off | Disable the not-wanted check for items in the queue |
+| **Staleness Threshold (Days)** | `7` | Number of days before metadata is considered stale |
 | **Allow Partial Overseerr Requests** | Off | Allow partial show requests from Overseerr |
 | **Max Upgrading Score** | `0.0` | Upgrades are disabled once this score is reached. Set to `0` to disable the limit. |
 | **Upgrade Queue Duration (Hours)** | `24` | How long to keep items in the upgrade queue before moving them to Collected state |
@@ -136,46 +136,6 @@ Configure advanced and debug options.
 | **Enable Alternate Scraping Time Strategy** | Off | Instead of scraping based on queue offsets/airtime/release date, scrape all items with release dates within the past 24 hours of a set daily time |
 | **Alternate Scrape Time (24h format)** | `00:00` | Daily scrape time (HH:MM) used when the alternate strategy is enabled |
 | **Skip Initial Multi-Scrape For New Content** | Off | Skip the initial multi-provider scrape for content released within the past 7 days |
-
----
-
-## Queue Management
-
-| Setting | Default | Description |
-|---|---|---|
-| **Checking Queue Period** | `3600` | Max time (in seconds) before moving items from the Checking queue back to Wanted |
-| **Ignore Wanted Queue Throttling** | Off | Allow the Wanted queue to move all eligible items to Scraping regardless of queue size. Use with caution. |
-| **Disable Not Wanted Check** | Off | Disable the not-wanted check for items in the queue |
-
----
-
-## System & Integration
-
-| Setting | Default | Description |
-|---|---|---|
-| **Allow Symlinks on Windows** | Off | Allow symlinks on Windows. Requires administrator privileges or Developer Mode. |
-| **Timezone Override** | — | Override system timezone (e.g. `America/New_York`) |
-| **Cinesync Path** | — | Absolute path to your CineSync MediaHub `main.py` file |
-| **Plex Removal Cache Delay (Minutes)** | `360` | Delay in minutes before processing a cached Plex removal operation |
-
----
-
-## Performance & Monitoring
-
-| Setting | Default | Description |
-|---|---|---|
-| **Tracemalloc Sample Rate** | `100` | Sample rate for tracemalloc (1 in X tasks). Lower = more frequent data but higher overhead. |
-| **Staleness Threshold (Days)** | `7` | Number of days before metadata is considered stale |
-| **Disable Content Source Caching** | Off | Disable caching for content sources |
-
----
-
-## File System
-
-| Setting | Default | Description |
-|---|---|---|
-| **Sanitizer Replacement Character** | `_` | Character used when replacing invalid characters in filenames. Must be valid on both Windows and Linux. |
-| **Max Upgrading Score** | `0.0` | Upgrades are disabled once this score is reached. Set to `0` to disable the limit. |
 
 ---
 

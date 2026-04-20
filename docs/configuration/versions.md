@@ -165,6 +165,39 @@ Use these to require or exclude specific words in torrent titles.
 
 ---
 
+## Other scraping settings
+
+These global settings apply across all versions and control scraping behaviour, upgrading, and content filtering. They are found at the bottom of the Versions page under **Other Scraping Settings**.
+
+### Uncached content
+
+| Setting | Default | Description |
+|---|---|---|
+| **Uncached Content Handling** | `None` | How to handle uncached torrents. `None` — only take the best cached result. `Hybrid` — take the best cached result, and if no cached results are found take the best uncached result. `Full` — take the best result whether cached or uncached. |
+| **Accept Uncached Within Hours** | `0` | If an item was released within the last X hours, accept uncached releases regardless of the above setting. Set to `0` to disable. |
+
+### Scraping
+
+| Setting | Default | Description |
+|---|---|---|
+| **Filter Trash Releases** | On | Filter out releases flagged as trash by the parser (typically low-quality or badly formatted releases) |
+| **Minimum Scrape Score** | `0.0` | Minimum calculated score for a result to be accepted. Based on version weights. Set to `0.0` to accept any score. |
+| **Scraper Timeout** | `5` | Timeout in seconds for each scraping request. Set to `0` to disable. Increase for slower scrapers like AIOStreams. |
+| **Disable Adult** | On | Filter out adult content |
+| **Trakt Early Releases** | Off | Check Trakt for early release information |
+| **Trakt Rate Limit Enabled** | On | Enable Trakt API rate limiting to prevent 429 errors. Automatically detects VIP/Free tier. Recommended to leave enabled. |
+
+### Upgrading
+
+| Setting | Default | Description |
+|---|---|---|
+| **Enable Upgrading** | Off | Allow cli_debrid to replace a collected item with a better version if one is found |
+| **Upgrading Percentage Threshold** | `0.1` | How much better a result must be to qualify as an upgrade (decimal, 0.0–1.0). `0.1` = must score at least 10% higher than the current file. |
+| **Delayed Upgrade Scrape Days** | `0` | Number of days to wait before attempting a single upgrade scrape on an item. Set to `0` to disable. |
+| **Enable Upgrading Cleanup** | Off | Remove the original file from your Debrid Provider after a successful upgrade |
+
+---
+
 ## Assigning versions to content sources
 
 Each content source has a **Versions** checkbox list. Check all versions that should apply to that source.

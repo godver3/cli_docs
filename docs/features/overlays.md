@@ -120,6 +120,120 @@ Different layouts can be assigned to Movies, Shows, and Seasons independently.
 
 ---
 
+## Layout Builder
+
+The Layout Builder lets you design overlay layouts by placing and configuring badges on a live preview canvas.
+
+### Badge types
+
+There are five distinct badge categories in the palette, each working differently:
+
+**Tray**
+
+A background panel with no content of its own. Place a tray behind other badges to create a unified strip or box — typically at the bottom of the poster. Supports solid or gradient fills, borders, border radius, and opacity control.
+
+---
+
+**Text Badges**
+
+The most versatile type. Renders text onto the poster using a `{{variable}}` template. Supports a background box, an optional icon to the left or right, full font customisation (family, size, weight, colour, alignment), and vertical stacking for two-line labels.
+
+Presets cover every common data type — select from the **Badge Type** dropdown:
+
+| Preset | What it shows |
+|---|---|
+| IMDb / TMDb / Trakt Rating | Rating score with service logo |
+| RT Critics / RT Audience | Rotten Tomatoes score |
+| Resolution | `4K`, `1080p`, `720p`, etc. |
+| HDR Format | `DV`, `HDR10+`, `HDR10`, `HLG` |
+| Audio Codec | `TrueHD Atmos`, `DTS:X`, `DD+`, etc. |
+| Audio Channels | `7.1`, `5.1`, `2.0` |
+| Video Codec | `HEVC`, `AVC`, `AV1` |
+| Format / Source | `REMUX`, `WEB-DL`, `WEBRip`, `HDTV` |
+| Network | TV network name |
+| Studio | Production studio name |
+| Content Rating | `PG-13`, `TV-MA`, `R`, etc. |
+| Show Status | `Returning`, `Airing`, `Ended`, `Canceled` |
+| Versions / Duplicates | Count shown only when multiple versions exist |
+| Custom Badge | Any combination of static text and `{{variables}}` |
+| **File Match** | Conditional — see below |
+
+---
+
+**Smart Badges (Library Badges)**
+
+Image-based badges. Instead of rendering text, the system selects a matching PNG image from your **Badge Library** (`/overlays/badges`) automatically based on the item's metadata. You control the size and position in the layout; the correct image is chosen at render time. If no matching asset exists for a given item, the badge is silently skipped.
+
+Badge Library categories and their available slots:
+
+| Category | Slots |
+|---|---|
+| **Audio Codec** | AAC, Dolby Atmos, Atmos Standalone, DD+ Atmos, Dolby Digital, Dolby Digital+, DTS, DTS-ES, DTS-HD, DTS-HD HRA, DTS-HD MA, DTS:X, FLAC, MP3, PCM, TrueHD, TrueHD Atmos |
+| **Video Codec** | AV1, AVC, HEVC, VP9 |
+| **Resolution** | 480p, 720p, 1080p, 2160p/4K |
+| **HDR Format** | Dolby Vision, DV+HDR, DV+HDR10, DV+HDR10+, HDR, HDR10, HDR10+, HLG |
+| **Format / Source** | Blu-ray, DVD, HDTV, WEB-DL, WEBRip |
+
+Upload your own PNG badge images via the **Badges** tab or at `/overlays/badges`. Each slot can have one image — upload to the slot that matches the metadata value you want to display. Custom variation slots can be added for metadata values not in the default list.
+
+---
+
+**Designed Badges**
+
+Procedurally rendered vector badges — no image uploads required. Each preset generates a styled badge at render time using the item's actual metadata. Select a preset from the dropdown to control what data is shown:
+
+| Preset | What it shows |
+|---|---|
+| Custom (manual text) | Static text or custom layout you configure manually |
+| Resolution + HDR | Resolution and HDR type combined in one badge |
+| Resolution | Video resolution only |
+| HDR Format | HDR type only |
+| Audio Codec | Audio codec name |
+| Audio Channels | Channel layout only |
+| Audio Codec + Channels | Codec and channels side by side |
+| Audio Stacked (codec / channels) | Codec and channels stacked vertically |
+| Video Codec | Video codec name |
+| Format / Source | Release source (e.g. `REMUX`, `WEB-DL`) |
+| IMDb Rating | IMDb score |
+| TMDb Rating | TMDb score |
+| Trakt Rating | Trakt score |
+| RT Critics | Rotten Tomatoes critics score |
+| RT Audience | Rotten Tomatoes audience score |
+| Network | TV network name |
+| Studio | Production studio name |
+| Content Rating | MPAA/TV content rating |
+| Show Status | Current show status |
+| Versions / Duplicates | Version count badge |
+
+---
+
+**Title Logo**
+
+Renders the title onto the poster. When **Enable Textless Posters** is on and a textless poster is found, the title is rendered as a clearlogo PNG from TMDB — the official transparent title treatment. If no clearlogo exists, falls back to text in the configured font. This is the main reason to use textless posters: place the title exactly where you want it rather than relying on the baked-in title from a standard poster.
+
+---
+
+### File Match badge
+
+The **File Match** badge is useful for flagging attributes that aren't available as standard metadata — for example, `EXTENDED`, `DIRECTOR'S CUT`, `REMASTERED`, or a specific encode group present in the filename.
+
+**How it works:**
+
+1. Add a Text Badge and set the type to **File Match**
+2. Enter a **Search Term** — the badge only renders if this text is found in the video filename (case-insensitive)
+3. Optionally enter a **Display Text** — shown on the badge instead of the search term. Leave empty to use the search term itself.
+4. Toggle **Use icon instead of text** to show an icon (configured in the Icon section) rather than text
+
+Use the **Background**, **Icon**, and **Text / Value** sections to style the badge exactly as you would any other badge. The canvas preview always shows the badge so you can design its appearance.
+
+**Examples:**
+
+- Search term `REMUX` → badge appears only on remux files, displaying `REMUX`
+- Search term `extended`, display text `Extended Cut` → styled label on extended editions only
+- Search term `x265` with an icon → icon badge visible only on x265 encodes
+
+---
+
 ## Badges tab
 
 Browse and manage badge PNG assets. Badges are auto-selected at render time based on the media item's metadata (codec, resolution, HDR format, etc.).
