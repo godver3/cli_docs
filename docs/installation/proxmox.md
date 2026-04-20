@@ -65,7 +65,7 @@ In `/etc/pve/lxc/YOUR_CTID.conf` on the Proxmox host, add a line pointing to you
 
 === "Decypharr"
     ```
-    mp0: /mnt/data/debrid,mp=/mnt/data/debrid
+    mp0: /path/to/debrid,mp=/path/to/debrid
     ```
 
 Then restart the container:

@@ -44,9 +44,9 @@ flowchart LR
         ports:
           - "8282:8282/tcp"
         volumes:
-          - /mnt/data/debrid:/mnt:rw,shared     # (1)
-          - /mnt/disks/cache/decypharr:/cache:rw # (2)
-          - /mnt/data/appdata/decypharr:/app:rw  # (3)
+          - /path/to/debrid:/mnt:rw,shared     # (1)
+          - /path/to/cache:/cache:rw # (2)
+          - /path/to/appdata:/app:rw  # (3)
         devices:
           - /dev/fuse:/dev/fuse:rwm
         cap_add:
@@ -62,7 +62,7 @@ flowchart LR
     3. Config file, database, and downloads folder
 
     !!! warning "Unraid users"
-        Use the actual pool path for the mount volume (e.g. `/mnt/disks/cache/decypharr`), not the user share path. This avoids array startup issues.
+        Use the actual pool path for the mount volume (e.g. `/path/to/cache/decypharr`), not the user share path. This avoids array startup issues.
 
     ```bash
     docker compose up -d
@@ -79,9 +79,9 @@ flowchart LR
       --privileged=true \
       -e TZ="America/New_York" \
       -p '8282:8282/tcp' \
-      -v '/mnt/data/debrid':'/mnt':'rw,shared' \
-      -v '/mnt/disks/cache/decypharr':'/cache':'rw' \
-      -v '/mnt/data/appdata/decypharr':'/app':'rw' \
+      -v '/path/to/debrid':'/mnt':'rw,shared' \
+      -v '/path/to/cache':'/cache':'rw' \
+      -v '/path/to/appdata':'/app':'rw' \
       --device /dev/fuse:/dev/fuse:rwm \
       --cap-add SYS_ADMIN \
       --security-opt apparmor:unconfined \
@@ -92,7 +92,7 @@ flowchart LR
     ```
 
     !!! warning "Unraid users"
-        Use the actual pool path for the mount volume (e.g. `/mnt/disks/cache/decypharr`), not the user share path. This avoids array startup issues.
+        Use the actual pool path for the mount volume (e.g. `/path/to/cache/decypharr`), not the user share path. This avoids array startup issues.
 
 === "Unraid"
 
@@ -119,9 +119,9 @@ flowchart LR
     | Field | Value |
     |-------|-------|
     | Port | `8282` |
-    | rclone | Your debrid mount path (e.g. `/mnt/data/debrid`) → `/mnt` |
-    | cache | Your cache path (e.g. `/mnt/data/cache/decypharr`) → `/cache` |
-    | config | Your appdata path (e.g. `/mnt/data/appdata/decypharr`) → `/app` |
+    | rclone | Your debrid mount path (e.g. `/path/to/debrid`) → `/mnt` |
+    | cache | Your cache path (e.g. `/path/to/cache`) → `/cache` |
+    | config | Your appdata path (e.g. `/path/to/appdata/decypharr`) → `/app` |
 
     ![Decypharr Unraid template configuration](../assets/screenshots/integrations/decypharr-unraid-template.png)
 
@@ -133,7 +133,7 @@ flowchart LR
     Click **Apply**. Unraid pulls the image and starts the container.
 
     !!! warning "Unraid users"
-        Use the actual pool path for the mount volume (e.g. `/mnt/disks/cache/decypharr`), not the user share path. This avoids array startup issues.
+        Use the actual pool path for the mount volume (e.g. `/path/to/cache/decypharr`), not the user share path. This avoids array startup issues.
 
 === "Portainer / Dockge / Dockhand"
 
@@ -143,15 +143,172 @@ flowchart LR
     - **Dockge:** + Compose → paste → Deploy
     - **Dockhand:** Stacks → + Create → paste → Create & Start
 
+=== "Binary (Linux)"
+
+    The binary method runs Decypharr as a process directly on your Linux host — no Docker required.
+
+    ### Step 1 — Create the appdata folder
+
+    ```bash
+    mkdir -p ~/decypharr && cd ~/decypharr
+    ```
+
+    ### Step 2 — Download Decypharr
+
+    1. Go to [Decypharr releases](https://github.com/sirrobot01/decypharr/releases) on GitHub
+    2. Download the latest release for your platform:
+        - Linux x64: `decypharr_linux_amd64.tar.gz`
+        - Linux ARM64: `decypharr_linux_arm64.tar.gz`
+    3. Extract the archive:
+
+    ```bash
+    tar -xzf decypharr_linux_amd64.tar.gz
+    ```
+
+    4. Place the extracted binary in your appdata folder and make it executable:
+
+    ```bash
+    chmod +x decypharr
+    ```
+
+    ### Step 3 — Create config.json
+
+    Create a `config.json` in your appdata folder. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate this after first run — see [Configuration](#configuration) below.
+
+    ### Step 4 — Start Decypharr
+
+    Run the binary, pointing it at your config file:
+
+    ```bash
+    ./decypharr --config /path/to/decypharr/
+    ```
+
+    To run it as a background service, create a systemd unit:
+
+    ```ini title="/etc/systemd/system/decypharr.service"
+    [Unit]
+    Description=Decypharr debrid client
+    After=network.target
+
+    [Service]
+    WorkingDirectory=/home/YOUR_USER/decypharr
+    ExecStart=/home/YOUR_USER/decypharr/decypharr --config /home/YOUR_USER/decypharr/
+    Restart=always
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+    ```bash
+    systemctl enable decypharr
+    systemctl start decypharr
+    ```
+
+    ### Step 5 — Verify
+
+    Open the Decypharr web UI to confirm it is running and connected:
+
+    ```
+    http://YOUR_SERVER_IP:8282
+    ```
+
+=== "Binary (Unraid)"
+
+    Run Decypharr as a binary on Unraid using User Scripts — useful if you prefer to avoid Docker or want tighter control over the process.
+
+    ### Step 1 — Create the appdata folder
+
+    ```
+    /path/to/appdata/decypharr/
+    ```
+
+    ### Step 2 — Download Decypharr
+
+    1. Go to [Decypharr releases](https://github.com/sirrobot01/decypharr/releases) on GitHub
+    2. Download the latest `decypharr_linux_amd64.tar.gz`
+    3. Extract the archive and place the `decypharr` binary in your appdata folder:
+
+    ```bash
+    tar -xzf decypharr_linux_amd64.tar.gz
+    cp decypharr /path/to/appdata/decypharr/
+    chmod +x /path/to/appdata/decypharr/decypharr
+    ```
+
+    ### Step 3 — Create config.json
+
+    Create a `config.json` in `/path/to/appdata/decypharr/`. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+
+    ### Step 4 — Create User Scripts
+
+    Go to **Settings → User Scripts** and create the following scripts:
+
+    **Script 1 — Start Decypharr** (Schedule: At Startup of Array)
+
+    ```bash
+    #!/bin/bash
+    chmod +x /path/to/appdata/decypharr/decypharr
+    /path/to/appdata/decypharr/decypharr --config /path/to/appdata/decypharr/ &
+    ```
+
+    !!! warning "Always use Run in Background"
+        When running manually from User Scripts, always click **RUN IN BACKGROUND**.
+
+    **Script 2 — Stop Decypharr** (Schedule: At Stopping of Array)
+
+    ```bash
+    #!/bin/bash
+    pkill decypharr
+    ```
+
+    !!! danger "This script is important"
+        Without a stop script, stopping the array while Decypharr holds a FUSE mount can cause an unclean shutdown and trigger a parity check.
+
+    ### Step 5 — Verify
+
+    Open the Decypharr web UI to confirm it is running:
+
+    ```
+    http://YOUR_SERVER_IP:8282
+    ```
+
 === "Windows"
 
-    Decypharr does not have a native Windows binary. To run it on Windows use **Docker Desktop**:
+    Decypharr has a native Windows binary — no Docker required.
 
-    1. Install [Docker Desktop for Windows](https://www.docker.com/products/docker-desktop/) with WSL 2 backend
-    2. Use the Docker Compose file from the Docker Compose tab in Docker Desktop or any stack manager
+    ### Step 1 — Download Decypharr
 
-    !!! warning
-        Decypharr uses FUSE for mounting which requires Linux kernel features. Running it under Docker Desktop (WSL2) may have limitations — if you experience issues with the mount, use [Zurg + rclone](zurg.md) instead.
+    1. Go to [Decypharr releases](https://github.com/sirrobot01/decypharr/releases) on GitHub
+    2. Download the latest `decypharr_windows_amd64.zip`
+    3. Extract the zip and place `decypharr.exe` in a permanent folder (e.g. `C:\decypharr\`)
+
+    ### Step 2 — Create config.json
+
+    Create a `config.json` in the same folder. The web UI at `http://localhost:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+
+    ### Step 3 — Run Decypharr
+
+    Open a terminal in the folder and run:
+
+    ```powershell
+    .\decypharr.exe --config C:\decypharr\
+    ```
+
+    ### Step 4 — Run at startup (optional)
+
+    To start Decypharr automatically when Windows boots:
+
+    1. Press `Win + R`, type `shell:startup`, press Enter
+    2. Create a shortcut to `decypharr.exe` in the folder that opens, with `--config C:\decypharr\` as the argument
+
+    Alternatively, use **Task Scheduler** to create a task that runs `decypharr.exe` at logon with the config argument.
+
+    ### Step 5 — Verify
+
+    Open the Decypharr web UI to confirm it is running:
+
+    ```
+    http://localhost:8282
+    ```
 
 ---
 
@@ -212,6 +369,88 @@ Decypharr supports two mount backends. Choose one:
     | `uid` / `gid` | `1000` / `1000` | File ownership for the mount |
     | `no_checksum` | `true` | Skips checksum verification for faster streaming |
 
+=== "External rclone"
+
+    Use this when managing the rclone mount yourself outside of Decypharr — for example via Unraid User Scripts. Decypharr exposes its library as a WebDAV source (`decypharr:`) which rclone mounts to a local path.
+
+    !!! note "Prerequisite"
+        The **rclone** Unraid plugin must be installed to have the `rclone` and `fusermount` commands available. Install it from the **Apps** tab in the Unraid web UI.
+
+    #### Mount script (At Startup of Array)
+
+    ```bash
+    #!/bin/bash
+    sleep 10    # (1)
+    rclone mount decypharr: /path/to/debrid \
+      --dir-cache-time 20s \
+      --config=/path/to/appdata/decypharr/rclone/rclone.conf \
+      --allow-other \
+      --allow-non-empty \
+      --gid 100 \
+      --uid 1000 \
+      --vfs-cache-mode full \
+      --vfs-cache-max-age 5h \
+      --vfs-cache-max-size 12G \
+      --cache-dir /path/to/cache/decypharr \
+      --retries 0 \
+      --low-level-retries 0 \
+      --daemon
+    ```
+
+    1. Give Decypharr time to start up before rclone tries to connect
+
+    !!! warning "Always use Run in Background"
+        When running this script manually from User Scripts, always click **RUN IN BACKGROUND**.
+
+    #### Unmount script (At Stopping of Array)
+
+    ```bash
+    #!/bin/bash
+    fusermount -uz /path/to/debrid
+    ```
+
+    !!! danger "This script is critical"
+        Without it, stopping the array while the FUSE mount is active causes a "Retry un-mounting disks" error and forces an unclean shutdown and parity check.
+
+    Adjust `/path/to/debrid`, the `rclone.conf` path, and `--cache-dir` to match your actual paths.
+
+    !!! tip "Combining with the Decypharr binary scripts"
+        If you are also running Decypharr as a binary (see the **Binary (Unraid)** tab), you can combine these into the same User Scripts rather than maintaining separate ones. Start Decypharr first, add a `sleep` to give it time to initialise, then run the rclone mount. On shutdown, unmount rclone first, then stop Decypharr.
+
+        **Combined startup script:**
+        ```bash
+        #!/bin/bash
+        # Start Decypharr
+        chmod +x /path/to/appdata/decypharr/decypharr
+        /path/to/appdata/decypharr/decypharr --config /path/to/appdata/decypharr/ &
+        # Wait for Decypharr to initialise before mounting
+        sleep 15
+        # Mount with rclone
+        rclone mount decypharr: /path/to/debrid \
+          --dir-cache-time 20s \
+          --config=/path/to/appdata/decypharr/rclone/rclone.conf \
+          --allow-other \
+          --allow-non-empty \
+          --gid 100 \
+          --uid 1000 \
+          --vfs-cache-mode full \
+          --vfs-cache-max-age 5h \
+          --vfs-cache-max-size 12G \
+          --cache-dir /path/to/cache/decypharr \
+          --retries 0 \
+          --low-level-retries 0 \
+          --daemon
+        ```
+
+        **Combined stop script:**
+        ```bash
+        #!/bin/bash
+        # Unmount rclone first, then stop Decypharr
+        fusermount -uz /path/to/debrid
+        sleep 5
+        pkill decypharr
+        ```
+
 ### Content routing
 
 Decypharr sorts incoming torrents into subfolders using `custom_folders`. Each folder has regex filters that match against the torrent name and file list:
@@ -248,7 +487,7 @@ The `categories` setting (`sonarr`, `radarr`) maps to qBittorrent-compatible cat
 In cli_debrid settings, set **Original Files Path** to the host path where your debrid library is mounted:
 
 ```
-/mnt/data/debrid
+/path/to/debrid
 ```
 
 This is the same path Plex uses — cli_debrid follows symlinks back to this location to check file existence and build its own symlinks.
@@ -260,7 +499,7 @@ This is the same path Plex uses — cli_debrid follows symlinks back to this loc
 Check the mount is populated:
 
 ```bash
-ls /mnt/data/debrid
+ls /path/to/debrid
 ```
 
 You should see your content folders from Real-Debrid. Open the web UI to confirm Decypharr is connected:

@@ -322,7 +322,13 @@ flowchart LR
           --allow-other \
           --allow-non-empty \
           --gid 100 \
-          --uid 99 \
+          --uid 1000 \
+          --vfs-cache-mode full \
+          --vfs-cache-max-age 5h \
+          --vfs-cache-max-size 12G \
+          --cache-dir /mnt/user/appdata/zurg/cache \
+          --retries 0 \
+          --low-level-retries 0 \
           --daemon
         ```
 
