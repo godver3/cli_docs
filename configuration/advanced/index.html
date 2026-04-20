@@ -2232,50 +2232,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#queue-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Queue Management
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        System &amp; Integration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance &amp; Monitoring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File System
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#testing-development" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3150,50 +3106,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#queue-management" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Queue Management
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        System &amp; Integration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-monitoring" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance &amp; Monitoring
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-system" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        File System
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#testing-development" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3315,11 +3227,6 @@
 <td><code>100</code></td>
 <td>Sample rate for tracemalloc (1 in X tasks). Lower values give more frequent data but increase overhead.</td>
 </tr>
-<tr>
-<td><strong>Enable Crash Test</strong></td>
-<td>Off</td>
-<td>Enable crash testing functionality</td>
-</tr>
 </tbody>
 </table>
 <hr>
@@ -3377,11 +3284,6 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Disable Not Wanted Check</strong></td>
-<td>Off</td>
-<td>Disable the not-wanted check for items in the queue</td>
-</tr>
-<tr>
 <td><strong>Do Not Add Plex Watch History Items To Queue</strong></td>
 <td>Off</td>
 <td>Do not add Plex watch history items to the queue</td>
@@ -3428,6 +3330,16 @@
 <td><strong>Ignore Wanted Queue Throttling</strong></td>
 <td>Off</td>
 <td>Allow the Wanted queue to move all eligible items to Scraping regardless of queue size. Use with caution.</td>
+</tr>
+<tr>
+<td><strong>Disable Not Wanted Check</strong></td>
+<td>Off</td>
+<td>Disable the not-wanted check for items in the queue</td>
+</tr>
+<tr>
+<td><strong>Staleness Threshold (Days)</strong></td>
+<td><code>7</code></td>
+<td>Number of days before metadata is considered stale</td>
 </tr>
 <tr>
 <td><strong>Allow Partial Overseerr Requests</strong></td>
@@ -3706,118 +3618,6 @@
 <td><strong>Skip Initial Multi-Scrape For New Content</strong></td>
 <td>Off</td>
 <td>Skip the initial multi-provider scrape for content released within the past 7 days</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="queue-management">Queue Management<a class="headerlink" href="#queue-management" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Checking Queue Period</strong></td>
-<td><code>3600</code></td>
-<td>Max time (in seconds) before moving items from the Checking queue back to Wanted</td>
-</tr>
-<tr>
-<td><strong>Ignore Wanted Queue Throttling</strong></td>
-<td>Off</td>
-<td>Allow the Wanted queue to move all eligible items to Scraping regardless of queue size. Use with caution.</td>
-</tr>
-<tr>
-<td><strong>Disable Not Wanted Check</strong></td>
-<td>Off</td>
-<td>Disable the not-wanted check for items in the queue</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="system-integration">System &amp; Integration<a class="headerlink" href="#system-integration" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Allow Symlinks on Windows</strong></td>
-<td>Off</td>
-<td>Allow symlinks on Windows. Requires administrator privileges or Developer Mode.</td>
-</tr>
-<tr>
-<td><strong>Timezone Override</strong></td>
-<td>—</td>
-<td>Override system timezone (e.g. <code>America/New_York</code>)</td>
-</tr>
-<tr>
-<td><strong>Cinesync Path</strong></td>
-<td>—</td>
-<td>Absolute path to your CineSync MediaHub <code>main.py</code> file</td>
-</tr>
-<tr>
-<td><strong>Plex Removal Cache Delay (Minutes)</strong></td>
-<td><code>360</code></td>
-<td>Delay in minutes before processing a cached Plex removal operation</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="performance-monitoring">Performance &amp; Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Tracemalloc Sample Rate</strong></td>
-<td><code>100</code></td>
-<td>Sample rate for tracemalloc (1 in X tasks). Lower = more frequent data but higher overhead.</td>
-</tr>
-<tr>
-<td><strong>Staleness Threshold (Days)</strong></td>
-<td><code>7</code></td>
-<td>Number of days before metadata is considered stale</td>
-</tr>
-<tr>
-<td><strong>Disable Content Source Caching</strong></td>
-<td>Off</td>
-<td>Disable caching for content sources</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="file-system">File System<a class="headerlink" href="#file-system" title="Permanent link">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Sanitizer Replacement Character</strong></td>
-<td><code>_</code></td>
-<td>Character used when replacing invalid characters in filenames. Must be valid on both Windows and Linux.</td>
-</tr>
-<tr>
-<td><strong>Max Upgrading Score</strong></td>
-<td><code>0.0</code></td>
-<td>Upgrades are disabled once this score is reached. Set to <code>0</code> to disable the limit.</td>
 </tr>
 </tbody>
 </table>

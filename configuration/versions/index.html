@@ -2216,6 +2216,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#other-scraping-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other scraping settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other scraping settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncached-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uncached content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scraping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scraping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assigning-versions-to-content-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3238,6 +3288,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#other-scraping-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other scraping settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other scraping settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uncached-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uncached content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scraping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scraping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assigning-versions-to-content-sources" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3703,6 +3803,105 @@
 <td><strong>Wake Count</strong></td>
 <td>(global setting)</td>
 <td>How many times a sleeping item is retried before giving up. Leave empty to use the global default. Set <code>-1</code> to disable sleeping for this version entirely.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="other-scraping-settings">Other scraping settings<a class="headerlink" href="#other-scraping-settings" title="Permanent link">¶</a></h2>
+<p>These global settings apply across all versions and control scraping behaviour, upgrading, and content filtering. They are found at the bottom of the Versions page under <strong>Other Scraping Settings</strong>.</p>
+<h3 id="uncached-content">Uncached content<a class="headerlink" href="#uncached-content" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Uncached Content Handling</strong></td>
+<td><code>None</code></td>
+<td>How to handle uncached torrents. <code>None</code> — only take the best cached result. <code>Hybrid</code> — take the best cached result, and if no cached results are found take the best uncached result. <code>Full</code> — take the best result whether cached or uncached.</td>
+</tr>
+<tr>
+<td><strong>Accept Uncached Within Hours</strong></td>
+<td><code>0</code></td>
+<td>If an item was released within the last X hours, accept uncached releases regardless of the above setting. Set to <code>0</code> to disable.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scraping">Scraping<a class="headerlink" href="#scraping" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Filter Trash Releases</strong></td>
+<td>On</td>
+<td>Filter out releases flagged as trash by the parser (typically low-quality or badly formatted releases)</td>
+</tr>
+<tr>
+<td><strong>Minimum Scrape Score</strong></td>
+<td><code>0.0</code></td>
+<td>Minimum calculated score for a result to be accepted. Based on version weights. Set to <code>0.0</code> to accept any score.</td>
+</tr>
+<tr>
+<td><strong>Scraper Timeout</strong></td>
+<td><code>5</code></td>
+<td>Timeout in seconds for each scraping request. Set to <code>0</code> to disable. Increase for slower scrapers like AIOStreams.</td>
+</tr>
+<tr>
+<td><strong>Disable Adult</strong></td>
+<td>On</td>
+<td>Filter out adult content</td>
+</tr>
+<tr>
+<td><strong>Trakt Early Releases</strong></td>
+<td>Off</td>
+<td>Check Trakt for early release information</td>
+</tr>
+<tr>
+<td><strong>Trakt Rate Limit Enabled</strong></td>
+<td>On</td>
+<td>Enable Trakt API rate limiting to prevent 429 errors. Automatically detects VIP/Free tier. Recommended to leave enabled.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enable Upgrading</strong></td>
+<td>Off</td>
+<td>Allow cli_debrid to replace a collected item with a better version if one is found</td>
+</tr>
+<tr>
+<td><strong>Upgrading Percentage Threshold</strong></td>
+<td><code>0.1</code></td>
+<td>How much better a result must be to qualify as an upgrade (decimal, 0.0–1.0). <code>0.1</code> = must score at least 10% higher than the current file.</td>
+</tr>
+<tr>
+<td><strong>Delayed Upgrade Scrape Days</strong></td>
+<td><code>0</code></td>
+<td>Number of days to wait before attempting a single upgrade scrape on an item. Set to <code>0</code> to disable.</td>
+</tr>
+<tr>
+<td><strong>Enable Upgrading Cleanup</strong></td>
+<td>Off</td>
+<td>Remove the original file from your Debrid Provider after a successful upgrade</td>
 </tr>
 </tbody>
 </table>

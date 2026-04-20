@@ -3170,7 +3170,7 @@
 <li>The mount path isn't accessible inside the container</li>
 <li>Zurg/rclone isn't running or the mount is stale — try remounting</li>
 </ul>
-<p>Items stay in Checking for up to 1 hour before being moved back. For uncached content, enable <strong>Hybrid Mode</strong> in Advanced Settings.</p>
+<p>Items stay in Checking for up to 1 hour before being moved back. For uncached content, set <strong>Uncached Content Handling</strong> to <code>Hybrid</code> in <strong>Settings → Versions → Other Scraping Settings</strong>.</p>
 <hr>
 <p><strong>Items keep getting blacklisted / cycling without downloading</strong></p>
 <ul>
@@ -3199,7 +3199,7 @@
 <p>The torrent was added to debrid but contained no valid video files (e.g. only RAR archives, samples, or NFO files). The item will be blacklisted for that torrent and retry with another. Add <code>RAR</code> and <code>.nfo</code> to your Filter Out list in Version Settings to avoid these.</p>
 <hr>
 <p><strong>How do I use uncached content?</strong></p>
-<p>In <strong>Advanced Settings → Content Processing</strong>, set <strong>Uncached Content Handling</strong> to <code>Full</code> (downloads everything) or enable <strong>Hybrid Mode</strong> (tries cache first, falls back to uncached). Note: uncached downloads can take hours.</p>
+<p>In <strong>Settings → Versions → Other Scraping Settings</strong>, set <strong>Uncached Content Handling</strong> to <code>Hybrid</code> (tries cache first, falls back to uncached if nothing found) or <code>Full</code> (always takes the best result regardless of cache status). Note: uncached downloads can take hours.</p>
 <hr>
 <h2 id="queue-states">Queue &amp; States<a class="headerlink" href="#queue-states" title="Permanent link">¶</a></h2>
 <p><strong>What do the queue states mean?</strong></p>

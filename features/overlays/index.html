@@ -2557,6 +2557,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#layout-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Builder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Builder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#badge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Badge types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-match-badge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Match badge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#badges-tab" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3096,6 +3135,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#layout-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layout Builder
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Layout Builder">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#badge-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Badge types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-match-badge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Match badge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#badges-tab" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3402,6 +3480,235 @@
 <p><strong>Per-layout actions:</strong> Edit, Deactivate / Set Active, Duplicate, Export, Delete</p>
 <p>Different layouts can be assigned to Movies, Shows, and Seasons independently.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/overlays-layout-builder.png" data-desc-position="bottom"><img alt="Layout builder" src="../../assets/screenshots/features/overlays-layout-builder.png"></a></p>
+<hr>
+<h2 id="layout-builder">Layout Builder<a class="headerlink" href="#layout-builder" title="Permanent link">¶</a></h2>
+<p>The Layout Builder lets you design overlay layouts by placing and configuring badges on a live preview canvas.</p>
+<h3 id="badge-types">Badge types<a class="headerlink" href="#badge-types" title="Permanent link">¶</a></h3>
+<p>There are five distinct badge categories in the palette, each working differently:</p>
+<p><strong>Tray</strong></p>
+<p>A background panel with no content of its own. Place a tray behind other badges to create a unified strip or box — typically at the bottom of the poster. Supports solid or gradient fills, borders, border radius, and opacity control.</p>
+<hr>
+<p><strong>Text Badges</strong></p>
+<p>The most versatile type. Renders text onto the poster using a <code>{{variable}}</code> template. Supports a background box, an optional icon to the left or right, full font customisation (family, size, weight, colour, alignment), and vertical stacking for two-line labels.</p>
+<p>Presets cover every common data type — select from the <strong>Badge Type</strong> dropdown:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IMDb / TMDb / Trakt Rating</td>
+<td>Rating score with service logo</td>
+</tr>
+<tr>
+<td>RT Critics / RT Audience</td>
+<td>Rotten Tomatoes score</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td><code>4K</code>, <code>1080p</code>, <code>720p</code>, etc.</td>
+</tr>
+<tr>
+<td>HDR Format</td>
+<td><code>DV</code>, <code>HDR10+</code>, <code>HDR10</code>, <code>HLG</code></td>
+</tr>
+<tr>
+<td>Audio Codec</td>
+<td><code>TrueHD Atmos</code>, <code>DTS:X</code>, <code>DD+</code>, etc.</td>
+</tr>
+<tr>
+<td>Audio Channels</td>
+<td><code>7.1</code>, <code>5.1</code>, <code>2.0</code></td>
+</tr>
+<tr>
+<td>Video Codec</td>
+<td><code>HEVC</code>, <code>AVC</code>, <code>AV1</code></td>
+</tr>
+<tr>
+<td>Format / Source</td>
+<td><code>REMUX</code>, <code>WEB-DL</code>, <code>WEBRip</code>, <code>HDTV</code></td>
+</tr>
+<tr>
+<td>Network</td>
+<td>TV network name</td>
+</tr>
+<tr>
+<td>Studio</td>
+<td>Production studio name</td>
+</tr>
+<tr>
+<td>Content Rating</td>
+<td><code>PG-13</code>, <code>TV-MA</code>, <code>R</code>, etc.</td>
+</tr>
+<tr>
+<td>Show Status</td>
+<td><code>Returning</code>, <code>Airing</code>, <code>Ended</code>, <code>Canceled</code></td>
+</tr>
+<tr>
+<td>Versions / Duplicates</td>
+<td>Count shown only when multiple versions exist</td>
+</tr>
+<tr>
+<td>Custom Badge</td>
+<td>Any combination of static text and <code>{{variables}}</code></td>
+</tr>
+<tr>
+<td><strong>File Match</strong></td>
+<td>Conditional — see below</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Smart Badges (Library Badges)</strong></p>
+<p>Image-based badges. Instead of rendering text, the system selects a matching PNG image from your <strong>Badge Library</strong> (<code>/overlays/badges</code>) automatically based on the item's metadata. You control the size and position in the layout; the correct image is chosen at render time. If no matching asset exists for a given item, the badge is silently skipped.</p>
+<p>Badge Library categories and their available slots:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Slots</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Audio Codec</strong></td>
+<td>AAC, Dolby Atmos, Atmos Standalone, DD+ Atmos, Dolby Digital, Dolby Digital+, DTS, DTS-ES, DTS-HD, DTS-HD HRA, DTS-HD MA, DTS:X, FLAC, MP3, PCM, TrueHD, TrueHD Atmos</td>
+</tr>
+<tr>
+<td><strong>Video Codec</strong></td>
+<td>AV1, AVC, HEVC, VP9</td>
+</tr>
+<tr>
+<td><strong>Resolution</strong></td>
+<td>480p, 720p, 1080p, 2160p/4K</td>
+</tr>
+<tr>
+<td><strong>HDR Format</strong></td>
+<td>Dolby Vision, DV+HDR, DV+HDR10, DV+HDR10+, HDR, HDR10, HDR10+, HLG</td>
+</tr>
+<tr>
+<td><strong>Format / Source</strong></td>
+<td>Blu-ray, DVD, HDTV, WEB-DL, WEBRip</td>
+</tr>
+</tbody>
+</table>
+<p>Upload your own PNG badge images via the <strong>Badges</strong> tab or at <code>/overlays/badges</code>. Each slot can have one image — upload to the slot that matches the metadata value you want to display. Custom variation slots can be added for metadata values not in the default list.</p>
+<hr>
+<p><strong>Designed Badges</strong></p>
+<p>Procedurally rendered vector badges — no image uploads required. Each preset generates a styled badge at render time using the item's actual metadata. Select a preset from the dropdown to control what data is shown:</p>
+<table>
+<thead>
+<tr>
+<th>Preset</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom (manual text)</td>
+<td>Static text or custom layout you configure manually</td>
+</tr>
+<tr>
+<td>Resolution + HDR</td>
+<td>Resolution and HDR type combined in one badge</td>
+</tr>
+<tr>
+<td>Resolution</td>
+<td>Video resolution only</td>
+</tr>
+<tr>
+<td>HDR Format</td>
+<td>HDR type only</td>
+</tr>
+<tr>
+<td>Audio Codec</td>
+<td>Audio codec name</td>
+</tr>
+<tr>
+<td>Audio Channels</td>
+<td>Channel layout only</td>
+</tr>
+<tr>
+<td>Audio Codec + Channels</td>
+<td>Codec and channels side by side</td>
+</tr>
+<tr>
+<td>Audio Stacked (codec / channels)</td>
+<td>Codec and channels stacked vertically</td>
+</tr>
+<tr>
+<td>Video Codec</td>
+<td>Video codec name</td>
+</tr>
+<tr>
+<td>Format / Source</td>
+<td>Release source (e.g. <code>REMUX</code>, <code>WEB-DL</code>)</td>
+</tr>
+<tr>
+<td>IMDb Rating</td>
+<td>IMDb score</td>
+</tr>
+<tr>
+<td>TMDb Rating</td>
+<td>TMDb score</td>
+</tr>
+<tr>
+<td>Trakt Rating</td>
+<td>Trakt score</td>
+</tr>
+<tr>
+<td>RT Critics</td>
+<td>Rotten Tomatoes critics score</td>
+</tr>
+<tr>
+<td>RT Audience</td>
+<td>Rotten Tomatoes audience score</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>TV network name</td>
+</tr>
+<tr>
+<td>Studio</td>
+<td>Production studio name</td>
+</tr>
+<tr>
+<td>Content Rating</td>
+<td>MPAA/TV content rating</td>
+</tr>
+<tr>
+<td>Show Status</td>
+<td>Current show status</td>
+</tr>
+<tr>
+<td>Versions / Duplicates</td>
+<td>Version count badge</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Title Logo</strong></p>
+<p>Renders the title onto the poster. When <strong>Enable Textless Posters</strong> is on and a textless poster is found, the title is rendered as a clearlogo PNG from TMDB — the official transparent title treatment. If no clearlogo exists, falls back to text in the configured font. This is the main reason to use textless posters: place the title exactly where you want it rather than relying on the baked-in title from a standard poster.</p>
+<hr>
+<h3 id="file-match-badge">File Match badge<a class="headerlink" href="#file-match-badge" title="Permanent link">¶</a></h3>
+<p>The <strong>File Match</strong> badge is useful for flagging attributes that aren't available as standard metadata — for example, <code>EXTENDED</code>, <code>DIRECTOR'S CUT</code>, <code>REMASTERED</code>, or a specific encode group present in the filename.</p>
+<p><strong>How it works:</strong></p>
+<ol>
+<li>Add a Text Badge and set the type to <strong>File Match</strong></li>
+<li>Enter a <strong>Search Term</strong> — the badge only renders if this text is found in the video filename (case-insensitive)</li>
+<li>Optionally enter a <strong>Display Text</strong> — shown on the badge instead of the search term. Leave empty to use the search term itself.</li>
+<li>Toggle <strong>Use icon instead of text</strong> to show an icon (configured in the Icon section) rather than text</li>
+</ol>
+<p>Use the <strong>Background</strong>, <strong>Icon</strong>, and <strong>Text / Value</strong> sections to style the badge exactly as you would any other badge. The canvas preview always shows the badge so you can design its appearance.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>Search term <code>REMUX</code> → badge appears only on remux files, displaying <code>REMUX</code></li>
+<li>Search term <code>extended</code>, display text <code>Extended Cut</code> → styled label on extended editions only</li>
+<li>Search term <code>x265</code> with an icon → icon badge visible only on x265 encodes</li>
+</ul>
 <hr>
 <h2 id="badges-tab">Badges tab<a class="headerlink" href="#badges-tab" title="Permanent link">¶</a></h2>
 <p>Browse and manage badge PNG assets. Badges are auto-selected at render time based on the media item's metadata (codec, resolution, HDR format, etc.).</p>
