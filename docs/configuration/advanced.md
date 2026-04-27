@@ -31,6 +31,20 @@ Configure advanced and debug options.
 | **Cinesync Path** | — | Absolute path to your CineSync MediaHub `main.py` file |
 | **Enable Unmatched Items Check** | On | Enable checking and fixing of unmatched or incorrectly matched items in Plex during collection scans |
 | **Enable Library Maintenance Task** | Off | Run the library maintenance task periodically. This is a destructive process — use with caution. |
+| **NAS / Network Drive Paths** | — | One or more path prefixes identifying NAS or network drive locations (e.g. `/MySamsungNAS_Movies/`). Used to detect and optionally filter NAS items in the Library, Debrid Manager Audit, and Debug Functions. If left empty, smart detection is used as a fallback in the Audit tab. |
+
+!!! tip "NAS Paths"
+    Add one entry per NAS prefix. The prefix should match the start of the `location_on_disk` path stored in the database. Common examples:
+
+    | Path in database | Prefix to add |
+    |---|---|
+    | `/192.168.1.124_Movies/Passengers.mkv` | `/192.168.1.124_Movies/` |
+    | `/mnt/nas/movies/Passengers.mkv` | `/mnt/nas/` |
+    | `/mnt/nas/movies/Passengers.mkv` | `/mnt/nas/movies/` |
+    | `/movies/Passengers.mkv` | `/movies/` |
+    | `/NAS/Media/Passengers.mkv` | `/NAS/` |
+
+    You can be as specific or broad as needed — `/mnt/nas/` would match both `/mnt/nas/movies/` and `/mnt/nas/shows/`. Check your database entries in the **Library** or **Database** pages to see the exact paths being used.
 
 ---
 

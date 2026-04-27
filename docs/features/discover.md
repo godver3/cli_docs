@@ -114,6 +114,34 @@ The **Adaptive List** button in the filter drawer saves your current filters as 
 
 ---
 
+## Personal Lists (Trakt)
+
+The **Lists** tab in the sidebar includes a **Personal** section when Trakt is connected, showing two categories:
+
+### My Lists
+
+Browse and add content from your personal Trakt lists. Each list is fetched on demand and cached for **24 hours**. If the list has not changed since the last fetch (detected via Trakt's `updated_at` timestamp), the cached version is returned immediately — no API call needed.
+
+### Special Lists
+
+Trakt-curated charts available without creating a personal list:
+
+| List | Description |
+|---|---|
+| **Trending** | Currently trending movies and shows |
+| **Popular** | All-time most popular |
+| **Favorited** | Most favorited this week |
+| **Played** | Most played this week |
+| **Watched** | Most watched this week |
+| **Collected** | Most collected this week |
+| **Anticipated** | Most anticipated upcoming titles |
+| **Box Office** | Current US box office (movies only) |
+| **Recommendations** | Personalised Trakt recommendations |
+
+Special lists are cached for **24 hours** using a content hash — if the list content hasn't changed the cached results are returned without hitting TMDB for enrichment. When content changes, only then are fresh TMDB lookups made.
+
+---
+
 ## Detail page
 
 Clicking any item opens its detail page showing:

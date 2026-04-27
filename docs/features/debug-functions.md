@@ -123,6 +123,16 @@ Access it from **System → Debug** in the navigation menu.
 2. Review the list
 3. Click **Remove** to execute
 
+**NAS / Network Filter** *(only shown when NAS paths are configured)*
+
+| Option | Description |
+|---|---|
+| All items | No filtering — process all duplicates |
+| Exclude NAS items | Skip duplicate groups stored on NAS/network drives |
+| Only NAS items | Only process duplicate groups stored on NAS/network drives |
+
+Configure NAS paths in **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**.
+
 ---
 
 ### Restore Database from Backup
@@ -169,6 +179,16 @@ Access it from **System → Debug** in the navigation menu.
 | Keep best quality, delete rest | When multiple Collected copies exist |
 
 **Exclude patterns:** Enter terms (e.g. `REMUX, IMAX`) to protect specific versions from being deleted regardless of the rule.
+
+**NAS / Network Filter** *(only shown when NAS paths are configured)*
+
+| Option | Description |
+|---|---|
+| All items | No filtering — process all duplicate groups |
+| Exclude NAS items | Skip groups where items are stored on NAS/network drives |
+| Only NAS items | Only process groups where items are stored on NAS/network drives |
+
+Configure NAS paths in **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**.
 
 **Always use Dry Run first.**
 

@@ -214,3 +214,36 @@ Click **Download SKILL.md** to download a pre-configured OpenClaw skill file wit
 
 !!! warning "Security note"
     This skill requires cli_debrid to be publicly accessible — it cannot work via an internal IP only. Exposing cli_debrid publicly means anyone with your token can control it, so **User Management must be enabled** before downloading. For best security, use OIDC/SSO (e.g. Authentik) rather than local accounts.
+
+---
+
+## Plex Smart Collection Posters
+
+Applies custom designed posters to Plex's built-in smart collections. See the [Plex Smart Collection Posters](../features/plex-smart-collections.md) feature guide for full details.
+
+| Setting | Default | Description |
+|---|---|---|
+| **Enable** | Off | Enable automatic poster application to Plex smart collections |
+| **Poster Design** | Plex Default | Layout applied to all enabled collections (Plex Default, Layout 1–5) |
+| **Poster Accent Color** | — | Accent color for the poster. Leave unset to use each layout's built-in default |
+| **Eyebrow Text** | — | Small text above the collection title on the poster. Leave blank to hide |
+| **Poster Icon** | — | Icon displayed on the poster. Defaults to the CLI Debrid icon |
+| **Card Overlay Opacity** | 60% | Darkness of the gradient fade at the bottom of each card thumbnail |
+| **Accent Glow Opacity** | 80% | Brightness of the accent color glow on the poster background |
+| **Accent Glow Radius** | 55 | How far the accent color spreads across the poster (range 10–200) |
+| **Per-collection toggles** | — | Individual on/off switches for each discovered Plex smart collection |
+
+---
+
+## Plex Movie Box Sets
+
+Automatically discovers TMDB franchise memberships for your movies, creates matching Plex collections, applies franchise posters, and optionally queues missing franchise movies. See the [Plex Movie Box Sets](../features/plex-movie-box-sets.md) feature guide for full details.
+
+| Setting | Default | Description |
+|---|---|---|
+| **Enable** | Off | Enable automatic box set collection management |
+| **Grab Missing Movies** | Off | Add missing franchise movies to the wanted queue |
+| **Version to Grab** | Default | Quality/version used when grabbing missing movies |
+| **Collection Name Pattern** | `{title} Collection` | Template for Plex collection names. `{title}` = franchise name. Examples: `{title} Box Set`, `{title} Saga` |
+| **Minimum Owned Movies** | 2 | Minimum owned movies to create or keep a collection. Collections that drop below this are automatically removed from Plex |
+| **Collection Sort Order** | Release Date | How movies are ordered inside the Plex collection (Release Date, Title, Custom) |

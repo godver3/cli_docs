@@ -30,10 +30,12 @@ Toggle between **Grid view** (poster-based) and **List view** (table-based) usin
 | Filter | Options |
 |---|---|
 | **Search** | Text search on title |
-| **Status** | All, Collected, Missing, Blacklisted, Duplicates, Upcoming, Upgraded, Broken |
+| **Status** | All, Collected, Missing, Blacklisted, Duplicates, Upcoming, Upgraded, Broken, NAS / Network* |
 | **Type** | All Media, Movies, TV Shows |
 | **Resolution** | All, 4K (2160p), 1080p, 720p, 480p, Unknown |
 | **Sort** | Title A–Z, Title Z–A, Year (Newest), Year (Oldest), Added (Newest), Added (Oldest) |
+
+\* The **NAS / Network** filter option only appears when NAS path prefixes are configured in **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**.
 
 When **Duplicates** is selected an additional filter appears:
 
@@ -42,6 +44,10 @@ When **Duplicates** is selected an additional filter appears:
 | All States | All duplicate entries |
 | Collected Only | Only collected duplicates |
 | Blacklisted Only | Only blacklisted duplicates |
+
+### NAS / Network filter
+
+When NAS paths are configured, selecting **NAS / Network** shows only Collected or Upgrading items whose `location_on_disk` starts with one of the configured prefixes. Useful for auditing which items are stored on network drives rather than your debrid mount.
 
 ---
 

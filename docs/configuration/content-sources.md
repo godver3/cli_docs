@@ -36,6 +36,14 @@ Every content source shares these settings regardless of type:
 
 Every source has an optional Plex Label setting. When enabled, items downloaded from this source are automatically labelled in Plex.
 
+---
+
+## Plex Collections
+
+**Trakt Lists**, **MDBList**, and **Adaptive List** sources support an additional **Plex Collection** section that automatically creates and maintains a Plex collection mirroring the source list — with custom sort order and a designed poster.
+
+See [Plex Collections](../features/plex-collections.md) for full setup and configuration details.
+
 | Setting | Description |
 |---|---|
 | **Enabled** | Toggle Plex labelling for this source. |

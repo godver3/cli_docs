@@ -122,6 +122,7 @@ Same filters, cache badges, and Queue/Ignore actions as the Upgrades tab.
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
 | **Excluded Genres** | — | Skip items from these genres during scan. Applies to movies and shows. |
+| **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Advanced Settings → Library Management → NAS / Network Drive). NAS items will not be scanned or listed. |
 
 **Settings actions:**
 

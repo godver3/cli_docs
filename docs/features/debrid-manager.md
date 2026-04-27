@@ -165,7 +165,7 @@ The stats header shows counts across: debrid torrents, database items, Plex/Jell
 | **Torrent Gone** | RD✗ DB✓ Plex✓ | Items in database and Plex but whose torrent no longer exists in debrid |
 | **Lost** | RD✗ DB✓ Plex✗ | Items in database only — torrent gone and not in Plex |
 | **Untracked** | RD✓ DB✗ | Torrents in debrid with no matching database entry |
-| **NAS** | FS± | File system items not matched to database entries (if applicable) |
+| **NAS** | FS± | Collected items stored on NAS / network drives rather than your debrid mount. Detection uses configured NAS path prefixes (see **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**) if set, otherwise falls back to smart detection by comparing path roots against known debrid mount prefixes. |
 
 Each sub-tab supports bulk actions (Reinsert All, Re-queue All, Delete All, Scan All) and text/type filters.
 

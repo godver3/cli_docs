@@ -86,8 +86,9 @@ In CLI_Debrid, go to **Settings → Content Sources**:
     !!! warning "Check the API key carefully"
         Compare what you pasted against what's shown in Seerr. Extra `=` signs at the end will cause authentication failures.
 
-5. Set **Plex Label Mode** to `requester` if you want items labelled by who requested them
-6. Click **Save Settings**
+5. **Requesters** (optional): Check which Seerr users this source should process. Leave **All users (normal behavior)** checked to process every request. See [Per-user version routing](#per-user-version-routing) for multi-source setups.
+6. Set **Plex Label Mode** to `requester` if you want items labelled by who requested them
+7. Click **Save Settings**
 
 ![Seerr content source in CLI_Debrid](../assets/screenshots/integrations/seerr-content-source.png)
 
@@ -137,6 +138,34 @@ In Seerr you control what each user can do:
 | **Auto-Request from Watchlist** | Seerr automatically requests whatever is on the user's Plex watchlist |
 
 Configure per-user under **Users → [username] → Edit**.
+
+---
+
+## Per-user version routing
+
+You can configure multiple Seerr content sources in CLI_Debrid — one per version profile — and restrict each source to specific requesters. This lets different users get different quality versions automatically.
+
+**Example setup:**
+
+| Source | Versions | Requesters |
+|---|---|---|
+| Seerr (Default) | Default | All users (normal behavior) |
+| Seerr (1080p Remux) | 1080p Remux | alice, bob |
+| Seerr (4K Remux) | 4K Remux | admin |
+
+**How to configure:**
+
+1. In CLI_Debrid, go to **Settings → Content Sources**
+2. Add a separate Seerr source for each version profile
+3. On each source, expand **Requesters** — a checkbox list loads from your Seerr instance
+4. Check the specific users whose requests this source should handle
+5. Leave **All users (normal behavior)** checked on your default source
+
+!!! tip "One source per version group"
+    Each user group that needs a different version preference should have its own content source. A request from a user matched to multiple sources will be added once per matching source — each with its own version.
+
+!!! note "Already-collected items"
+    If the requested item is already collected in a different version, CLI_Debrid will add it as a new Wanted entry for the requested version. If the same version is already collected, the request is skipped as expected.
 
 ---
 
