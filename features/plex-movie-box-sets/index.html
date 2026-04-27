@@ -2726,6 +2726,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#manage-posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Posters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#state-file" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3136,6 +3147,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#manage-posters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Posters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#state-file" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3336,9 +3358,20 @@ Pattern <code>{title} Box Set</code> → <strong>The Godfather Box Set</strong><
 <li><strong>Settings</strong> — use the <strong>Run Now</strong> button in the Plex Movie Box Sets settings section</li>
 </ul>
 <hr>
+<h2 id="manage-posters">Manage Posters<a class="headerlink" href="#manage-posters" title="Permanent link">¶</a></h2>
+<p>The <strong>Manage Posters</strong> button in the Plex Movie Box Sets settings section lets you force-reapply the poster for a single collection without running the full task.</p>
+<ol>
+<li>Click <strong>Manage Posters</strong> — a modal opens listing all managed collections</li>
+<li>Use the <strong>search box</strong> to filter by name</li>
+<li>Click <strong>Force reapply</strong> on the collection you want — the poster is downloaded from TMDB (or rendered as a fallback) and uploaded to Plex immediately</li>
+<li>The button shows <strong>Applied ✓</strong> when complete</li>
+</ol>
+<p>This is useful when a poster is missing or incorrect on a specific collection without waiting for the next scheduled run or affecting other collections.</p>
+<hr>
 <h2 id="state-file">State file<a class="headerlink" href="#state-file" title="Permanent link">¶</a></h2>
-<p>CLI Debrid tracks content fingerprints in <code>plex_boxsets_state.json</code> to avoid re-uploading unchanged posters. To force a full poster re-apply on the next run:</p>
+<p>CLI Debrid tracks content fingerprints in <code>plex_boxsets_state.json</code> to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:</p>
 <p><strong>Debug → Manage Cache Files → Plex Box Sets State</strong> — delete the state file, then trigger the task manually.</p>
+<p>For individual collections, use <strong>Manage Posters</strong> instead.</p>
 <hr>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
 <ul>
@@ -3358,7 +3391,8 @@ Pattern <code>{title} Box Set</code> → <strong>The Godfather Box Set</strong><
 </ul>
 <p><strong>Wrong or missing poster</strong></p>
 <ul>
-<li>Clear the Box Sets State cache file via Debug → Manage Cache Files → Plex Box Sets State, then trigger the task manually to force a full re-apply</li>
+<li>Use <strong>Manage Posters</strong> to force-reapply the poster for just that collection immediately</li>
+<li>To reset all posters, clear the Box Sets State cache file via Debug → Manage Cache Files → Plex Box Sets State, then trigger the task manually</li>
 </ul>
 <p><strong>Sort order is wrong inside a collection</strong></p>
 <ul>
