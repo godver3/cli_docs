@@ -84,11 +84,26 @@ Runs automatically on a **24-hour schedule**. To trigger immediately:
 
 ---
 
+## Manage Posters
+
+The **Manage Posters** button in the Plex Movie Box Sets settings section lets you force-reapply the poster for a single collection without running the full task.
+
+1. Click **Manage Posters** — a modal opens listing all managed collections
+2. Use the **search box** to filter by name
+3. Click **Force reapply** on the collection you want — the poster is downloaded from TMDB (or rendered as a fallback) and uploaded to Plex immediately
+4. The button shows **Applied ✓** when complete
+
+This is useful when a poster is missing or incorrect on a specific collection without waiting for the next scheduled run or affecting other collections.
+
+---
+
 ## State file
 
-CLI Debrid tracks content fingerprints in `plex_boxsets_state.json` to avoid re-uploading unchanged posters. To force a full poster re-apply on the next run:
+CLI Debrid tracks content fingerprints in `plex_boxsets_state.json` to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:
 
 **Debug → Manage Cache Files → Plex Box Sets State** — delete the state file, then trigger the task manually.
+
+For individual collections, use **Manage Posters** instead.
 
 ---
 
@@ -112,7 +127,8 @@ CLI Debrid tracks content fingerprints in `plex_boxsets_state.json` to avoid re-
 
 **Wrong or missing poster**
 
-- Clear the Box Sets State cache file via Debug → Manage Cache Files → Plex Box Sets State, then trigger the task manually to force a full re-apply
+- Use **Manage Posters** to force-reapply the poster for just that collection immediately
+- To reset all posters, clear the Box Sets State cache file via Debug → Manage Cache Files → Plex Box Sets State, then trigger the task manually
 
 **Sort order is wrong inside a collection**
 
