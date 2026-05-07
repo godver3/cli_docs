@@ -74,6 +74,7 @@ See [Plex Collections](../features/plex-collections.md) for full setup and confi
 | [My Plex Watchlist](#my-plex-watchlist) | Your personal Plex watchlist |
 | [Other Plex Watchlist](#other-plex-watchlist) | Another Plex user's watchlist |
 | [Plex RSS Watchlists](#plex-rss-watchlists) | Plex watchlist via RSS feed URL |
+| [Plex Watch History](#plex-watch-history) | Items from your Plex watch history |
 | [Agregarr](#agregarr) | Content from an Agregarr instance |
 | [Collected](#collected) | Items already marked as collected in cli_debrid |
 | [Adaptive List](#adaptive-lists) | Dynamic TMDB Discover-based list with custom filters |
@@ -317,6 +318,19 @@ Monitors a Plex watchlist via its RSS feed URL. Works for your own watchlist or 
 2. Click your profile picture → **Watchlist**
 3. Look for the RSS feed icon or a Share/Export option
 4. Copy the RSS URL
+
+---
+
+## Plex Watch History
+
+Monitors your Plex watch history and adds watched items to cli_debrid's wanted queue — useful for automatically tracking content you've already watched so it can be collected or upgraded.
+
+Sync pulls from **both your Plex account history and your server libraries** using batch processing. IMDb IDs are resolved via Trakt as a fallback when Plex metadata doesn't provide them directly.
+
+**Setup:** Enable and configure **Media Type** and **Versions**. A Plex connection must be configured in **Settings → Integrations → Plex**.
+
+!!! note
+    To prevent watch history items from being re-added to the queue (e.g. if you want to watch without collecting), enable **Do Not Add Plex Watch History Items To Queue** in **Settings → Advanced Settings**.
 
 ---
 

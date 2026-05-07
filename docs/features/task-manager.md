@@ -38,6 +38,8 @@ Tasks are grouped into six categories:
 
 Each tab shows a badge with the count of tasks in that category.
 
+A **search bar** at the top lets you filter tasks across all categories by name — useful when you know the task name and don't want to browse tabs.
+
 ---
 
 ## Per-task controls
@@ -53,8 +55,11 @@ Each task tile shows:
 | **Countdown timer** | HH:MM:SS until next run — shows `--:--:--` when disabled |
 | **Toggle** | Enable or disable the task |
 | **Interval input** | Override the interval in seconds — turns orange when different from the default |
+| **ⓘ Info button** | Opens a detail panel showing the task description, category, status, configured interval, and default interval |
 
 **Click a task tile** to trigger it immediately. A confirmation popup appears before it runs.
+
+**Click the ⓘ button** on any tile to open the task info panel — shows the task description, what it does, and its current interval settings without triggering it.
 
 ---
 

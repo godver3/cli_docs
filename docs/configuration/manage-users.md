@@ -60,3 +60,36 @@ Used to access cli_debrid endpoints externally (e.g. OpenClaw, homepage widgets)
 
 !!! warning "Disable Local Login"
     Only enable **Disable Local Login** after confirming SSO works correctly. If SSO breaks, you will be locked out of your instance.
+
+---
+
+## Emergency reset (locked out)
+
+If you are locked out of your instance and cannot access the UI, use the `reset_admin.sh` script from inside the container.
+
+**Reset all users and create a fresh admin/admin account:**
+
+```bash
+./reset_admin.sh --reset-all
+```
+
+**Reset all admin account passwords to `admin` without removing other users:**
+
+```bash
+./reset_admin.sh --reset-admin-password
+```
+
+**How to run it (Docker):**
+
+1. Open a terminal into the container:
+   ```bash
+   docker exec -it <container_name> bash
+   ```
+2. Navigate to the app directory (usually `/app`):
+   ```bash
+   cd /app
+   ```
+3. Run the script with one of the flags above
+
+!!! warning "Destructive action"
+    `--reset-all` deletes **all** users permanently. Use `--reset-admin-password` if you only need to regain access without losing other accounts.

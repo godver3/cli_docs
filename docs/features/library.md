@@ -142,11 +142,18 @@ Clicking a show opens its full detail page with:
 | **Settings** | Admin | Show-specific settings |
 | **Delete Show** | Admin | Remove the entire show from the library |
 
+### Season and episode actions
+
+Each season header and episode row includes an orange **magnet icon** button that opens [Magnet Assign](other-tools.md#magnet-assign) pre-filled with the correct show, season, episode, and version. Use this to manually assign a torrent to a specific season or episode when the scraper can't find one automatically.
+
 ---
 
 ## Ghostlist
 
 Ghostlist Mode marks deleted items as ghosted in the database instead of fully removing them. This prevents dynamic content sources (Trakt, Overseerr, Plex Watchlist, etc.) from automatically re-adding content you've deleted.
+
+!!! info "Automatic blacklist entry"
+    When you ghostlist a movie or show, it is **automatically added to the Manual Blacklist** by IMDb ID. This means it will not be re-downloaded even if it appears in a content source that bypasses the ghostlist check.
 
 When Ghostlist Mode is **off**, deleted content can be re-added by content sources. Use **Remove From Content Sources** in that case to explicitly remove items from your lists during deletion — though this makes deletion slower.
 

@@ -28,8 +28,8 @@ Click any result to open the detail page.
 |---|---|
 | **Trending** | Currently trending movies, shows, and anime — split into subcategories |
 | **Recommendations** | Personalised suggestions based on your Trakt account. Requires Trakt to be connected. |
-| **Top 10** | FlixPatrol top 10 charts per streaming platform — no API key required |
-| **Lists** | Curated MDBList collections — requires MDBList API key in settings |
+| **Top 10** | FlixPatrol top 10 charts per streaming platform — no API key required. Supports **weekly aggregation mode** with 7-day scoring and automatic region-to-global fallback when regional data is unavailable |
+| **Lists** | Curated MDBList collections — requires MDBList API key in settings. 40+ built-in curated sources including streaming originals, franchise collections, and certification-based lists |
 
 ---
 
@@ -149,10 +149,15 @@ Clicking any item opens its detail page showing:
 - Poster, full backdrop, title, rating, certification, runtime, genres, tagline
 - Overview / synopsis
 - Full cast (collapsible)
-- Season and episode list (TV shows)
 - Links to TMDB, TVDB, IMDb, and Trakt
 - Trailer button (when available)
 - "Not in Library" badge if not yet collected
+
+**TV shows** additionally display:
+
+- Season list with per-season collection progress (e.g. `7 / 10 episodes collected`)
+- Per-episode status indicators — collected, wanted, missing, unreleased
+- File counts per episode where files exist
 
 ### Actions
 
@@ -164,5 +169,7 @@ Clicking any item opens its detail page showing:
 | **Back** | All | Return to the Discover page |
 
 Clicking **Request** opens a version selection modal — check the versions you want and click **Request**. The item moves to the Wanted queue immediately.
+
+For TV shows, each season header and episode row includes an orange **magnet icon** button that opens [Magnet Assign](other-tools.md#magnet-assign) pre-filled with the correct show, season, and episode.
 
 ![Discover detail — add to library](../assets/screenshots/features/discover-detail-add.png)

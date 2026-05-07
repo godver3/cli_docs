@@ -158,7 +158,7 @@ View, recreate, or delete metadata entries in the battery database for a specifi
 | **Recreate** | Delete the existing entry and re-fetch fresh metadata from the source |
 | **Delete** | Remove the metadata entry without re-fetching |
 
-Results are displayed as formatted JSON blocks for Item, Metadata, and Seasons. Recreate and Delete require confirmation before executing.
+Results are displayed as formatted, collapsible JSON blocks for Item, Metadata, and Seasons. Each nested object or array can be expanded or collapsed individually using the **+** / **−** buttons to the left of the key. Recreate and Delete require confirmation before executing.
 
 ---
 
@@ -169,3 +169,29 @@ Shows near real-time activity from your debrid service.
 **Active Downloads** — torrents currently downloading, with name, progress percentage, speed, and state (Downloading, Waiting, Seeding).
 
 **Recently Completed** — the 10 most recently finished torrents. Click **Show More** to expand the full list, **Show Less** to collapse back to 10.
+
+---
+
+## Magnet Assign
+
+Manually assign a magnet link or `.torrent` file to a specific movie or TV show in your library. Useful when the automatic scraper can't find a torrent but you have one sourced manually.
+
+**How to use:**
+
+1. Search for the title by name using the search form
+2. Select the correct result from the search results
+3. For TV shows, choose a **Selection Type**:
+    - **Full Series** — assigns the magnet to the entire show
+    - **Season Pack** — select one or more seasons
+    - **Single Episode** — select a specific season and episode
+4. Paste a magnet link or upload a `.torrent` file
+5. Select a **Version** (quality profile)
+6. Click **Assign**
+
+**Layout:**
+
+On desktop, TV show pages display the **Selection Type** panel and the **Magnet Link / Torrent File** panel side by side in two columns for a more compact view. On mobile, these stack vertically and the show's backdrop image is used instead of the poster for a better small-screen experience.
+
+**Opening from Library or Discover:**
+
+The magnet assign button (orange magnet icon) appears directly on season headers and individual episode rows in both the **Library show detail page** and the **Discover show detail page**. Clicking it opens Magnet Assign pre-filled with the correct show, season, episode, and version — no manual selection needed.
