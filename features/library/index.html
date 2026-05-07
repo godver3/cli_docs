@@ -2499,6 +2499,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#season-and-episode-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Season and episode actions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3266,6 +3277,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#season-and-episode-actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Season and episode actions
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3612,9 +3634,15 @@
 </tr>
 </tbody>
 </table>
+<h3 id="season-and-episode-actions">Season and episode actions<a class="headerlink" href="#season-and-episode-actions" title="Permanent link">¶</a></h3>
+<p>Each season header and episode row includes an orange <strong>magnet icon</strong> button that opens <a href="../other-tools/#magnet-assign">Magnet Assign</a> pre-filled with the correct show, season, episode, and version. Use this to manually assign a torrent to a specific season or episode when the scraper can't find one automatically.</p>
 <hr>
 <h2 id="ghostlist">Ghostlist<a class="headerlink" href="#ghostlist" title="Permanent link">¶</a></h2>
 <p>Ghostlist Mode marks deleted items as ghosted in the database instead of fully removing them. This prevents dynamic content sources (Trakt, Overseerr, Plex Watchlist, etc.) from automatically re-adding content you've deleted.</p>
+<div class="admonition info">
+<p class="admonition-title">Automatic blacklist entry</p>
+<p>When you ghostlist a movie or show, it is <strong>automatically added to the Manual Blacklist</strong> by IMDb ID. This means it will not be re-downloaded even if it appears in a content source that bypasses the ghostlist check.</p>
+</div>
 <p>When Ghostlist Mode is <strong>off</strong>, deleted content can be re-added by content sources. Use <strong>Remove From Content Sources</strong> in that case to explicitly remove items from your lists during deletion — though this makes deletion slower.</p>
 <p>Enable in <strong>Settings → Additional Settings → Library Manager → Ghostlist Mode</strong>, or via the <strong>Settings</strong> button directly in the Library toolbar.</p>
 

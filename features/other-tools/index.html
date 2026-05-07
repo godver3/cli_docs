@@ -3009,6 +3009,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#magnet-assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnet Assign
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3184,6 +3195,17 @@
     <span class="md-ellipsis">
       
         Torrent Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magnet-assign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Magnet Assign
       
     </span>
   </a>
@@ -3467,12 +3489,33 @@
 </tr>
 </tbody>
 </table>
-<p>Results are displayed as formatted JSON blocks for Item, Metadata, and Seasons. Recreate and Delete require confirmation before executing.</p>
+<p>Results are displayed as formatted, collapsible JSON blocks for Item, Metadata, and Seasons. Each nested object or array can be expanded or collapsed individually using the <strong>+</strong> / <strong>−</strong> buttons to the left of the key. Recreate and Delete require confirmation before executing.</p>
 <hr>
 <h2 id="torrent-status">Torrent Status<a class="headerlink" href="#torrent-status" title="Permanent link">¶</a></h2>
 <p>Shows near real-time activity from your debrid service.</p>
 <p><strong>Active Downloads</strong> — torrents currently downloading, with name, progress percentage, speed, and state (Downloading, Waiting, Seeding).</p>
 <p><strong>Recently Completed</strong> — the 10 most recently finished torrents. Click <strong>Show More</strong> to expand the full list, <strong>Show Less</strong> to collapse back to 10.</p>
+<hr>
+<h2 id="magnet-assign">Magnet Assign<a class="headerlink" href="#magnet-assign" title="Permanent link">¶</a></h2>
+<p>Manually assign a magnet link or <code>.torrent</code> file to a specific movie or TV show in your library. Useful when the automatic scraper can't find a torrent but you have one sourced manually.</p>
+<p><strong>How to use:</strong></p>
+<ol>
+<li>Search for the title by name using the search form</li>
+<li>Select the correct result from the search results</li>
+<li>For TV shows, choose a <strong>Selection Type</strong>:<ul>
+<li><strong>Full Series</strong> — assigns the magnet to the entire show</li>
+<li><strong>Season Pack</strong> — select one or more seasons</li>
+<li><strong>Single Episode</strong> — select a specific season and episode</li>
+</ul>
+</li>
+<li>Paste a magnet link or upload a <code>.torrent</code> file</li>
+<li>Select a <strong>Version</strong> (quality profile)</li>
+<li>Click <strong>Assign</strong></li>
+</ol>
+<p><strong>Layout:</strong></p>
+<p>On desktop, TV show pages display the <strong>Selection Type</strong> panel and the <strong>Magnet Link / Torrent File</strong> panel side by side in two columns for a more compact view. On mobile, these stack vertically and the show's backdrop image is used instead of the poster for a better small-screen experience.</p>
+<p><strong>Opening from Library or Discover:</strong></p>
+<p>The magnet assign button (orange magnet icon) appears directly on season headers and individual episode rows in both the <strong>Library show detail page</strong> and the <strong>Discover show detail page</strong>. Clicking it opens Magnet Assign pre-filled with the correct show, season, episode, and version — no manual selection needed.</p>
 
 
 

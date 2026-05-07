@@ -2246,6 +2246,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plex-watch-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plex Watch History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#agregarr" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3351,6 +3362,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plex-watch-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plex Watch History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#agregarr" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3657,6 +3679,10 @@
 <tr>
 <td><a href="#plex-rss-watchlists">Plex RSS Watchlists</a></td>
 <td>Plex watchlist via RSS feed URL</td>
+</tr>
+<tr>
+<td><a href="#plex-watch-history">Plex Watch History</a></td>
+<td>Items from your Plex watch history</td>
 </tr>
 <tr>
 <td><a href="#agregarr">Agregarr</a></td>
@@ -3973,6 +3999,15 @@
 <li>Look for the RSS feed icon or a Share/Export option</li>
 <li>Copy the RSS URL</li>
 </ol>
+<hr>
+<h2 id="plex-watch-history">Plex Watch History<a class="headerlink" href="#plex-watch-history" title="Permanent link">¶</a></h2>
+<p>Monitors your Plex watch history and adds watched items to cli_debrid's wanted queue — useful for automatically tracking content you've already watched so it can be collected or upgraded.</p>
+<p>Sync pulls from <strong>both your Plex account history and your server libraries</strong> using batch processing. IMDb IDs are resolved via Trakt as a fallback when Plex metadata doesn't provide them directly.</p>
+<p><strong>Setup:</strong> Enable and configure <strong>Media Type</strong> and <strong>Versions</strong>. A Plex connection must be configured in <strong>Settings → Integrations → Plex</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To prevent watch history items from being re-added to the queue (e.g. if you want to watch without collecting), enable <strong>Do Not Add Plex Watch History Items To Queue</strong> in <strong>Settings → Advanced Settings</strong>.</p>
+</div>
 <hr>
 <h2 id="agregarr">Agregarr<a class="headerlink" href="#agregarr" title="Permanent link">¶</a></h2>
 <p>Agregarr is a self-hosted content aggregation service. Rather than cli_debrid polling Agregarr, Agregarr <strong>pushes</strong> content to cli_debrid via webhook. When Agregarr has new content, it sends a POST request directly to cli_debrid.</p>

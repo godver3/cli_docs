@@ -2236,6 +2236,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#emergency-reset-locked-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency reset (locked out)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3080,6 +3091,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#emergency-reset-locked-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emergency reset (locked out)
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3251,6 +3273,29 @@
 <div class="admonition warning">
 <p class="admonition-title">Disable Local Login</p>
 <p>Only enable <strong>Disable Local Login</strong> after confirming SSO works correctly. If SSO breaks, you will be locked out of your instance.</p>
+</div>
+<hr>
+<h2 id="emergency-reset-locked-out">Emergency reset (locked out)<a class="headerlink" href="#emergency-reset-locked-out" title="Permanent link">¶</a></h2>
+<p>If you are locked out of your instance and cannot access the UI, use the <code>reset_admin.sh</code> script from inside the container.</p>
+<p><strong>Reset all users and create a fresh admin/admin account:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>./reset_admin.sh<span class="w"> </span>--reset-all
+</code></pre></div>
+<p><strong>Reset all admin account passwords to <code>admin</code> without removing other users:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>./reset_admin.sh<span class="w"> </span>--reset-admin-password
+</code></pre></div>
+<p><strong>How to run it (Docker):</strong></p>
+<ol>
+<li>Open a terminal into the container:
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>bash
+</code></pre></div></li>
+<li>Navigate to the app directory (usually <code>/app</code>):
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>/app
+</code></pre></div></li>
+<li>Run the script with one of the flags above</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Destructive action</p>
+<p><code>--reset-all</code> deletes <strong>all</strong> users permanently. Use <code>--reset-admin-password</code> if you only need to regain access without losing other accounts.</p>
 </div>
 
 
