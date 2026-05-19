@@ -175,7 +175,7 @@ In Decypharr's appdata folder, **rename or delete the `db` folder**. This wipes 
 
 **6e — cli_debrid database**
 
-Leave your existing collected items as-is. Once the migration completes and items are downloaded by Decypharr, the **Check Plex Files** task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.
+Leave your existing collected items as-is. Once the migration completes and items are downloaded by Decypharr, the **Plex Full Scans** task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.
 
 **6f — Restart everything**
 
@@ -203,7 +203,7 @@ Both files appear in the **Extra Files** section of Backup Slots with their own 
 ### Backfill NZB Torrent IDs
 
 !!! warning "Important — do this after migration"
-    After items are collected, run or enable the **Backfill NZB Torrent IDs** task. This links Decypharr's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.
+    Run the **Plex Full Scans** task first to detect downloaded files and update the cli_debrid database. Once that completes, run or enable the **Backfill NZB Torrent IDs** task. This links Decypharr's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.
 
 Go to **Task Manager** and either trigger or enable the **Backfill NZB Torrent IDs** task.
 
