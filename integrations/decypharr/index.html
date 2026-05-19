@@ -1670,6 +1670,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#usenet-with-decypharr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet with Decypharr
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usenet with Decypharr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usenet-provider-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet provider settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decypharr-db-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decypharr DB tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#further-reading" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1827,6 +1866,8 @@
       
         
           
+        
+      
         
       
         
@@ -2098,6 +2139,36 @@
     
   
     Nyaa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scrapers/newznab/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 3H4c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2M5 7h5v6H5zm14 10H5v-2h14zm0-4h-7v-2h7zm0-4h-7V7h7z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Newznab
   
 
     
@@ -2495,6 +2566,8 @@
       
         
           
+        
+      
         
       
         
@@ -3172,6 +3245,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/usenet-migration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 4a2 2 0 0 0-2 2v4h2V6h8v3h-2.5l3.5 3.5L20.5 9H18V6a2 2 0 0 0-2-2zm-5 8v2h8v-2zm0 3v2h8v-2zm10 0v2h8v-2zM3 18v2h8v-2zm10 0v2h8v-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Usenet Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/other-tools/" class="md-nav__link">
         
   
@@ -3530,6 +3633,45 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usenet-with-decypharr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet with Decypharr
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usenet with Decypharr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#usenet-provider-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet provider settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decypharr-db-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decypharr DB tools
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4232,14 +4374,56 @@
 <p><strong>rclone mode: container exits immediately</strong></p>
 <p>Verify the cache path exists on the host and is writable. Also check <code>docker logs decypharr</code> for the specific error.</p>
 <hr>
+<h2 id="usenet-with-decypharr">Usenet with Decypharr<a class="headerlink" href="#usenet-with-decypharr" title="Permanent link">¶</a></h2>
+<p>Decypharr also supports Usenet downloads. cli_debrid can submit NZBs to Decypharr from <a href="../../scrapers/newznab/">Newznab scrapers</a> and manage them through the same queue as debrid torrents.</p>
+<h3 id="usenet-provider-settings">Usenet provider settings<a class="headerlink" href="#usenet-provider-settings" title="Permanent link">¶</a></h3>
+<p>In <strong>Settings → Required Settings → Usenet Provider</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Turn on Usenet support</td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>Decypharr base URL (e.g. <code>http://decypharr:8888</code>)</td>
+</tr>
+<tr>
+<td><strong>API Token</strong></td>
+<td>Decypharr API token (if authentication is enabled)</td>
+</tr>
+<tr>
+<td><strong>Download Folder</strong></td>
+<td>Optional override for the download destination inside Decypharr</td>
+</tr>
+<tr>
+<td><strong>Decypharr Data Path</strong></td>
+<td>Path to Decypharr's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add <code>- /path/to/appdata/decypharr:/decypharr_data</code> to your docker-compose volumes, then set this to <code>/decypharr_data</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="decypharr-db-tools">Decypharr DB tools<a class="headerlink" href="#decypharr-db-tools" title="Permanent link">¶</a></h3>
+<p>When <strong>Decypharr Data Path</strong> is configured, additional tools appear in <strong>Debug Functions</strong>:</p>
+<ul>
+<li><strong>Decypharr DB Cleanup</strong> (Library tab) — remove entries for a specific debrid provider from Decypharr's <code>entries.db</code> and <code>items.db</code> using infohash matching. Useful when migrating away from a debrid provider.</li>
+<li><strong>Backup Decypharr Databases</strong> (Database tab) — backs up <code>entries.db</code> and <code>items.db</code> on the same schedule as the CLI database backup</li>
+<li><strong>Restore Decypharr Database from Backup</strong> (Database tab) — restore from a previous backup</li>
+<li><strong>Clean Up Old Decypharr Backup Files</strong> (Database tab) — remove old backup files to free disk space</li>
+</ul>
+<p>See <a href="../../features/usenet-migration/">Usenet Migration</a> for the full Usenet setup guide.</p>
+<hr>
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">¶</a></h2>
 <ul>
-<li>
-<p><a href="https://github.com/sirrobot01/decypharr/tree/beta" target="_blank" rel="noopener">Decypharr GitHub (beta)</a></p>
-</li>
-<li>
-<p><a href="../plex/">Configure Plex</a> to add libraries pointing at your mount path</p>
-</li>
+<li><a href="https://github.com/sirrobot01/decypharr/tree/beta" target="_blank" rel="noopener">Decypharr GitHub (beta)</a></li>
+<li><a href="../../scrapers/newznab/">Newznab scrapers</a> — add Usenet indexers</li>
+<li><a href="../../features/usenet-migration/">Usenet Migration</a> — migrate your library to Usenet and manage NZB health</li>
+<li><a href="../plex/">Configure Plex</a> to add libraries pointing at your mount path</li>
 <li><a href="../../getting-started/configure/">Configure cli_debrid</a> with the correct Original Files Path</li>
 </ul>
 

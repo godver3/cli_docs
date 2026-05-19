@@ -1504,6 +1504,8 @@
       
         
       
+        
+      
     
     
     
@@ -1759,6 +1761,36 @@
     
   
     Nyaa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scrapers/newznab/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 3H4c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2M5 7h5v6H5zm14 10H5v-2h14zm0-4h-7v-2h7zm0-4h-7V7h7z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Newznab
   
 
     
@@ -2200,6 +2232,8 @@
       
         
       
+        
+      
     
     
     
@@ -2540,6 +2574,67 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usenet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currently-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currently Broken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repair-activity-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repair Activity Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3029,6 +3124,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../usenet-migration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 4a2 2 0 0 0-2 2v4h2V6h8v3h-2.5l3.5 3.5L20.5 9H18V6a2 2 0 0 0-2-2zm-5 8v2h8v-2zm0 3v2h8v-2zm10 0v2h8v-2zM3 18v2h8v-2zm10 0v2h8v-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Usenet Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../other-tools/" class="md-nav__link">
         
   
@@ -3205,6 +3330,67 @@
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usenet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currently-broken" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Currently Broken
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repair-activity-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repair Activity Log
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3434,6 +3620,7 @@
 </tbody>
 </table>
 <p>Retention hours are configurable per slot. Click <strong>Run Now</strong> to trigger an immediate backup. Click <strong>Restore</strong> on any slot to re-add missing torrents — additive only, won't remove existing ones.</p>
+<p>Each backup slot also has a <strong>→ Usenet</strong> button. Use the <strong>Version</strong> dropdown in the Backup Slots header to select which quality filter applies when searching for replacement NZBs. See <a href="../usenet-migration/">Usenet Migration</a> for details.</p>
 <p>An activity log on the right shows recent backup events.</p>
 <h3 id="debrid-cleanup">Debrid Cleanup<a class="headerlink" href="#debrid-cleanup" title="Permanent link">¶</a></h3>
 <div class="admonition info">
@@ -3556,6 +3743,80 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="usenet">Usenet<a class="headerlink" href="#usenet" title="Permanent link">¶</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Requires Decypharr</p>
+<p>The Usenet tab is only visible when a Usenet provider (Decypharr) is configured in <strong>Settings → Required Settings → Usenet Provider</strong>.</p>
+</div>
+<p>Shows the health of your Usenet NZB library and controls the repair engine.</p>
+<h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Stat</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Healthy</strong></td>
+<td>NZBs confirmed intact by Decypharr's repair API</td>
+</tr>
+<tr>
+<td><strong>Broken</strong></td>
+<td>NZBs with missing or corrupt segments</td>
+</tr>
+<tr>
+<td><strong>Unknown</strong></td>
+<td>NZBs not yet health-checked</td>
+</tr>
+<tr>
+<td><strong>Repaired</strong></td>
+<td>Items the repair engine has successfully replaced</td>
+</tr>
+<tr>
+<td><strong>Not Found</strong></td>
+<td>Items the repair engine couldn't find a replacement for</td>
+</tr>
+</tbody>
+</table>
+<h3 id="currently-broken">Currently Broken<a class="headerlink" href="#currently-broken" title="Permanent link">¶</a></h3>
+<p>Click <strong>View Broken</strong> to expand a list of all broken entries, showing title and broken file count.</p>
+<h3 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Button</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Run Health Scan</strong></td>
+<td>Trigger Decypharr's health scan immediately</td>
+</tr>
+<tr>
+<td><strong>View Broken</strong></td>
+<td>Show/hide the currently broken list</td>
+</tr>
+<tr>
+<td><strong>Version dropdown</strong></td>
+<td>Select a version filter for replacement NZB searches</td>
+</tr>
+<tr>
+<td><strong>Fix Broken</strong></td>
+<td>Run the repair engine immediately</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">Scheduled task</p>
+<p>The repair engine runs automatically on a schedule. Enable and configure it in <a href="../task-manager/">Task Manager</a> under the <strong>Features</strong> tab — look for <strong>Repair Broken NZBs</strong>. Disabled by default.</p>
+</div>
+<h3 id="repair-activity-log">Repair Activity Log<a class="headerlink" href="#repair-activity-log" title="Permanent link">¶</a></h3>
+<p>A chronological log of all repair attempts. Filter by outcome using the dropdown. Loads more entries with the <strong>Load More</strong> button.</p>
+<p>See <a href="../usenet-migration/">Usenet Migration</a> for full details on migration, repair, and setup.</p>
 <hr>
 <h2 id="audit">Audit<a class="headerlink" href="#audit" title="Permanent link">¶</a></h2>
 <p>Library integrity auditing across your debrid account, database, and media server.</p>

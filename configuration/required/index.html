@@ -1504,6 +1504,8 @@
       
         
       
+        
+      
     
     
     
@@ -1772,6 +1774,36 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scrapers/newznab/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 3H4c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2M5 7h5v6H5zm14 10H5v-2h14zm0-4h-7v-2h7zm0-4h-7V7h7z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Newznab
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1980,6 +2012,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Debrid Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fallback-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fallback Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2026,6 +2075,17 @@
     <span class="md-ellipsis">
       
         File Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usenet-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet Provider
       
     </span>
   </a>
@@ -2297,6 +2357,8 @@
       
         
           
+        
+      
         
       
         
@@ -2974,6 +3036,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/usenet-migration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 4a2 2 0 0 0-2 2v4h2V6h8v3h-2.5l3.5 3.5L20.5 9H18V6a2 2 0 0 0-2-2zm-5 8v2h8v-2zm0 3v2h8v-2zm10 0v2h8v-2zM3 18v2h8v-2zm10 0v2h8v-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Usenet Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/other-tools/" class="md-nav__link">
         
   
@@ -3068,6 +3160,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Debrid Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fallback-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fallback Providers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3114,6 +3223,17 @@
     <span class="md-ellipsis">
       
         File Management
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usenet-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usenet Provider
       
     </span>
   </a>
@@ -3266,6 +3386,9 @@
 </div>
 </div>
 </div>
+<h3 id="fallback-providers">Fallback Providers<a class="headerlink" href="#fallback-providers" title="Permanent link">¶</a></h3>
+<p>You can configure additional fallback debrid providers. When the primary provider fails — due to rate limits, DMCA blocks, or errors — cli_debrid automatically tries the next provider in order.</p>
+<p>Click <strong>Add Fallback Provider</strong> in the Debrid Provider section to add a fallback. Each fallback has its own provider selection and API key. Fallbacks are tried in the order they are listed.</p>
 <hr>
 <h2 id="plex-jellyfin">Plex / Jellyfin<a class="headerlink" href="#plex-jellyfin" title="Permanent link">¶</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex</label><label for="__tabbed_2_2">Jellyfin / Emby</label></div>
@@ -3413,6 +3536,40 @@ If the paths differ between containers, symlinks will appear as broken files in 
 <p class="admonition-title">Symlinked/Local mode on Windows</p>
 <p>Windows requires Developer Mode enabled for symlinks. Plex does NOT support symlinks on Windows — use Jellyfin instead.</p>
 </div>
+<hr>
+<h2 id="usenet-provider">Usenet Provider<a class="headerlink" href="#usenet-provider" title="Permanent link">¶</a></h2>
+<p>Optional. Required if you want to use <a href="../../scrapers/newznab/">Newznab scrapers</a> to search Usenet and deliver NZBs via Decypharr.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enabled</strong></td>
+<td>Turn on Usenet support</td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>Decypharr base URL (e.g. <code>http://decypharr:8888</code> or <code>http://192.168.1.x:8888</code>)</td>
+</tr>
+<tr>
+<td><strong>API Token</strong></td>
+<td>Decypharr API token — found in Decypharr's settings if authentication is enabled</td>
+</tr>
+<tr>
+<td><strong>Download Folder</strong></td>
+<td>Optional override for the NZB download destination inside Decypharr</td>
+</tr>
+<tr>
+<td><strong>Decypharr Data Path</strong></td>
+<td>Path to Decypharr's data directory <strong>inside the cli_debrid container</strong>. Required for Decypharr DB backup, restore, and cleanup tools. Add <code>- /path/to/appdata/decypharr:/decypharr_data</code> to your cli_debrid docker-compose volumes, then set this to <code>/decypharr_data</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="../../features/usenet-migration/">Usenet Migration</a> guide for full setup instructions.</p>
 <hr>
 <h2 id="trakt">Trakt<a class="headerlink" href="#trakt" title="Permanent link">¶</a></h2>
 <p>Trakt is required for metadata lookups and content source integration.</p>
