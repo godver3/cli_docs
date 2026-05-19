@@ -121,12 +121,12 @@ For each version you use, give your Newznab indexers a higher bonus score than y
 
 ## Step 5 — Enable recommended tasks
 
-Go to **Task Manager → Features** and enable:
+Go to **Task Manager** and enable:
 
-| Task | Why |
-|---|---|
-| **Repair Broken NZBs** | Automatically detects broken NZB downloads and finds replacements. Recommended interval: `6h` |
-| **Plex Stuck Files** | Detects Plex items stuck in a scanning loop and removes them. Default interval is `5m` — good when initially adding a lot of content. Once your library is settled, `1h` is sufficient. |
+| Task | Tab | Why |
+|---|---|---|
+| **Repair Broken NZBs** | Features | Automatically detects broken NZB downloads and finds replacements. Recommended interval: `6h` |
+| **Plex Stuck Files** | Library | Detects Plex items stuck in a scanning loop and removes them. Default interval is `5m` — good when initially adding a lot of content. Once your library is settled, `1h` is sufficient. |
 
 !!! danger "Required volume binds"
     These tasks will **not work** without the following mounts in your cli_debrid `docker-compose.yml`:
@@ -173,9 +173,9 @@ In Decypharr's appdata folder, **rename or delete the `db` folder**. This wipes 
 !!! warning "This deletes all Decypharr torrent tracking"
     Make sure your backup was created before this step. The backup file contains everything needed for migration.
 
-**6e — Clear debrid items from cli_debrid**
+**6e — cli_debrid database**
 
-The migration tool (Step 6f below) handles re-adding items via Usenet. Items already in the cli_debrid database with `Collected` state will be skipped by the migration unless you first remove them. You can bulk-delete collected items from **Library** or leave them — the migration will skip what already exists and you can manually delete old debrid-sourced items as they get replaced.
+Leave your existing collected items as-is. Once the migration completes and items are downloaded by Decypharr, the **Check Plex Files** task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.
 
 **6f — Restart everything**
 
@@ -199,6 +199,13 @@ When the migration completes, two extra files are saved alongside the backup:
 | `*_usenet_not_found.json` | Items where no NZB was found on any indexer |
 
 Both files appear in the **Extra Files** section of Backup Slots with their own **→ Usenet** buttons. Re-run them later to retry — new indexer coverage or reposts may find them on the next attempt.
+
+### Backfill NZB Torrent IDs
+
+!!! warning "Important — do this after migration"
+    After items are collected, run or enable the **Backfill NZB Torrent IDs** task. This links Decypharr's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.
+
+Go to **Task Manager** and either trigger or enable the **Backfill NZB Torrent IDs** task.
 
 ---
 
@@ -233,6 +240,9 @@ Decypharr's `entries.db` and `items.db` are automatically backed up on the same 
 ### Plex Stuck Files
 
 Occasionally Plex gets stuck scanning a file repeatedly without completing. The **Plex Stuck Files** task detects these loops by watching Plex's log and removes the stuck items automatically. Requires the `plex_data` volume bind.
+
+!!! warning "Plex log filename"
+    The task looks for `Plex Media Server.log` inside the bound `plex_data` path (full path: `/plex_data/Logs/Plex Media Server.log`). Some systems name the log differently — e.g. `Plex Media Server 1.log`. If the task logs `Plex log not found`, check your Plex `Logs` folder and confirm the exact filename. The log file is created by Plex when it is running — if it's missing, make sure Plex is active.
 
 ---
 
