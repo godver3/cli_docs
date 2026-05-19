@@ -89,7 +89,7 @@ Each task tile shows:
 | Task | Default | Enabled | Description |
 |---|---|---|---|
 | **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via Decypharr's health API, scrapes replacements, and resubmits. See [Usenet Migration](usenet-migration.md). |
-| **Plex Stuck Files** | 1h | No | Detects Plex items stuck in a scanning loop and removes them. Requires Plex configured. |
+| **Plex Stuck Files** | 5m | No | Detects Plex items stuck in a scanning loop and removes them. 5m is good when actively adding content; reduce to 1h once your library is settled. Requires Plex configured. |
 | **Overlays** | 24h | No | Generates and uploads overlay posters to Plex. |
 | **Upgrade Hub** | 6h | No | Checks collected items against upgrade criteria and triggers scrapes for better versions. |
 

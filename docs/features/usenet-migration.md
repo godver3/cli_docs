@@ -22,6 +22,9 @@ Once installed, open the Decypharr web UI and complete two things:
 
 ### 1a — Set up virtual folders (content routing)
 
+!!! note "Plex Direct mode only"
+    Virtual folders are only required if you use **Plex Direct** mode (cli_debrid points Plex directly at the Decypharr mount). If you use **Symlink** mode, cli_debrid creates the folder structure itself — skip this step.
+
 Configure virtual folders so Decypharr sorts NZB downloads into the right locations. Follow the [content routing section](../integrations/decypharr.md#content-routing) of the Decypharr docs — you can use DFS or Internal/External rclone.
 
 Set up at minimum:
@@ -103,7 +106,16 @@ In cli_debrid, go to **Settings → Scrapers** and add your NZB indexers:
 
 ### Set Newznab scraper priority
 
-In **Settings → Scrapers**, make sure your Newznab scrapers are **enabled**. When both NZB and torrent results are returned for the same title, the highest-scoring result wins based on your Version Settings filters — so configure your version's `filter_in` / `filter_out` and resolution settings to match the quality you expect from Usenet releases.
+For each version you use, give your Newznab indexers a higher bonus score than your debrid scrapers so NZB results are preferred:
+
+1. Go to **Settings → Version Settings** and open a version
+2. Enable **Scraper Priorities**
+3. Set your Newznab indexers (e.g. `NZBGeek_1`, `althub_1`) to a high value such as `500`
+4. Leave debrid scrapers (Jackett, Zilean, etc.) at `0` or lower
+5. Repeat for every version you have configured
+
+!!! tip
+    Higher number = higher priority. A value of `500` on your NZB indexers ensures they consistently rank above debrid results when both are available.
 
 ---
 
@@ -114,7 +126,7 @@ Go to **Task Manager → Features** and enable:
 | Task | Why |
 |---|---|
 | **Repair Broken NZBs** | Automatically detects broken NZB downloads and finds replacements. Recommended interval: `6h` |
-| **Plex Stuck Files** | Detects Plex items stuck in a scanning loop and removes them. Recommended interval: `1h` |
+| **Plex Stuck Files** | Detects Plex items stuck in a scanning loop and removes them. Default interval is `5m` — good when initially adding a lot of content. Once your library is settled, `1h` is sufficient. |
 
 !!! danger "Required volume binds"
     These tasks will **not work** without the following mounts in your cli_debrid `docker-compose.yml`:
@@ -144,22 +156,22 @@ If you want to fully drop debrid and move your entire library to Usenet, follow 
 
 In **Debrid Manager → Maintenance**, click **Run Now** in the Backup section to create a fresh backup of your debrid library.
 
-**6b — Stop everything**
+**6b — Remove debrid provider from Decypharr**
+
+In the Decypharr web UI, go to **Settings → Providers → Debrid** tab. Click the delete (🗑) button on your debrid account and click **Save Configuration**. This removes the debrid provider before you clear the database.
+
+**6c — Stop everything**
 
 1. Turn off Plex (or pause its library scanning)
 2. In cli_debrid, click **Stop Program** in the top bar to halt all queue processing
 3. Stop the Decypharr container
 
-**6c — Clear the Decypharr database**
+**6d — Clear the Decypharr database**
 
 In Decypharr's appdata folder, **rename or delete the `db` folder**. This wipes Decypharr's torrent database so you start fresh with Usenet only.
 
 !!! warning "This deletes all Decypharr torrent tracking"
     Make sure your backup was created before this step. The backup file contains everything needed for migration.
-
-**6d — Remove debrid provider from Decypharr**
-
-In Decypharr's `config.json`, remove your debrid provider entry (e.g. Real-Debrid) from the `debrids` array, leaving only your NNTP/Usenet settings. Restart Decypharr after saving.
 
 **6e — Clear debrid items from cli_debrid**
 
