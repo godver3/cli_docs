@@ -20,9 +20,13 @@ Scrapers are the search engines CLI_Debrid uses to find torrents for your wanted
 | [Jackett](jackett.md) | Any tracker via one interface | Self-hosted |
 | [Prowlarr](prowlarr.md) | Multiple trackers, *arr ecosystem | Self-hosted |
 | [Nyaa](nyaa.md) | Anime | No setup |
+| [Newznab](newznab.md) | Usenet NZB indexers | URL + API key |
 
 !!! tip "Recommended starting point"
     Start with **Zilean** + **Torrentio**. Zilean checks what's already in your debrid cache (instant, no download needed). Torrentio covers a broad range of content. Add more scrapers if you need specific trackers or better anime coverage.
+
+!!! info "Usenet support"
+    Newznab scrapers return NZB results delivered via Decypharr. See the [Newznab](newznab.md) page and the [Usenet Migration](../features/usenet-migration.md) guide for full setup instructions.
 
 ---
 

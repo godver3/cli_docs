@@ -85,6 +85,8 @@ Automatically backs up your debrid torrent library on a rotating schedule.
 
 Retention hours are configurable per slot. Click **Run Now** to trigger an immediate backup. Click **Restore** on any slot to re-add missing torrents — additive only, won't remove existing ones.
 
+Each backup slot also has a **→ Usenet** button. Use the **Version** dropdown in the Backup Slots header to select which quality filter applies when searching for replacement NZBs. See [Usenet Migration](usenet-migration.md) for details.
+
 An activity log on the right shows recent backup events.
 
 ### Debrid Cleanup
@@ -145,6 +147,47 @@ Live account statistics from your debrid provider.
 | **Traffic Details** | Traffic history (Real-Debrid) |
 | **Live** | Download/upload rate, peers connected (Debrid-Link only) |
 | **Limits** | Per-day and per-30-day data and torrent limits (Debrid-Link only) |
+
+---
+
+## Usenet
+
+!!! info "Requires Decypharr"
+    The Usenet tab is only visible when a Usenet provider (Decypharr) is configured in **Settings → Required Settings → Usenet Provider**.
+
+Shows the health of your Usenet NZB library and controls the repair engine.
+
+### Stats
+
+| Stat | Description |
+|---|---|
+| **Healthy** | NZBs confirmed intact by Decypharr's repair API |
+| **Broken** | NZBs with missing or corrupt segments |
+| **Unknown** | NZBs not yet health-checked |
+| **Repaired** | Items the repair engine has successfully replaced |
+| **Not Found** | Items the repair engine couldn't find a replacement for |
+
+### Currently Broken
+
+Click **View Broken** to expand a list of all broken entries, showing title and broken file count.
+
+### Controls
+
+| Button | Description |
+|---|---|
+| **Run Health Scan** | Trigger Decypharr's health scan immediately |
+| **View Broken** | Show/hide the currently broken list |
+| **Version dropdown** | Select a version filter for replacement NZB searches |
+| **Fix Broken** | Run the repair engine immediately |
+
+!!! info "Scheduled task"
+    The repair engine runs automatically on a schedule. Enable and configure it in [Task Manager](task-manager.md) under the **Features** tab — look for **Repair Broken NZBs**. Disabled by default.
+
+### Repair Activity Log
+
+A chronological log of all repair attempts. Filter by outcome using the dropdown. Loads more entries with the **Load More** button.
+
+See [Usenet Migration](usenet-migration.md) for full details on migration, repair, and setup.
 
 ---
 

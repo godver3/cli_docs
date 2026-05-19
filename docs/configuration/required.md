@@ -34,6 +34,12 @@ These settings must be configured for cli_debrid to function. They are collected
     === "Debrid-Link"
         Go to [debrid-link.com/webapp/apikey](https://debrid-link.com/webapp/apikey) while logged in.
 
+### Fallback Providers
+
+You can configure additional fallback debrid providers. When the primary provider fails — due to rate limits, DMCA blocks, or errors — cli_debrid automatically tries the next provider in order.
+
+Click **Add Fallback Provider** in the Debrid Provider section to add a fallback. Each fallback has its own provider selection and API key. Fallbacks are tried in the order they are listed.
+
 ---
 
 ## Plex / Jellyfin
@@ -128,6 +134,22 @@ This is one of the most important settings.
 
 !!! warning "Symlinked/Local mode on Windows"
     Windows requires Developer Mode enabled for symlinks. Plex does NOT support symlinks on Windows — use Jellyfin instead.
+
+---
+
+## Usenet Provider
+
+Optional. Required if you want to use [Newznab scrapers](../scrapers/newznab.md) to search Usenet and deliver NZBs via Decypharr.
+
+| Setting | Description |
+|---|---|
+| **Enabled** | Turn on Usenet support |
+| **URL** | Decypharr base URL (e.g. `http://decypharr:8888` or `http://192.168.1.x:8888`) |
+| **API Token** | Decypharr API token — found in Decypharr's settings if authentication is enabled |
+| **Download Folder** | Optional override for the NZB download destination inside Decypharr |
+| **Decypharr Data Path** | Path to Decypharr's data directory **inside the cli_debrid container**. Required for Decypharr DB backup, restore, and cleanup tools. Add `- /path/to/appdata/decypharr:/decypharr_data` to your cli_debrid docker-compose volumes, then set this to `/decypharr_data`. |
+
+See the [Usenet Migration](../features/usenet-migration.md) guide for full setup instructions.
 
 ---
 

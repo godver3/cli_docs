@@ -49,6 +49,12 @@ Now that the basics are running, explore what cli_debrid can do:
 
     [:octicons-arrow-right-24: Debrid Manager](../features/debrid-manager.md)
 
+- **Usenet Migration**
+
+    Set up Usenet NZB downloads via Decypharr and migrate your existing library.
+
+    [:octicons-arrow-right-24: Usenet Migration](../features/usenet-migration.md)
+
 - **Seerr**
 
     Let other users request content via a polished request interface.

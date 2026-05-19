@@ -132,6 +132,7 @@ nav:
     - Jackett: scrapers/jackett.md
     - Prowlarr: scrapers/prowlarr.md
     - Nyaa: scrapers/nyaa.md
+    - Newznab: scrapers/newznab.md
   - Configuration:
     - configuration/index.md
     - UI Settings: configuration/ui-settings.md
@@ -164,6 +165,7 @@ nav:
     - Scraper Tester: features/scraper-tester.md
     - Database Browser: features/database.md
     - Debug Functions: features/debug-functions.md
+    - Usenet Migration: features/usenet-migration.md
     - Other Tools: features/other-tools.md
   - FAQ: faq.md
 

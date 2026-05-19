@@ -536,9 +536,39 @@ Verify the cache path exists on the host and is writable. Also check `docker log
 
 ---
 
+## Usenet with Decypharr
+
+Decypharr also supports Usenet downloads. cli_debrid can submit NZBs to Decypharr from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
+
+### Usenet provider settings
+
+In **Settings → Required Settings → Usenet Provider**:
+
+| Setting | Description |
+|---|---|
+| **Enabled** | Turn on Usenet support |
+| **URL** | Decypharr base URL (e.g. `http://decypharr:8888`) |
+| **API Token** | Decypharr API token (if authentication is enabled) |
+| **Download Folder** | Optional override for the download destination inside Decypharr |
+| **Decypharr Data Path** | Path to Decypharr's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/decypharr:/decypharr_data` to your docker-compose volumes, then set this to `/decypharr_data` |
+
+### Decypharr DB tools
+
+When **Decypharr Data Path** is configured, additional tools appear in **Debug Functions**:
+
+- **Decypharr DB Cleanup** (Library tab) — remove entries for a specific debrid provider from Decypharr's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
+- **Backup Decypharr Databases** (Database tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
+- **Restore Decypharr Database from Backup** (Database tab) — restore from a previous backup
+- **Clean Up Old Decypharr Backup Files** (Database tab) — remove old backup files to free disk space
+
+See [Usenet Migration](../features/usenet-migration.md) for the full Usenet setup guide.
+
+---
+
 ## Further reading
 
 - [Decypharr GitHub (beta)](https://github.com/sirrobot01/decypharr/tree/beta)
-
+- [Newznab scrapers](../scrapers/newznab.md) — add Usenet indexers
+- [Usenet Migration](../features/usenet-migration.md) — migrate your library to Usenet and manage NZB health
 - [Configure Plex](plex.md) to add libraries pointing at your mount path
 - [Configure cli_debrid](../getting-started/configure.md) with the correct Original Files Path

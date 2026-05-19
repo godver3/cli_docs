@@ -82,6 +82,26 @@ Each task tile shows:
 
 ---
 
+## Notable tasks
+
+### Features tab
+
+| Task | Default | Enabled | Description |
+|---|---|---|---|
+| **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via Decypharr's health API, scrapes replacements, and resubmits. See [Usenet Migration](usenet-migration.md). |
+| **Plex Stuck Files** | 1h | No | Detects Plex items stuck in a scanning loop and removes them. Requires Plex configured. |
+| **Overlays** | 24h | No | Generates and uploads overlay posters to Plex. |
+| **Upgrade Hub** | 6h | No | Checks collected items against upgrade criteria and triggers scrapes for better versions. |
+
+### Library tab
+
+| Task | Default | Enabled | Description |
+|---|---|---|---|
+| **Check Plex Files** | 5m | Yes | Verifies that Collecting items exist on the Plex mount and marks them Collected. |
+| **Library Maintenance** | 24h | Yes | Cleans up stale entries, repairs missing metadata, and syncs the library state. |
+
+---
+
 ## Notes
 
 - The interval input turns **orange** when it differs from the default value
