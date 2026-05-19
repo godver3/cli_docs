@@ -3544,6 +3544,10 @@
 <p>Follow the <a href="../../integrations/decypharr/">Decypharr installation guide</a> to get Decypharr installed and your debrid mount working.</p>
 <p>Once installed, open the Decypharr web UI and complete two things:</p>
 <h3 id="1a-set-up-virtual-folders-content-routing">1a — Set up virtual folders (content routing)<a class="headerlink" href="#1a-set-up-virtual-folders-content-routing" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Plex Direct mode only</p>
+<p>Virtual folders are only required if you use <strong>Plex Direct</strong> mode (cli_debrid points Plex directly at the Decypharr mount). If you use <strong>Symlink</strong> mode, cli_debrid creates the folder structure itself — skip this step.</p>
+</div>
 <p>Configure virtual folders so Decypharr sorts NZB downloads into the right locations. Follow the <a href="../../integrations/decypharr/#content-routing">content routing section</a> of the Decypharr docs — you can use DFS or Internal/External rclone.</p>
 <p>Set up at minimum:</p>
 <ul>
@@ -3676,7 +3680,18 @@
 <p>Having two indexers (e.g. NZBGeek + AltHub) significantly improves coverage. Both are searched simultaneously for every query.</p>
 </div>
 <h3 id="set-newznab-scraper-priority">Set Newznab scraper priority<a class="headerlink" href="#set-newznab-scraper-priority" title="Permanent link">¶</a></h3>
-<p>In <strong>Settings → Scrapers</strong>, make sure your Newznab scrapers are <strong>enabled</strong>. When both NZB and torrent results are returned for the same title, the highest-scoring result wins based on your Version Settings filters — so configure your version's <code>filter_in</code> / <code>filter_out</code> and resolution settings to match the quality you expect from Usenet releases.</p>
+<p>For each version you use, give your Newznab indexers a higher bonus score than your debrid scrapers so NZB results are preferred:</p>
+<ol>
+<li>Go to <strong>Settings → Version Settings</strong> and open a version</li>
+<li>Enable <strong>Scraper Priorities</strong></li>
+<li>Set your Newznab indexers (e.g. <code>NZBGeek_1</code>, <code>althub_1</code>) to a high value such as <code>500</code></li>
+<li>Leave debrid scrapers (Jackett, Zilean, etc.) at <code>0</code> or lower</li>
+<li>Repeat for every version you have configured</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Higher number = higher priority. A value of <code>500</code> on your NZB indexers ensures they consistently rank above debrid results when both are available.</p>
+</div>
 <hr>
 <h2 id="step-5-enable-recommended-tasks">Step 5 — Enable recommended tasks<a class="headerlink" href="#step-5-enable-recommended-tasks" title="Permanent link">¶</a></h2>
 <p>Go to <strong>Task Manager → Features</strong> and enable:</p>
@@ -3694,7 +3709,7 @@
 </tr>
 <tr>
 <td><strong>Plex Stuck Files</strong></td>
-<td>Detects Plex items stuck in a scanning loop and removes them. Recommended interval: <code>1h</code></td>
+<td>Detects Plex items stuck in a scanning loop and removes them. Default interval is <code>5m</code> — good when initially adding a lot of content. Once your library is settled, <code>1h</code> is sufficient.</td>
 </tr>
 </tbody>
 </table>
@@ -3718,20 +3733,20 @@
 <p>If you want to fully drop debrid and move your entire library to Usenet, follow these steps carefully:</p>
 <p><strong>6a — Create a backup first</strong></p>
 <p>In <strong>Debrid Manager → Maintenance</strong>, click <strong>Run Now</strong> in the Backup section to create a fresh backup of your debrid library.</p>
-<p><strong>6b — Stop everything</strong></p>
+<p><strong>6b — Remove debrid provider from Decypharr</strong></p>
+<p>In the Decypharr web UI, go to <strong>Settings → Providers → Debrid</strong> tab. Click the delete (🗑) button on your debrid account and click <strong>Save Configuration</strong>. This removes the debrid provider before you clear the database.</p>
+<p><strong>6c — Stop everything</strong></p>
 <ol>
 <li>Turn off Plex (or pause its library scanning)</li>
 <li>In cli_debrid, click <strong>Stop Program</strong> in the top bar to halt all queue processing</li>
 <li>Stop the Decypharr container</li>
 </ol>
-<p><strong>6c — Clear the Decypharr database</strong></p>
+<p><strong>6d — Clear the Decypharr database</strong></p>
 <p>In Decypharr's appdata folder, <strong>rename or delete the <code>db</code> folder</strong>. This wipes Decypharr's torrent database so you start fresh with Usenet only.</p>
 <div class="admonition warning">
 <p class="admonition-title">This deletes all Decypharr torrent tracking</p>
 <p>Make sure your backup was created before this step. The backup file contains everything needed for migration.</p>
 </div>
-<p><strong>6d — Remove debrid provider from Decypharr</strong></p>
-<p>In Decypharr's <code>config.json</code>, remove your debrid provider entry (e.g. Real-Debrid) from the <code>debrids</code> array, leaving only your NNTP/Usenet settings. Restart Decypharr after saving.</p>
 <p><strong>6e — Clear debrid items from cli_debrid</strong></p>
 <p>The migration tool (Step 6f below) handles re-adding items via Usenet. Items already in the cli_debrid database with <code>Collected</code> state will be skipped by the migration unless you first remove them. You can bulk-delete collected items from <strong>Library</strong> or leave them — the migration will skip what already exists and you can manually delete old debrid-sourced items as they get replaced.</p>
 <p><strong>6f — Restart everything</strong></p>
