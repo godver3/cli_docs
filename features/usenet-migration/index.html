@@ -3078,6 +3078,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#backfill-nzb-torrent-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backfill NZB Torrent IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3390,6 +3401,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#backfill-nzb-torrent-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backfill NZB Torrent IDs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3694,21 +3716,24 @@
 </div>
 <hr>
 <h2 id="step-5-enable-recommended-tasks">Step 5 — Enable recommended tasks<a class="headerlink" href="#step-5-enable-recommended-tasks" title="Permanent link">¶</a></h2>
-<p>Go to <strong>Task Manager → Features</strong> and enable:</p>
+<p>Go to <strong>Task Manager</strong> and enable:</p>
 <table>
 <thead>
 <tr>
 <th>Task</th>
+<th>Tab</th>
 <th>Why</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Repair Broken NZBs</strong></td>
+<td>Features</td>
 <td>Automatically detects broken NZB downloads and finds replacements. Recommended interval: <code>6h</code></td>
 </tr>
 <tr>
 <td><strong>Plex Stuck Files</strong></td>
+<td>Library</td>
 <td>Detects Plex items stuck in a scanning loop and removes them. Default interval is <code>5m</code> — good when initially adding a lot of content. Once your library is settled, <code>1h</code> is sufficient.</td>
 </tr>
 </tbody>
@@ -3747,8 +3772,8 @@
 <p class="admonition-title">This deletes all Decypharr torrent tracking</p>
 <p>Make sure your backup was created before this step. The backup file contains everything needed for migration.</p>
 </div>
-<p><strong>6e — Clear debrid items from cli_debrid</strong></p>
-<p>The migration tool (Step 6f below) handles re-adding items via Usenet. Items already in the cli_debrid database with <code>Collected</code> state will be skipped by the migration unless you first remove them. You can bulk-delete collected items from <strong>Library</strong> or leave them — the migration will skip what already exists and you can manually delete old debrid-sourced items as they get replaced.</p>
+<p><strong>6e — cli_debrid database</strong></p>
+<p>Leave your existing collected items as-is. Once the migration completes and items are downloaded by Decypharr, the <strong>Check Plex Files</strong> task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.</p>
 <p><strong>6f — Restart everything</strong></p>
 <p>Start Decypharr first, then start cli_debrid and resume the program. Turn Plex back on.</p>
 <h3 id="run-the-migration">Run the migration<a class="headerlink" href="#run-the-migration" title="Permanent link">¶</a></h3>
@@ -3779,6 +3804,12 @@
 </tbody>
 </table>
 <p>Both files appear in the <strong>Extra Files</strong> section of Backup Slots with their own <strong>→ Usenet</strong> buttons. Re-run them later to retry — new indexer coverage or reposts may find them on the next attempt.</p>
+<h3 id="backfill-nzb-torrent-ids">Backfill NZB Torrent IDs<a class="headerlink" href="#backfill-nzb-torrent-ids" title="Permanent link">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Important — do this after migration</p>
+<p>After items are collected, run or enable the <strong>Backfill NZB Torrent IDs</strong> task. This links Decypharr's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.</p>
+</div>
+<p>Go to <strong>Task Manager</strong> and either trigger or enable the <strong>Backfill NZB Torrent IDs</strong> task.</p>
 <hr>
 <h2 id="step-7-ongoing-maintenance">Step 7 — Ongoing maintenance<a class="headerlink" href="#step-7-ongoing-maintenance" title="Permanent link">¶</a></h2>
 <h3 id="nzb-repair-engine">NZB repair engine<a class="headerlink" href="#nzb-repair-engine" title="Permanent link">¶</a></h3>
@@ -3802,6 +3833,10 @@
 <p>Decypharr's <code>entries.db</code> and <code>items.db</code> are automatically backed up on the same daily schedule as the cli_debrid database. Manual backup, restore from backup, and old backup cleanup are all available from the Database tab.</p>
 <h3 id="plex-stuck-files">Plex Stuck Files<a class="headerlink" href="#plex-stuck-files" title="Permanent link">¶</a></h3>
 <p>Occasionally Plex gets stuck scanning a file repeatedly without completing. The <strong>Plex Stuck Files</strong> task detects these loops by watching Plex's log and removes the stuck items automatically. Requires the <code>plex_data</code> volume bind.</p>
+<div class="admonition warning">
+<p class="admonition-title">Plex log filename</p>
+<p>The task looks for <code>Plex Media Server.log</code> inside the bound <code>plex_data</code> path (full path: <code>/plex_data/Logs/Plex Media Server.log</code>). Some systems name the log differently — e.g. <code>Plex Media Server 1.log</code>. If the task logs <code>Plex log not found</code>, check your Plex <code>Logs</code> folder and confirm the exact filename. The log file is created by Plex when it is running — if it's missing, make sure Plex is active.</p>
+</div>
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <p><strong>NZBs fail with "ARTICLE_NOT_FOUND"</strong></p>
