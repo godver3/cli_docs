@@ -119,6 +119,7 @@ nav:
     - integrations/index.md
     - Zurg + rclone: integrations/zurg.md
     - Decypharr: integrations/decypharr.md
+    - cli_mount: integrations/cli_mount.md
     - Plex: integrations/plex.md
     - Jellyfin: integrations/jellyfin.md
     - Seerr: integrations/seerr.md
