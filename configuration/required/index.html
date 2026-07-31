@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -28,7 +28,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2124,34 +2124,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#trakt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trakt
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Trakt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-trakt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up Trakt
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3272,34 +3244,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#trakt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trakt
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Trakt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-trakt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up Trakt
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3602,35 +3546,10 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </tbody>
 </table>
 <p>See the <a href="../../features/usenet-migration/">Usenet Migration</a> guide for full setup instructions.</p>
-<hr>
-<h2 id="trakt">Trakt<a class="headerlink" href="#trakt" title="Permanent link">¶</a></h2>
-<p>Trakt is required for metadata lookups and content source integration.</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Client ID</strong></td>
-<td>Your Trakt application Client ID</td>
-</tr>
-<tr>
-<td><strong>Client Secret</strong></td>
-<td>Your Trakt application Client Secret</td>
-</tr>
-</tbody>
-</table>
-<h3 id="setting-up-trakt">Setting up Trakt<a class="headerlink" href="#setting-up-trakt" title="Permanent link">¶</a></h3>
-<ol>
-<li>Go to <a href="https://trakt.tv/oauth/applications" target="_blank" rel="noopener">trakt.tv/oauth/applications</a></li>
-<li>Click <strong>New Application</strong></li>
-<li>Fill in a name (e.g. <code>cli_debrid</code>) and set the Redirect URI to <code>urn:ietf:wg:oauth:2.0:oob</code></li>
-<li>Copy the <strong>Client ID</strong> and <strong>Client Secret</strong> into the settings</li>
-<li>Click <strong>Authorise Trakt</strong> in cli_debrid to complete OAuth</li>
-</ol>
+<div class="admonition info">
+<p class="admonition-title">Trakt is optional</p>
+<p>Trakt used to be listed here as a required setting. It is now an <strong>optional</strong> integration — cli_debrid no longer requires Trakt authorization to start or run the queue. See <a href="../additional/#trakt">Additional Settings → Trakt</a> to configure it.</p>
+</div>
 
 
 
@@ -3756,7 +3675,7 @@ If the paths differ between containers, symlinks will appear as broken files in 
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   
