@@ -130,9 +130,9 @@ Enter your TVDB API key. Used for TV show episode matching.
 
 ---
 
-## Trakt
+## Trakt (optional)
 
-Enter your Trakt **Client ID** and **Client Secret**, then click **Authorise Trakt** to complete the OAuth flow.
+Trakt is not required to run cli_debrid. If you want to use it as a content source or as a metadata fallback (when no TVDB key is set), go to **Settings → Additional Settings**, enter your Trakt **Client ID** and **Client Secret**, then click **Authorise Trakt** to complete the OAuth flow.
 
 ---
 

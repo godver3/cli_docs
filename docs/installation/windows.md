@@ -18,7 +18,6 @@ cli_debrid is available as a standalone Windows executable — no Docker, no Pyt
 
 - Windows 10 or Windows 11
 - A debrid account (Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link)
-- A [Trakt](https://trakt.tv) account
 - Plex or Jellyfin installed and running
 - A debrid mount tool — [Zurg + rclone](../integrations/zurg.md) is the recommended option on Windows (see below)
 

@@ -95,22 +95,6 @@ TVDB is used for TV show metadata and episode matching.
 
 ---
 
-### 5. Trakt account
-
-Trakt is used for watchlists, ratings, and as a content source.
-
-1. Create a free account at [trakt.tv](https://trakt.tv/auth/join)
-2. Go to [trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)
-3. Click **New Application**
-4. Fill in:
-    - **Name:** `cli_debrid`
-    - **Redirect URI:** `urn:ietf:wg:oauth:2.0:oob`
-5. Copy the **Client ID** and **Client Secret**
-
-**Save both values.**
-
----
-
 ## Optional services
 
 These are not required to get started but are recommended once running:
@@ -121,6 +105,20 @@ These are not required to get started but are recommended once running:
 | [MDBList](https://mdblist.com) | Curated media lists (IMDb Top 250, genre lists, etc.) usable as content sources |
 | [Bazarr](https://www.bazarr.media) | Automatic subtitle downloading |
 
+### Trakt account
+
+Trakt is optional. It can be used as a content source (watchlist, lists, collection) and as a metadata fallback for TV shows if you haven't configured a TVDB key.
+
+1. Create a free account at [trakt.tv](https://trakt.tv/auth/join)
+2. Go to [trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)
+3. Click **New Application**
+4. Fill in:
+    - **Name:** `cli_debrid`
+    - **Redirect URI:** `urn:ietf:wg:oauth:2.0:oob`
+5. Copy the **Client ID** and **Client Secret**
+
+**Save both values if you plan to use Trakt.**
+
 ---
 
 ## Summary checklist
@@ -130,8 +128,7 @@ Before moving on, confirm you have:
 - [ ] Debrid account + API key
 - [ ] Plex, Jellyfin, or Emby installed
 - [ ] TMDB API key
-- [ ] TVDB API key
-- [ ] Trakt Client ID and Client Secret
+- [ ] TVDB API key (or Trakt, as a fallback for TV metadata)
 
 ---
 

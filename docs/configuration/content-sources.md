@@ -93,7 +93,7 @@ Your personal Trakt watchlist. Any item you add to your watchlist on Trakt will 
 4. Set your preferred **Media Type** and **Versions**
 5. Click **Save**
 
-That's it — no URLs or API keys needed. cli_debrid uses the Trakt account you already authenticated in Required Settings.
+That's it — no URLs or API keys needed. cli_debrid uses the Trakt account you already authenticated in Additional Settings.
 
 
 ---

@@ -84,7 +84,7 @@ After adding a content source:
 3. Items will move through **Scraping → Adding → Checking → Collected** as they are processed
 
 !!! tip "Nothing appearing in Wanted?"
-    - Check that Trakt authorisation completed successfully (**Settings → Required**)
+    - If using a Trakt source, check that Trakt authorisation completed successfully (**Settings → Additional Settings**)
     - Make sure your watchlist/list has items in it
     - Check the logs for errors: **Logs** page in the nav
 
