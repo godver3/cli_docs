@@ -21,7 +21,6 @@ Regardless of method, you need:
 
 - Unraid 6.10 or later
 - A paid debrid account (Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link)
-- A [Trakt](https://trakt.tv) account
 - Plex or Jellyfin installed
 
 ---

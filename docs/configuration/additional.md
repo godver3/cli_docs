@@ -27,6 +27,25 @@ icon: material/dots-horizontal
 
 ---
 
+## Trakt
+
+Trakt is an **optional** integration. It is used for Trakt-based content sources (Watchlist, Lists, Collection, Friends' Watchlists) and, if no TVDB API key is set, as the fallback metadata source for TV show/movie lookups. cli_debrid does not require Trakt to be configured or authorized in order to start or run the queue.
+
+| Setting | Description |
+|---|---|
+| **Client ID** | Your Trakt application Client ID |
+| **Client Secret** | Your Trakt application Client Secret |
+
+### Setting up Trakt
+
+1. Go to [trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)
+2. Click **New Application**
+3. Fill in a name (e.g. `cli_debrid`) and set the Redirect URI to `urn:ietf:wg:oauth:2.0:oob`
+4. Copy the **Client ID** and **Client Secret** into the settings
+5. Click **Authorise Trakt** in cli_debrid to complete OAuth
+
+---
+
 ## MDBList
 
 | Setting | Default | Description |

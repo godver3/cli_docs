@@ -16,8 +16,8 @@ After completing the onboarding wizard, all settings are available in the **Sett
 | Tab | What it covers |
 |---|---|
 | [UI Settings](ui-settings.md) | Theme, time format, compact view, logo, user system |
-| [Required Settings](required.md) | Debrid provider, Plex/Jellyfin, file management, Trakt — must be configured to run |
-| [Additional Settings](additional.md) | TMDB, Bazarr, AI Butler, OIDC/SSO, Phalanx DB |
+| [Required Settings](required.md) | Debrid provider, Plex/Jellyfin, file management — must be configured to run |
+| [Additional Settings](additional.md) | TMDB, Trakt, Bazarr, AI Butler, OIDC/SSO, Phalanx DB |
 | [Scrapers](scrapers.md) | Torrentio, Jackett, Zilean, Nyaa, MediaFusion, Prowlarr, and more |
 | [Version Settings](versions.md) | Quality profiles — resolution, codec, release type preferences |
 | [Content Sources](content-sources.md) | Trakt, Seerr, MDBList, Plex Watchlist, Adaptive Lists |

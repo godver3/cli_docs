@@ -19,7 +19,6 @@ Before you begin, confirm you have:
 - [Docker](https://docs.docker.com/get-docker/) installed and running
 - [Docker Compose](https://docs.docker.com/compose/install/) v2 or later (`docker compose` command)
 - A debrid account (Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link)
-- A [Trakt](https://trakt.tv) account
 - Plex, Jellyfin, or Emby with your debrid library mounted (via [Zurg + rclone](../integrations/zurg.md) or [Decypharr](../integrations/decypharr.md))
 
 !!! warning "Avoid Docker Desktop on Linux"
@@ -224,7 +223,7 @@ The first time you visit, the onboarding wizard will launch automatically.
 The onboarding wizard will guide you through:
 
 1. **Account setup** — create your admin account
-2. **Required settings** — connect your debrid provider, Trakt, and Plex/Jellyfin
+2. **Required settings** — connect your debrid provider and Plex/Jellyfin
 3. **Scrapers** — configure at least one scraper (Zilean recommended to start)
 4. **Content sources** — add your Trakt watchlists or other sources
 5. **Library management** — choose Plex or Symlinked mode

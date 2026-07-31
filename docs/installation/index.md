@@ -66,7 +66,6 @@ Regardless of platform, you will need the following before setting up cli_debrid
 | Requirement | Notes |
 |---|---|
 | **Debrid account** | Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link |
-| **Trakt account** | Free account at [trakt.tv](https://trakt.tv) — used for metadata and watchlists |
 | **Plex, Jellyfin, or Emby** | For library management and media scanning |
 | **Mount tool** | [Zurg + rclone](../integrations/zurg.md) or [Decypharr](../integrations/decypharr.md) to mount your debrid storage as a local filesystem |
 

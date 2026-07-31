@@ -11,7 +11,7 @@ icon: material/frequently-asked-questions
 
 **Do I need all the API keys to get started?**
 
-The minimum required is: a debrid API key, Plex or Jellyfin URL + token, and a TMDB API key. Trakt is required for metadata lookups and most content sources. TVDB is optional (used instead of Trakt for TV metadata if configured).
+The minimum required is: a debrid API key, Plex or Jellyfin URL + token, and a TMDB API key. Trakt is optional — it can be used as a content source and as a metadata fallback if you don't configure a TVDB key.
 
 ---
 
@@ -29,7 +29,7 @@ Use the **API Key (v3 auth)** from your TMDB account settings — not the Read A
 
 **The onboarding wizard isn't completing / settings aren't saving**
 
-- Make sure all required fields are filled in (debrid key, Plex URL, TMDB key, Trakt)
+- Make sure all required fields are filled in (debrid key, Plex URL, TMDB key)
 - Click **Validate** on the debrid key before saving
 - Check the Logs page for any errors during save
 
@@ -268,7 +268,7 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 
 **Trakt 401 errors / deactivated account**
 
-- Go to Settings → Required Settings → click **Authorise Trakt** again to refresh the OAuth token
+- Go to Settings → Additional Settings → click **Authorise Trakt** again to refresh the OAuth token
 - Trakt tokens expire and need periodic re-authorisation
 
 ---
