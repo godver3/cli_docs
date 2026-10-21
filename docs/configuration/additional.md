@@ -12,7 +12,7 @@ icon: material/dots-horizontal
 | Setting | Description |
 |---|---|
 | **API Key** | Your TMDB API key — enables poster art, discover, and trending features |
-| **Enable Discovery** | Show the Discover page powered by TMDB |
+| **Certification Region** | Which country's age ratings to show (e.g. US: `R`, `PG-13` · GB: `15`, `12A` · CA: `14A`, `18A`). Default `US`. |
 
 !!! tip "Getting a TMDB API key"
     Register at [themoviedb.org](https://www.themoviedb.org/), go to your account **Settings → API**, and request a free API key.
@@ -74,6 +74,7 @@ Trakt is an **optional** integration. It is used for Trakt-based content sources
 | **Main Loop Sleep (seconds)** | `0.0` | Minimum delay between task executions to reduce system load |
 | **Item Process Delay (seconds)** | `0.0` | Artificial delay after processing each item in Scraping/Adding queues to reduce peak CPU usage |
 | **Pre-Release Scrape Days** | `0` | Days before a movie's release date to start scraping. Set to `0` to disable. |
+| **Queue Pool Workers** | `2` | How many queue items (scraping, adding, checking…) are processed in parallel. `1` for slow/older machines, `2` for normal, `3` for fast ones. Also adjustable from the **Queues** page. Takes effect on save, no restart needed. |
 
 ---
 
@@ -96,7 +97,8 @@ Automatically adjusts the queue sleep time based on current CPU and RAM usage.
 | Setting | Default | Description |
 |---|---|---|
 | **Ghostlist Mode** | Off | Add shows and movies to the ghostlist when deleted to prevent them from being re-added. When enabled, deleting content marks it as ghosted in the database. When disabled, deleted content can be re-added by dynamic content sources. |
-| **Remove From Content Sources** | Off | Remove items from content sources (Trakt lists, Overseerr requests, Plex Watchlist, etc.) during deletion. Prevents items from being automatically re-added, but makes deletion slower. **Tip:** Enable when Ghostlist Mode is OFF. Disable when Ghostlist Mode is ON — ghostlist already prevents re-addition and disabling makes deletion much faster. |
+| **Hide Season 0** | On | Hide the Specials (Season 0) tab on show pages |
+| **Remove From Content Sources** | On | Remove items from content sources (Trakt lists, Overseerr requests, Plex Watchlist, etc.) during deletion. Prevents items from being automatically re-added, but makes deletion slower. **Tip:** Enable when Ghostlist Mode is OFF. Disable when Ghostlist Mode is ON — ghostlist already prevents re-addition and disabling makes deletion much faster. |
 
 ### Clear Artwork Cache
 
@@ -111,6 +113,7 @@ Remove all cached posters and backdrops. Artwork will be re-downloaded from TMDB
 | **Hide No Rating** | Off | Hide items without a rating from Discover results |
 | **Hide No Poster** | Off | Hide items without a poster image from Discover results |
 | **Only Show Missing** | Off | Only show items not already in your library |
+| **Hide Specials** | On | Hide Season 0 (Specials) from the season list on Discover details pages |
 | **TV Show Episode View** | `discover` | Where to navigate when clicking a TV show not in the library — `discover` (details page) or `add_media` |
 
 ---
@@ -122,6 +125,7 @@ Remove all cached posters and backdrops. Artwork will be re-downloaded from TMDB
 | **Overlays Enabled** | Off | Enable the poster overlay system. When enabled, overlay sync tasks run automatically and apply media info badges to Plex posters. Requires Plex URL and token. |
 | **Plex Data Path** | — | Path to the Plex Media Server data directory (e.g. `/config/Library/Application Support/Plex Media Server`). Required for the poster cleanup task. |
 | **Overlay Content Check Interval (days)** | `7` | How often to re-fetch ratings and show status to detect changes that should trigger an overlay refresh. Set to `0` to check on every sync run. |
+| **Textless Posters** | Off | Use a language-neutral (textless) TMDB poster as the base image; add the title with the **Title Logo** badge in the layout editor. Falls back to the normal poster when TMDB has no textless one. |
 | **Sync Items Per Run** | `200` | Maximum number of items to process per overlay sync run. Higher values clear backlogs faster but each run takes longer. |
 
 ---
@@ -136,6 +140,7 @@ Spoof cli_debrid as Radarr/Sonarr so Bazarr can automatically download subtitles
 | **API Key** | — | API key used to authenticate Bazarr. Use the Generate button to create one. |
 | **Service Type** | `Auto (Both)` | Which service to spoof — Auto (Both), Radarr Only, or Sonarr Only |
 | **Spoofed Version** | `5.14.0.9383` | Version string reported to Bazarr |
+| **Delete Subtitles On Removal** | On | When media is deleted, also delete subtitle files (`.srt`, `.ass`, `.sub`…) Bazarr left in the symlink folder |
 
 ---
 
@@ -188,6 +193,10 @@ Symlink mode only. Adds ~2–3s overhead per file.
 | **OpenSubtitles Password** | — | Your OpenSubtitles account password |
 | **Subtitle Languages** | `eng,zho` | Comma-separated ISO-639-3 language codes, e.g. `eng,fra,spa` |
 | **Probe for Embedded Subtitles** | Off | Use ffprobe to check for embedded subtitles before searching externally |
+| **Subtitle Providers** | all four | Which providers to search: `opensubtitles`, `opensubtitlescom`, `podnapisi`, `tvsubtitles` |
+| **Include AI Translated Subtitles** | On | Include AI-translated subtitles — broader language coverage, sometimes lower quality |
+| **Apply To Movies** / **Apply To TV Shows** | On | Which folders get subtitles. Matching toggles exist for anime and documentary movie/TV folders (when those separate folders are enabled). |
+| **User Agent** | `SubDownloader/1.0 (…)` | User agent sent to subtitle APIs — put your own contact email in it |
 
 ---
 

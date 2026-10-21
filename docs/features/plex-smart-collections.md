@@ -78,7 +78,7 @@ CLI Debrid tracks content fingerprints in `plex_smart_collection_state.json` to 
 
 ## Requirements
 
-- Plex URL and token configured under **Settings → Plex**
+- Plex URL and token configured under **Settings → Required Settings** (Plex section)
 - TMDB API key (used for artwork)
 - At least one smart collection present in any Plex library section
 

@@ -5,10 +5,10 @@ icon: material/newspaper-variant
 
 # Newznab
 
-Newznab is the standard API protocol used by most Usenet indexers. Adding a Newznab scraper lets cli_debrid search Usenet alongside torrents and deliver NZB downloads via [Decypharr](../integrations/decypharr.md).
+Newznab is the standard API protocol used by most Usenet indexers. Adding a Newznab scraper lets cli_debrid search Usenet alongside torrents and deliver NZB downloads via your Usenet provider ([cli_mount](../integrations/cli_mount.md), NzbDAV or Zurg).
 
 !!! info "Usenet prerequisite"
-    Newznab scrapers require Decypharr configured as your Usenet provider. See the [Usenet Migration](../features/usenet-migration.md) guide for full setup.
+    Newznab scrapers require a Usenet provider (cli_mount recommended) under **Settings → Required Settings → Usenet Provider**. See the [Usenet Migration](../features/usenet-migration.md) guide for full setup.
 
 ---
 
@@ -36,6 +36,9 @@ Any Newznab-compatible indexer works, including:
 | **Name** | A display name for this indexer (e.g. `NZBGeek`) |
 | **URL** | Base URL of your indexer (e.g. `https://api.nzbgeek.info`) |
 | **API Key** | Your indexer API key — found in your indexer account settings |
+| **Subscription Expiry Date** | Optional. When your indexer subscription ends (`YYYY-MM-DD`) |
+| **Auto Renew** | Optional. Whether that subscription renews automatically |
+| **Priority** | Scraper priority score — higher wins when results are otherwise similar |
 
 4. Toggle **Enabled** on
 5. Click **Save Settings**
@@ -51,7 +54,7 @@ When cli_debrid searches for content:
 - Newznab indexers are queried alongside all other scrapers
 - NZB results appear in scraper results with a **NZB** badge instead of a cache status indicator
 - Results go through the same version filter scoring as torrent results
-- Clicking **ADD** submits the NZB to Decypharr for download
+- Clicking **ADD** submits the NZB to your Usenet provider
 
 ### Season packs
 
@@ -65,6 +68,6 @@ Clicking the folder icon on an NZB result fetches the NZB XML and lists the file
 
 ## Broken NZB handling
 
-If an NZB download fails health validation after submission to Decypharr, the segment ID is added to a not-wanted list. Future searches will skip that specific NZB automatically, and clicking ADD on a known-broken NZB will show an error before submission.
+If an NZB download fails health validation after submission to the Usenet provider, the segment ID is added to a not-wanted list. Future searches will skip that specific NZB automatically, and clicking ADD on a known-broken NZB will show an error before submission.
 
 The [NZB Repair Engine](../features/debrid-manager.md#usenet) automatically detects broken downloads and finds replacements.

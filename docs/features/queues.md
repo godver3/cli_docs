@@ -137,7 +137,7 @@ Items that can't be found go to **Sleeping**. Each time an item wakes and is ret
 
 When the wake limit is reached, the item moves to **Blacklisted**. Items with a release date older than one week are also blacklisted immediately.
 
-The wake limit is configurable per Version (set to `-1` to skip sleeping and blacklist immediately) and globally in **Settings → Queue → Wake Limit**.
+The wake limit is configurable per Version (set to `-1` to skip sleeping and blacklist immediately) and globally in **Settings → Additional Settings → Queue → Wake Limit**.
 
 ---
 

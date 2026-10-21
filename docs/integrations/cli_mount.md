@@ -44,7 +44,7 @@ flowchart LR
         restart: unless-stopped
         network_mode: bridge
         ports:
-          - "8888:8888/tcp"
+          - "8282:8282/tcp"
         volumes:
           - /path/to/debrid:/mnt:rw,shared     # (1)
           - /path/to/cache:/cache:rw # (2)
@@ -80,7 +80,7 @@ flowchart LR
       --pids-limit 2048 \
       --privileged=true \
       -e TZ="America/New_York" \
-      -p '8888:8888/tcp' \
+      -p '8282:8282/tcp' \
       -v '/path/to/debrid':'/mnt':'rw,shared' \
       -v '/path/to/cache':'/cache':'rw' \
       -v '/path/to/appdata':'/app':'rw' \
@@ -118,7 +118,7 @@ flowchart LR
 
     | Field | Value |
     |-------|-------|
-    | Port | `8888` |
+    | Port | `8282` (cli_mount's default) |
     | rclone | Your debrid mount path (e.g. `/path/to/debrid`) → `/mnt` |
     | cache | Your cache path (e.g. `/path/to/cache`) → `/cache` |
     | config | Your appdata path (e.g. `/path/to/appdata/cli_mount`) → `/app` |
@@ -171,7 +171,7 @@ flowchart LR
 
     ### Step 3 — Create config.json
 
-    Create a `config.json` in your appdata folder. The web UI at `http://YOUR_SERVER_IP:8888` can also be used to generate this after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in your appdata folder. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate this after first run — see [Configuration](#configuration) below.
 
     ### Step 4 — Start cli_mount
 
@@ -207,7 +207,7 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running and connected:
 
     ```
-    http://YOUR_SERVER_IP:8888
+    http://YOUR_SERVER_IP:8282
     ```
 
 === "Binary (Unraid)"
@@ -234,7 +234,7 @@ flowchart LR
 
     ### Step 3 — Create config.json
 
-    Create a `config.json` in `/path/to/appdata/cli_mount/`. The web UI at `http://YOUR_SERVER_IP:8888` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in `/path/to/appdata/cli_mount/`. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
 
     ### Step 4 — Create User Scripts
 
@@ -266,7 +266,7 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running:
 
     ```
-    http://YOUR_SERVER_IP:8888
+    http://YOUR_SERVER_IP:8282
     ```
 
 === "Windows"
@@ -281,7 +281,7 @@ flowchart LR
 
     ### Step 2 — Create config.json
 
-    Create a `config.json` in the same folder. The web UI at `http://localhost:8888` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in the same folder. The web UI at `http://localhost:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
 
     ### Step 3 — Run cli_mount
 
@@ -305,14 +305,14 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running:
 
     ```
-    http://localhost:8888
+    http://localhost:8282
     ```
 
 ---
 
 ## Configuration
 
-cli_mount is configured via a `config.json` file placed in your appdata folder (`/app` inside the container). The web UI at `http://YOUR_SERVER_IP:8888` can also be used to edit settings after first run.
+cli_mount is configured via a `config.json` file placed in your appdata folder (`/app` inside the container). The web UI at `http://YOUR_SERVER_IP:8282` can also be used to edit settings after first run.
 
 ### Debrid provider
 
@@ -451,7 +451,13 @@ cli_mount supports two mount backends. Choose one:
 
 ### Content routing
 
-cli_mount sorts incoming torrents into subfolders using `custom_folders`. Each folder has regex filters that match against the torrent name and file list:
+cli_mount can sort incoming torrents and NZBs into extra subfolders using `custom_folders` (shown as **virtual folders** in the UI). Each folder has regex filters that match against the release name and its file list. Everything is always available in `__all__` as well.
+
+!!! info "Do you need content routing?"
+    - **Plex mode — yes.** Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a *Movies* library on `Movies/` and a *TV* library on `TV Shows/`).
+    - **Symlink mode — optional.** cli_debrid builds its own organised folder tree from `__all__`, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the [symlink mode example](#example-symlink-mode-setup) below.
+
+The default filters below create `shows`, `movies` and `default` folders. Name them whatever you like — the example further down uses `TV Shows` and `Movies`.
 
 #### shows
 
@@ -476,7 +482,98 @@ cli_mount sorts incoming torrents into subfolders using `custom_folders`. Each f
 
 The `categories` setting (`sonarr`, `radarr`) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.
 
-`default_download_action: symlink` makes cli_mount create symlinks into the mount rather than downloading files — this is required for cli_debrid to work correctly.
+`default_download_action` decides what cli_mount does once a download is ready: **Create Symlink** (`symlink`, the default), **Create STRM Files**, **Download Files**, or **No Action** (`none`). cli_debrid doesn't use any of these outputs — it finds files in the mount itself — so `none` avoids a second, unused set of links in cli_mount's download folder. `symlink` also works. Don't use **Download Files**, which copies everything to local disk.
+
+### Example: symlink mode setup
+
+A working cli_mount + cli_debrid setup using **symlink mode**, with Real-Debrid and Usenet together. Paths are examples — adjust them to your system.
+
+**What the mount looks like** (host path `/path/to/debrid`, mapped to `/mnt` in cli_mount):
+
+```
+/path/to/debrid/
+  __all__/      ← every file, debrid and Usenet (cli_debrid reads from here)
+  Movies/       ← virtual folder: movies only
+  TV Shows/     ← virtual folder: TV only
+  torrents/     ← debrid content
+  nzbs/         ← Usenet content
+  RD/           ← one folder per debrid account, named after it
+  __bad__/      ← entries cli_mount flagged as broken
+```
+
+**cli_mount — General settings**
+
+| Setting | Value | Why |
+|---|---|---|
+| Default download action | `none` (No Action) | cli_debrid makes its own symlinks |
+| Folder naming | `filename` | |
+| Download folder | `/app/downloads` | Unused with *No Action*, but must be set |
+| Allowed file types | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only video files show up in the mount (no `.nfo`, images or archives) |
+| Remove stalled after | `10m` | |
+| Virtual folders | `Movies`, `TV Shows` (filters from [Content routing](#content-routing)) | Optional in symlink mode — for easier browsing |
+
+**cli_mount — Mount settings (DFS)**
+
+| Setting | Value | Notes |
+|---|---|---|
+| Type | `dfs` | |
+| Mount path | `/mnt` | |
+| Cache directory | `/app_cache` | Map a fast disk with plenty of space here |
+| Disk cache size | `100GB` | Larger cache = fewer re-downloads when rewatching |
+| Cache expiry | `2h` | |
+| Cache cleanup interval | `1m` | |
+| Chunk size | `8MB` | |
+| Read ahead size | `32MB` | |
+| UID / GID / umask | `1000` / `1000` / `002` | Match the user your media server runs as |
+
+**cli_debrid — Settings → Required Settings → File Management**
+
+| Setting | Value |
+|---|---|
+| File Collection Management | `Symlinked/Local` |
+| Original Files Path | `/path/to/debrid/__all__` |
+| Symlinked Files Path | `/path/to/symlinks` — point your Plex/Jellyfin libraries here |
+
+!!! warning "Same paths everywhere"
+    cli_debrid and your media server must see the mount and the symlink folder at the **same paths** cli_debrid uses above, or the symlinks show up broken.
+
+---
+
+## Plex page
+
+cli_mount's **Plex** page (in the main menu) connects cli_mount to your Plex server. It reads Plex's own list of what's playing (`/status/sessions`), so only real Plex viewers count — library scans, Bazarr, cli_debrid's checks and repairs don't. It powers two features, both optional.
+
+**Plex connection**
+
+| Setting | Description |
+|---|---|
+| **Plex Server URL** | Must be reachable *from cli_mount* (not necessarily from your browser), e.g. `http://192.168.1.x:32400` |
+| **Plex Token** | Your Plex token — [how to find it](../getting-started/configure.md#finding-your-plex-token) |
+
+### Next-episode prewarm
+
+When someone watching in Plex passes about **70%** of an episode, cli_mount fetches the first ~20% of the next episode into the cache, so it starts quickly if they keep watching.
+
+| Setting | Description |
+|---|---|
+| **Enable next-episode prewarm** | Off by default. Uses extra bandwidth and cache space, which only pays off if people keep watching. |
+| **Prewarm size cap** | Max bytes fetched per prewarm. Blank = 256MB. |
+
+### Playback protection (Usenet)
+
+Reserves Usenet (NNTP) connections for people actually watching while bulk imports are running, so a big batch of new downloads doesn't make active streams buffer. When nothing is importing, playback uses the full pool.
+
+| Setting | Description |
+|---|---|
+| **Protect Plex streams during playback** | Turns protection on. Needs the Plex URL and token above — without them it does nothing. |
+| **Per-stream reserve (% of pool)** | Connections reserved per confirmed Plex stream: `round(total × percent ÷ 100)`, minimum 6 |
+| **Max total protected** | Upper limit on connections reserved across all streams |
+| **Detect bytes** / **Detect window** | How much sustained reading within the window counts as playback before the reserve kicks in |
+| **Idle timeout** | Leave reserve mode after this long with no qualifying reads |
+| **Pre-cache on open** | Starts caching a file as soon as it's opened; throttled to the background budget while protection is active |
+
+!!! tip
+    Playback protection only affects **Usenet** streams. For debrid-only setups, only next-episode prewarm applies.
 
 ---
 
@@ -503,7 +600,7 @@ ls /path/to/debrid
 You should see your content folders from Real-Debrid. Open the web UI to confirm cli_mount is connected:
 
 ```
-http://YOUR_SERVER_IP:8888
+http://YOUR_SERVER_IP:8282
 ```
 
 ---
@@ -545,7 +642,7 @@ In **Settings → Required Settings → Usenet Provider**:
 | Setting | Description |
 |---|---|
 | **Enabled** | Turn on Usenet support |
-| **URL** | cli_mount base URL (e.g. `http://cli_mount:8888`) |
+| **URL** | cli_mount base URL (e.g. `http://cli_mount:8282`) |
 | **API Token** | cli_mount API token (if authentication is enabled) |
 | **Download Folder** | Optional override for the download destination inside cli_mount |
 | **cli_mount Data Path** | Path to cli_mount's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/cli_mount:/cli_mount_data` to your docker-compose volumes, then set this to `/cli_mount_data` |

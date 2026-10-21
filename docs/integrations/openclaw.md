@@ -190,7 +190,7 @@ Send me a notification about the current queue status
 
 The skill authenticates to cli_debrid via a query parameter (`?token=<value>`) rather than an Authorization header, for compatibility with clients that cannot set custom headers.
 
-The token is the same value set in **Settings → AI Assistant → OpenClaw Token** — it is the token OpenClaw uses to authenticate *to* cli_debrid, not a separate password.
+The token is the same value set in **Settings → Additional Settings → AI Assistant → OpenClaw Token** — it is the token OpenClaw uses to authenticate *to* cli_debrid, not a separate password.
 
 ---
 

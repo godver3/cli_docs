@@ -1,0 +1,138 @@
+{
+  "versions": {
+    "1080p (example)": {
+      "enable_hdr": false,
+      "max_resolution": "1080p",
+      "resolution_wanted": "<=",
+      "resolution_weight": 1,
+      "hdr_weight": 0,
+      "similarity_weight": 1,
+      "similarity_threshold": 0.75,
+      "similarity_threshold_anime": 0.8,
+      "size_weight": 1,
+      "bitrate_weight": 5,
+      "year_match_weight": 3,
+      "preferred_filter_in": [],
+      "preferred_filter_out": [],
+      "filter_in": [],
+      "filter_out": [
+        {
+          "pattern": "й",
+          "source": "both"
+        },
+        {
+          "pattern": "я",
+          "source": "both"
+        },
+        {
+          "pattern": "д",
+          "source": "both"
+        },
+        {
+          "pattern": "г",
+          "source": "both"
+        },
+        {
+          "pattern": "ё",
+          "source": "both"
+        },
+        {
+          "pattern": "ж",
+          "source": "both"
+        },
+        {
+          "pattern": "ф",
+          "source": "both"
+        },
+        {
+          "pattern": "Ц",
+          "source": "both"
+        },
+        {
+          "pattern": "Telesync",
+          "source": "both"
+        },
+        {
+          "pattern": "\\.3D\\.",
+          "source": "both"
+        },
+        {
+          "pattern": "HD-TS",
+          "source": "both"
+        },
+        {
+          "pattern": "\\.TS\\.",
+          "source": "both"
+        },
+        {
+          "pattern": "\\.CAM\\.",
+          "source": "both"
+        },
+        {
+          "pattern": "HDCAM",
+          "source": "both"
+        },
+        {
+          "pattern": "Telecine",
+          "source": "both"
+        },
+        {
+          "pattern": "(?i)\\bHDTS\\b",
+          "source": "both"
+        },
+        {
+          "pattern": "HDTC",
+          "source": "both"
+        },
+        {
+          "pattern": "READNFO",
+          "source": "both"
+        },
+        {
+          "pattern": "bilibili",
+          "source": "both"
+        },
+        {
+          "pattern": "HINDI",
+          "source": "both"
+        },
+        {
+          "pattern": "DoVi",
+          "source": "both"
+        },
+        {
+          "pattern": "dem3nt3",
+          "source": "both"
+        },
+        {
+          "pattern": "\\bAV1\\b",
+          "source": "both"
+        },
+        {
+          "pattern": "(?-i:WEB-DL|WEB\\.(?:x264|H264)|HDTV\\.(?:x264|XviD))",
+          "source": "debrid"
+        },
+        {
+          "pattern": "(?i).*\\bTS\\b$",
+          "source": "both"
+        }
+      ],
+      "min_size_gb": 0.4,
+      "max_size_gb": null,
+      "min_bitrate_mbps": 3,
+      "max_bitrate_mbps": 18,
+      "wake_count": 0,
+      "fallback_version": "None",
+      "anime_filter_mode": "None",
+      "require_physical_release": false,
+      "language_code": "en",
+      "enable_scraper_priorities": false,
+      "scraper_priorities": {},
+      "enable_spanish_episode_parsing": false,
+      "use_alternative_titles": false,
+      "foreign_language_penalty": 100,
+      "fallback_at_scrape_time": false,
+      "fallback_after_attempts": 0
+    }
+  }
+}

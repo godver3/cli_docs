@@ -109,7 +109,7 @@ For individual collections, use **Manage Posters** instead.
 
 ## Requirements
 
-- Plex URL and token configured under **Settings → Plex**
+- Plex URL and token configured under **Settings → Required Settings** (Plex section)
 - TMDB API key (used for franchise lookups and poster downloads)
 
 ---

@@ -69,7 +69,7 @@ See [Plex Collections](../features/plex-collections.md) for full setup and confi
 | [Trakt Collection](#trakt-collection) | Items marked as collected in Trakt |
 | [Special Trakt Lists](#special-trakt-lists) | Built-in Trakt charts — trending, popular, anticipated, etc. |
 | [Friends Trakt Watchlist](#friends-trakt-watchlist) | A friend's Trakt watchlist |
-| [Seerr](#seerr--seerr) | Approved requests from Seerr |
+| [Seerr](#seerr) | Approved requests from Seerr |
 | [MDBList](#mdblist) | Curated lists from mdblist.com |
 | [My Plex Watchlist](#my-plex-watchlist) | Your personal Plex watchlist |
 | [Other Plex Watchlist](#other-plex-watchlist) | Another Plex user's watchlist |
@@ -199,7 +199,7 @@ Automatically downloads approved requests from your Seerr instance.
 | **URL** | Full URL to your Seerr instance, e.g. `http://192.168.1.10:5055` |
 | **API Key** | Your Seerr API key |
 | **Ignore Tags** | Comma-separated Seerr tags to skip. Items with any of these tags won't be downloaded. |
-| **Allow Partial Requests** | Allow partial show requests from Seerr (e.g. individual seasons rather than the full series). Default: off. |
+| **Allow Partial Requests** | Allow partial show requests from Seerr (e.g. individual seasons rather than the full series). Default: off. *Set globally under **Settings → Advanced Settings** (Allow Partial Overseerr Requests), not per source.* |
 
 **How to find your Seerr API key:**
 
@@ -327,7 +327,7 @@ Monitors your Plex watch history and adds watched items to cli_debrid's wanted q
 
 Sync pulls from **both your Plex account history and your server libraries** using batch processing. IMDb IDs are resolved via Trakt as a fallback when Plex metadata doesn't provide them directly.
 
-**Setup:** Enable and configure **Media Type** and **Versions**. A Plex connection must be configured in **Settings → Integrations → Plex**.
+**Setup:** Enable and configure **Media Type** and **Versions**. A Plex connection must be configured in **Settings → Required Settings** (Plex section).
 
 !!! note
     To prevent watch history items from being re-added to the queue (e.g. if you want to watch without collecting), enable **Do Not Add Plex Watch History Items To Queue** in **Settings → Advanced Settings**.

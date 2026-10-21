@@ -13,20 +13,15 @@ Torrentio is a torrent metadata API that aggregates results from multiple public
 
 1. Go to **Settings → Scrapers**
 2. Click **Add Scraper** → select **Torrentio**
-3. Set the **URL**:
+3. Toggle **Enabled** on
+4. Click **Save Settings**
 
-    === "Public instance"
-        ```
-        https://torrentio.strem.fun
-        ```
+There's no URL to set: cli_debrid always uses the public instance at `https://torrentio.strem.fun` (self-hosted instances aren't supported by this scraper).
 
-    === "Self-hosted / Knightcrawler"
-        ```
-        http://YOUR_SERVER_IP:PORT
-        ```
-
-4. Toggle **Enabled** on
-5. Click **Save Settings**
+| Field | Description |
+|---|---|
+| **Opts** | Torrentio's option string — the part of a Torrentio URL that sets sorting and filters. Leave empty for the default `sort=qualitysize|qualityfilter=480p,scr,cam`. |
+| **Priority** | Scraper priority score — higher wins when results are otherwise similar |
 
 ![Torrentio scraper settings](../assets/screenshots/scrapers/torrentio-settings.png)
 

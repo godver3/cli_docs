@@ -92,8 +92,8 @@ Each notification service has a **Notify On** section to control which events tr
 | **Program Stop** | On | The cli_debrid program has stopped |
 | **Program Crash** | On | The cli_debrid program crashed |
 | **Program Start** | On | The cli_debrid program has started |
-| **Program Pause** | Off | The program has been paused |
-| **Program Resume** | Off | The program has been resumed |
+| **Program Pause** | Off | The program has been paused. *Can be ticked, but cli_debrid doesn't currently send this notification.* |
+| **Program Resume** | Off | The program has been resumed. *Can be ticked, but cli_debrid doesn't currently send this notification.* |
 | **Queue Pause** | Off | A queue has been paused |
 | **Queue Resume** | Off | A queue has been resumed |
 | **Queue Start** | Off | A queue has been started |

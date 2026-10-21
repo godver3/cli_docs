@@ -11,7 +11,7 @@ If you've followed all six steps, cli_debrid is installed, connected to your med
 
 ## Confirm everything is working
 
-1. **Dashboard** — check that your debrid provider and media server show as connected (green status)
+1. **Dashboard** — check that your debrid and/or Usenet provider and media server show as connected (green status)
 2. **Queues** — items from your content sources should appear in the Wanted queue and progress through Scraping → Adding → Collected
 3. **Library** — after a Plex/Jellyfin scan, collected items appear here
 
@@ -49,11 +49,23 @@ Now that the basics are running, explore what cli_debrid can do:
 
     [:octicons-arrow-right-24: Debrid Manager](../features/debrid-manager.md)
 
-- **Usenet Migration**
+- **Usenet**
 
-    Set up Usenet NZB downloads via Decypharr and migrate your existing library.
+    Add Usenet alongside (or instead of) debrid, migrate your existing library, and let the NZB repair engine replace broken downloads automatically.
 
-    [:octicons-arrow-right-24: Usenet Migration](../features/usenet-migration.md)
+    [:octicons-arrow-right-24: Usenet guide](../features/usenet-migration.md)
+
+- **Scraper Tester**
+
+    See exactly how each release is scored for a title, and tune your quality settings until the right one wins.
+
+    [:octicons-arrow-right-24: Scraper Tester](../features/scraper-tester.md)
+
+- **Task Manager**
+
+    See and adjust the background tasks — library syncs, repairs, cleanups — and run any of them on demand.
+
+    [:octicons-arrow-right-24: Task Manager](../features/task-manager.md)
 
 - **Seerr**
 

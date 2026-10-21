@@ -61,7 +61,7 @@ cli_debrid ships with a **Default** version pre-configured for balanced quality 
 |---|---|---|
 | **Min Size (GB)** | `0.0` | Reject files smaller than this. Useful to avoid low-quality small encodes. |
 | **Max Size (GB)** | (no limit) | Reject files larger than this. Useful to keep storage under control. |
-| **Soft Max Size** | Off | If enabled and no results fit within Max Size, accept the smallest available result instead of failing. |
+| **Soft Max Size** | Off | If enabled and no results fit within Max Size, accept the smallest available result instead of failing. *This is a global setting under **Other Scraping Settings**, not per version.* |
 
 ---
 
@@ -124,6 +124,12 @@ Use these to require or exclude specific words in torrent titles.
 - Preferred Filter In: `DV, DoVi` — prefer Dolby Vision when available
 - Filter Out: `dubbed, DUBBED` — reject dubbed audio releases
 
+**Patterns are regular expressions.** `(?i)` makes a pattern case-insensitive, `\b` matches a word boundary and `\.` matches a literal dot — e.g. `(?i)\bHDTS\b` or `\.CAM\.`.
+
+**Each filter has a source:** **Both** (default), **Debrid** or **Usenet**. A filter only applies to results of that type — for example, filter out generic `WEB-DL` releases for **Debrid** only so those come from Usenet, while still allowing them from Usenet.
+
+See the [example 1080p version](../getting-started/configure.md#example-a-tuned-1080p-version) for a full, importable filter list.
+
 ---
 
 ## Language settings
@@ -133,6 +139,7 @@ Use these to require or exclude specific words in torrent titles.
 | **Language Code** | `en` | Preferred language (ISO 639-1 code, e.g. `en`, `fr`, `ja`) |
 | **Enable Spanish Episode Parsing** | Off | Converts Spanish episode naming (`Cap.XXYY`) to standard format |
 | **Use Alternative Titles** | Off | Search using translated/alias titles for international content |
+| **Foreign Language Penalty** | `30` | Score penalty for releases tagged with a different **audio** language than the Language Code (e.g. `GERMAN` for an `en` version), multiplied by Language Weight. Subtitle-only tags (e.g. `SWESUB`, `VOSTFR`) and multi-audio releases (`MULTi`, `Dual Audio`) aren't penalised. Set `0` to turn off. |
 
 ---
 
@@ -154,6 +161,11 @@ Use these to require or exclude specific words in torrent titles.
 | **Fallback Version** | None | If no results are found for this version, try this other version instead |
 
 **Example:** Set a `4K` version's fallback to `1080p` — cli_debrid first looks for 4K, and if nothing is found, tries 1080p.
+
+| Setting | Default | Description |
+|---|---|---|
+| **Fallback At Scrape Time** | Off | Normally the fallback is only tried after this version has used up its retries and the item is blacklisted (which can take a day or more). With this on, the fallback is tried as soon as a scrape finds nothing; if the fallback finds results, the original item is blacklisted and the fallback item takes over. |
+| **Fallback After Attempts** | `0` | With Fallback At Scrape Time on: how many failed scrapes before trying the fallback. `0` or `1` = on the first failure. |
 
 ---
 

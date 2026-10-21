@@ -32,6 +32,6 @@ CLI_Debrid integrates with a number of external services. Some are required, oth
 | Integration | Purpose |
 |---|---|
 | [Jellyfin](jellyfin.md) | Alternative to Plex |
-| [Trakt](trakt.md) | Content source (watchlist, lists, collection) and metadata fallback if no TVDB key is set |
-| [Bazarr](bazarr.md) | Automatic subtitle downloading |
-| [TMDB](tmdb.md) | Poster art, Discover page, trending content |
+| [Trakt](../configuration/additional.md#trakt) | Content source (watchlist, lists, collection) and metadata fallback if no TVDB key is set |
+| [Bazarr](../configuration/additional.md#bazarr-integration) | Automatic subtitle downloading |
+| [TMDB](../configuration/additional.md#tmdb) | Poster art, Discover page, trending content |
