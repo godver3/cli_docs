@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/features/task-manager/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/features/task-manager/">
       
       
         <link rel="prev" href="../calendar/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3505,25 +3505,19 @@
 <td><strong>Repair Broken NZBs</strong></td>
 <td>6h</td>
 <td>No</td>
-<td>Detects broken NZB downloads via Decypharr's health API, scrapes replacements, and resubmits. See <a href="../usenet-migration/">Usenet Migration</a>.</td>
+<td>Detects broken NZB downloads via cli_mount's health API, scrapes replacements, and resubmits. See <a href="../usenet-migration/">Usenet Migration</a>.</td>
 </tr>
 <tr>
-<td><strong>Plex Stuck Files</strong></td>
-<td>5m</td>
-<td>No</td>
-<td>Detects Plex items stuck in a scanning loop and removes them. 5m is good when actively adding content; reduce to 1h once your library is settled. Requires Plex configured.</td>
+<td><strong>Overlay Sync</strong></td>
+<td>1h</td>
+<td>When overlays are enabled</td>
+<td>Generates and uploads overlay posters to Plex. A separate <strong>Overlay Cleanup</strong> task runs every 24h.</td>
 </tr>
 <tr>
-<td><strong>Overlays</strong></td>
+<td><strong>Upgrade Hub Scan</strong></td>
 <td>24h</td>
 <td>No</td>
-<td>Generates and uploads overlay posters to Plex.</td>
-</tr>
-<tr>
-<td><strong>Upgrade Hub</strong></td>
-<td>6h</td>
-<td>No</td>
-<td>Checks collected items against upgrade criteria and triggers scrapes for better versions.</td>
+<td>Checks collected items against upgrade criteria. A separate <strong>Upgrade Hub Auto Queue</strong> task (24h, off by default) queues the upgrades.</td>
 </tr>
 </tbody>
 </table>
@@ -3540,14 +3534,14 @@
 <tbody>
 <tr>
 <td><strong>Check Plex Files</strong></td>
-<td>5m</td>
-<td>Yes</td>
-<td>Verifies that Collecting items exist on the Plex mount and marks them Collected.</td>
+<td>1m</td>
+<td>Yes (Plex mode)</td>
+<td>Verifies that Checking items exist on the Plex mount and marks them Collected.</td>
 </tr>
 <tr>
-<td><strong>Library Maintenance</strong></td>
-<td>24h</td>
-<td>Yes</td>
+<td><strong>Run Library Maintenance</strong></td>
+<td>12h</td>
+<td>No — enable with <strong>Enable Library Maintenance Task</strong> (Advanced Settings); on by default in the lite environment</td>
 <td>Cleans up stale entries, repairs missing metadata, and syncs the library state.</td>
 </tr>
 </tbody>

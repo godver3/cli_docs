@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/integrations/cli_mount/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/integrations/cli_mount/">
       
       
         <link rel="prev" href="../decypharr/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -1657,6 +1657,56 @@
     <span class="md-ellipsis">
       
         Content routing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-symlink-mode-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: symlink mode setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plex-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plex page
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plex page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-episode-prewarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next-episode prewarm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playback-protection-usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playback protection (Usenet)
       
     </span>
   </a>
@@ -3630,6 +3680,56 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#example-symlink-mode-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: symlink mode setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plex-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plex page
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plex page">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#next-episode-prewarm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next-episode prewarm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playback-protection-usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Playback protection (Usenet)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3824,7 +3924,7 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8888:8888/tcp"</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">"8282:8282/tcp"</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/debrid:/mnt:rw,shared</span><span class="w">     </span><span class="c1"># (1)</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/cache:/cache:rw</span><span class="w"> </span><span class="c1"># (2)</span>
@@ -3858,7 +3958,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>--pids-limit<span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--privileged<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>-e<span class="w"> </span><span class="nv">TZ</span><span class="o">=</span><span class="s2">"America/New_York"</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="s1">'8888:8888/tcp'</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span>-p<span class="w"> </span><span class="s1">'8282:8282/tcp'</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span>-v<span class="w"> </span><span class="s1">'/path/to/debrid'</span>:<span class="s1">'/mnt'</span>:<span class="s1">'rw,shared'</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span>-v<span class="w"> </span><span class="s1">'/path/to/cache'</span>:<span class="s1">'/cache'</span>:<span class="s1">'rw'</span><span class="w"> </span><span class="se">\</span>
 <a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span>-v<span class="w"> </span><span class="s1">'/path/to/appdata'</span>:<span class="s1">'/app'</span>:<span class="s1">'rw'</span><span class="w"> </span><span class="se">\</span>
@@ -3895,7 +3995,7 @@
 <tbody>
 <tr>
 <td>Port</td>
-<td><code>8888</code></td>
+<td><code>8282</code> (cli_mount's default)</td>
 </tr>
 <tr>
 <td>rclone</td>
@@ -3953,7 +4053,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>cli_mount
 </code></pre></div>
 <h3 id="step-3-create-configjson">Step 3 — Create config.json<a class="headerlink" href="#step-3-create-configjson" title="Permanent link">¶</a></h3>
-<p>Create a <code>config.json</code> in your appdata folder. The web UI at <code>http://YOUR_SERVER_IP:8888</code> can also be used to generate this after first run — see <a href="#configuration">Configuration</a> below.</p>
+<p>Create a <code>config.json</code> in your appdata folder. The web UI at <code>http://YOUR_SERVER_IP:8282</code> can also be used to generate this after first run — see <a href="#configuration">Configuration</a> below.</p>
 <h3 id="step-4-start-cli_mount">Step 4 — Start cli_mount<a class="headerlink" href="#step-4-start-cli_mount" title="Permanent link">¶</a></h3>
 <p>Run the binary, pointing it at your config file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>./cli_mount<span class="w"> </span>--config<span class="w"> </span>/path/to/cli_mount/
@@ -3976,7 +4076,7 @@
 </code></pre></div>
 <h3 id="step-5-verify">Step 5 — Verify<a class="headerlink" href="#step-5-verify" title="Permanent link">¶</a></h3>
 <p>Open the cli_mount web UI to confirm it is running and connected:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>http://YOUR_SERVER_IP:8888
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>http://YOUR_SERVER_IP:8282
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -3995,7 +4095,7 @@
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>chmod<span class="w"> </span>+x<span class="w"> </span>/path/to/appdata/cli_mount/cli_mount
 </code></pre></div>
 <h3 id="step-3-create-configjson_1">Step 3 — Create config.json<a class="headerlink" href="#step-3-create-configjson_1" title="Permanent link">¶</a></h3>
-<p>Create a <code>config.json</code> in <code>/path/to/appdata/cli_mount/</code>. The web UI at <code>http://YOUR_SERVER_IP:8888</code> can also be used to generate and edit settings after first run — see <a href="#configuration">Configuration</a> below.</p>
+<p>Create a <code>config.json</code> in <code>/path/to/appdata/cli_mount/</code>. The web UI at <code>http://YOUR_SERVER_IP:8282</code> can also be used to generate and edit settings after first run — see <a href="#configuration">Configuration</a> below.</p>
 <h3 id="step-4-create-user-scripts">Step 4 — Create User Scripts<a class="headerlink" href="#step-4-create-user-scripts" title="Permanent link">¶</a></h3>
 <p>Go to <strong>Settings → User Scripts</strong> and create the following scripts:</p>
 <p><strong>Script 1 — Start cli_mount</strong> (Schedule: At Startup of Array)</p>
@@ -4017,7 +4117,7 @@
 </div>
 <h3 id="step-5-verify_1">Step 5 — Verify<a class="headerlink" href="#step-5-verify_1" title="Permanent link">¶</a></h3>
 <p>Open the cli_mount web UI to confirm it is running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>http://YOUR_SERVER_IP:8888
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>http://YOUR_SERVER_IP:8282
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -4029,7 +4129,7 @@
 <li>Extract the zip and place <code>cli_mount.exe</code> in a permanent folder (e.g. <code>C:\cli_mount\</code>)</li>
 </ol>
 <h3 id="step-2-create-configjson">Step 2 — Create config.json<a class="headerlink" href="#step-2-create-configjson" title="Permanent link">¶</a></h3>
-<p>Create a <code>config.json</code> in the same folder. The web UI at <code>http://localhost:8888</code> can also be used to generate and edit settings after first run — see <a href="#configuration">Configuration</a> below.</p>
+<p>Create a <code>config.json</code> in the same folder. The web UI at <code>http://localhost:8282</code> can also be used to generate and edit settings after first run — see <a href="#configuration">Configuration</a> below.</p>
 <h3 id="step-3-run-cli_mount">Step 3 — Run cli_mount<a class="headerlink" href="#step-3-run-cli_mount" title="Permanent link">¶</a></h3>
 <p>Open a terminal in the folder and run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">.\</span><span class="n">cli_mount</span><span class="p">.</span><span class="n">exe</span> <span class="p">-</span><span class="n">-config</span> <span class="n">C</span><span class="p">:\</span><span class="n">cli_mount</span><span class="p">\</span>
@@ -4043,14 +4143,14 @@
 <p>Alternatively, use <strong>Task Scheduler</strong> to create a task that runs <code>cli_mount.exe</code> at logon with the config argument.</p>
 <h3 id="step-5-verify_2">Step 5 — Verify<a class="headerlink" href="#step-5-verify_2" title="Permanent link">¶</a></h3>
 <p>Open the cli_mount web UI to confirm it is running:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>http://localhost:8888
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>http://localhost:8282
 </code></pre></div>
 </div>
 </div>
 </div>
 <hr>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">¶</a></h2>
-<p>cli_mount is configured via a <code>config.json</code> file placed in your appdata folder (<code>/app</code> inside the container). The web UI at <code>http://YOUR_SERVER_IP:8888</code> can also be used to edit settings after first run.</p>
+<p>cli_mount is configured via a <code>config.json</code> file placed in your appdata folder (<code>/app</code> inside the container). The web UI at <code>http://YOUR_SERVER_IP:8282</code> can also be used to edit settings after first run.</p>
 <h3 id="debrid-provider">Debrid provider<a class="headerlink" href="#debrid-provider" title="Permanent link">¶</a></h3>
 <p>Add your Real-Debrid API key and tune the connection settings:</p>
 <table>
@@ -4314,7 +4414,15 @@
 </div>
 </div>
 <h3 id="content-routing">Content routing<a class="headerlink" href="#content-routing" title="Permanent link">¶</a></h3>
-<p>cli_mount sorts incoming torrents into subfolders using <code>custom_folders</code>. Each folder has regex filters that match against the torrent name and file list:</p>
+<p>cli_mount can sort incoming torrents and NZBs into extra subfolders using <code>custom_folders</code> (shown as <strong>virtual folders</strong> in the UI). Each folder has regex filters that match against the release name and its file list. Everything is always available in <code>__all__</code> as well.</p>
+<div class="admonition info">
+<p class="admonition-title">Do you need content routing?</p>
+<ul>
+<li><strong>Plex mode — yes.</strong> Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a <em>Movies</em> library on <code>Movies/</code> and a <em>TV</em> library on <code>TV Shows/</code>).</li>
+<li><strong>Symlink mode — optional.</strong> cli_debrid builds its own organised folder tree from <code>__all__</code>, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the <a href="#example-symlink-mode-setup">symlink mode example</a> below.</li>
+</ul>
+</div>
+<p>The default filters below create <code>shows</code>, <code>movies</code> and <code>default</code> folders. Name them whatever you like — the example further down uses <code>TV Shows</code> and <code>Movies</code>.</p>
 <h4 id="shows">shows<a class="headerlink" href="#shows" title="Permanent link">¶</a></h4>
 <table>
 <thead>
@@ -4373,20 +4481,240 @@
 </tbody>
 </table>
 <p>The <code>categories</code> setting (<code>sonarr</code>, <code>radarr</code>) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.</p>
-<p><code>default_download_action: symlink</code> makes cli_mount create symlinks into the mount rather than downloading files — this is required for cli_debrid to work correctly.</p>
+<p><code>default_download_action</code> decides what cli_mount does once a download is ready: <strong>Create Symlink</strong> (<code>symlink</code>, the default), <strong>Create STRM Files</strong>, <strong>Download Files</strong>, or <strong>No Action</strong> (<code>none</code>). cli_debrid doesn't use any of these outputs — it finds files in the mount itself — so <code>none</code> avoids a second, unused set of links in cli_mount's download folder. <code>symlink</code> also works. Don't use <strong>Download Files</strong>, which copies everything to local disk.</p>
+<h3 id="example-symlink-mode-setup">Example: symlink mode setup<a class="headerlink" href="#example-symlink-mode-setup" title="Permanent link">¶</a></h3>
+<p>A working cli_mount + cli_debrid setup using <strong>symlink mode</strong>, with Real-Debrid and Usenet together. Paths are examples — adjust them to your system.</p>
+<p><strong>What the mount looks like</strong> (host path <code>/path/to/debrid</code>, mapped to <code>/mnt</code> in cli_mount):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>/path/to/debrid/
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>  __all__/      ← every file, debrid and Usenet (cli_debrid reads from here)
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>  Movies/       ← virtual folder: movies only
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>  TV Shows/     ← virtual folder: TV only
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>  torrents/     ← debrid content
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>  nzbs/         ← Usenet content
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>  RD/           ← one folder per debrid account, named after it
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>  __bad__/      ← entries cli_mount flagged as broken
+</code></pre></div>
+<p><strong>cli_mount — General settings</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default download action</td>
+<td><code>none</code> (No Action)</td>
+<td>cli_debrid makes its own symlinks</td>
+</tr>
+<tr>
+<td>Folder naming</td>
+<td><code>filename</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Download folder</td>
+<td><code>/app/downloads</code></td>
+<td>Unused with <em>No Action</em>, but must be set</td>
+</tr>
+<tr>
+<td>Allowed file types</td>
+<td><code>mkv, mp4, m4v, avi, mov, mpg, mpeg</code></td>
+<td>Only video files show up in the mount (no <code>.nfo</code>, images or archives)</td>
+</tr>
+<tr>
+<td>Remove stalled after</td>
+<td><code>10m</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Virtual folders</td>
+<td><code>Movies</code>, <code>TV Shows</code> (filters from <a href="#content-routing">Content routing</a>)</td>
+<td>Optional in symlink mode — for easier browsing</td>
+</tr>
+</tbody>
+</table>
+<p><strong>cli_mount — Mount settings (DFS)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td><code>dfs</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Mount path</td>
+<td><code>/mnt</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cache directory</td>
+<td><code>/app_cache</code></td>
+<td>Map a fast disk with plenty of space here</td>
+</tr>
+<tr>
+<td>Disk cache size</td>
+<td><code>100GB</code></td>
+<td>Larger cache = fewer re-downloads when rewatching</td>
+</tr>
+<tr>
+<td>Cache expiry</td>
+<td><code>2h</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Cache cleanup interval</td>
+<td><code>1m</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Chunk size</td>
+<td><code>8MB</code></td>
+<td></td>
+</tr>
+<tr>
+<td>Read ahead size</td>
+<td><code>32MB</code></td>
+<td></td>
+</tr>
+<tr>
+<td>UID / GID / umask</td>
+<td><code>1000</code> / <code>1000</code> / <code>002</code></td>
+<td>Match the user your media server runs as</td>
+</tr>
+</tbody>
+</table>
+<p><strong>cli_debrid — Settings → Required Settings → File Management</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File Collection Management</td>
+<td><code>Symlinked/Local</code></td>
+</tr>
+<tr>
+<td>Original Files Path</td>
+<td><code>/path/to/debrid/__all__</code></td>
+</tr>
+<tr>
+<td>Symlinked Files Path</td>
+<td><code>/path/to/symlinks</code> — point your Plex/Jellyfin libraries here</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Same paths everywhere</p>
+<p>cli_debrid and your media server must see the mount and the symlink folder at the <strong>same paths</strong> cli_debrid uses above, or the symlinks show up broken.</p>
+</div>
+<hr>
+<h2 id="plex-page">Plex page<a class="headerlink" href="#plex-page" title="Permanent link">¶</a></h2>
+<p>cli_mount's <strong>Plex</strong> page (in the main menu) connects cli_mount to your Plex server. It reads Plex's own list of what's playing (<code>/status/sessions</code>), so only real Plex viewers count — library scans, Bazarr, cli_debrid's checks and repairs don't. It powers two features, both optional.</p>
+<p><strong>Plex connection</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Plex Server URL</strong></td>
+<td>Must be reachable <em>from cli_mount</em> (not necessarily from your browser), e.g. <code>http://192.168.1.x:32400</code></td>
+</tr>
+<tr>
+<td><strong>Plex Token</strong></td>
+<td>Your Plex token — <a href="../../getting-started/configure/#finding-your-plex-token">how to find it</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="next-episode-prewarm">Next-episode prewarm<a class="headerlink" href="#next-episode-prewarm" title="Permanent link">¶</a></h3>
+<p>When someone watching in Plex passes about <strong>70%</strong> of an episode, cli_mount fetches the first ~20% of the next episode into the cache, so it starts quickly if they keep watching.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enable next-episode prewarm</strong></td>
+<td>Off by default. Uses extra bandwidth and cache space, which only pays off if people keep watching.</td>
+</tr>
+<tr>
+<td><strong>Prewarm size cap</strong></td>
+<td>Max bytes fetched per prewarm. Blank = 256MB.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="playback-protection-usenet">Playback protection (Usenet)<a class="headerlink" href="#playback-protection-usenet" title="Permanent link">¶</a></h3>
+<p>Reserves Usenet (NNTP) connections for people actually watching while bulk imports are running, so a big batch of new downloads doesn't make active streams buffer. When nothing is importing, playback uses the full pool.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Protect Plex streams during playback</strong></td>
+<td>Turns protection on. Needs the Plex URL and token above — without them it does nothing.</td>
+</tr>
+<tr>
+<td><strong>Per-stream reserve (% of pool)</strong></td>
+<td>Connections reserved per confirmed Plex stream: <code>round(total × percent ÷ 100)</code>, minimum 6</td>
+</tr>
+<tr>
+<td><strong>Max total protected</strong></td>
+<td>Upper limit on connections reserved across all streams</td>
+</tr>
+<tr>
+<td><strong>Detect bytes</strong> / <strong>Detect window</strong></td>
+<td>How much sustained reading within the window counts as playback before the reserve kicks in</td>
+</tr>
+<tr>
+<td><strong>Idle timeout</strong></td>
+<td>Leave reserve mode after this long with no qualifying reads</td>
+</tr>
+<tr>
+<td><strong>Pre-cache on open</strong></td>
+<td>Starts caching a file as soon as it's opened; throttled to the background budget while protection is active</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Playback protection only affects <strong>Usenet</strong> streams. For debrid-only setups, only next-episode prewarm applies.</p>
+</div>
 <hr>
 <h2 id="configuring-cli_debrid">Configuring cli_debrid<a class="headerlink" href="#configuring-cli_debrid" title="Permanent link">¶</a></h2>
 <p>In cli_debrid settings, set <strong>Original Files Path</strong> to the host path where your debrid library is mounted:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>/path/to/debrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>/path/to/debrid
 </code></pre></div>
 <p>This is the same path Plex uses — cli_debrid follows symlinks back to this location to check file existence and build its own symlinks.</p>
 <hr>
 <h2 id="verify-the-setup">Verify the setup<a class="headerlink" href="#verify-the-setup" title="Permanent link">¶</a></h2>
 <p>Check the mount is populated:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ls<span class="w"> </span>/path/to/debrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>ls<span class="w"> </span>/path/to/debrid
 </code></pre></div>
 <p>You should see your content folders from Real-Debrid. Open the web UI to confirm cli_mount is connected:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>http://YOUR_SERVER_IP:8888
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>http://YOUR_SERVER_IP:8282
 </code></pre></div>
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
@@ -4398,7 +4726,7 @@
 </ul>
 <p><strong>"Transport endpoint is not connected"</strong></p>
 <p>The FUSE mount dropped. Restart the container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>cli_mount
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>cli_mount
 </code></pre></div>
 <p><strong>DFS: files appear but won't play smoothly</strong></p>
 <p>Increase <code>read_ahead_size</code> (e.g. <code>256MB</code>) or switch to rclone mode.</p>
@@ -4423,7 +4751,7 @@
 </tr>
 <tr>
 <td><strong>URL</strong></td>
-<td>cli_mount base URL (e.g. <code>http://cli_mount:8888</code>)</td>
+<td>cli_mount base URL (e.g. <code>http://cli_mount:8282</code>)</td>
 </tr>
 <tr>
 <td><strong>API Token</strong></td>

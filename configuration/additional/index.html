@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/additional/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/additional/">
       
       
         <link rel="prev" href="../required/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3631,8 +3631,8 @@
 <td>Your TMDB API key — enables poster art, discover, and trending features</td>
 </tr>
 <tr>
-<td><strong>Enable Discovery</strong></td>
-<td>Show the Discover page powered by TMDB</td>
+<td><strong>Certification Region</strong></td>
+<td>Which country's age ratings to show (e.g. US: <code>R</code>, <code>PG-13</code> · GB: <code>15</code>, <code>12A</code> · CA: <code>14A</code>, <code>18A</code>). Default <code>US</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -3796,6 +3796,11 @@
 <td><code>0</code></td>
 <td>Days before a movie's release date to start scraping. Set to <code>0</code> to disable.</td>
 </tr>
+<tr>
+<td><strong>Queue Pool Workers</strong></td>
+<td><code>2</code></td>
+<td>How many queue items (scraping, adding, checking…) are processed in parallel. <code>1</code> for slow/older machines, <code>2</code> for normal, <code>3</code> for fast ones. Also adjustable from the <strong>Queues</strong> page. Takes effect on save, no restart needed.</td>
+</tr>
 </tbody>
 </table>
 <hr>
@@ -3854,8 +3859,13 @@
 <td>Add shows and movies to the ghostlist when deleted to prevent them from being re-added. When enabled, deleting content marks it as ghosted in the database. When disabled, deleted content can be re-added by dynamic content sources.</td>
 </tr>
 <tr>
+<td><strong>Hide Season 0</strong></td>
+<td>On</td>
+<td>Hide the Specials (Season 0) tab on show pages</td>
+</tr>
+<tr>
 <td><strong>Remove From Content Sources</strong></td>
-<td>Off</td>
+<td>On</td>
 <td>Remove items from content sources (Trakt lists, Overseerr requests, Plex Watchlist, etc.) during deletion. Prevents items from being automatically re-added, but makes deletion slower. <strong>Tip:</strong> Enable when Ghostlist Mode is OFF. Disable when Ghostlist Mode is ON — ghostlist already prevents re-addition and disabling makes deletion much faster.</td>
 </tr>
 </tbody>
@@ -3889,6 +3899,11 @@
 <td>Only show items not already in your library</td>
 </tr>
 <tr>
+<td><strong>Hide Specials</strong></td>
+<td>On</td>
+<td>Hide Season 0 (Specials) from the season list on Discover details pages</td>
+</tr>
+<tr>
 <td><strong>TV Show Episode View</strong></td>
 <td><code>discover</code></td>
 <td>Where to navigate when clicking a TV show not in the library — <code>discover</code> (details page) or <code>add_media</code></td>
@@ -3920,6 +3935,11 @@
 <td><strong>Overlay Content Check Interval (days)</strong></td>
 <td><code>7</code></td>
 <td>How often to re-fetch ratings and show status to detect changes that should trigger an overlay refresh. Set to <code>0</code> to check on every sync run.</td>
+</tr>
+<tr>
+<td><strong>Textless Posters</strong></td>
+<td>Off</td>
+<td>Use a language-neutral (textless) TMDB poster as the base image; add the title with the <strong>Title Logo</strong> badge in the layout editor. Falls back to the normal poster when TMDB has no textless one.</td>
 </tr>
 <tr>
 <td><strong>Sync Items Per Run</strong></td>
@@ -3959,6 +3979,11 @@
 <td><strong>Spoofed Version</strong></td>
 <td><code>5.14.0.9383</code></td>
 <td>Version string reported to Bazarr</td>
+</tr>
+<tr>
+<td><strong>Delete Subtitles On Removal</strong></td>
+<td>On</td>
+<td>When media is deleted, also delete subtitle files (<code>.srt</code>, <code>.ass</code>, <code>.sub</code>…) Bazarr left in the symlink folder</td>
 </tr>
 </tbody>
 </table>
@@ -4104,6 +4129,26 @@
 <td><strong>Probe for Embedded Subtitles</strong></td>
 <td>Off</td>
 <td>Use ffprobe to check for embedded subtitles before searching externally</td>
+</tr>
+<tr>
+<td><strong>Subtitle Providers</strong></td>
+<td>all four</td>
+<td>Which providers to search: <code>opensubtitles</code>, <code>opensubtitlescom</code>, <code>podnapisi</code>, <code>tvsubtitles</code></td>
+</tr>
+<tr>
+<td><strong>Include AI Translated Subtitles</strong></td>
+<td>On</td>
+<td>Include AI-translated subtitles — broader language coverage, sometimes lower quality</td>
+</tr>
+<tr>
+<td><strong>Apply To Movies</strong> / <strong>Apply To TV Shows</strong></td>
+<td>On</td>
+<td>Which folders get subtitles. Matching toggles exist for anime and documentary movie/TV folders (when those separate folders are enabled).</td>
+</tr>
+<tr>
+<td><strong>User Agent</strong></td>
+<td><code>SubDownloader/1.0 (…)</code></td>
+<td>User agent sent to subtitle APIs — put your own contact email in it</td>
 </tr>
 </tbody>
 </table>

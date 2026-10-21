@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/content-sources/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/content-sources/">
       
       
         <link rel="prev" href="../versions/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3616,7 +3616,7 @@
 <h1 id="content-sources">Content Sources<a class="headerlink" href="#content-sources" title="Permanent link">¶</a></h1>
 <p>Content sources tell cli_debrid <strong>what to download</strong>. Each source you enable is checked automatically on every processing cycle — any new items are added to the Wanted queue.</p>
 <p>You can have multiple sources active at the same time.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/content-sources-overview.png" data-desc-position="bottom"><img alt="Content sources settings page" src="../../assets/screenshots/configuration/content-sources-overview.png"></a></p>
+<p></p>
 <hr>
 <h2 id="common-settings-all-sources">Common settings (all sources)<a class="headerlink" href="#common-settings-all-sources" title="Permanent link">¶</a></h2>
 <p>Every content source shares these settings regardless of type:</p>
@@ -3757,7 +3757,7 @@
 <td>A friend's Trakt watchlist</td>
 </tr>
 <tr>
-<td><a href="#seerr--seerr">Seerr</a></td>
+<td><a href="#seerr">Seerr</a></td>
 <td>Approved requests from Seerr</td>
 </tr>
 <tr>
@@ -3951,7 +3951,7 @@
 </tr>
 <tr>
 <td><strong>Allow Partial Requests</strong></td>
-<td>Allow partial show requests from Seerr (e.g. individual seasons rather than the full series). Default: off.</td>
+<td>Allow partial show requests from Seerr (e.g. individual seasons rather than the full series). Default: off. <em>Set globally under <strong>Settings → Advanced Settings</strong> (Allow Partial Overseerr Requests), not per source.</em></td>
 </tr>
 </tbody>
 </table>
@@ -4099,7 +4099,7 @@
 <h2 id="plex-watch-history">Plex Watch History<a class="headerlink" href="#plex-watch-history" title="Permanent link">¶</a></h2>
 <p>Monitors your Plex watch history and adds watched items to cli_debrid's wanted queue — useful for automatically tracking content you've already watched so it can be collected or upgraded.</p>
 <p>Sync pulls from <strong>both your Plex account history and your server libraries</strong> using batch processing. IMDb IDs are resolved via Trakt as a fallback when Plex metadata doesn't provide them directly.</p>
-<p><strong>Setup:</strong> Enable and configure <strong>Media Type</strong> and <strong>Versions</strong>. A Plex connection must be configured in <strong>Settings → Integrations → Plex</strong>.</p>
+<p><strong>Setup:</strong> Enable and configure <strong>Media Type</strong> and <strong>Versions</strong>. A Plex connection must be configured in <strong>Settings → Required Settings</strong> (Plex section).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To prevent watch history items from being re-added to the queue (e.g. if you want to watch without collecting), enable <strong>Do Not Add Plex Watch History Items To Queue</strong> in <strong>Settings → Advanced Settings</strong>.</p>
@@ -4276,7 +4276,7 @@
 <p class="admonition-title">Use Min Votes to avoid junk</p>
 <p>Setting <strong>Min Votes</strong> to at least <code>100</code>–<code>500</code> filters out obscure or low-quality items that have very few ratings.</p>
 </div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/content-sources-adaptive-filters.png" data-desc-position="bottom"><img alt="Adaptive list filter builder" src="../../assets/screenshots/configuration/content-sources-adaptive-filters.png"></a></p>
+<p></p>
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <p><strong>Source is enabled but nothing is being downloaded</strong></p>

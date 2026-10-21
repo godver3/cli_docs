@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/scrapers/prowlarr/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/scrapers/prowlarr/">
       
       
         <link rel="prev" href="../jackett/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3250,7 +3250,7 @@
 
 
 <h1 id="prowlarr">Prowlarr<a class="headerlink" href="#prowlarr" title="Permanent link">¶</a></h1>
-<p>Prowlarr is an indexer manager that integrates with the <em>arr ecosystem (Radarr, Sonarr, etc.) and also works standalone with CLI_Debrid. It's an alternative to Jackett with a more modern UI and native </em>arr sync.</p>
+<p>Prowlarr is an indexer manager that integrates with the *arr ecosystem (Radarr, Sonarr, etc.) and also works standalone with CLI_Debrid. It's an alternative to Jackett with a more modern UI and native *arr sync.</p>
 <hr>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">¶</a></h2>
 <ul>
@@ -3288,7 +3288,7 @@
 <li>Go to <strong>Settings → General</strong></li>
 <li>Copy the <strong>API Key</strong></li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/scrapers/prowlarr-api-key.png" data-desc-position="bottom"><img alt="Prowlarr API key location" src="../../assets/screenshots/scrapers/prowlarr-api-key.png"></a></p>
+<p></p>
 <hr>
 <h2 id="add-prowlarr-to-cli_debrid">Add Prowlarr to CLI_Debrid<a class="headerlink" href="#add-prowlarr-to-cli_debrid" title="Permanent link">¶</a></h2>
 <ol>
@@ -3311,6 +3311,14 @@
 <tr>
 <td><strong>API Key</strong></td>
 <td>Copied from Prowlarr → Settings → General</td>
+</tr>
+<tr>
+<td><strong>Tags</strong></td>
+<td>Optional. Comma-separated numeric Prowlarr <strong>indexer IDs</strong> — searches through this Prowlarr only use those indexers</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>Scraper priority score — higher wins when results are otherwise similar</td>
 </tr>
 </tbody>
 </table>

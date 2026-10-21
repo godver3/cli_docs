@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/scrapers/jackett/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/scrapers/jackett/">
       
       
         <link rel="prev" href="../aiostreams/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3311,7 +3311,7 @@
 <li>Click <strong>Add Indexer</strong> and add the trackers you want</li>
 <li>
 <p>Note your <strong>API Key</strong> — shown at the top right of the Jackett dashboard</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/scrapers/jackett-dashboard.png" data-desc-position="bottom"><img alt="Jackett dashboard showing API key" src="../../assets/screenshots/scrapers/jackett-dashboard.png"></a></p>
+<p></p>
 </li>
 </ol>
 <hr>
@@ -3338,18 +3338,23 @@
 <td>Copied from the Jackett dashboard</td>
 </tr>
 <tr>
-<td><strong>Seeders Only</strong></td>
-<td>☑ Recommended — skip results with no seeders</td>
+<td><strong>Enabled Indexers</strong></td>
+<td>Optional. Comma-separated Jackett indexer IDs to search; leave empty to search all of them</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>Scraper priority score — higher wins when results are otherwise similar</td>
 </tr>
 </tbody>
 </table>
+<p>To skip results with no seeders, turn on <strong>Jackett Seeders Only</strong> under <strong>Settings → Version Settings → Other Scraping Settings</strong> (a global setting, off by default).</p>
 </li>
 <li>
 <p>Toggle <strong>Enabled</strong> on</p>
 </li>
 <li>Click <strong>Save Settings</strong></li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/scrapers/jackett-settings.png" data-desc-position="bottom"><img alt="Jackett scraper settings in CLI_Debrid" src="../../assets/screenshots/scrapers/jackett-settings.png"></a></p>
+<p></p>
 <hr>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
 <ul>

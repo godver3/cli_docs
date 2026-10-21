@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/required/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/required/">
       
       
         <link rel="prev" href="../ui-settings/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -2058,6 +2058,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#more-debrid-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More debrid options
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2110,6 +2121,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="File Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-file-management-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More file management options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3178,6 +3206,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#more-debrid-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More debrid options
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3230,6 +3269,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="File Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#more-file-management-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        More file management options
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3319,7 +3375,7 @@
 
 <h1 id="required-settings">Required Settings<a class="headerlink" href="#required-settings" title="Permanent link">¶</a></h1>
 <p>These settings must be configured for cli_debrid to function. They are collected during onboarding and can be updated at any time from <strong>Settings → Required Settings</strong>.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/required-settings.png" data-desc-position="bottom"><img alt="Required settings tab" src="../../assets/screenshots/configuration/required-settings.png"></a></p>
+<p></p>
 <hr>
 <h2 id="debrid-provider">Debrid Provider<a class="headerlink" href="#debrid-provider" title="Permanent link">¶</a></h2>
 <table>
@@ -3365,6 +3421,33 @@
 <h3 id="fallback-providers">Fallback Providers<a class="headerlink" href="#fallback-providers" title="Permanent link">¶</a></h3>
 <p>You can configure additional fallback debrid providers. When the primary provider fails — due to rate limits, DMCA blocks, or errors — cli_debrid automatically tries the next provider in order.</p>
 <p>Click <strong>Add Fallback Provider</strong> in the Debrid Provider section to add a fallback. Each fallback has its own provider selection and API key. Fallbacks are tried in the order they are listed.</p>
+<h3 id="more-debrid-options">More debrid options<a class="headerlink" href="#more-debrid-options" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ffprobe All Debrid Additions</strong></td>
+<td>Before collecting a debrid file, open it with <code>ffprobe</code> to confirm it plays, on top of the normal checks. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower.</td>
+</tr>
+<tr>
+<td><strong>Enable Debrid Naming</strong></td>
+<td><em>cli_mount only.</em> Rename debrid entries in cli_mount's DFS mount to <code>{title} ({year}) - {imdb-id} - {version} - (original)</code> for movies and <code>{title} ({year}) - SxxExx - {episode title} - {imdb-id} - {version} - (original)</code> for episodes. Only the entry in cli_mount is renamed. Needs cli_mount configured as the Usenet provider (URL set).</td>
+</tr>
+<tr>
+<td>↳ <strong>Include Version In Debrid Naming</strong></td>
+<td>Add the version to the name. On by default.</td>
+</tr>
+<tr>
+<td>↳ <strong>Include Content Source In Debrid Naming</strong></td>
+<td>Add the content source's display name. Off by default.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="plex-jellyfin">Plex / Jellyfin<a class="headerlink" href="#plex-jellyfin" title="Permanent link">¶</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex</label><label for="__tabbed_2_2">Jellyfin / Emby</label></div>
@@ -3400,6 +3483,24 @@
 <p class="admonition-title">Using library IDs</p>
 <p>You can use either the library name or its numeric ID. To find the ID, open your Plex library in the browser — the <code>source=</code> value at the end of the URL is the library ID. For example, <code>source=1</code> means the library ID is <code>1</code>.</p>
 </div>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Update Plex On File Discovery</strong></td>
+<td>Tell Plex to scan as soon as a file is found on the mount. cli_debrid must be able to read the mount at the <strong>Mounted File Location</strong>.</td>
+</tr>
+<tr>
+<td><strong>Disable Plex Library Checks</strong></td>
+<td>A "local only" mode for third-party symlinking: cli_debrid confirms files using the <strong>Mounted File Location</strong> instead of asking Plex. With no location set, items are marked Collected as soon as they're added.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="finding-your-plex-token">Finding your Plex token<a class="headerlink" href="#finding-your-plex-token" title="Permanent link">¶</a></h3>
 <ol>
 <li>Open <a href="https://app.plex.tv" target="_blank" rel="noopener">Plex Web</a> and browse to any media item</li>
@@ -3461,8 +3562,9 @@
 <li>No symlinks needed</li>
 <li>Plex must be able to read the mount path</li>
 </ul>
-<p><strong>Mounted File Location:</strong> Set to your debrid mount path, e.g.:</p>
+<p><strong>Mounted File Location:</strong> Set to your mount path, e.g.:</p>
 <ul>
+<li>cli_mount: <code>/path/to/debrid/__all__</code></li>
 <li>Zurg: <code>/mnt/zurg/__all__</code></li>
 <li>Decypharr: <code>/mnt/decypharr/__all__</code></li>
 </ul>
@@ -3484,7 +3586,7 @@
 <tbody>
 <tr>
 <td><strong>Original files path</strong></td>
-<td>Your debrid mount path (e.g. <code>/mnt/zurg/__all__</code> for Zurg, <code>/mnt/decypharr/__all__</code> for Decypharr)</td>
+<td>Your mount path (e.g. <code>/path/to/debrid/__all__</code> for cli_mount, <code>/mnt/zurg/__all__</code> for Zurg, <code>/mnt/decypharr/__all__</code> for Decypharr)</td>
 </tr>
 <tr>
 <td><strong>Symlinked files path</strong></td>
@@ -3512,9 +3614,7 @@ If the paths differ between containers, symlinks will appear as broken files in 
 <p class="admonition-title">Symlinked/Local mode on Windows</p>
 <p>Windows requires Developer Mode enabled for symlinks. Plex does NOT support symlinks on Windows — use Jellyfin instead.</p>
 </div>
-<hr>
-<h2 id="usenet-provider">Usenet Provider<a class="headerlink" href="#usenet-provider" title="Permanent link">¶</a></h2>
-<p>Optional. Required if you want to use <a href="../../scrapers/newznab/">Newznab scrapers</a> to search Usenet and deliver NZBs via Decypharr.</p>
+<h3 id="more-file-management-options">More file management options<a class="headerlink" href="#more-file-management-options" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -3524,28 +3624,124 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </thead>
 <tbody>
 <tr>
-<td><strong>Enabled</strong></td>
-<td>Turn on Usenet support</td>
+<td><strong>File Collection Management</strong></td>
+<td><code>Plex</code> or <code>Symlinked/Local</code> — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks.</td>
 </tr>
 <tr>
-<td><strong>URL</strong></td>
-<td>Decypharr base URL (e.g. <code>http://decypharr:8888</code> or <code>http://192.168.1.x:8888</code>)</td>
+<td><strong>Symlink Organize By Type</strong></td>
+<td>Put symlinks in separate Movies and TV Shows folders. On by default.</td>
 </tr>
 <tr>
-<td><strong>API Token</strong></td>
-<td>Decypharr API token — found in Decypharr's settings if authentication is enabled</td>
+<td><strong>Symlink Organize By Resolution</strong></td>
+<td>Add a resolution folder (e.g. <code>1080p</code>, <code>2160p</code>) before the type folders.</td>
 </tr>
 <tr>
-<td><strong>Download Folder</strong></td>
-<td>Optional override for the NZB download destination inside Decypharr</td>
+<td><strong>Symlink Organize By Version</strong></td>
+<td>Add a version folder (e.g. <code>Remux</code>, <code>WEB-DL</code>) before the type folders.</td>
 </tr>
 <tr>
-<td><strong>Decypharr Data Path</strong></td>
-<td>Path to Decypharr's data directory <strong>inside the cli_debrid container</strong>. Required for Decypharr DB backup, restore, and cleanup tools. Add <code>- /path/to/appdata/decypharr:/decypharr_data</code> to your cli_debrid docker-compose volumes, then set this to <code>/decypharr_data</code>.</td>
+<td><strong>Media Server Type</strong></td>
+<td><code>plex</code> or <code>jellyfin</code> — which server to notify about new symlinks.</td>
+</tr>
+<tr>
+<td><strong>Plex URL For Symlink</strong> / <strong>Plex Token For Symlink</strong></td>
+<td>The Plex server to scan after creating symlinks (symlink mode).</td>
+</tr>
+<tr>
+<td><strong>Scan Mount For External Adds</strong></td>
+<td>Regularly scan the original files path for content added <em>outside</em> cli_debrid (e.g. via DMM or your debrid provider's website) and import it — symlink it and trigger a scan. Use this if your mount has no library-update hook (cli_mount, Decypharr, plain rclone); Zurg users get this through Zurg's <code>on_library_update</code>. The first run only records what's already there, without importing it.</td>
+</tr>
+<tr>
+<td><strong>Process Non Checking Items</strong></td>
+<td>Also process files reported by the rclone webhook that don't match an item cli_debrid is currently checking.</td>
 </tr>
 </tbody>
 </table>
-<p>See the <a href="../../features/usenet-migration/">Usenet Migration</a> guide for full setup instructions.</p>
+<hr>
+<h2 id="usenet-provider">Usenet Provider<a class="headerlink" href="#usenet-provider" title="Permanent link">¶</a></h2>
+<p>Optional. Needed to download NZBs found by <a href="../../scrapers/newznab/">Newznab scrapers</a>. Works alongside a debrid provider, or on its own (leave the debrid API key empty for a Usenet-only setup).</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enable Usenet</strong></td>
+<td>Turn on Usenet support</td>
+</tr>
+<tr>
+<td><strong>Provider</strong></td>
+<td><code>cli_mount</code> (recommended), <code>NzbDAV</code>, or <code>Zurg</code> (Zurg 2.0's SABnzbd-compatible endpoint)</td>
+</tr>
+<tr>
+<td><strong>Provider URL</strong></td>
+<td>e.g. <code>http://192.168.1.x:8282</code> for cli_mount or <code>:3000</code> for NzbDAV. Use the host IP or container name — <strong>not</strong> <code>localhost</code>, which inside the cli_debrid container points at cli_debrid itself.</td>
+</tr>
+<tr>
+<td><strong>API Token</strong></td>
+<td>Only if your provider has authentication enabled</td>
+</tr>
+<tr>
+<td><strong>Download Folder / Category</strong></td>
+<td>Leave empty for the provider's default</td>
+</tr>
+<tr>
+<td><strong>cli_mount Data Path</strong></td>
+<td>cli_mount's appdata folder as seen <em>inside the cli_debrid container</em> — needed for the cli_mount DB backup, restore and cleanup tools. Add <code>- /path/to/appdata/cli_mount:/climount_data</code> to your cli_debrid volumes and set this to <code>/climount_data</code>.</td>
+</tr>
+<tr>
+<td><strong>Usenet Retention Days</strong></td>
+<td>Ignore NZB results older than this many days. Default <code>5000</code>; <code>0</code> turns it off.</td>
+</tr>
+<tr>
+<td><strong>Disable NZB Season Packs</strong></td>
+<td><strong>On by default — recommended.</strong> Skips NZB season packs (movies aren't affected). One missing article in a season pack fails the whole pack and the repair re-downloads the entire season; per-episode NZBs keep a bad file to one episode.</td>
+</tr>
+<tr>
+<td><strong>Ffprobe All NZBs</strong></td>
+<td>Before collecting an NZB file, open it with <code>ffprobe</code> to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower. Requires <code>ffprobe</code> (included in the Docker image).</td>
+</tr>
+<tr>
+<td><strong>Enable NZB File Naming</strong></td>
+<td>Name NZB jobs as <code>{title} ({year}) - {imdb-id} - {version} - (original)</code> for movies and <code>{title} ({year}) - SxxExx - {episode title} - {imdb-id} - {version} - (original)</code> for episodes, instead of the raw release name.</td>
+</tr>
+<tr>
+<td>↳ <strong>Include Version in NZB Name</strong></td>
+<td>Add the version (e.g. <code>Default</code>, <code>4K Remux</code>) to the name. On by default.</td>
+</tr>
+<tr>
+<td>↳ <strong>Include Content Source in NZB Name</strong></td>
+<td>Add the content source's display name. Off by default.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NzbDAV / Zurg only</strong></p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Repair: Owned Categories</strong></td>
+<td>Comma-separated NzbDAV categories cli_debrid's repair tool may touch. NzbDAV's history is shared with other apps (e.g. Lidarr), so repair must never act on their entries. Leave empty to use the categories cli_debrid itself grabs into.</td>
+</tr>
+<tr>
+<td><strong>Repair: Exclude Categories</strong></td>
+<td>Categories the repair tool must always ignore — e.g. ones Radarr/Sonarr use on the same NzbDAV.</td>
+</tr>
+<tr>
+<td><code>nzbdav_category_map</code></td>
+<td><em>(config file only)</em> Which categories to use and what they're called on your instance, as <code>bucket=name</code> pairs, e.g. <code>movies=movies, shows=shows, fallback=__unplayable__</code>. Omitted buckets fall back to their parent category.</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="../../integrations/cli_mount/#usenet-with-cli_mount">cli_mount</a> and the <a href="../../features/usenet-migration/">Usenet guide</a> for the full setup.</p>
 <div class="admonition info">
 <p class="admonition-title">Trakt is optional</p>
 <p>Trakt used to be listed here as a required setting. It is now an <strong>optional</strong> integration — cli_debrid no longer requires Trakt authorization to start or run the queue. See <a href="../additional/#trakt">Additional Settings → Trakt</a> to configure it.</p>

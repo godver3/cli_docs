@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/features/debrid-manager/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/features/debrid-manager/">
       
       
         <link rel="prev" href="../queues/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3579,7 +3579,7 @@
 </table>
 <p><strong>Columns:</strong> Filename, Progress, Status, Size, Actions</p>
 <p>Select items and use <strong>Delete Selected</strong> for bulk removal, or delete individual items per row.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debrid-manager-active.png" data-desc-position="bottom"><img alt="Active tab" src="../../assets/screenshots/features/debrid-manager-active.png"></a></p>
+<p></p>
 <hr>
 <h2 id="torrents">Torrents<a class="headerlink" href="#torrents" title="Permanent link">¶</a></h2>
 <p>Your full debrid torrent library with pagination.</p>
@@ -3613,14 +3613,14 @@
 <p><strong>Per-item actions:</strong> Delete, Reinsert (re-add to debrid with file selection)</p>
 <p><strong>Bulk actions:</strong> Delete Selected, Delete All Dupes, Reinsert All, Reload Library</p>
 <p>Multi-page selection is supported — use <strong>Select all N matching</strong> to select across pages.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debrid-manager-torrents.png" data-desc-position="bottom"><img alt="Torrents tab" src="../../assets/screenshots/features/debrid-manager-torrents.png"></a></p>
+<p></p>
 <hr>
 <h2 id="tracker">Tracker<a class="headerlink" href="#tracker" title="Permanent link">¶</a></h2>
 <p>A chronological log of every torrent submitted through cli_debrid.</p>
 <p><strong>Columns:</strong> Added (timestamp), Title, Trigger, Rationale, Status</p>
 <p>Filter by title, hash, or trigger using text/regex search.</p>
 <p>Click any row to open the full detail modal — includes item snapshot, selected files, debrid info, and trigger details.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debrid-manager-tracker.png" data-desc-position="bottom"><img alt="Tracker tab" src="../../assets/screenshots/features/debrid-manager-tracker.png"></a></p>
+<p></p>
 <hr>
 <h2 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h2>
 <h3 id="debrid-backup">Debrid Backup<a class="headerlink" href="#debrid-backup" title="Permanent link">¶</a></h3>
@@ -3683,7 +3683,7 @@
 </tbody>
 </table>
 <p>Click <strong>Run Now</strong> to trigger cleanup immediately. See <strong>Task Manager</strong> (linked in the scheduler notice) to configure the cleanup schedule.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debrid-manager-maintenance.png" data-desc-position="bottom"><img alt="Maintenance tab" src="../../assets/screenshots/features/debrid-manager-maintenance.png"></a></p>
+<p></p>
 <hr>
 <h2 id="plex-trash">Plex Trash<a class="headerlink" href="#plex-trash" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -3779,7 +3779,7 @@
 <h2 id="usenet">Usenet<a class="headerlink" href="#usenet" title="Permanent link">¶</a></h2>
 <div class="admonition info">
 <p class="admonition-title">Requires Decypharr</p>
-<p>The Usenet tab is only visible when a Usenet provider (Decypharr) is configured in <strong>Settings → Required Settings → Usenet Provider</strong>.</p>
+<p>The Usenet tab is only visible when a Usenet provider (cli_mount, NzbDAV or Zurg) is configured in <strong>Settings → Required Settings → Usenet Provider</strong>.</p>
 </div>
 <p>Shows the health of your Usenet NZB library and controls the repair engine.</p>
 <h3 id="stats">Stats<a class="headerlink" href="#stats" title="Permanent link">¶</a></h3>
@@ -3793,7 +3793,7 @@
 <tbody>
 <tr>
 <td><strong>Healthy</strong></td>
-<td>NZBs confirmed intact by Decypharr's repair API</td>
+<td>NZBs confirmed intact by the Usenet provider's repair API</td>
 </tr>
 <tr>
 <td><strong>Broken</strong></td>
@@ -3826,7 +3826,7 @@
 <tbody>
 <tr>
 <td><strong>Run Health Scan</strong></td>
-<td>Trigger Decypharr's health scan immediately</td>
+<td>Trigger the Usenet provider's health scan immediately</td>
 </tr>
 <tr>
 <td><strong>View Broken</strong></td>
@@ -3957,7 +3957,7 @@
 </tbody>
 </table>
 <p>Use <strong>Sync to Main DB</strong> to push battery metadata back to the main database.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debrid-manager-audit.png" data-desc-position="bottom"><img alt="Audit tab" src="../../assets/screenshots/features/debrid-manager-audit.png"></a></p>
+<p></p>
 
 
 

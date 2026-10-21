@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/content-sources/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/content-sources/">
       
       
         <link rel="prev" href="../scrapers/">
@@ -705,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -928,6 +928,17 @@
     <span class="md-ellipsis">
       
         MDBList
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scrob
       
     </span>
   </a>
@@ -3199,6 +3210,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#scrob" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scrob
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#verify-its-working" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3308,24 +3330,34 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Trakt Watchlist</strong></td>
-<td>Downloads everything on your Trakt watchlist</td>
-<td>Trakt account (configured in Step 4)</td>
+<td><strong>My Plex Watchlist</strong></td>
+<td>Downloads items from your Plex watchlist</td>
+<td>Plex account (uses your Plex token)</td>
 </tr>
 <tr>
-<td><strong>Trakt Lists</strong></td>
-<td>Follow any public or private Trakt list</td>
-<td>Trakt account</td>
+<td><strong>Plex Friends Watchlist</strong></td>
+<td>Downloads items from your Plex friends' watchlists</td>
+<td>Plex account</td>
 </tr>
 <tr>
-<td><strong>Seerr</strong></td>
+<td><strong>Other Plex Watchlist</strong></td>
+<td>Follows another Plex user's watchlist, e.g. a Plex Home member</td>
+<td>That user's Plex login</td>
+</tr>
+<tr>
+<td><strong>My Plex RSS Watchlist</strong></td>
+<td>Follows your Plex watchlist RSS feed</td>
+<td>The RSS feed URL from Plex</td>
+</tr>
+<tr>
+<td><strong>Seerr</strong> (shown as <em>Overseerr</em> in settings)</td>
 <td>Downloads approved requests from Seerr</td>
 <td>Seerr installed</td>
 </tr>
 <tr>
-<td><strong>Plex Watchlist</strong></td>
-<td>Downloads items from your Plex watchlist</td>
-<td>Plex Pass</td>
+<td><strong>Trakt Watchlist / Lists / Collection</strong></td>
+<td>Your Trakt watchlist, any public or private list, or your collection</td>
+<td>Trakt account (configured in Step 4)</td>
 </tr>
 <tr>
 <td><strong>MDBList</strong></td>
@@ -3333,12 +3365,23 @@
 <td>Free MDBList account</td>
 </tr>
 <tr>
-<td><strong>Manual</strong></td>
-<td>Add individual titles directly in cli_debrid</td>
-<td>Nothing</td>
+<td><strong>Agregarr</strong></td>
+<td>Requests Agregarr makes through Seerr, kept separate from your users' Seerr requests</td>
+<td>Agregarr + Seerr</td>
+</tr>
+<tr>
+<td><strong>Scrob Lists / Collection / Special Lists</strong></td>
+<td>Your Scrob lists or collection, or Scrob's discovery lists (Now Playing, Upcoming, Hidden Gems, New Episodes, For You…)</td>
+<td>Scrob connected (Step 4)</td>
+</tr>
+<tr>
+<td><strong>Adaptive List</strong></td>
+<td>Builds a list from TMDB discover filters (genre, rating, year…) that refreshes over time</td>
+<td>TMDB key (Step 1)</td>
 </tr>
 </tbody>
 </table>
+<p>To add a single title by hand, use the <strong>Discover</strong> page, or <strong>Magnet Assign</strong> to add a specific torrent or NZB — no content source needed.</p>
 <hr>
 <h2 id="recommended-trakt-watchlist">Recommended: Trakt Watchlist<a class="headerlink" href="#recommended-trakt-watchlist" title="Permanent link">¶</a></h2>
 <p>The quickest way to get started. Anything you add to your Trakt watchlist will be picked up by cli_debrid automatically.</p>
@@ -3363,12 +3406,13 @@
 <p>Approved requests in Seerr will now feed automatically into cli_debrid.</p>
 <hr>
 <h2 id="plex-watchlist">Plex Watchlist<a class="headerlink" href="#plex-watchlist" title="Permanent link">¶</a></h2>
-<p>If you have Plex Pass, you can use your Plex watchlist as a content source.</p>
+<p>Your Plex watchlist works as a content source with any Plex account — it uses the Plex token from <a href="../configure/">Step 4</a>.</p>
 <ol>
 <li>Go to <strong>Settings → Content Sources</strong></li>
-<li>Enable <strong>Plex Watchlist</strong></li>
+<li>Add a <strong>My Plex Watchlist</strong> source</li>
 <li>Save</li>
 </ol>
+<p>To also pick up what your Plex friends add to their watchlists, add a <strong>Plex Friends Watchlist</strong> source the same way.</p>
 <hr>
 <h2 id="mdblist">MDBList<a class="headerlink" href="#mdblist" title="Permanent link">¶</a></h2>
 <p>MDBList hosts curated lists (e.g. IMDb Top 250, popular by genre). You can point cli_debrid at any list.</p>
@@ -3376,6 +3420,14 @@
 <li>Create a free account at <a href="https://mdblist.com" target="_blank" rel="noopener">mdblist.com</a></li>
 <li>Find a list you want to follow, copy its URL</li>
 <li>In cli_debrid → <strong>Settings → Content Sources</strong>, add an <strong>MDBList</strong> source with the list URL</li>
+<li>Save</li>
+</ol>
+<hr>
+<h2 id="scrob">Scrob<a class="headerlink" href="#scrob" title="Permanent link">¶</a></h2>
+<p>If you connected <a href="https://github.com/ellite/scrob" target="_blank" rel="noopener">Scrob</a> in <a href="../configure/#scrob-optional">Step 4</a>:</p>
+<ol>
+<li>Go to <strong>Settings → Content Sources</strong></li>
+<li>Add a <strong>Scrob Lists</strong> source and enter the list IDs to follow (comma-separated, e.g. <code>2,7</code>; shown in the list's URL in Scrob), or add <strong>Scrob Collection</strong> to follow your whole collection</li>
 <li>Save</li>
 </ol>
 <hr>
@@ -3390,6 +3442,7 @@
 <p class="admonition-title">Nothing appearing in Wanted?</p>
 <ul>
 <li>If using a Trakt source, check that Trakt authorisation completed successfully (<strong>Settings → Additional Settings</strong>)</li>
+<li>If using a Scrob source, check the Scrob URL and API key under <strong>Settings → Additional Settings → Scrob</strong></li>
 <li>Make sure your watchlist/list has items in it</li>
 <li>Check the logs for errors: <strong>Logs</strong> page in the nav</li>
 </ul>

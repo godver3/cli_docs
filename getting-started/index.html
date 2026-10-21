@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/">
       
       
         <link rel="prev" href="..">
@@ -705,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3131,6 +3131,7 @@
 
 <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">¶</a></h1>
 <p>This guide walks you through everything needed to get cli_debrid up and running from scratch — from signing up for the required services to streaming your first file.</p>
+<p>cli_debrid can get content from a <strong>debrid service</strong> (Real-Debrid, AllDebrid, etc.), from <strong>Usenet</strong>, or both. Each step below covers both options — follow whichever applies to you.</p>
 <p>Follow the steps in order. Each page ends with a link to the next step.</p>
 <hr>
 <h2 id="the-setup-flow">The setup flow<a class="headerlink" href="#the-setup-flow" title="Permanent link">¶</a></h2>
@@ -3142,8 +3143,8 @@
 <p><a class="md-button md-button--primary" href="prerequisites/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Prerequisites</a></p>
 </li>
 <li>
-<p><strong>Step 2 — Mount your debrid storage</strong></p>
-<p>Use Zurg or Decypharr to mount your debrid cloud library as a local folder your media server can read.</p>
+<p><strong>Step 2 — Mount your storage</strong></p>
+<p>Use cli_mount, Decypharr or Zurg to mount your debrid and/or Usenet files as a local folder your media server can read.</p>
 <p><a class="md-button md-button--primary" href="mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Mount setup</a></p>
 </li>
 <li>
@@ -3153,12 +3154,12 @@
 </li>
 <li>
 <p><strong>Step 4 — Configure cli_debrid</strong></p>
-<p>Connect your debrid provider, media server, and mount path. Choose Plex mode or symlink mode.</p>
+<p>Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Plex mode or symlink mode.</p>
 <p><a class="md-button md-button--primary" href="configure/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Configure</a></p>
 </li>
 <li>
 <p><strong>Step 5 — Add scrapers</strong></p>
-<p>Set up at least one scraper so cli_debrid can find torrents for your content.</p>
+<p>Set up at least one scraper so cli_debrid can find torrents or NZBs for your content.</p>
 <p><a class="md-button md-button--primary" href="scrapers/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Scrapers</a></p>
 </li>
 <li>
@@ -3172,9 +3173,9 @@
 <h2 id="how-it-all-fits-together">How it all fits together<a class="headerlink" href="#how-it-all-fits-together" title="Permanent link">¶</a></h2>
 <pre class="mermaid"><code>flowchart LR
     A["Content Sources\nSeerr, Trakt, Watchlists"] --&gt; B
-    B["cli_debrid\nscrapes torrents &amp; manages library"] --&gt; C
-    C["Debrid Service\nReal-Debrid / AllDebrid / etc."] --&gt; D
-    D["Mount Service\nZurg / Decypharr"] --&gt; E
+    B["cli_debrid\nscrapes torrents &amp; NZBs, manages library"] --&gt; C
+    C["Debrid Service and/or Usenet\nReal-Debrid / AllDebrid / news server"] --&gt; D
+    D["Mount Service\ncli_mount / Decypharr / Zurg"] --&gt; E
     E["Media Server\nPlex / Jellyfin / Emby"]
     B --&gt;|"triggers scan"| E</code></pre>
 <h3 id="file-management-modes">File management modes<a class="headerlink" href="#file-management-modes" title="Permanent link">¶</a></h3>
@@ -3182,18 +3183,18 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <pre class="mermaid"><code>flowchart LR
-    A["Mount Service\nZurg / Decypharr"] --&gt; B["Plex\nreads files directly from mount"]
-    C["cli_debrid"] --&gt; D["Debrid Service"]
+    A["Mount Service\ncli_mount / Decypharr / Zurg"] --&gt; B["Plex\nreads files directly from mount"]
+    C["cli_debrid"] --&gt; D["Debrid Service / Usenet"]
     D --&gt; A
     C --&gt;|"triggers library scan via API"| B</code></pre>
 <p>Plex reads files directly from the debrid mount. cli_debrid uses the Plex API to trigger scans. <strong>Plex only.</strong></p>
 </div>
 <div class="tabbed-block">
 <pre class="mermaid"><code>flowchart LR
-    A["Mount Service\nZurg / Decypharr"] --&gt; B["cli_debrid\ncreates symlinks"]
+    A["Mount Service\ncli_mount / Decypharr / Zurg"] --&gt; B["cli_debrid\ncreates symlinks"]
     B --&gt; C["Symlink path\norganised folder structure"]
     C --&gt; D["Media Server\nPlex / Jellyfin / Emby"]
-    E["Debrid Service"] --&gt; A
+    E["Debrid Service / Usenet"] --&gt; A
     B --&gt; E
     B --&gt;|"triggers scan"| D</code></pre>
 <p>cli_debrid creates symlinks from the mount into an organised folder. Your media server scans the symlink folder. <strong>Works with Plex, Jellyfin, and Emby.</strong></p>

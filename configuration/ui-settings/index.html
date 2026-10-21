@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/ui-settings/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/ui-settings/">
       
       
         <link rel="prev" href="../">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3269,12 +3269,12 @@
 <tbody>
 <tr>
 <td><strong>Use 24-Hour Format</strong></td>
-<td>Off</td>
+<td>On</td>
 <td>Use 24-hour time format instead of 12-hour</td>
 </tr>
 <tr>
 <td><strong>Date Format</strong></td>
-<td><code>%b %d, %Y</code></td>
+<td><code>%Y-%m-%d</code></td>
 <td>Preferred date format string. Click the info button in the UI for available parameters.</td>
 </tr>
 <tr>
@@ -3297,23 +3297,28 @@
 <tbody>
 <tr>
 <td><strong>Recently Added Limit</strong></td>
-<td><code>14</code></td>
+<td><code>5</code></td>
 <td>Number of items shown in the Recently Added section on the statistics page</td>
 </tr>
 <tr>
 <td><strong>Recently Upgraded Limit</strong></td>
-<td><code>7</code></td>
+<td><code>5</code></td>
 <td>Number of items shown in the Recently Upgraded section on the statistics page</td>
 </tr>
 <tr>
 <td><strong>Upcoming Releases Start Limit</strong></td>
-<td><code>7</code></td>
+<td><code>0</code></td>
 <td>How many days back to show (<code>0</code> = today, <code>7</code> = one week back)</td>
 </tr>
 <tr>
 <td><strong>Upcoming Releases End Limit</strong></td>
-<td><code>365</code></td>
+<td><code>28</code></td>
 <td>How many days forward to show on the statistics page</td>
+</tr>
+<tr>
+<td><strong>Stats Provider Priority</strong></td>
+<td><code>auto</code></td>
+<td>Whose stats the Statistics page shows: <code>auto</code> (debrid if configured, otherwise Usenet), <code>debrid</code>, <code>usenet</code> (cli_mount stats even when debrid is also set up), or <code>combined</code> (total size and broken count across all debrid providers and Usenet — no subscription days)</td>
 </tr>
 </tbody>
 </table>
@@ -3330,7 +3335,7 @@
 <tbody>
 <tr>
 <td><strong>Enable User System</strong></td>
-<td>Off</td>
+<td>On</td>
 <td>Enable the user account system with roles</td>
 </tr>
 <tr>

@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/mount/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/mount/">
       
       
         <link rel="prev" href="../prerequisites/">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Mount your debrid storage - cli_debrid</title>
+        <title>Mount your storage - cli_debrid</title>
       
     
     
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-2-mount-your-debrid-storage" class="md-skip">
+        <a href="#step-2-mount-your-storage" class="md-skip">
           Skip to content
         </a>
       
@@ -178,7 +178,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mount your debrid storage
+              Mount your storage
             
           </span>
         </div>
@@ -714,7 +714,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -734,7 +734,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -760,10 +760,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#option-a-zurg-rclone" class="md-nav__link">
+  <a href="#option-a-cli_mount-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A — Zurg + rclone
+        Option A — cli_mount (recommended)
       
     </span>
   </a>
@@ -775,6 +775,17 @@
     <span class="md-ellipsis">
       
         Option B — Decypharr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-c-zurg-rclone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option C — Zurg + rclone
       
     </span>
   </a>
@@ -3111,10 +3122,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#option-a-zurg-rclone" class="md-nav__link">
+  <a href="#option-a-cli_mount-recommended" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A — Zurg + rclone
+        Option A — cli_mount (recommended)
       
     </span>
   </a>
@@ -3126,6 +3137,17 @@
     <span class="md-ellipsis">
       
         Option B — Decypharr
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#option-c-zurg-rclone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option C — Zurg + rclone
       
     </span>
   </a>
@@ -3227,33 +3249,59 @@
   
 
 
-<h1 id="step-2-mount-your-debrid-storage">Step 2 — Mount your debrid storage<a class="headerlink" href="#step-2-mount-your-debrid-storage" title="Permanent link">¶</a></h1>
-<p>Before cli_debrid can manage your library, your debrid cloud storage needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive.</p>
-<p>Two tools handle this:</p>
+<h1 id="step-2-mount-your-storage">Step 2 — Mount your storage<a class="headerlink" href="#step-2-mount-your-storage" title="Permanent link">¶</a></h1>
+<p>Before cli_debrid can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.</p>
+<p>Three tools handle this:</p>
 <table>
 <thead>
 <tr>
 <th>Tool</th>
-<th>Debrid support</th>
+<th>Debrid</th>
+<th>Usenet</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Zurg + rclone</strong></td>
-<td>Real-Debrid, AllDebrid, Debrid-Link</td>
-<td>Most popular, well-tested</td>
+<td><strong>cli_mount</strong></td>
+<td>Real-Debrid, AllDebrid, Torbox, Premiumize</td>
+<td>✓</td>
+<td><strong>Recommended.</strong> All-in-one, built alongside cli_debrid</td>
 </tr>
 <tr>
 <td><strong>Decypharr</strong></td>
 <td>Real-Debrid, AllDebrid, Torbox, Premiumize</td>
-<td>Newer, all-in-one alternative</td>
+<td></td>
+<td>The original project cli_mount is forked from</td>
+</tr>
+<tr>
+<td><strong>Zurg + rclone</strong></td>
+<td>Real-Debrid, AllDebrid, Debrid-Link</td>
+<td>✓ (Zurg 2.0)</td>
+<td>Long-standing, well-tested Real-Debrid setup</td>
 </tr>
 </tbody>
 </table>
-<p>Choose one. <strong>Zurg is recommended</strong> for Real-Debrid users.</p>
+<p>Choose one. <strong>cli_mount is recommended</strong> — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.</p>
 <hr>
-<h2 id="option-a-zurg-rclone">Option A — Zurg + rclone<a class="headerlink" href="#option-a-zurg-rclone" title="Permanent link">¶</a></h2>
+<h2 id="option-a-cli_mount-recommended">Option A — cli_mount (recommended)<a class="headerlink" href="#option-a-cli_mount-recommended" title="Permanent link">¶</a></h2>
+<p>cli_mount mounts your debrid library and streams Usenet NZBs from your news server, all in one container. It's a fork of <a href="https://github.com/sirrobot01/decypharr" target="_blank" rel="noopener">Decypharr</a> maintained by mash2k3 (<a href="https://github.com/mash2k3/decypharr/tree/dev" target="_blank" rel="noopener">source</a>).</p>
+<p>Full setup guide: <a class="md-button" href="../../integrations/cli_mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> cli_mount</a></p>
+<p>In short:</p>
+<ol>
+<li>Run the <code>ghcr.io/mash2k3/cli_mount:dev</code> container (needs <code>/dev/fuse</code>), with your mount folder mapped to <code>/mnt</code></li>
+<li>Open the cli_mount web UI at <code>http://YOUR_SERVER_IP:8282</code></li>
+<li><strong>Debrid:</strong> under <strong>Settings → Providers → Debrid</strong>, click <strong>Add Account</strong> and enter your debrid provider and API key</li>
+<li><strong>Usenet:</strong> under <strong>Settings → Providers → Usenet</strong>, click <strong>Add Server</strong> and enter your provider's host, port (<code>563</code> with SSL), username, password and max connections</li>
+</ol>
+<p>After setup you will have a mount folder (e.g. <code>/path/to/debrid</code>) containing your debrid and Usenet files.</p>
+<p>Note the path and the cli_mount URL (<code>http://YOUR_SERVER_IP:8282</code>) — you'll need both in <a href="../configure/">Step 4</a>.</p>
+<hr>
+<h2 id="option-b-decypharr">Option B — Decypharr<a class="headerlink" href="#option-b-decypharr" title="Permanent link">¶</a></h2>
+<p>Decypharr is an all-in-one debrid mount tool that also handles symlink management and supports multiple debrid providers.</p>
+<p>Full setup guide: <a class="md-button" href="../../integrations/decypharr/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Decypharr</a></p>
+<hr>
+<h2 id="option-c-zurg-rclone">Option C — Zurg + rclone<a class="headerlink" href="#option-c-zurg-rclone" title="Permanent link">¶</a></h2>
 <p>Zurg exposes your debrid library as a WebDAV server. rclone mounts it as a local filesystem.</p>
 <p>Full setup guide: <a class="md-button" href="../../integrations/zurg/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Zurg + rclone</a></p>
 <p>After setup you will have a folder like <code>/mnt/zurg</code> (or <code>/mnt/user/zurg</code> on Unraid) containing your debrid files organised as:</p>
@@ -3264,25 +3312,25 @@
 </code></pre></div>
 <p>Note the path — you'll need it in the next step.</p>
 <hr>
-<h2 id="option-b-decypharr">Option B — Decypharr<a class="headerlink" href="#option-b-decypharr" title="Permanent link">¶</a></h2>
-<p>Decypharr is an all-in-one debrid mount tool that also handles symlink management and supports multiple debrid providers.</p>
-<p>Full setup guide: <a class="md-button" href="../../integrations/decypharr/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Decypharr</a></p>
-<hr>
 <h2 id="verify-the-mount-works">Verify the mount works<a class="headerlink" href="#verify-the-mount-works" title="Permanent link">¶</a></h2>
 <p>Before proceeding, confirm the mount is working by listing your mount path:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Zurg + rclone</label><label for="__tabbed_1_2">Decypharr</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">cli_mount</label><label for="__tabbed_1_2">Decypharr</label><label for="__tabbed_1_3">Zurg + rclone</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>/mnt/zurg/__all__
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>/path/to/debrid
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ls<span class="w"> </span>/path/to/debrid
 </code></pre></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ls<span class="w"> </span>/mnt/zurg/__all__
+</code></pre></div>
 </div>
 </div>
-<p>You should see your debrid files listed. If the folder is empty or the command fails, fix the mount before continuing.</p>
+</div>
+<p>You should see your files listed (a new Usenet-only setup will be empty until the first NZB is added). If the command fails or the command fails, fix the mount before continuing.</p>
 <div class="admonition warning">
 <p class="admonition-title">Mount must be working before installing cli_debrid</p>
 <p>cli_debrid needs to be able to read the mount path at startup. If the mount isn't working, cli_debrid won't be able to verify files exist.</p>

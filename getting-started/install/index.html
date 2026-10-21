@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/install/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/install/">
       
       
         <link rel="prev" href="../mount/">
@@ -705,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3185,6 +3185,20 @@
 
 <h1 id="step-3-install-cli_debrid">Step 3 — Install cli_debrid<a class="headerlink" href="#step-3-install-cli_debrid" title="Permanent link">¶</a></h1>
 <p>Select your platform below. All methods install the same app — only the steps differ.</p>
+<div class="admonition info">
+<p class="admonition-title">Using cli_mount?</p>
+<p>cli_mount runs as its own container next to cli_debrid (you set it up in <a href="../mount/">Step 2</a>). Two things to get right:</p>
+<ul>
+<li><strong>Same mount path in both containers.</strong> Map your mount folder into cli_debrid (and your media server) at the same path cli_mount uses, so file paths line up.</li>
+<li>
+<p><strong>Reach cli_mount by IP or container name, not <code>localhost</code>.</strong> cli_mount listens on port <code>8282</code> by default — use <code>http://YOUR_SERVER_IP:8282</code> (or the container name on a shared Docker network). <code>localhost</code> inside the cli_debrid container is cli_debrid itself.</p>
+</li>
+<li>
+<p><strong>Keep cli_mount on port <code>8282</code>.</strong> That's cli_mount's default. Port <code>8888</code> is taken by cli_debrid's built-in Phalanx DB — the cli_debrid <code>docker-compose.yml</code> publishes it — so don't move cli_mount to <code>8888</code> if both run on the same host.</p>
+</li>
+</ul>
+<p>Optional: also map cli_mount's appdata folder into cli_debrid as <code>/climount_data</code> to enable cli_mount DB backup and cleanup tools.</p>
+</div>
 <hr>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Unraid</label><label for="__tabbed_1_2">Docker / Linux</label><label for="__tabbed_1_3">Ubuntu / Debian</label><label for="__tabbed_1_4">Proxmox</label><label for="__tabbed_1_5">TrueNAS</label><label for="__tabbed_1_6">Windows</label></div>
 <div class="tabbed-content">
@@ -3292,7 +3306,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../mount/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Step 2: Mount debrid storage">
+          <a href="../mount/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Step 2: Mount storage">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -3302,7 +3316,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Step 2: Mount debrid storage
+                Step 2: Mount storage
               </div>
             </div>
           </a>

@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/configure/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/configure/">
       
       
         <link rel="prev" href="../install/">
@@ -705,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -831,13 +831,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debrid-provider" class="md-nav__link">
+  <a href="#debrid-or-usenet-provider" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debrid provider
+        Debrid or Usenet provider
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Debrid or Usenet provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-checks-before-a-file-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: checks before a file is collected
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -881,6 +898,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#versions-quality-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versions (quality profiles)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions (quality profiles)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-tuned-1080p-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: a tuned 1080p version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tmdb-api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -907,6 +952,17 @@
     <span class="md-ellipsis">
       
         Trakt (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrob-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scrob (optional)
       
     </span>
   </a>
@@ -3194,13 +3250,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debrid-provider" class="md-nav__link">
+  <a href="#debrid-or-usenet-provider" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debrid provider
+        Debrid or Usenet provider
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Debrid or Usenet provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-checks-before-a-file-is-collected" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended: checks before a file is collected
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3244,6 +3317,34 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#versions-quality-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versions (quality profiles)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions (quality profiles)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-a-tuned-1080p-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: a tuned 1080p version
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tmdb-api-key" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3270,6 +3371,17 @@
     <span class="md-ellipsis">
       
         Trakt (optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scrob-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scrob (optional)
       
     </span>
   </a>
@@ -3378,15 +3490,18 @@
 <p>The wizard runs automatically on first launch. It covers:</p>
 <ol>
 <li><strong>Admin account</strong> — set your username and password</li>
-<li><strong>Required settings</strong> — debrid provider, media server, mount path</li>
+<li><strong>Required settings</strong> — debrid or Usenet provider, media server, mount path</li>
 <li><strong>File management mode</strong> — Plex mode or Symlink mode</li>
 <li><strong>Scrapers</strong> — add at least one scraper</li>
 <li><strong>Content sources</strong> — add at least one content source</li>
 </ol>
 <p>You can re-visit any of these at any time under <strong>Settings</strong>.</p>
 <hr>
-<h2 id="debrid-provider">Debrid provider<a class="headerlink" href="#debrid-provider" title="Permanent link">¶</a></h2>
-<p>Enter your debrid provider and API key.</p>
+<h2 id="debrid-or-usenet-provider">Debrid or Usenet provider<a class="headerlink" href="#debrid-or-usenet-provider" title="Permanent link">¶</a></h2>
+<p>The wizard's <strong>Debrid or Usenet Provider</strong> section has a tab for each. cli_debrid needs at least one; you can add the other later under <strong>Settings → Required Settings</strong>.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debrid</label><label for="__tabbed_1_2">Usenet</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3406,9 +3521,94 @@
 </tbody>
 </table>
 <p>Click <strong>Validate</strong> to test the key before saving.</p>
+</div>
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usenet Provider URL</strong></td>
+<td>Your cli_mount URL, e.g. <code>http://192.168.1.x:8282</code> (NzbDAV uses port <code>3000</code>)</td>
+</tr>
+<tr>
+<td><strong>API Token</strong></td>
+<td>Only if your cli_mount has authentication enabled — otherwise leave blank</td>
+</tr>
+</tbody>
+</table>
+<p>Use the server's IP or container name, <strong>not</strong> <code>localhost</code> — inside the cli_debrid container that points at cli_debrid itself.</p>
+<p>Your news server login lives in cli_mount (<a href="../mount/">Step 2</a>), not in cli_debrid. To find content you'll also add your indexers as <strong>Newznab</strong> scrapers in <a href="../scrapers/">Step 5</a>.</p>
+<p>After onboarding, <strong>Settings → Required Settings → Usenet Provider</strong> has more options:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Provider</strong></td>
+<td><code>climount</code> (default), <code>nzbdav</code>, or <code>zurg</code> (Zurg 2.0)</td>
+</tr>
+<tr>
+<td><strong>Download Folder</strong></td>
+<td>Leave empty for cli_mount's default</td>
+</tr>
+<tr>
+<td><strong>Data Path</strong></td>
+<td><code>/climount_data</code> if you mapped cli_mount's appdata into cli_debrid (<a href="../install/">Step 3</a>) — enables the cli_mount DB tools</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Using both?</p>
+<p>With debrid and Usenet both configured, torrent and NZB results are scored together using the same quality rules, and the best one wins.</p>
+</div>
+<h3 id="recommended-checks-before-a-file-is-collected">Recommended: checks before a file is collected<a class="headerlink" href="#recommended-checks-before-a-file-is-collected" title="Permanent link">¶</a></h3>
+<p>These live under <strong>Settings → Required Settings</strong> and are worth turning on once things work:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Where</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Disable NZB Season Packs</strong></td>
+<td>Usenet Provider</td>
+<td><strong>Keep on</strong> (it's the default). A single missing article in a season pack fails the whole pack, and the repair re-downloads the entire season. With this on, cli_debrid grabs NZBs per episode, so one bad file only affects one episode. Movies aren't affected.</td>
+</tr>
+<tr>
+<td><strong>Ffprobe All NZBs</strong></td>
+<td>Usenet Provider</td>
+<td>Optional. Before an NZB file is collected, cli_debrid opens it with <code>ffprobe</code> to make sure it actually plays, on top of the normal missing-article check.</td>
+</tr>
+<tr>
+<td><strong>Ffprobe All Debrid Additions</strong></td>
+<td>Debrid Provider</td>
+<td>Optional. The same playability check for debrid files.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">What the ffprobe checks cost</p>
+<p>The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Plex mode this happens <strong>before</strong> cli_debrid tells Plex about it, so broken files never show up in your library.</p>
+<p>The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.</p>
+</div>
 <hr>
 <h2 id="media-server">Media server<a class="headerlink" href="#media-server" title="Permanent link">¶</a></h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Plex</label><label for="__tabbed_1_2">Jellyfin</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex</label><label for="__tabbed_2_2">Jellyfin</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -3483,7 +3683,7 @@
 <hr>
 <h2 id="file-management-mode">File management mode<a class="headerlink" href="#file-management-mode" title="Permanent link">¶</a></h2>
 <p>This is one of the most important settings.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex mode</label><label for="__tabbed_2_2">Symlink mode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Plex mode</label><label for="__tabbed_3_2">Symlink mode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>cli_debrid uses the Plex API to track which files are in your library. Plex reads directly from your debrid mount.</p>
@@ -3492,8 +3692,9 @@
 <li>No symlinks needed</li>
 <li>Plex must be able to read the mount path</li>
 </ul>
-<p><strong>Mounted File Location:</strong> Set to your debrid mount path, e.g.:</p>
+<p><strong>Mounted File Location:</strong> Set to your mount path, e.g.:</p>
 <ul>
+<li>cli_mount: <code>/path/to/debrid/__all__</code> (the folder you mapped to <code>/mnt</code> in cli_mount)</li>
 <li>Zurg: <code>/mnt/zurg/__all__</code></li>
 <li>Decypharr: <code>/mnt/decypharr/__all__</code></li>
 </ul>
@@ -3515,7 +3716,7 @@
 <tbody>
 <tr>
 <td><strong>Original files path</strong></td>
-<td>Your debrid mount path (e.g. <code>/mnt/zurg/__all__</code> for Zurg, <code>/mnt/decypharr/__all__</code> for Decypharr)</td>
+<td>Your mount path (e.g. <code>/path/to/debrid/__all__</code> for cli_mount, <code>/mnt/zurg/__all__</code> for Zurg, <code>/mnt/decypharr/__all__</code> for Decypharr)</td>
 </tr>
 <tr>
 <td><strong>Symlinked files path</strong></td>
@@ -3540,6 +3741,112 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </div>
 </div>
 <hr>
+<h2 id="versions-quality-profiles">Versions (quality profiles)<a class="headerlink" href="#versions-quality-profiles" title="Permanent link">¶</a></h2>
+<p>A <strong>version</strong> is a quality profile: which resolution you want, how big files can be, which releases to skip, and how results are scored. Every content source is assigned one or more versions, and cli_debrid picks the best result that matches.</p>
+<p>You can start with <strong>Add Default Version</strong> under <strong>Settings → Version Settings</strong>, or import a ready-made profile.</p>
+<h3 id="example-a-tuned-1080p-version">Example: a tuned 1080p version<a class="headerlink" href="#example-a-tuned-1080p-version" title="Permanent link">¶</a></h3>
+<p>This is a real, battle-tested 1080p version from a debrid + Usenet setup. Import it and adjust from there:</p>
+<ol>
+<li>Download <a download="download" href="../../assets/versions/1080p-example.json"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4.75 17.25a.75.75 0 0 1 .75.75v2.25c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V18a.75.75 0 0 1 1.5 0v2.25A1.75 1.75 0 0 1 18.25 22H5.75A1.75 1.75 0 0 1 4 20.25V18a.75.75 0 0 1 .75-.75"></path><path d="M5.22 9.97a.75.75 0 0 1 1.06 0l4.97 4.969V2.75a.75.75 0 0 1 1.5 0v12.189l4.97-4.969a.749.749 0 1 1 1.06 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0l-6.25-6.25a.75.75 0 0 1 0-1.06"></path></svg></span> 1080p-example.json</a></li>
+<li>Go to <strong>Settings → Version Settings</strong> and click <strong>Import</strong></li>
+<li>Choose the file. If a version with the same name exists, pick <strong>Rename</strong>, <strong>Overwrite</strong> or <strong>Skip</strong></li>
+<li>Assign the version to your content sources (<a href="../content-sources/">Step 6</a>)</li>
+</ol>
+<p>What it does:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Max Resolution</strong> / <strong>Resolution Wanted</strong></td>
+<td><code>1080p</code> / <code>&lt;=</code></td>
+<td>1080p, falling back to lower resolutions rather than finding nothing</td>
+</tr>
+<tr>
+<td><strong>Min Size</strong></td>
+<td><code>0.4</code> GB</td>
+<td>Skips tiny, heavily compressed encodes</td>
+</tr>
+<tr>
+<td><strong>Min / Max Bitrate</strong></td>
+<td><code>3</code> / <code>18</code> Mbps</td>
+<td>Skips low-quality encodes and huge remuxes</td>
+</tr>
+<tr>
+<td><strong>Bitrate Weight</strong></td>
+<td><code>5</code></td>
+<td>Strongly prefers higher bitrate (better quality) within those limits</td>
+</tr>
+<tr>
+<td><strong>Similarity Threshold</strong></td>
+<td><code>0.75</code></td>
+<td>How closely a release name must match the title</td>
+</tr>
+<tr>
+<td><strong>Language Code</strong> / <strong>Foreign Language Penalty</strong></td>
+<td><code>en</code> / <code>100</code></td>
+<td>Pushes releases tagged with another audio language (e.g. <code>GERMAN</code>) down the list</td>
+</tr>
+</tbody>
+</table>
+<p>Its <strong>Filter Out</strong> list skips:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern(s)</th>
+<th>Skips</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>й</code>, <code>я</code>, <code>д</code>, <code>г</code>, <code>ё</code>, <code>ж</code>, <code>ф</code>, <code>Ц</code></td>
+<td>Releases with Cyrillic (Russian-titled) names</td>
+</tr>
+<tr>
+<td><code>Telesync</code>, <code>HD-TS</code>, <code>.TS.</code>, <code>HDTS</code>, <code>HDTC</code>, <code>Telecine</code>, <code>.CAM.</code>, <code>HDCAM</code>, <code>TS</code> at the end</td>
+<td>Cam and telesync rips</td>
+</tr>
+<tr>
+<td><code>.3D.</code></td>
+<td>3D releases</td>
+</tr>
+<tr>
+<td><code>READNFO</code></td>
+<td>Releases flagged <em>READNFO</em> — usually a known problem described in the NFO</td>
+</tr>
+<tr>
+<td><code>HINDI</code>, <code>bilibili</code></td>
+<td>Hindi dubs and Bilibili web rips</td>
+</tr>
+<tr>
+<td><code>DoVi</code></td>
+<td>Dolby Vision releases, which can show wrong colours on players without Dolby Vision support</td>
+</tr>
+<tr>
+<td><code>AV1</code></td>
+<td>AV1 encodes, which many devices can't direct-play</td>
+</tr>
+<tr>
+<td><code>dem3nt3</code></td>
+<td>One specific release group — a personal preference, remove it if you like</td>
+</tr>
+<tr>
+<td><code>WEB-DL</code>, <code>WEB.x264</code>/<code>WEB.H264</code>, <code>HDTV.x264</code>/<code>HDTV.XviD</code> <em>(debrid only, case-sensitive)</em></td>
+<td>Generic web/TV releases from <strong>debrid only</strong>, so those come from Usenet instead — remove this one if you don't use Usenet</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Filters can target debrid, Usenet or both</p>
+<p>Each filter has a <strong>source</strong>: <strong>Both</strong>, <strong>Debrid</strong> or <strong>Usenet</strong>. Filters are regular expressions, so <code>(?i)</code> makes one case-insensitive and <code>\b</code> matches a word boundary.</p>
+</div>
+<p>Full reference for every version setting: <a class="md-button" href="../../configuration/versions/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Versions</a></p>
+<hr>
 <h2 id="tmdb-api-key">TMDB API key<a class="headerlink" href="#tmdb-api-key" title="Permanent link">¶</a></h2>
 <p>Go to <strong>Settings → Required Settings</strong> (or the wizard step) and enter your TMDB API key from <a href="../prerequisites/">Step 1</a>.</p>
 <hr>
@@ -3549,8 +3856,34 @@ If the paths differ between containers, symlinks will appear as broken files in 
 <h2 id="trakt-optional">Trakt (optional)<a class="headerlink" href="#trakt-optional" title="Permanent link">¶</a></h2>
 <p>Trakt is not required to run cli_debrid. If you want to use it as a content source or as a metadata fallback (when no TVDB key is set), go to <strong>Settings → Additional Settings</strong>, enter your Trakt <strong>Client ID</strong> and <strong>Client Secret</strong>, then click <strong>Authorise Trakt</strong> to complete the OAuth flow.</p>
 <hr>
+<h2 id="scrob-optional">Scrob (optional)<a class="headerlink" href="#scrob-optional" title="Permanent link">¶</a></h2>
+<p>If you use <a href="https://github.com/ellite/scrob" target="_blank" rel="noopener">Scrob</a>, go to <strong>Settings → Additional Settings → Scrob</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>URL</strong></td>
+<td>Your Scrob address, e.g. <code>http://192.168.1.x:7330</code></td>
+</tr>
+<tr>
+<td><strong>API Key</strong></td>
+<td>From Scrob's <strong>Settings → Connections → API Key</strong></td>
+</tr>
+<tr>
+<td><strong>Username / Password</strong></td>
+<td>Optional — only needed if you want items removed from your Scrob lists/collection when you delete them in cli_debrid (Scrob's API key can't delete). Leave blank to skip.</td>
+</tr>
+</tbody>
+</table>
+<p>Once connected, Scrob lists show up on the <strong>Discover</strong> page and you can add Scrob content sources in <a href="../content-sources/">Step 6</a>.</p>
+<hr>
 <h2 id="verify-the-connection">Verify the connection<a class="headerlink" href="#verify-the-connection" title="Permanent link">¶</a></h2>
-<p>After saving, cli_debrid will test the connections to your debrid provider and media server. You should see green checkmarks next to each service on the dashboard.</p>
+<p>After saving, cli_debrid will test the connections to your debrid and/or Usenet provider and media server. You should see green checkmarks next to each service on the dashboard.</p>
 <p>If any connection fails:</p>
 <ul>
 <li>Double-check the URL includes <code>http://</code> and the correct port</li>

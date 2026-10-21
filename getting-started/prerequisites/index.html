@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/prerequisites/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/prerequisites/">
       
       
         <link rel="prev" href="../">
@@ -742,10 +742,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-debrid-service" class="md-nav__link">
+  <a href="#1-a-download-source-debrid-usenet-or-both" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Debrid service
+        1. A download source — debrid, Usenet, or both
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1a-debrid-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Debrid service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. Usenet
       
     </span>
   </a>
@@ -803,10 +825,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#trakt-account" class="md-nav__link">
+  <a href="#trakt-or-scrob" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trakt account
+        Trakt or Scrob
       
     </span>
   </a>
@@ -865,7 +887,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3190,10 +3212,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-debrid-service" class="md-nav__link">
+  <a href="#1-a-download-source-debrid-usenet-or-both" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Debrid service
+        1. A download source — debrid, Usenet, or both
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1a-debrid-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1a. Debrid service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-usenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1b. Usenet
       
     </span>
   </a>
@@ -3251,10 +3295,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#trakt-account" class="md-nav__link">
+  <a href="#trakt-or-scrob" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Trakt account
+        Trakt or Scrob
       
     </span>
   </a>
@@ -3365,9 +3409,38 @@
 <p>Before installing anything, sign up for the required services and gather your API keys. This takes 10–15 minutes and avoids stopping mid-install.</p>
 <hr>
 <h2 id="required-services">Required services<a class="headerlink" href="#required-services" title="Permanent link">¶</a></h2>
-<h3 id="1-debrid-service">1. Debrid service<a class="headerlink" href="#1-debrid-service" title="Permanent link">¶</a></h3>
+<h3 id="1-a-download-source-debrid-usenet-or-both">1. A download source — debrid, Usenet, or both<a class="headerlink" href="#1-a-download-source-debrid-usenet-or-both" title="Permanent link">¶</a></h3>
+<p>cli_debrid needs at least one place to get content from:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>What you need</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Debrid</strong></td>
+<td>A debrid account (below)</td>
+<td>Huge instant cache of popular torrents</td>
+</tr>
+<tr>
+<td><strong>Usenet</strong></td>
+<td>A Usenet provider + at least one indexer (<a href="#1b-usenet">see 1b</a>)</td>
+<td>Fast, reliable downloads with long retention</td>
+</tr>
+<tr>
+<td><strong>Both</strong></td>
+<td>Everything above</td>
+<td>Usenet fills gaps in the debrid cache and vice versa</td>
+</tr>
+</tbody>
+</table>
+<p>You can start with one and add the other later.</p>
+<h3 id="1a-debrid-service">1a. Debrid service<a class="headerlink" href="#1a-debrid-service" title="Permanent link">¶</a></h3>
 <p>A debrid service is a premium link provider that caches torrents in the cloud. cli_debrid uses it to stream content without downloading locally.</p>
-<p>You need <strong>one</strong> of the following:</p>
+<p>If you're using debrid, you need <strong>one</strong> of the following:</p>
 <table>
 <thead>
 <tr>
@@ -3423,6 +3496,31 @@
 </div>
 </div>
 <p><strong>Save this key — you will need it during cli_debrid setup.</strong></p>
+<h3 id="1b-usenet">1b. Usenet<a class="headerlink" href="#1b-usenet" title="Permanent link">¶</a></h3>
+<p>To use Usenet you need two things: a <strong>provider</strong> that serves the files, and an <strong>indexer</strong> that tells cli_debrid what's available.</p>
+<table>
+<thead>
+<tr>
+<th>What</th>
+<th>Examples</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usenet provider</strong> (news server)</td>
+<td>Frugal Usenet, Newshosting, Eweka, UsenetExpress</td>
+<td>Paid account. You'll need the server hostname, port (<code>563</code> for SSL), username, password and your plan's connection limit.</td>
+</tr>
+<tr>
+<td><strong>Newznab indexer</strong></td>
+<td>NZBGeek, NZBPlanet, DrunkenSlug, DogNZB</td>
+<td>Usually a small yearly fee. You'll need the indexer URL and your API key from your account page.</td>
+</tr>
+</tbody>
+</table>
+<p>Nothing is downloaded to your server — <a href="../../integrations/cli_mount/">cli_mount</a> streams NZB content from your provider through the same mount used for debrid.</p>
+<p><strong>Save your provider login and indexer API key.</strong></p>
 <hr>
 <h3 id="2-media-server">2. Media server<a class="headerlink" href="#2-media-server" title="Permanent link">¶</a></h3>
 <p>cli_debrid works with Plex, Jellyfin, or Emby. You need one installed and accessible on your network.</p>
@@ -3497,13 +3595,19 @@
 <td>Curated media lists (IMDb Top 250, genre lists, etc.) usable as content sources</td>
 </tr>
 <tr>
+<td><a href="https://github.com/ellite/scrob" target="_blank" rel="noopener">Scrob</a></td>
+<td>Self-hosted watch tracker (a private Trakt/Letterboxd) — its lists and collection can be content sources</td>
+</tr>
+<tr>
 <td><a href="https://www.bazarr.media" target="_blank" rel="noopener">Bazarr</a></td>
 <td>Automatic subtitle downloading</td>
 </tr>
 </tbody>
 </table>
-<h3 id="trakt-account">Trakt account<a class="headerlink" href="#trakt-account" title="Permanent link">¶</a></h3>
-<p>Trakt is optional. It can be used as a content source (watchlist, lists, collection) and as a metadata fallback for TV shows if you haven't configured a TVDB key.</p>
+<h3 id="trakt-or-scrob">Trakt or Scrob<a class="headerlink" href="#trakt-or-scrob" title="Permanent link">¶</a></h3>
+<p>Both are optional. Trakt is the hosted service; <a href="https://github.com/ellite/scrob" target="_blank" rel="noopener">Scrob</a> is a self-hosted alternative that syncs with Plex, Jellyfin and Emby. Either can feed lists and recommendations into cli_debrid — use whichever you prefer, or both.</p>
+<p><strong>Scrob:</strong> you only need your Scrob URL (e.g. <code>http://192.168.1.x:7330</code>) and an API key from <strong>Settings → Connections → API Key</strong> in Scrob.</p>
+<p><strong>Trakt:</strong> Trakt is optional. It can be used as a content source (watchlist, lists, collection) and as a metadata fallback for TV shows if you haven't configured a TVDB key.</p>
 <ol>
 <li>Create a free account at <a href="https://trakt.tv/auth/join" target="_blank" rel="noopener">trakt.tv</a></li>
 <li>Go to <a href="https://trakt.tv/oauth/applications" target="_blank" rel="noopener">trakt.tv/oauth/applications</a></li>
@@ -3520,14 +3624,14 @@
 <h2 id="summary-checklist">Summary checklist<a class="headerlink" href="#summary-checklist" title="Permanent link">¶</a></h2>
 <p>Before moving on, confirm you have:</p>
 <ul>
-<li>[ ] Debrid account + API key</li>
+<li>[ ] A download source: debrid account + API key, <strong>and/or</strong> a Usenet provider login + indexer API key</li>
 <li>[ ] Plex, Jellyfin, or Emby installed</li>
 <li>[ ] TMDB API key</li>
 <li>[ ] TVDB API key (or Trakt, as a fallback for TV metadata)</li>
 </ul>
 <hr>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">¶</a></h2>
-<p><a class="md-button md-button--primary" href="../mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 2 — Mount your debrid storage</a></p>
+<p><a class="md-button md-button--primary" href="../mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 2 — Mount your storage</a></p>
 
 
 
@@ -3583,13 +3687,13 @@
         
         
           
-          <a href="../mount/" class="md-footer__link md-footer__link--next" aria-label="Next: Step 2: Mount debrid storage">
+          <a href="../mount/" class="md-footer__link md-footer__link--next" aria-label="Next: Step 2: Mount storage">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Step 2: Mount debrid storage
+                Step 2: Mount storage
               </div>
             </div>
             <div class="md-footer__button md-icon">

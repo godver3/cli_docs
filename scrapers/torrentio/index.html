@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/scrapers/torrentio/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/scrapers/torrentio/">
       
       
         <link rel="prev" href="../zilean/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3212,27 +3212,29 @@
 <ol>
 <li>Go to <strong>Settings → Scrapers</strong></li>
 <li>Click <strong>Add Scraper</strong> → select <strong>Torrentio</strong></li>
-<li>
-<p>Set the <strong>URL</strong>:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Public instance</label><label for="__tabbed_1_2">Self-hosted / Knightcrawler</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://torrentio.strem.fun
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>http://YOUR_SERVER_IP:PORT
-</code></pre></div>
-</div>
-</div>
-</div>
-</li>
-<li>
-<p>Toggle <strong>Enabled</strong> on</p>
-</li>
+<li>Toggle <strong>Enabled</strong> on</li>
 <li>Click <strong>Save Settings</strong></li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/scrapers/torrentio-settings.png" data-desc-position="bottom"><img alt="Torrentio scraper settings" src="../../assets/screenshots/scrapers/torrentio-settings.png"></a></p>
+<p>There's no URL to set: cli_debrid always uses the public instance at <code>https://torrentio.strem.fun</code> (self-hosted instances aren't supported by this scraper).</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opts</strong></td>
+<td>Torrentio's option string — the part of a Torrentio URL that sets sorting and filters. Leave empty for the default <code>sort=qualitysize|qualityfilter=480p,scr,cam</code>.</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>Scraper priority score — higher wins when results are otherwise similar</td>
+</tr>
+</tbody>
+</table>
+<p></p>
 <hr>
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
 <ul>

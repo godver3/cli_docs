@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/getting-started/scrapers/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/getting-started/scrapers/">
       
       
         <link rel="prev" href="../configure/">
@@ -705,7 +705,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -899,6 +899,17 @@
     <span class="md-ellipsis">
       
         MediaFusion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newznab-usenet-indexers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Newznab (Usenet indexers)
       
     </span>
   </a>
@@ -3216,6 +3227,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#newznab-usenet-indexers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Newznab (Usenet indexers)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3328,7 +3350,12 @@
 
 
 <h1 id="step-5-add-scrapers">Step 5 — Add scrapers<a class="headerlink" href="#step-5-add-scrapers" title="Permanent link">¶</a></h1>
-<p>Scrapers are how cli_debrid finds torrents for your content. You need at least one scraper configured before cli_debrid can add anything to your debrid account.</p>
+<p>Scrapers are how cli_debrid finds torrents and NZBs for your content. You need at least one scraper configured before cli_debrid can add anything.</p>
+<ul>
+<li><strong>Debrid users</strong> need at least one <strong>torrent</strong> scraper (below).</li>
+<li><strong>Usenet users</strong> need at least one <strong>Newznab</strong> indexer (<a href="#newznab-usenet-indexers">see below</a>).</li>
+<li>Using both? Add both — results are compared together.</li>
+</ul>
 <hr>
 <h2 id="recommended-for-beginners">Recommended for beginners<a class="headerlink" href="#recommended-for-beginners" title="Permanent link">¶</a></h2>
 <p><strong>Start with Zilean and Torrentio.</strong> Both are free, require no self-hosting, and cover the vast majority of content.</p>
@@ -3378,12 +3405,18 @@
 <td>Nothing</td>
 <td>Anime</td>
 </tr>
+<tr>
+<td><a href="../../scrapers/newznab/">Newznab</a></td>
+<td>Usenet indexer</td>
+<td>Indexer account + Usenet provider</td>
+<td>NZBs via cli_mount</td>
+</tr>
 </tbody>
 </table>
 <hr>
 <h2 id="adding-a-scraper">Adding a scraper<a class="headerlink" href="#adding-a-scraper" title="Permanent link">¶</a></h2>
 <ol>
-<li>Go to <strong>Settings → Scraping</strong></li>
+<li>Go to <strong>Settings → Scrapers</strong></li>
 <li>Click <strong>Add Scraper</strong></li>
 <li>Select the scraper type and fill in the URL</li>
 <li>Save</li>
@@ -3395,26 +3428,59 @@
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://zileanfortheweebs.midnightignite.me
 </code></pre></div><p></p>
 <h3 id="torrentio">Torrentio<a class="headerlink" href="#torrentio" title="Permanent link">¶</a></h3>
-<p>Torrentio is a Stremio addon that also works as a scraper API. No account needed.</p>
+<p>Torrentio is a Stremio addon that also works as a scraper API. No account or URL needed — cli_debrid uses the public instance.</p>
 <p>Full guide: <a class="md-button" href="../../scrapers/torrentio/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Torrentio setup</a></p>
-<p>Default URL:
-</p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>https://torrentio.strem.fun
-</code></pre></div><p></p>
 <h3 id="mediafusion">MediaFusion<a class="headerlink" href="#mediafusion" title="Permanent link">¶</a></h3>
 <p>MediaFusion is a more advanced scraper with better filtering. Can be used with the public instance or self-hosted.</p>
 <p>Full guide: <a class="md-button" href="../../scrapers/mediafusion/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> MediaFusion setup</a></p>
+<h3 id="newznab-usenet-indexers">Newznab (Usenet indexers)<a class="headerlink" href="#newznab-usenet-indexers" title="Permanent link">¶</a></h3>
+<p>Each Usenet indexer is added as its own <strong>Newznab</strong> scraper. Requires a Usenet provider set up in <a href="../configure/">Step 4</a>.</p>
+<ol>
+<li>Go to <strong>Settings → Scrapers</strong> and click <strong>Add Scraper</strong></li>
+<li>Select <strong>Newznab</strong></li>
+<li>
+<p>Fill in:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>A display name, e.g. <code>NZBGeek</code></td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>Your indexer's API URL, e.g. <code>https://api.nzbgeek.info</code></td>
+</tr>
+<tr>
+<td><strong>API Key</strong></td>
+<td>From your indexer account page</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Enable it and save. Repeat for each indexer — all enabled indexers are searched at the same time.</p>
+</li>
+</ol>
+<p>Full guide: <a class="md-button" href="../../scrapers/newznab/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Newznab setup</a></p>
 <hr>
 <h2 id="scraper-priority">Scraper priority<a class="headerlink" href="#scraper-priority" title="Permanent link">¶</a></h2>
 <p>Scrapers are checked in order. Put your fastest/most reliable scraper first:</p>
 <ol>
 <li>Zilean (fastest — cache hits only)</li>
 <li>Torrentio or MediaFusion (broader search)</li>
+<li>Newznab indexers (Usenet)</li>
 <li>Jackett/Prowlarr (private trackers, slowest)</li>
 </ol>
-<p>Adjust order under <strong>Settings → Scraping → Scraper Priority</strong>.</p>
+<p>Change the order by dragging scrapers by their handle in <strong>Settings → Scrapers</strong>.</p>
 <hr>
 <h2 id="testing-a-scraper">Testing a scraper<a class="headerlink" href="#testing-a-scraper" title="Permanent link">¶</a></h2>
-<p>After adding a scraper, use <strong>Settings → Debug → Test Scraper</strong> to search for a known title and confirm results come back.</p>
+<p>After adding a scraper, open <strong>Tools → Tester</strong> to search for a known title and confirm results come back. It also shows how each release is scored, so you can tune your quality settings.</p>
 <hr>
 <p>For full documentation on all supported scrapers and advanced configuration, see the <a href="../../scrapers/#available-scrapers"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Scrapers reference</a>.</p>
 <hr>

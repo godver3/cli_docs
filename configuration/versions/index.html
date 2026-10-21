@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/versions/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/versions/">
       
       
         <link rel="prev" href="../scrapers/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3660,7 +3660,7 @@
 <h1 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">¶</a></h1>
 <p>Versions are quality profiles — they define exactly what cli_debrid should look for when scraping. Each content source is assigned a version, and cli_debrid will only accept results that match the profile's criteria.</p>
 <p>You can create as many versions as you need and assign different ones to different content sources.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/versions-overview.png" data-desc-position="bottom"><img alt="Versions overview" src="../../assets/screenshots/configuration/versions-overview.png"></a></p>
+<p></p>
 <hr>
 <h2 id="default-versions">Default versions<a class="headerlink" href="#default-versions" title="Permanent link">¶</a></h2>
 <p>cli_debrid ships with a <strong>Default</strong> version pre-configured for balanced quality (1080p WEB-DL). You can edit this or create new ones.</p>
@@ -3673,7 +3673,7 @@
 <li>Configure the settings below</li>
 <li>Save</li>
 </ol>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/versions-add.png" data-desc-position="bottom"><img alt="Add version form" src="../../assets/screenshots/configuration/versions-add.png"></a></p>
+<p></p>
 <hr>
 <h2 id="resolution-settings">Resolution settings<a class="headerlink" href="#resolution-settings" title="Permanent link">¶</a></h2>
 <table>
@@ -3753,7 +3753,7 @@
 <tr>
 <td><strong>Soft Max Size</strong></td>
 <td>Off</td>
-<td>If enabled and no results fit within Max Size, accept the smallest available result instead of failing.</td>
+<td>If enabled and no results fit within Max Size, accept the smallest available result instead of failing. <em>This is a global setting under <strong>Other Scraping Settings</strong>, not per version.</em></td>
 </tr>
 </tbody>
 </table>
@@ -3909,6 +3909,9 @@
 <li>Preferred Filter In: <code>DV, DoVi</code> — prefer Dolby Vision when available</li>
 <li>Filter Out: <code>dubbed, DUBBED</code> — reject dubbed audio releases</li>
 </ul>
+<p><strong>Patterns are regular expressions.</strong> <code>(?i)</code> makes a pattern case-insensitive, <code>\b</code> matches a word boundary and <code>\.</code> matches a literal dot — e.g. <code>(?i)\bHDTS\b</code> or <code>\.CAM\.</code>.</p>
+<p><strong>Each filter has a source:</strong> <strong>Both</strong> (default), <strong>Debrid</strong> or <strong>Usenet</strong>. A filter only applies to results of that type — for example, filter out generic <code>WEB-DL</code> releases for <strong>Debrid</strong> only so those come from Usenet, while still allowing them from Usenet.</p>
+<p>See the <a href="../../getting-started/configure/#example-a-tuned-1080p-version">example 1080p version</a> for a full, importable filter list.</p>
 <hr>
 <h2 id="language-settings">Language settings<a class="headerlink" href="#language-settings" title="Permanent link">¶</a></h2>
 <table>
@@ -3934,6 +3937,11 @@
 <td><strong>Use Alternative Titles</strong></td>
 <td>Off</td>
 <td>Search using translated/alias titles for international content</td>
+</tr>
+<tr>
+<td><strong>Foreign Language Penalty</strong></td>
+<td><code>30</code></td>
+<td>Score penalty for releases tagged with a different <strong>audio</strong> language than the Language Code (e.g. <code>GERMAN</code> for an <code>en</code> version), multiplied by Language Weight. Subtitle-only tags (e.g. <code>SWESUB</code>, <code>VOSTFR</code>) and multi-audio releases (<code>MULTi</code>, <code>Dual Audio</code>) aren't penalised. Set <code>0</code> to turn off.</td>
 </tr>
 </tbody>
 </table>
@@ -3980,6 +3988,27 @@
 </tbody>
 </table>
 <p><strong>Example:</strong> Set a <code>4K</code> version's fallback to <code>1080p</code> — cli_debrid first looks for 4K, and if nothing is found, tries 1080p.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fallback At Scrape Time</strong></td>
+<td>Off</td>
+<td>Normally the fallback is only tried after this version has used up its retries and the item is blacklisted (which can take a day or more). With this on, the fallback is tried as soon as a scrape finds nothing; if the fallback finds results, the original item is blacklisted and the fallback item takes over.</td>
+</tr>
+<tr>
+<td><strong>Fallback After Attempts</strong></td>
+<td><code>0</code></td>
+<td>With Fallback At Scrape Time on: how many failed scrapes before trying the fallback. <code>0</code> or <code>1</code> = on the first failure.</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="wake-count">Wake count<a class="headerlink" href="#wake-count" title="Permanent link">¶</a></h2>
 <table>
@@ -4101,7 +4130,7 @@
 <h2 id="assigning-versions-to-content-sources">Assigning versions to content sources<a class="headerlink" href="#assigning-versions-to-content-sources" title="Permanent link">¶</a></h2>
 <p>Each content source has a <strong>Versions</strong> checkbox list. Check all versions that should apply to that source.</p>
 <p>When multiple versions are checked, cli_debrid tries each one in priority order and uses the best match found.</p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/configuration/versions-assigned.png" data-desc-position="bottom"><img alt="Versions assigned to a content source" src="../../assets/screenshots/configuration/versions-assigned.png"></a></p>
+<p></p>
 <hr>
 <h2 id="version-actions">Version actions<a class="headerlink" href="#version-actions" title="Permanent link">¶</a></h2>
 <p>At the top of the Versions page:</p>

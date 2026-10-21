@@ -7,7 +7,7 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_debrid/configuration/advanced/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/advanced/">
       
       
         <link rel="prev" href="../content-sources/">
@@ -702,7 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Step 2: Mount debrid storage
+    Step 2: Mount storage
   
 
     
@@ -3415,6 +3415,16 @@
 <td>Enable Python's tracemalloc for detailed memory usage tracking per task. Adds overhead — use only for debugging memory leaks.</td>
 </tr>
 <tr>
+<td><strong>Auto Run Program</strong></td>
+<td>Off</td>
+<td>Start the program (queues and tasks) automatically when cli_debrid starts, instead of waiting for <strong>Start Program</strong></td>
+</tr>
+<tr>
+<td><strong>Disable Initialization</strong></td>
+<td>Off</td>
+<td>Skip the startup initialization tasks. Troubleshooting only.</td>
+</tr>
+<tr>
 <td><strong>Tracemalloc Sample Rate</strong></td>
 <td><code>100</code></td>
 <td>Sample rate for tracemalloc (1 in X tasks). Lower values give more frequent data but increase overhead.</td>
@@ -3531,6 +3541,11 @@
 <td>Disable content source caching</td>
 </tr>
 <tr>
+<td><strong>Content Source Check Period</strong></td>
+<td>—</td>
+<td>Override how often (in minutes) each content source is checked. At least 5 minutes is recommended.</td>
+</tr>
+<tr>
 <td><strong>Enable Granular Version Additions</strong></td>
 <td>On</td>
 <td>Enable granular version additions for Wanted items</td>
@@ -3622,14 +3637,14 @@
 <td>Character used when replacing invalid characters in filenames. Must be valid on both Windows and Linux.</td>
 </tr>
 <tr>
-<td><strong>Enable Unblacklisting</strong></td>
+<td><strong>Disable Unblacklisting</strong></td>
 <td>On</td>
-<td>Automatically unblacklist items after their blacklist duration expires</td>
+<td>When on (the default), blacklisted items stay blacklisted. Turn <strong>off</strong> to automatically unblacklist items once their blacklist duration expires.</td>
 </tr>
 <tr>
 <td><strong>Blacklist Duration (Days)</strong></td>
-<td><code>7</code></td>
-<td>How long a failed torrent stays blacklisted before it can be retried</td>
+<td><code>30</code></td>
+<td>How long an item stays blacklisted before it can be retried (when unblacklisting is enabled). Set under <strong>Additional Settings → Queue</strong>.</td>
 </tr>
 <tr>
 <td><strong>Unblacklisting Cutoff Date</strong></td>
