@@ -11,9 +11,9 @@ Select your platform below. All methods install the same app — only the steps 
     cli_mount runs as its own container next to cli_debrid (you set it up in [Step 2](mount.md)). Two things to get right:
 
     - **Same mount path in both containers.** Map your mount folder into cli_debrid (and your media server) at the same path cli_mount uses, so file paths line up.
-    - **Reach cli_mount by IP, not `localhost`.** cli_debrid talks to cli_mount on port `8888` — use `http://YOUR_SERVER_IP:8888` (or the container name on a shared Docker network). `localhost:8888` clashes with cli_debrid's built-in Phalanx DB.
+    - **Reach cli_mount by IP or container name, not `localhost`.** cli_mount listens on port `8282` by default — use `http://YOUR_SERVER_IP:8282` (or the container name on a shared Docker network). `localhost` inside the cli_debrid container is cli_debrid itself.
 
-    - **Port 8888 clash.** The `docker-compose.yml` from the cli_debrid repo (used in the Quick Start) publishes port `8888` for Phalanx DB, which is also cli_mount's default port. If both run on the same host, remove the `"8888:8888"` line from cli_debrid's compose (Phalanx DB is optional and off unless you enable it), or publish cli_mount on a different host port.
+    - **Keep cli_mount on port `8282`.** That's cli_mount's default. Port `8888` is taken by cli_debrid's built-in Phalanx DB — the cli_debrid `docker-compose.yml` publishes it — so don't move cli_mount to `8888` if both run on the same host.
 
     Optional: also map cli_mount's appdata folder into cli_debrid as `/climount_data` to enable cli_mount DB backup and cleanup tools.
 

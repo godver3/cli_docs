@@ -28,13 +28,13 @@ Full setup guide: [:octicons-arrow-right-24: cli_mount](../integrations/cli_moun
 In short:
 
 1. Run the `ghcr.io/mash2k3/cli_mount:dev` container (needs `/dev/fuse`), with your mount folder mapped to `/mnt`
-2. Open the cli_mount web UI at `http://YOUR_SERVER_IP:8888`
+2. Open the cli_mount web UI at `http://YOUR_SERVER_IP:8282`
 3. **Debrid:** under **Settings → Providers → Debrid**, click **Add Account** and enter your debrid provider and API key
 4. **Usenet:** under **Settings → Providers → Usenet**, click **Add Server** and enter your provider's host, port (`563` with SSL), username, password and max connections
 
 After setup you will have a mount folder (e.g. `/path/to/debrid`) containing your debrid and Usenet files.
 
-Note the path and the cli_mount URL (`http://YOUR_SERVER_IP:8888`) — you'll need both in [Step 4](configure.md).
+Note the path and the cli_mount URL (`http://YOUR_SERVER_IP:8282`) — you'll need both in [Step 4](configure.md).
 
 ---
 

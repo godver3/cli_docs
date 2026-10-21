@@ -44,7 +44,7 @@ flowchart LR
         restart: unless-stopped
         network_mode: bridge
         ports:
-          - "8888:8888/tcp"
+          - "8282:8282/tcp"
         volumes:
           - /path/to/debrid:/mnt:rw,shared     # (1)
           - /path/to/cache:/cache:rw # (2)
@@ -80,7 +80,7 @@ flowchart LR
       --pids-limit 2048 \
       --privileged=true \
       -e TZ="America/New_York" \
-      -p '8888:8888/tcp' \
+      -p '8282:8282/tcp' \
       -v '/path/to/debrid':'/mnt':'rw,shared' \
       -v '/path/to/cache':'/cache':'rw' \
       -v '/path/to/appdata':'/app':'rw' \
@@ -118,7 +118,7 @@ flowchart LR
 
     | Field | Value |
     |-------|-------|
-    | Port | `8888` |
+    | Port | `8282` (cli_mount's default) |
     | rclone | Your debrid mount path (e.g. `/path/to/debrid`) → `/mnt` |
     | cache | Your cache path (e.g. `/path/to/cache`) → `/cache` |
     | config | Your appdata path (e.g. `/path/to/appdata/cli_mount`) → `/app` |
@@ -171,7 +171,7 @@ flowchart LR
 
     ### Step 3 — Create config.json
 
-    Create a `config.json` in your appdata folder. The web UI at `http://YOUR_SERVER_IP:8888` can also be used to generate this after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in your appdata folder. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate this after first run — see [Configuration](#configuration) below.
 
     ### Step 4 — Start cli_mount
 
@@ -207,7 +207,7 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running and connected:
 
     ```
-    http://YOUR_SERVER_IP:8888
+    http://YOUR_SERVER_IP:8282
     ```
 
 === "Binary (Unraid)"
@@ -234,7 +234,7 @@ flowchart LR
 
     ### Step 3 — Create config.json
 
-    Create a `config.json` in `/path/to/appdata/cli_mount/`. The web UI at `http://YOUR_SERVER_IP:8888` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in `/path/to/appdata/cli_mount/`. The web UI at `http://YOUR_SERVER_IP:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
 
     ### Step 4 — Create User Scripts
 
@@ -266,7 +266,7 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running:
 
     ```
-    http://YOUR_SERVER_IP:8888
+    http://YOUR_SERVER_IP:8282
     ```
 
 === "Windows"
@@ -281,7 +281,7 @@ flowchart LR
 
     ### Step 2 — Create config.json
 
-    Create a `config.json` in the same folder. The web UI at `http://localhost:8888` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
+    Create a `config.json` in the same folder. The web UI at `http://localhost:8282` can also be used to generate and edit settings after first run — see [Configuration](#configuration) below.
 
     ### Step 3 — Run cli_mount
 
@@ -305,14 +305,14 @@ flowchart LR
     Open the cli_mount web UI to confirm it is running:
 
     ```
-    http://localhost:8888
+    http://localhost:8282
     ```
 
 ---
 
 ## Configuration
 
-cli_mount is configured via a `config.json` file placed in your appdata folder (`/app` inside the container). The web UI at `http://YOUR_SERVER_IP:8888` can also be used to edit settings after first run.
+cli_mount is configured via a `config.json` file placed in your appdata folder (`/app` inside the container). The web UI at `http://YOUR_SERVER_IP:8282` can also be used to edit settings after first run.
 
 ### Debrid provider
 
@@ -600,7 +600,7 @@ ls /path/to/debrid
 You should see your content folders from Real-Debrid. Open the web UI to confirm cli_mount is connected:
 
 ```
-http://YOUR_SERVER_IP:8888
+http://YOUR_SERVER_IP:8282
 ```
 
 ---
@@ -642,7 +642,7 @@ In **Settings → Required Settings → Usenet Provider**:
 | Setting | Description |
 |---|---|
 | **Enabled** | Turn on Usenet support |
-| **URL** | cli_mount base URL (e.g. `http://cli_mount:8888`) |
+| **URL** | cli_mount base URL (e.g. `http://cli_mount:8282`) |
 | **API Token** | cli_mount API token (if authentication is enabled) |
 | **Download Folder** | Optional override for the download destination inside cli_mount |
 | **cli_mount Data Path** | Path to cli_mount's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/cli_mount:/cli_mount_data` to your docker-compose volumes, then set this to `/cli_mount_data` |

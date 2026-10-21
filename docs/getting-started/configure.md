@@ -40,10 +40,10 @@ The wizard's **Debrid or Usenet Provider** section has a tab for each. cli_debri
 
     | Field | Value |
     |---|---|
-    | **Usenet Provider URL** | Your cli_mount URL, e.g. `http://192.168.1.x:8888` (NzbDAV uses port `3000`) |
+    | **Usenet Provider URL** | Your cli_mount URL, e.g. `http://192.168.1.x:8282` (NzbDAV uses port `3000`) |
     | **API Token** | Only if your cli_mount has authentication enabled — otherwise leave blank |
 
-    Use the server's IP or container name, **not** `localhost:8888` — that port is taken by cli_debrid's built-in Phalanx DB.
+    Use the server's IP or container name, **not** `localhost` — inside the cli_debrid container that points at cli_debrid itself.
 
     Your news server login lives in cli_mount ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
 

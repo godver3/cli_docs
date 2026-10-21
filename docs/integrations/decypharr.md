@@ -547,7 +547,7 @@ In **Settings → Required Settings → Usenet Provider**:
 | Setting | Description |
 |---|---|
 | **Enabled** | Turn on Usenet support |
-| **URL** | Decypharr base URL (e.g. `http://decypharr:8888`) |
+| **URL** | Decypharr base URL (e.g. `http://decypharr:8282`) |
 | **API Token** | Decypharr API token (if authentication is enabled) |
 | **Download Folder** | Optional override for the download destination inside Decypharr |
 | **Decypharr Data Path** | Path to Decypharr's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/decypharr:/decypharr_data` to your docker-compose volumes, then set this to `/decypharr_data` |

@@ -173,7 +173,7 @@ Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newzna
 |---|---|
 | **Enable Usenet** | Turn on Usenet support |
 | **Provider** | `cli_mount` (recommended), `NzbDAV`, or `Zurg` (Zurg 2.0's SABnzbd-compatible endpoint) |
-| **Provider URL** | e.g. `http://192.168.1.x:8888` for cli_mount or `:3000` for NzbDAV. Use the host IP or container name — **not** `localhost:8888`, which clashes with cli_debrid's built-in Phalanx DB. |
+| **Provider URL** | e.g. `http://192.168.1.x:8282` for cli_mount or `:3000` for NzbDAV. Use the host IP or container name — **not** `localhost`, which inside the cli_debrid container points at cli_debrid itself. |
 | **API Token** | Only if your provider has authentication enabled |
 | **Download Folder / Category** | Leave empty for the provider's default |
 | **cli_mount Data Path** | cli_mount's appdata folder as seen *inside the cli_debrid container* — needed for the cli_mount DB backup, restore and cleanup tools. Add `- /path/to/appdata/cli_mount:/climount_data` to your cli_debrid volumes and set this to `/climount_data`. |

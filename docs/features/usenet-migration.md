@@ -87,7 +87,7 @@ In cli_debrid, go to **Settings → Required Settings → Usenet Provider**:
 |---|---|
 | **Enabled** | ✓ |
 | **Provider** | `climount` |
-| **Provider URL** | Use the host IP and port — e.g. `http://192.168.1.x:8888`. Do **not** use `localhost:8888` as this conflicts with Phalanx DB |
+| **Provider URL** | Use the host IP and port — e.g. `http://192.168.1.x:8282`. Do **not** use `localhost` — inside the cli_debrid container that points at cli_debrid itself |
 | **API Token** | Leave empty if cli_mount auth is disabled |
 | **Download Folder / Category** | Leave empty to use cli_mount's default |
 | **cli_mount Data Path** | `/climount_data` (matches the volume bind from Step 2) |
