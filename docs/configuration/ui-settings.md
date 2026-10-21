@@ -35,6 +35,7 @@ icon: material/monitor
 | **Recently Upgraded Limit** | `7` | Number of items shown in the Recently Upgraded section on the statistics page |
 | **Upcoming Releases Start Limit** | `7` | How many days back to show (`0` = today, `7` = one week back) |
 | **Upcoming Releases End Limit** | `365` | How many days forward to show on the statistics page |
+| **Stats Provider Priority** | `auto` | Whose stats the Statistics page shows: `auto` (debrid if configured, otherwise Usenet), `debrid`, `usenet` (cli_mount stats even when debrid is also set up), or `combined` (total size and broken count across all debrid providers and Usenet — no subscription days) |
 
 ---
 

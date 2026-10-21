@@ -17,6 +17,8 @@ Configure advanced and debug options.
 | **Timezone Override** | — | Override system timezone (e.g. `America/New_York`). Leave empty to use system timezone. |
 | **Check For Updates** | On | Check for updates and display update indicator in the header |
 | **Enable Tracemalloc** | Off | Enable Python's tracemalloc for detailed memory usage tracking per task. Adds overhead — use only for debugging memory leaks. |
+| **Auto Run Program** | Off | Start the program (queues and tasks) automatically when cli_debrid starts, instead of waiting for **Start Program** |
+| **Disable Initialization** | Off | Skip the startup initialization tasks. Troubleshooting only. |
 | **Tracemalloc Sample Rate** | `100` | Sample rate for tracemalloc (1 in X tasks). Lower values give more frequent data but increase overhead. |
 
 ---
@@ -55,6 +57,7 @@ Configure advanced and debug options.
 | **Do Not Add Plex Watch History Items To Queue** | Off | Do not add Plex watch history items to the queue |
 | **Item Process Delay (Seconds)** | `0` | Pause between processing each queue item. Useful to reduce API rate limiting. |
 | **Disable Content Source Caching** | Off | Disable content source caching |
+| **Content Source Check Period** | — | Override how often (in minutes) each content source is checked. At least 5 minutes is recommended. |
 | **Enable Granular Version Additions** | On | Enable granular version additions for Wanted items |
 
 ---
