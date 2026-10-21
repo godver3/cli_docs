@@ -70,7 +70,7 @@ flowchart LR
     ```
 
     1. Paste your Real-Debrid API token here
-    2. Triggers a Plex library scan when new content arrives — see [plex_update.sh](#plex_updatesh) below
+    2. Triggers a Plex library scan when new content arrives — see [plex_update.sh](#step-4-create-plex_updatesh) below
 
     ### Step 3 — Create rclone.conf
 

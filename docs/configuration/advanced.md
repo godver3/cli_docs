@@ -85,8 +85,8 @@ Configure advanced and debug options.
 |---|---|---|
 | **Filename/Folder Name Filter Out List** | — | Comma-separated list of filenames or folder names to filter out |
 | **Sanitizer Replacement Character** | `_` | Character used when replacing invalid characters in filenames. Must be valid on both Windows and Linux. |
-| **Enable Unblacklisting** | On | Automatically unblacklist items after their blacklist duration expires |
-| **Blacklist Duration (Days)** | `7` | How long a failed torrent stays blacklisted before it can be retried |
+| **Disable Unblacklisting** | On | When on (the default), blacklisted items stay blacklisted. Turn **off** to automatically unblacklist items once their blacklist duration expires. |
+| **Blacklist Duration (Days)** | `30` | How long an item stays blacklisted before it can be retried (when unblacklisting is enabled). Set under **Additional Settings → Queue**. |
 | **Unblacklisting Cutoff Date** | — | Only unblacklist items with a release date after this date (`YYYY-MM-DD`) or within the last X days (e.g. `30`). Leave empty to process all. |
 
 ---

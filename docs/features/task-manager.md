@@ -88,17 +88,16 @@ Each task tile shows:
 
 | Task | Default | Enabled | Description |
 |---|---|---|---|
-| **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via Decypharr's health API, scrapes replacements, and resubmits. See [Usenet Migration](usenet-migration.md). |
-| **Plex Stuck Files** | 5m | No | Detects Plex items stuck in a scanning loop and removes them. 5m is good when actively adding content; reduce to 1h once your library is settled. Requires Plex configured. |
-| **Overlays** | 24h | No | Generates and uploads overlay posters to Plex. |
-| **Upgrade Hub** | 6h | No | Checks collected items against upgrade criteria and triggers scrapes for better versions. |
+| **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via cli_mount's health API, scrapes replacements, and resubmits. See [Usenet Migration](usenet-migration.md). |
+| **Overlay Sync** | 1h | When overlays are enabled | Generates and uploads overlay posters to Plex. A separate **Overlay Cleanup** task runs every 24h. |
+| **Upgrade Hub Scan** | 24h | No | Checks collected items against upgrade criteria. A separate **Upgrade Hub Auto Queue** task (24h, off by default) queues the upgrades. |
 
 ### Library tab
 
 | Task | Default | Enabled | Description |
 |---|---|---|---|
-| **Check Plex Files** | 5m | Yes | Verifies that Collecting items exist on the Plex mount and marks them Collected. |
-| **Library Maintenance** | 24h | Yes | Cleans up stale entries, repairs missing metadata, and syncs the library state. |
+| **Check Plex Files** | 1m | Yes (Plex mode) | Verifies that Checking items exist on the Plex mount and marks them Collected. |
+| **Run Library Maintenance** | 12h | No — enable with **Enable Library Maintenance Task** (Advanced Settings); on by default in the lite environment | Cleans up stale entries, repairs missing metadata, and syncs the library state. |
 
 ---
 

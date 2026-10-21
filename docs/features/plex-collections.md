@@ -138,7 +138,7 @@ Collections appear in your Plex library under **Collections**. The sort prefix (
 **Collection not created**
 
 - Verify at least one item from the source list is in `Collected` state in your library
-- Check that Plex credentials (URL and token) are configured correctly under **Settings → Plex**
+- Check that Plex credentials (URL and token) are configured correctly under **Settings → Required Settings** (Plex section)
 
 **Items out of order**
 

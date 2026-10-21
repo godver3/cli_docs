@@ -7,7 +7,7 @@ icon: material/wrench
 
 Debug Functions is the toolbox for fixing problems, repairing the database, managing symlinks, and performing maintenance tasks that aren't available elsewhere in the UI.
 
-Access it from **System → Debug** in the navigation menu.
+Access it from **Tools → Debug** in the navigation menu.
 
 !!! warning "These are powerful tools"
     Most debug functions make permanent changes to your database or files. Always read the description carefully before running anything. Use **Dry Run** where available to preview changes first.
@@ -202,7 +202,7 @@ Configure NAS paths in **Settings → Advanced Settings → Library Management �
 
 **How to use:**
 1. Optionally enable **Dry Run** to preview
-2. Enable **Detect and Remove Duplicates** to clean up any duplicates created by the bug
+2. Enable **Find and Remove Duplicates** to clean up any duplicates created by the bug
 3. Click **Fix**
 
 ---
@@ -271,11 +271,11 @@ Configure NAS paths in **Settings → Advanced Settings → Library Management �
 - Force-move items that are stuck
 
 **How to use:**
-1. Select the **Source Queue** from the dropdown
+1. Pick the queue under **Select Queue**
 2. Items populate automatically
 3. Select items (shift+click for range, ctrl/cmd+click for individual)
-4. Choose **Delete** or **Move to Queue**
-5. If moving, select the target queue
+4. Choose **Delete** or **Move to...** under **Action**
+5. If moving, pick the **Target Queue**
 6. Click **Execute**
 
 ![Bulk queue actions](../assets/screenshots/features/debug-bulk-queue.png)

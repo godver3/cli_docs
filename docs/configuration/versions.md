@@ -61,7 +61,7 @@ cli_debrid ships with a **Default** version pre-configured for balanced quality 
 |---|---|---|
 | **Min Size (GB)** | `0.0` | Reject files smaller than this. Useful to avoid low-quality small encodes. |
 | **Max Size (GB)** | (no limit) | Reject files larger than this. Useful to keep storage under control. |
-| **Soft Max Size** | Off | If enabled and no results fit within Max Size, accept the smallest available result instead of failing. |
+| **Soft Max Size** | Off | If enabled and no results fit within Max Size, accept the smallest available result instead of failing. *This is a global setting under **Other Scraping Settings**, not per version.* |
 
 ---
 

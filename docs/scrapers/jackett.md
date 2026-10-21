@@ -61,7 +61,10 @@ Access Jackett at `http://YOUR_SERVER_IP:9117`.
     |---|---|
     | **URL** | `http://YOUR_JACKETT_IP:9117` |
     | **API Key** | Copied from the Jackett dashboard |
-    | **Seeders Only** | ☑ Recommended — skip results with no seeders |
+    | **Enabled Indexers** | Optional. Comma-separated Jackett indexer IDs to search; leave empty to search all of them |
+    | **Priority** | Scraper priority score — higher wins when results are otherwise similar |
+
+    To skip results with no seeders, turn on **Jackett Seeders Only** under **Settings → Version Settings → Other Scraping Settings** (a global setting, off by default).
 
 4. Toggle **Enabled** on
 5. Click **Save Settings**

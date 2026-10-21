@@ -12,7 +12,6 @@ icon: material/dots-horizontal
 | Setting | Description |
 |---|---|
 | **API Key** | Your TMDB API key — enables poster art, discover, and trending features |
-| **Enable Discovery** | Show the Discover page powered by TMDB |
 | **Certification Region** | Which country's age ratings to show (e.g. US: `R`, `PG-13` · GB: `15`, `12A` · CA: `14A`, `18A`). Default `US`. |
 
 !!! tip "Getting a TMDB API key"
@@ -99,7 +98,7 @@ Automatically adjusts the queue sleep time based on current CPU and RAM usage.
 |---|---|---|
 | **Ghostlist Mode** | Off | Add shows and movies to the ghostlist when deleted to prevent them from being re-added. When enabled, deleting content marks it as ghosted in the database. When disabled, deleted content can be re-added by dynamic content sources. |
 | **Hide Season 0** | On | Hide the Specials (Season 0) tab on show pages |
-| **Remove From Content Sources** | Off | Remove items from content sources (Trakt lists, Overseerr requests, Plex Watchlist, etc.) during deletion. Prevents items from being automatically re-added, but makes deletion slower. **Tip:** Enable when Ghostlist Mode is OFF. Disable when Ghostlist Mode is ON — ghostlist already prevents re-addition and disabling makes deletion much faster. |
+| **Remove From Content Sources** | On | Remove items from content sources (Trakt lists, Overseerr requests, Plex Watchlist, etc.) during deletion. Prevents items from being automatically re-added, but makes deletion slower. **Tip:** Enable when Ghostlist Mode is OFF. Disable when Ghostlist Mode is ON — ghostlist already prevents re-addition and disabling makes deletion much faster. |
 
 ### Clear Artwork Cache
 

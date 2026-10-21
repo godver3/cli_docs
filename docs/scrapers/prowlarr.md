@@ -60,6 +60,8 @@ Access Prowlarr at `http://YOUR_SERVER_IP:9696`.
     |---|---|
     | **URL** | `http://YOUR_PROWLARR_IP:9696` |
     | **API Key** | Copied from Prowlarr → Settings → General |
+    | **Tags** | Optional. Comma-separated numeric Prowlarr **indexer IDs** — searches through this Prowlarr only use those indexers |
+    | **Priority** | Scraper priority score — higher wins when results are otherwise similar |
 
 4. Toggle **Enabled** on
 5. Click **Save Settings**

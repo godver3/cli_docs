@@ -5,27 +5,27 @@ icon: material/transfer
 
 # Usenet Migration
 
-This guide walks you through setting up Usenet with cli_debrid — from installing and configuring Decypharr to running your first migration and keeping your library healthy.
+This guide walks you through setting up Usenet with cli_debrid — from installing and configuring cli_mount to running your first migration and keeping your library healthy.
 
 !!! info "What you need"
     - A **Usenet provider** account (e.g. Frugal, Newshosting, NewsDemon) — this is your NNTP server
     - At least **two paid NZB indexers** (e.g. NZBGeek, AltHub) — these are your search engines
-    - [Decypharr](../integrations/decypharr.md) installed and running
+    - [cli_mount](../integrations/cli_mount.md) installed and running (or [Decypharr](../integrations/decypharr.md), which it is forked from)
 
 ---
 
-## Step 1 — Install and configure Decypharr
+## Step 1 — Install and configure cli_mount
 
-Follow the [Decypharr installation guide](../integrations/decypharr.md) to get Decypharr installed and your debrid mount working.
+Follow the [cli_mount installation guide](../integrations/cli_mount.md) to get cli_mount installed and your debrid mount working.
 
-Once installed, open the Decypharr web UI and complete two things:
+Once installed, open the cli_mount web UI and complete two things:
 
 ### 1a — Set up virtual folders (content routing)
 
 !!! note "Plex Direct mode only"
-    Virtual folders are only required if you use **Plex Direct** mode (cli_debrid points Plex directly at the Decypharr mount). If you use **Symlink** mode, cli_debrid creates the folder structure itself — skip this step.
+    Virtual folders are only required if you use **Plex Direct** mode (cli_debrid points Plex directly at the cli_mount mount). If you use **Symlink** mode, cli_debrid creates the folder structure itself — skip this step.
 
-Configure virtual folders so Decypharr sorts NZB downloads into the right locations. Follow the [content routing section](../integrations/decypharr.md#content-routing) of the Decypharr docs — you can use DFS or Internal/External rclone.
+Configure virtual folders so cli_mount sorts NZB downloads into the right locations. Follow the [content routing section](../integrations/cli_mount.md#content-routing) of the cli_mount docs — you can use DFS or Internal/External rclone.
 
 Set up at minimum:
 
@@ -35,7 +35,7 @@ Set up at minimum:
 
 ### 1b — Add your NNTP provider(s)
 
-In Decypharr's **Settings → Usenet**, click **Add Server** and fill in:
+In cli_mount's **Settings → Providers → Usenet**, click **Add Server** and fill in:
 
 | Field | Description |
 |---|---|
@@ -47,49 +47,51 @@ In Decypharr's **Settings → Usenet**, click **Add Server** and fill in:
 | **Priority** | Lower number = higher priority. Your primary provider should be `1` |
 | **Use SSL** | Enable for port 563 |
 
-Add additional providers as backups — Decypharr tries them in priority order if the primary fails to find a segment.
+Add additional providers as backups — cli_mount tries them in priority order if the primary fails to find a segment.
 
 ---
 
 ## Step 2 — Bind required folders to the cli_debrid container
 
 !!! warning "Required for full functionality"
-    Without these volume binds, the Decypharr DB cleanup tool, Decypharr DB backups, and the Plex Stuck Files task will **not work**.
+    Without the `climount_data` bind, the cli_mount DB cleanup tool and cli_mount DB backups will **not work**. The `plex_data` bind is optional — it's only used to clean up overlay posters (see [Overlays](overlays.md)).
 
 Add the following to your cli_debrid `docker-compose.yml` volumes section:
 
 ```yaml
 volumes:
-  - /mnt/data/appdata/decypharr:/decypharr_data
+  - /mnt/data/appdata/cli_mount:/climount_data
   - /mnt/user/appdata/plex/Library/Application Support/Plex Media Server:/plex_data
 ```
 
-Adjust the host paths to match your actual Decypharr and Plex appdata locations.
+Adjust the host paths to match your actual cli_mount and Plex appdata locations.
 
 | Mount | Enables |
 |---|---|
-| `decypharr_data` | Decypharr DB backup, restore, and cleanup tools |
-| `plex_data` | Plex Stuck Files task |
+| `climount_data` | cli_mount DB backup, restore, and cleanup tools |
+| `plex_data` | Optional — overlay poster cleanup |
 
 After adding the mounts, restart the cli_debrid container then configure the paths in settings:
 
 !!! note "Configure the paths in cli_debrid settings"
     - **Plex data path** — go to **Settings → Additional Settings → Overlay Settings** and set **Plex Data Path** to `/plex_data`
-    - **Decypharr data path** — go to **Settings → Required Settings → Usenet Provider** and set **Decypharr Data Path** to `/decypharr_data`
+    - **cli_mount data path** — go to **Settings → Required Settings → Usenet Provider** and set **cli_mount Data Path** to `/climount_data`
 
 ---
 
-## Step 3 — Connect cli_debrid to Decypharr
+## Step 3 — Connect cli_debrid to cli_mount
 
 In cli_debrid, go to **Settings → Required Settings → Usenet Provider**:
 
 | Setting | Value |
 |---|---|
 | **Enabled** | ✓ |
-| **Decypharr URL** | Use the host IP and port — e.g. `http://192.168.1.x:8888`. Do **not** use `localhost:8888` as this conflicts with Phalanx DB |
-| **API Token** | Leave empty if Decypharr auth is disabled |
-| **Download Folder** | Leave empty to use Decypharr's default |
-| **Decypharr Data Path** | `/decypharr_data` (matches the volume bind from Step 2) |
+| **Provider** | `climount` |
+| **Provider URL** | Use the host IP and port — e.g. `http://192.168.1.x:8888`. Do **not** use `localhost:8888` as this conflicts with Phalanx DB |
+| **API Token** | Leave empty if cli_mount auth is disabled |
+| **Download Folder / Category** | Leave empty to use cli_mount's default |
+| **cli_mount Data Path** | `/climount_data` (matches the volume bind from Step 2) |
+| **Disable NZB Season Packs** | Keep on (default) — see [Required Settings](../configuration/required.md#usenet-provider) |
 
 ---
 
@@ -126,18 +128,9 @@ Go to **Task Manager** and enable:
 | Task | Tab | Why |
 |---|---|---|
 | **Repair Broken NZBs** | Features | Automatically detects broken NZB downloads and finds replacements. Recommended interval: `6h` |
-| **Plex Stuck Files** | Library | Detects Plex items stuck in a scanning loop and removes them. Default interval is `5m` — good when initially adding a lot of content. Once your library is settled, `1h` is sufficient. |
 
-!!! danger "Required volume binds"
-    These tasks will **not work** without the following mounts in your cli_debrid `docker-compose.yml`:
-
-    ```yaml
-    volumes:
-      - /mnt/data/appdata/decypharr:/decypharr_data
-      - /mnt/user/appdata/plex/Library/Application Support/Plex Media Server:/plex_data
-    ```
-
-    Adjust the host paths to match your actual Decypharr and Plex appdata locations.
+!!! note
+    Repair needs the Usenet provider configured as in [Step 3](#step-3-connect-cli_debrid-to-cli_mount).
 
 Click **Save** after enabling.
 
@@ -156,30 +149,30 @@ If you want to fully drop debrid and move your entire library to Usenet, follow 
 
 In **Debrid Manager → Maintenance**, click **Run Now** in the Backup section to create a fresh backup of your debrid library.
 
-**6b — Remove debrid provider from Decypharr**
+**6b — Remove debrid provider from cli_mount**
 
-In the Decypharr web UI, go to **Settings → Providers → Debrid** tab. Click the delete (🗑) button on your debrid account and click **Save Configuration**. This removes the debrid provider before you clear the database.
+In the cli_mount web UI, go to **Settings → Providers → Debrid** tab. Click the delete (🗑) button on your debrid account and click **Save Configuration**. This removes the debrid provider before you clear the database.
 
 **6c — Stop everything**
 
 1. Turn off Plex (or pause its library scanning)
 2. In cli_debrid, click **Stop Program** in the top bar to halt all queue processing
-3. Stop the Decypharr container
+3. Stop the cli_mount container
 
-**6d — Clear the Decypharr database**
+**6d — Clear the cli_mount database**
 
-In Decypharr's appdata folder, **rename or delete the `db` folder**. This wipes Decypharr's torrent database so you start fresh with Usenet only.
+In cli_mount's appdata folder, **rename or delete the `db` folder**. This wipes cli_mount's torrent database so you start fresh with Usenet only.
 
-!!! warning "This deletes all Decypharr torrent tracking"
+!!! warning "This deletes all cli_mount torrent tracking"
     Make sure your backup was created before this step. The backup file contains everything needed for migration.
 
 **6e — cli_debrid database**
 
-Leave your existing collected items as-is. Once the migration completes and items are downloaded by Decypharr, the **Plex Full Scans** task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.
+Leave your existing collected items as-is. Once the migration completes and items are downloaded by cli_mount, the **Plex Full Scan** task will automatically detect the new files and update the existing cli_debrid database entries. No manual deletion needed.
 
 **6f — Restart everything**
 
-Start Decypharr first, then start cli_debrid and resume the program. Turn Plex back on.
+Start cli_mount first, then start cli_debrid and resume the program. Turn Plex back on.
 
 ### Run the migration
 
@@ -187,7 +180,7 @@ Start Decypharr first, then start cli_debrid and resume the program. Turn Plex b
 2. Select a **Version** from the dropdown in the Backup Slots header (use `Default version` to accept any quality, or pick a specific version to filter results)
 3. Click **→ Usenet** on the backup slot you want to migrate (use the most recent **1d** slot for the freshest list)
 
-The migration searches all your Newznab indexers for every torrent in the backup and submits found NZBs to Decypharr. A progress bar shows live stats.
+The migration searches all your Newznab indexers for every torrent in the backup and submits found NZBs to cli_mount. A progress bar shows live stats.
 
 ### Migration results
 
@@ -203,7 +196,7 @@ Both files appear in the **Extra Files** section of Backup Slots with their own 
 ### Backfill NZB Torrent IDs
 
 !!! warning "Important — do this after migration"
-    Run the **Plex Full Scans** task first to detect downloaded files and update the cli_debrid database. Once that completes, run or enable the **Backfill NZB Torrent IDs** task. This links Decypharr's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.
+    Run the **Plex Full Scan** task first to detect downloaded files and update the cli_debrid database. Once that completes, run or enable the **Backfill NZB Torrent IDs** task. This links cli_mount's job IDs to the cli_debrid database entries for all migrated items. Without it, the repair engine, health checks, and other NZB-dependent functions won't work correctly on your migrated library.
 
 Go to **Task Manager** and either trigger or enable the **Backfill NZB Torrent IDs** task.
 
@@ -215,34 +208,28 @@ Go to **Task Manager** and either trigger or enable the **Backfill NZB Torrent I
 
 The repair engine runs automatically (if enabled in Step 5) every 6 hours. It:
 
-1. Queries Decypharr's health API for broken NZBs
+1. Queries cli_mount's health API for broken NZBs
 2. Matches broken items to cli_debrid's database
 3. Searches Newznab indexers for a replacement
-4. Submits the replacement to Decypharr and validates it
+4. Submits the replacement to cli_mount and validates it
 
 View repair history and trigger a manual run in **Debrid Manager → Usenet**.
 
-### Decypharr DB tools
+### cli_mount DB tools
 
-With the `decypharr_data` volume bind in place, the following tools are available in **Debug Functions**:
+With the `climount_data` volume bind in place, the following tools are available in **Debug Functions**:
 
-**Library tab → Decypharr DB Cleanup**
+**Library tab → cli_mount DB Cleanup**
 
-Removes entries for a specific debrid provider from Decypharr's `entries.db` and `items.db` using infohash matching. Useful when you have leftover debrid entries mixed in with your Usenet library.
+Removes entries for a specific debrid provider from cli_mount's `entries.db` and `items.db` using infohash matching. Useful when you have leftover debrid entries mixed in with your Usenet library.
 
-!!! warning "Stop Decypharr before running a live cleanup"
-    Always use **Dry Run** first to preview what will be removed. Stop the Decypharr container before running a live cleanup to avoid database corruption.
+!!! warning "Stop cli_mount before running a live cleanup"
+    Always use **Dry Run** first to preview what will be removed. Stop the cli_mount container before running a live cleanup to avoid database corruption.
 
-**Database tab → Decypharr DB Backup / Restore / Cleanup**
+**Database tab → cli_mount DB Backup / Restore / Cleanup**
 
-Decypharr's `entries.db` and `items.db` are automatically backed up on the same daily schedule as the cli_debrid database. Manual backup, restore from backup, and old backup cleanup are all available from the Database tab.
+cli_mount's `entries.db` and `items.db` are automatically backed up on the same daily schedule as the cli_debrid database. Manual backup, restore from backup, and old backup cleanup are all available from the Database tab.
 
-### Plex Stuck Files
-
-Occasionally Plex gets stuck scanning a file repeatedly without completing. The **Plex Stuck Files** task detects these loops by watching Plex's log and removes the stuck items automatically. Requires the `plex_data` volume bind.
-
-!!! warning "Plex log filename"
-    The task looks for `Plex Media Server.log` inside the bound `plex_data` path (full path: `/plex_data/Logs/Plex Media Server.log`). Some systems name the log differently — e.g. `Plex Media Server 1.log`. If the task logs `Plex log not found`, check your Plex `Logs` folder and confirm the exact filename. The log file is created by Plex when it is running — if it's missing, make sure Plex is active.
 
 ---
 
@@ -250,16 +237,13 @@ Occasionally Plex gets stuck scanning a file repeatedly without completing. The 
 
 **NZBs fail with "ARTICLE_NOT_FOUND"**
 
-The NZB segments have expired on your Usenet server's retention. Try a different indexer or search for a more recent repost of the same content. Decypharr verifies segment availability before downloading — this is expected for older content.
+The NZB segments have expired on your Usenet server's retention. Try a different indexer or search for a more recent repost of the same content. cli_mount verifies segment availability before downloading — this is expected for older content.
 
 **Migration finds 0 results**
 
 Check that your Newznab scrapers are enabled and their API keys are valid. Try running a manual search in the scraper results page for a known title first.
 
-**Decypharr DB Cleanup shows no providers**
+**cli_mount DB Cleanup shows no providers**
 
-Ensure the `decypharr_data` volume bind is correctly set in your docker-compose and the **Decypharr Data Path** in settings matches (`/decypharr_data`). The provider list is read directly from Decypharr's `entries.db`.
+Ensure the `climount_data` volume bind is correctly set in your docker-compose and the **cli_mount Data Path** in settings matches (`/climount_data`). The provider list is read directly from cli_mount's `entries.db`.
 
-**Plex Stuck Files task does nothing**
-
-Verify the `plex_data` volume bind is in place and that the path matches your Plex appdata location. Check Task Manager that the task is enabled.

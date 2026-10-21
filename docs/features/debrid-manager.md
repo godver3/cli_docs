@@ -153,7 +153,7 @@ Live account statistics from your debrid provider.
 ## Usenet
 
 !!! info "Requires Decypharr"
-    The Usenet tab is only visible when a Usenet provider (Decypharr) is configured in **Settings → Required Settings → Usenet Provider**.
+    The Usenet tab is only visible when a Usenet provider (cli_mount, NzbDAV or Zurg) is configured in **Settings → Required Settings → Usenet Provider**.
 
 Shows the health of your Usenet NZB library and controls the repair engine.
 
@@ -161,7 +161,7 @@ Shows the health of your Usenet NZB library and controls the repair engine.
 
 | Stat | Description |
 |---|---|
-| **Healthy** | NZBs confirmed intact by Decypharr's repair API |
+| **Healthy** | NZBs confirmed intact by the Usenet provider's repair API |
 | **Broken** | NZBs with missing or corrupt segments |
 | **Unknown** | NZBs not yet health-checked |
 | **Repaired** | Items the repair engine has successfully replaced |
@@ -175,7 +175,7 @@ Click **View Broken** to expand a list of all broken entries, showing title and 
 
 | Button | Description |
 |---|---|
-| **Run Health Scan** | Trigger Decypharr's health scan immediately |
+| **Run Health Scan** | Trigger the Usenet provider's health scan immediately |
 | **View Broken** | Show/hide the currently broken list |
 | **Version dropdown** | Select a version filter for replacement NZB searches |
 | **Fix Broken** | Run the repair engine immediately |

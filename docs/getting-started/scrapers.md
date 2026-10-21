@@ -49,14 +49,9 @@ https://zileanfortheweebs.midnightignite.me
 
 ### Torrentio
 
-Torrentio is a Stremio addon that also works as a scraper API. No account needed.
+Torrentio is a Stremio addon that also works as a scraper API. No account or URL needed — cli_debrid uses the public instance.
 
 Full guide: [:octicons-arrow-right-24: Torrentio setup](../scrapers/torrentio.md){ .md-button }
-
-Default URL:
-```
-https://torrentio.strem.fun
-```
 
 ### MediaFusion
 
