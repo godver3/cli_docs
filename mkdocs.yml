@@ -1,6 +1,6 @@
 site_name: cli_debrid
 site_description: Automated media management powered by debrid services
-site_url: https://godver3.github.io/cli_debrid/
+site_url: https://godver3.github.io/cli_docs/
 repo_url: https://github.com/godver3/cli_debrid
 repo_name: godver3/cli_debrid
 edit_uri: edit/dev/cli/docs/
@@ -99,7 +99,7 @@ nav:
   - Getting Started:
     - getting-started/index.md
     - "Step 1: Prerequisites": getting-started/prerequisites.md
-    - "Step 2: Mount debrid storage": getting-started/mount.md
+    - "Step 2: Mount storage": getting-started/mount.md
     - "Step 3: Install cli_debrid": getting-started/install.md
     - "Step 4: Configure": getting-started/configure.md
     - "Step 5: Add scrapers": getting-started/scrapers.md

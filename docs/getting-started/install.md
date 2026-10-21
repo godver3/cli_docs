@@ -7,6 +7,14 @@ icon: material/download
 
 Select your platform below. All methods install the same app — only the steps differ.
 
+!!! info "Using cli_mount?"
+    cli_mount runs as its own container next to cli_debrid (you set it up in [Step 2](mount.md)). Two things to get right:
+
+    - **Same mount path in both containers.** Map your mount folder into cli_debrid (and your media server) at the same path cli_mount uses, so file paths line up.
+    - **Reach cli_mount by IP, not `localhost`.** cli_debrid talks to cli_mount on port `8888` — use `http://YOUR_SERVER_IP:8888` (or the container name on a shared Docker network). `localhost:8888` clashes with cli_debrid's built-in Phalanx DB.
+
+    Optional: also map cli_mount's appdata folder into cli_debrid as `/climount_data` to enable cli_mount DB backup and cleanup tools.
+
 ---
 
 === "Unraid"

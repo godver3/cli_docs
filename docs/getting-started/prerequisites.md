@@ -11,11 +11,23 @@ Before installing anything, sign up for the required services and gather your AP
 
 ## Required services
 
-### 1. Debrid service
+### 1. A download source — debrid, Usenet, or both
+
+cli_debrid needs at least one place to get content from:
+
+| Option | What you need | Good for |
+|---|---|---|
+| **Debrid** | A debrid account (below) | Huge instant cache of popular torrents |
+| **Usenet** | A Usenet provider + at least one indexer ([see 1b](#1b-usenet)) | Fast, reliable downloads with long retention |
+| **Both** | Everything above | Usenet fills gaps in the debrid cache and vice versa |
+
+You can start with one and add the other later.
+
+### 1a. Debrid service
 
 A debrid service is a premium link provider that caches torrents in the cloud. cli_debrid uses it to stream content without downloading locally.
 
-You need **one** of the following:
+If you're using debrid, you need **one** of the following:
 
 | Service | Notes |
 |---|---|
@@ -46,6 +58,19 @@ After signing up, locate your API key:
     [debrid-link.com/webapp/apikey](https://debrid-link.com/webapp/apikey) — generate a key.
 
 **Save this key — you will need it during cli_debrid setup.**
+
+### 1b. Usenet
+
+To use Usenet you need two things: a **provider** that serves the files, and an **indexer** that tells cli_debrid what's available.
+
+| What | Examples | Notes |
+|---|---|---|
+| **Usenet provider** (news server) | Frugal Usenet, Newshosting, Eweka, UsenetExpress | Paid account. You'll need the server hostname, port (`563` for SSL), username, password and your plan's connection limit. |
+| **Newznab indexer** | NZBGeek, NZBPlanet, DrunkenSlug, DogNZB | Usually a small yearly fee. You'll need the indexer URL and your API key from your account page. |
+
+Nothing is downloaded to your server — [cli_mount](../integrations/cli_mount.md) streams NZB content from your provider through the same mount used for debrid.
+
+**Save your provider login and indexer API key.**
 
 ---
 
@@ -125,7 +150,7 @@ Trakt is optional. It can be used as a content source (watchlist, lists, collect
 
 Before moving on, confirm you have:
 
-- [ ] Debrid account + API key
+- [ ] A download source: debrid account + API key, **and/or** a Usenet provider login + indexer API key
 - [ ] Plex, Jellyfin, or Emby installed
 - [ ] TMDB API key
 - [ ] TVDB API key (or Trakt, as a fallback for TV metadata)
@@ -134,4 +159,4 @@ Before moving on, confirm you have:
 
 ## Next step
 
-[:octicons-arrow-right-24: Step 2 — Mount your debrid storage](mount.md){ .md-button .md-button--primary }
+[:octicons-arrow-right-24: Step 2 — Mount your storage](mount.md){ .md-button .md-button--primary }

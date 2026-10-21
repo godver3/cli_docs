@@ -5,7 +5,11 @@ icon: material/magnify
 
 # Step 5 — Add scrapers
 
-Scrapers are how cli_debrid finds torrents for your content. You need at least one scraper configured before cli_debrid can add anything to your debrid account.
+Scrapers are how cli_debrid finds torrents and NZBs for your content. You need at least one scraper configured before cli_debrid can add anything.
+
+- **Debrid users** need at least one **torrent** scraper (below).
+- **Usenet users** need at least one **Newznab** indexer ([see below](#newznab-usenet-indexers)).
+- Using both? Add both — results are compared together.
 
 ---
 
@@ -21,12 +25,13 @@ Scrapers are how cli_debrid finds torrents for your content. You need at least o
 | [Jackett](../scrapers/jackett.md) | Torrent proxy | Self-hosted | Access to private trackers |
 | [Prowlarr](../scrapers/prowlarr.md) | Torrent proxy | Self-hosted | Modern replacement for Jackett |
 | [Nyaa](../scrapers/nyaa.md) | Torrent indexer | Nothing | Anime |
+| [Newznab](../scrapers/newznab.md) | Usenet indexer | Indexer account + Usenet provider | NZBs via cli_mount |
 
 ---
 
 ## Adding a scraper
 
-1. Go to **Settings → Scraping**
+1. Go to **Settings → Scrapers**
 2. Click **Add Scraper**
 3. Select the scraper type and fill in the URL
 4. Save
@@ -59,6 +64,24 @@ MediaFusion is a more advanced scraper with better filtering. Can be used with t
 
 Full guide: [:octicons-arrow-right-24: MediaFusion setup](../scrapers/mediafusion.md){ .md-button }
 
+### Newznab (Usenet indexers)
+
+Each Usenet indexer is added as its own **Newznab** scraper. Requires a Usenet provider set up in [Step 4](configure.md).
+
+1. Go to **Settings → Scrapers** and click **Add Scraper**
+2. Select **Newznab**
+3. Fill in:
+
+    | Field | Value |
+    |---|---|
+    | **Name** | A display name, e.g. `NZBGeek` |
+    | **URL** | Your indexer's API URL, e.g. `https://api.nzbgeek.info` |
+    | **API Key** | From your indexer account page |
+
+4. Enable it and save. Repeat for each indexer — all enabled indexers are searched at the same time.
+
+Full guide: [:octicons-arrow-right-24: Newznab setup](../scrapers/newznab.md){ .md-button }
+
 ---
 
 ## Scraper priority
@@ -67,15 +90,16 @@ Scrapers are checked in order. Put your fastest/most reliable scraper first:
 
 1. Zilean (fastest — cache hits only)
 2. Torrentio or MediaFusion (broader search)
-3. Jackett/Prowlarr (private trackers, slowest)
+3. Newznab indexers (Usenet)
+4. Jackett/Prowlarr (private trackers, slowest)
 
-Adjust order under **Settings → Scraping → Scraper Priority**.
+Change the order by dragging scrapers by their handle in **Settings → Scrapers**.
 
 ---
 
 ## Testing a scraper
 
-After adding a scraper, use **Settings → Debug → Test Scraper** to search for a known title and confirm results come back.
+After adding a scraper, open **Tools → Tester** to search for a known title and confirm results come back. It also shows how each release is scored, so you can tune your quality settings.
 
 ---
 

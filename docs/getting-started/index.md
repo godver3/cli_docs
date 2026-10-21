@@ -7,6 +7,8 @@ icon: material/rocket-launch
 
 This guide walks you through everything needed to get cli_debrid up and running from scratch — from signing up for the required services to streaming your first file.
 
+cli_debrid can get content from a **debrid service** (Real-Debrid, AllDebrid, etc.), from **Usenet**, or both. Each step below covers both options — follow whichever applies to you.
+
 Follow the steps in order. Each page ends with a link to the next step.
 
 ---
@@ -21,9 +23,9 @@ Follow the steps in order. Each page ends with a link to the next step.
 
     [:octicons-arrow-right-24: Prerequisites](prerequisites.md){ .md-button .md-button--primary }
 
-- **Step 2 — Mount your debrid storage**
+- **Step 2 — Mount your storage**
 
-    Use Zurg or Decypharr to mount your debrid cloud library as a local folder your media server can read.
+    Use cli_mount, Decypharr or Zurg to mount your debrid and/or Usenet files as a local folder your media server can read.
 
     [:octicons-arrow-right-24: Mount setup](mount.md){ .md-button .md-button--primary }
 
@@ -35,13 +37,13 @@ Follow the steps in order. Each page ends with a link to the next step.
 
 - **Step 4 — Configure cli_debrid**
 
-    Connect your debrid provider, media server, and mount path. Choose Plex mode or symlink mode.
+    Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Plex mode or symlink mode.
 
     [:octicons-arrow-right-24: Configure](configure.md){ .md-button .md-button--primary }
 
 - **Step 5 — Add scrapers**
 
-    Set up at least one scraper so cli_debrid can find torrents for your content.
+    Set up at least one scraper so cli_debrid can find torrents or NZBs for your content.
 
     [:octicons-arrow-right-24: Scrapers](scrapers.md){ .md-button .md-button--primary }
 
@@ -60,9 +62,9 @@ Follow the steps in order. Each page ends with a link to the next step.
 ```mermaid
 flowchart LR
     A["Content Sources\nSeerr, Trakt, Watchlists"] --> B
-    B["cli_debrid\nscrapes torrents & manages library"] --> C
-    C["Debrid Service\nReal-Debrid / AllDebrid / etc."] --> D
-    D["Mount Service\nZurg / Decypharr"] --> E
+    B["cli_debrid\nscrapes torrents & NZBs, manages library"] --> C
+    C["Debrid Service and/or Usenet\nReal-Debrid / AllDebrid / news server"] --> D
+    D["Mount Service\ncli_mount / Decypharr / Zurg"] --> E
     E["Media Server\nPlex / Jellyfin / Emby"]
     B -->|"triggers scan"| E
 ```
@@ -73,8 +75,8 @@ flowchart LR
 
     ```mermaid
     flowchart LR
-        A["Mount Service\nZurg / Decypharr"] --> B["Plex\nreads files directly from mount"]
-        C["cli_debrid"] --> D["Debrid Service"]
+        A["Mount Service\ncli_mount / Decypharr / Zurg"] --> B["Plex\nreads files directly from mount"]
+        C["cli_debrid"] --> D["Debrid Service / Usenet"]
         D --> A
         C -->|"triggers library scan via API"| B
     ```
@@ -85,10 +87,10 @@ flowchart LR
 
     ```mermaid
     flowchart LR
-        A["Mount Service\nZurg / Decypharr"] --> B["cli_debrid\ncreates symlinks"]
+        A["Mount Service\ncli_mount / Decypharr / Zurg"] --> B["cli_debrid\ncreates symlinks"]
         B --> C["Symlink path\norganised folder structure"]
         C --> D["Media Server\nPlex / Jellyfin / Emby"]
-        E["Debrid Service"] --> A
+        E["Debrid Service / Usenet"] --> A
         B --> E
         B -->|"triggers scan"| D
     ```

@@ -14,7 +14,7 @@ With cli_debrid installed and the onboarding wizard open, work through each sect
 The wizard runs automatically on first launch. It covers:
 
 1. **Admin account** — set your username and password
-2. **Required settings** — debrid provider, media server, mount path
+2. **Required settings** — debrid or Usenet provider, media server, mount path
 3. **File management mode** — Plex mode or Symlink mode
 4. **Scrapers** — add at least one scraper
 5. **Content sources** — add at least one content source
@@ -23,16 +23,40 @@ You can re-visit any of these at any time under **Settings**.
 
 ---
 
-## Debrid provider
+## Debrid or Usenet provider
 
-Enter your debrid provider and API key.
+The wizard's **Debrid or Usenet Provider** section has a tab for each. cli_debrid needs at least one; you can add the other later under **Settings → Required Settings**.
 
-| Field | Value |
-|---|---|
-| **Provider** | Select your debrid service |
-| **API Key** | Paste the key from [Step 1](prerequisites.md) |
+=== "Debrid"
 
-Click **Validate** to test the key before saving.
+    | Field | Value |
+    |---|---|
+    | **Provider** | Select your debrid service |
+    | **API Key** | Paste the key from [Step 1](prerequisites.md) |
+
+    Click **Validate** to test the key before saving.
+
+=== "Usenet"
+
+    | Field | Value |
+    |---|---|
+    | **Usenet Provider URL** | Your cli_mount URL, e.g. `http://192.168.1.x:8888` (NzbDAV uses port `3000`) |
+    | **API Token** | Only if your cli_mount has authentication enabled — otherwise leave blank |
+
+    Use the server's IP or container name, **not** `localhost:8888` — that port is taken by cli_debrid's built-in Phalanx DB.
+
+    Your news server login lives in cli_mount ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
+
+    After onboarding, **Settings → Required Settings → Usenet Provider** has more options:
+
+    | Setting | Value |
+    |---|---|
+    | **Provider** | `climount` (default), `nzbdav`, or `zurg` (Zurg 2.0) |
+    | **Download Folder** | Leave empty for cli_mount's default |
+    | **Data Path** | `/climount_data` if you mapped cli_mount's appdata into cli_debrid ([Step 3](install.md)) — enables the cli_mount DB tools |
+
+!!! tip "Using both?"
+    With debrid and Usenet both configured, torrent and NZB results are scored together using the same quality rules, and the best one wins.
 
 ---
 
@@ -83,8 +107,9 @@ This is one of the most important settings.
     - No symlinks needed
     - Plex must be able to read the mount path
 
-    **Mounted File Location:** Set to your debrid mount path, e.g.:
+    **Mounted File Location:** Set to your mount path, e.g.:
 
+    - cli_mount: `/path/to/debrid/__all__` (the folder you mapped to `/mnt` in cli_mount)
     - Zurg: `/mnt/zurg/__all__`
     - Decypharr: `/mnt/decypharr/__all__`
 
@@ -98,7 +123,7 @@ This is one of the most important settings.
 
     | Field | Value |
     |---|---|
-    | **Original files path** | Your debrid mount path (e.g. `/mnt/zurg/__all__` for Zurg, `/mnt/decypharr/__all__` for Decypharr) |
+    | **Original files path** | Your mount path (e.g. `/path/to/debrid/__all__` for cli_mount, `/mnt/zurg/__all__` for Zurg, `/mnt/decypharr/__all__` for Decypharr) |
     | **Symlinked files path** | Where organised symlinks go, e.g. `/mnt/symlinks` |
 
     !!! warning "Volume mounts must match exactly"
@@ -138,7 +163,7 @@ Trakt is not required to run cli_debrid. If you want to use it as a content sour
 
 ## Verify the connection
 
-After saving, cli_debrid will test the connections to your debrid provider and media server. You should see green checkmarks next to each service on the dashboard.
+After saving, cli_debrid will test the connections to your debrid and/or Usenet provider and media server. You should see green checkmarks next to each service on the dashboard.
 
 If any connection fails:
 
