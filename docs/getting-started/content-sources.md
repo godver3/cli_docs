@@ -23,7 +23,7 @@ Add at least one source to get started. For full details on every source and its
 | **Trakt Watchlist / Lists / Collection** | Your Trakt watchlist, any public or private list, or your collection | Trakt account (configured in Step 4) |
 | **MDBList** | Follow curated lists from MDBList.com | Free MDBList account |
 | **Agregarr** | Requests Agregarr makes through Seerr, kept separate from your users' Seerr requests | Agregarr + Seerr |
-| **Scrob Lists / Collection** | Lists and collection from a self-hosted Scrob instance | Scrob installed |
+| **Scrob Lists / Collection / Special Lists** | Your Scrob lists or collection, or Scrob's discovery lists (Now Playing, Upcoming, Hidden Gems, New Episodes, For You…) | Scrob connected (Step 4) |
 | **Adaptive List** | Builds a list from TMDB discover filters (genre, rating, year…) that refreshes over time | TMDB key (Step 1) |
 
 To add a single title by hand, use the **Discover** page, or **Magnet Assign** to add a specific torrent or NZB — no content source needed.
@@ -83,6 +83,16 @@ MDBList hosts curated lists (e.g. IMDb Top 250, popular by genre). You can point
 
 ---
 
+## Scrob
+
+If you connected [Scrob](https://github.com/ellite/scrob) in [Step 4](configure.md#scrob-optional):
+
+1. Go to **Settings → Content Sources**
+2. Add a **Scrob Lists** source and enter the list IDs to follow (comma-separated, e.g. `2,7`; shown in the list's URL in Scrob), or add **Scrob Collection** to follow your whole collection
+3. Save
+
+---
+
 ## Verify it's working
 
 After adding a content source:
@@ -93,6 +103,7 @@ After adding a content source:
 
 !!! tip "Nothing appearing in Wanted?"
     - If using a Trakt source, check that Trakt authorisation completed successfully (**Settings → Additional Settings**)
+    - If using a Scrob source, check the Scrob URL and API key under **Settings → Additional Settings → Scrob**
     - Make sure your watchlist/list has items in it
     - Check the logs for errors: **Logs** page in the nav
 

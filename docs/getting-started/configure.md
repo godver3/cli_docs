@@ -161,6 +161,20 @@ Trakt is not required to run cli_debrid. If you want to use it as a content sour
 
 ---
 
+## Scrob (optional)
+
+If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Additional Settings → Scrob**:
+
+| Field | Value |
+|---|---|
+| **URL** | Your Scrob address, e.g. `http://192.168.1.x:7330` |
+| **API Key** | From Scrob's **Settings → Connections → API Key** |
+| **Username / Password** | Optional — only needed if you want items removed from your Scrob lists/collection when you delete them in cli_debrid (Scrob's API key can't delete). Leave blank to skip. |
+
+Once connected, Scrob lists show up on the **Discover** page and you can add Scrob content sources in [Step 6](content-sources.md).
+
+---
+
 ## Verify the connection
 
 After saving, cli_debrid will test the connections to your debrid and/or Usenet provider and media server. You should see green checkmarks next to each service on the dashboard.

@@ -128,11 +128,16 @@ These are not required to get started but are recommended once running:
 |---|---|
 | [Seerr](https://docs.seerr.dev) | Request movies/shows via a clean UI — supports Plex and Jellyfin |
 | [MDBList](https://mdblist.com) | Curated media lists (IMDb Top 250, genre lists, etc.) usable as content sources |
+| [Scrob](https://github.com/ellite/scrob) | Self-hosted watch tracker (a private Trakt/Letterboxd) — its lists and collection can be content sources |
 | [Bazarr](https://www.bazarr.media) | Automatic subtitle downloading |
 
-### Trakt account
+### Trakt or Scrob
 
-Trakt is optional. It can be used as a content source (watchlist, lists, collection) and as a metadata fallback for TV shows if you haven't configured a TVDB key.
+Both are optional. Trakt is the hosted service; [Scrob](https://github.com/ellite/scrob) is a self-hosted alternative that syncs with Plex, Jellyfin and Emby. Either can feed lists and recommendations into cli_debrid — use whichever you prefer, or both.
+
+**Scrob:** you only need your Scrob URL (e.g. `http://192.168.1.x:7330`) and an API key from **Settings → Connections → API Key** in Scrob.
+
+**Trakt:** Trakt is optional. It can be used as a content source (watchlist, lists, collection) and as a metadata fallback for TV shows if you haven't configured a TVDB key.
 
 1. Create a free account at [trakt.tv](https://trakt.tv/auth/join)
 2. Go to [trakt.tv/oauth/applications](https://trakt.tv/oauth/applications)
