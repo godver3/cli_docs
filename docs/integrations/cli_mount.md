@@ -656,7 +656,7 @@ When **cli_mount Data Path** is configured, additional tools appear in **Debug F
 - **Restore cli_mount Database from Backup** (Database tab) — restore from a previous backup
 - **Clean Up Old cli_mount Backup Files** (Database tab) — remove old backup files to free disk space
 
-See [Usenet Migration](../features/usenet-migration.md) for the full Usenet setup guide.
+See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full Usenet setup.
 
 ---
 
@@ -664,6 +664,6 @@ See [Usenet Migration](../features/usenet-migration.md) for the full Usenet setu
 
 - [cli_mount GitHub](https://github.com/mash2k3/decypharr)
 - [Newznab scrapers](../scrapers/newznab.md) — add Usenet indexers
-- [Usenet Migration](../features/usenet-migration.md) — migrate your library to Usenet and manage NZB health
+- [Debrid Manager](../features/debrid-manager.md) — NZB health and the repair engine
 - [Configure Plex](plex.md) to add libraries pointing at your mount path
 - [Configure cli_debrid](../getting-started/configure.md) with the correct Original Files Path

@@ -88,7 +88,7 @@ Each task tile shows:
 
 | Task | Default | Enabled | Description |
 |---|---|---|---|
-| **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via cli_mount's health API, scrapes replacements, and resubmits. See [Usenet Migration](usenet-migration.md). |
+| **Repair Broken NZBs** | 6h | No | Detects broken NZB downloads via cli_mount's health API, scrapes replacements, and resubmits. See [Debrid Manager](debrid-manager.md). |
 | **Overlay Sync** | 1h | When overlays are enabled | Generates and uploads overlay posters to Plex. A separate **Overlay Cleanup** task runs every 24h. |
 | **Upgrade Hub Scan** | 24h | No | Checks collected items against upgrade criteria. A separate **Upgrade Hub Auto Queue** task (24h, off by default) queues the upgrades. |
 

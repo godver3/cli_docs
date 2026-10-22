@@ -85,8 +85,6 @@ Automatically backs up your debrid torrent library on a rotating schedule.
 
 Retention hours are configurable per slot. Click **Run Now** to trigger an immediate backup. Click **Restore** on any slot to re-add missing torrents — additive only, won't remove existing ones.
 
-Each backup slot also has a **→ Usenet** button. Use the **Version** dropdown in the Backup Slots header to select which quality filter applies when searching for replacement NZBs. See [Usenet Migration](usenet-migration.md) for details.
-
 An activity log on the right shows recent backup events.
 
 ### Debrid Cleanup
@@ -186,8 +184,6 @@ Click **View Broken** to expand a list of all broken entries, showing title and 
 ### Repair Activity Log
 
 A chronological log of all repair attempts. Filter by outcome using the dropdown. Loads more entries with the **Load More** button.
-
-See [Usenet Migration](usenet-migration.md) for full details on migration, repair, and setup.
 
 ---
 
