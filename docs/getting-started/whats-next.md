@@ -51,9 +51,9 @@ Now that the basics are running, explore what cli_debrid can do:
 
 - **Usenet**
 
-    Add Usenet alongside (or instead of) debrid, migrate your existing library, and let the NZB repair engine replace broken downloads automatically.
+    Add Usenet alongside (or instead of) debrid, and let the NZB repair engine replace broken downloads automatically.
 
-    [:octicons-arrow-right-24: Usenet guide](../features/usenet-migration.md)
+    [:octicons-arrow-right-24: Usenet setup](../integrations/cli_mount.md#usenet-with-cli_mount)
 
 - **Scraper Tester**
 
