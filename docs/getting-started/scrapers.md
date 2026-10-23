@@ -15,7 +15,7 @@ Scrapers are how cli_debrid finds torrents and NZBs for your content. You need a
 
 ## Recommended for beginners
 
-**Start with Zilean and Torrentio.** Both are free, require no self-hosting, and cover the vast majority of content.
+**Start with Zilean and Torrentio.** Both are free, require no self-hosting, and cover the vast majority of content. If you set up debrid in the onboarding wizard, Torrentio is already added for you.
 
 | Scraper | Type | Requires | Best for |
 |---|---|---|---|

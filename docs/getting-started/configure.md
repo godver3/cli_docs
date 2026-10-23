@@ -11,21 +11,27 @@ With cli_debrid installed and the onboarding wizard open, work through each sect
 
 ## Onboarding wizard
 
-The wizard runs automatically on first launch. It covers:
+The wizard runs automatically on first launch. If you leave partway through, logging back in takes you to the first step you haven't finished.
 
-1. **Admin account** — set your username and password
-2. **Required settings** — debrid or Usenet provider, media server, mount path
-3. **File management mode** — Plex mode or Symlink mode
-4. **Scrapers** — add at least one scraper
-5. **Content sources** — add at least one content source
+| Step | What you do |
+|---|---|
+| **1. Admin account** | Set your username and password |
+| **2. Connect your services** | Four sections: where your media comes from (debrid and/or Usenet), your mount, your library (Plex or Symlink mode) and metadata (TVDB/TMDB). Each connection has a **Test** button, and **Save & Validate** checks everything before you can move on |
+| **3. Scrapers** | Debrid users get **Torrentio** added automatically. Usenet users add their indexers as **Newznab** scrapers |
+| **3a. Versions** | The **Default** version (1080p) is added for you. Keep it or pick another option |
+| **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
+| **5. Library management** | Optionally scan or convert an existing library |
+| **6. Review & start** | A summary of your setup, a health check of every connection, and **Start Program** |
 
-You can re-visit any of these at any time under **Settings**.
+Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
+
+The sections below explain the fields in step 2 in more detail.
 
 ---
 
 ## Debrid or Usenet provider
 
-The wizard's **Debrid or Usenet Provider** section has a tab for each. cli_debrid needs at least one; you can add the other later under **Settings → Required Settings**.
+In the wizard's **Where your media comes from** section, tick **Debrid**, **Usenet** or both. cli_debrid needs at least one; you can add the other later under **Settings → Required Settings**.
 
 === "Debrid"
 
@@ -34,14 +40,17 @@ The wizard's **Debrid or Usenet Provider** section has a tab for each. cli_debri
     | **Provider** | Select your debrid service |
     | **API Key** | Paste the key from [Step 1](prerequisites.md) |
 
-    Click **Validate** to test the key before saving.
+    **Save & Validate** tests the key.
 
 === "Usenet"
 
     | Field | Value |
     |---|---|
-    | **Usenet Provider URL** | Your cli_mount URL, e.g. `http://192.168.1.x:8282` (NzbDAV uses port `3000`) |
-    | **API Token** | Only if your cli_mount has authentication enabled — otherwise leave blank |
+    | **Usenet Provider** | **cli_mount** (recommended), **NzbDAV** or **Zurg 2.0** |
+    | **URL** | cli_mount: `http://192.168.1.x:8282`. NzbDAV: port `3000`. Zurg 2.0: its own address |
+    | **API Token** | cli_mount: only if you turned on authentication, otherwise leave blank. NzbDAV/Zurg: the SABnzbd API key |
+
+    Click **Test connection** to check the URL and token before moving on. If you pick NzbDAV, the wizard also shows the NzbDAV setup helper.
 
     Use the server's IP or container name, **not** `localhost` — inside the cli_debrid container that points at cli_debrid itself.
 
@@ -51,7 +60,6 @@ The wizard's **Debrid or Usenet Provider** section has a tab for each. cli_debri
 
     | Setting | Value |
     |---|---|
-    | **Provider** | `climount` (default), `nzbdav`, or `zurg` (Zurg 2.0) |
     | **Download Folder** | Leave empty for cli_mount's default |
     | **Data Path** | `/climount_data` if you mapped cli_mount's appdata into cli_debrid ([Step 3](install.md)) — enables the cli_mount DB tools |
 
@@ -72,6 +80,21 @@ These live under **Settings → Required Settings** and are worth turning on onc
     The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Plex mode this happens **before** cli_debrid tells Plex about it, so broken files never show up in your library.
 
     The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.
+
+---
+
+## Your mount
+
+cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.md)) shows your debrid and Usenet files as a normal folder, and both cli_debrid and your media server read from it. The wizard's **Your mount** section asks for that folder:
+
+| Field | Value |
+|---|---|
+| **Mount tool** | The tool you set up. It only picks the example path shown under the field |
+| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/climount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
+
+Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.
+
+The mount path is required in Symlink mode. In Plex mode it's only needed for **Update Plex on file discovery**.
 
 ---
 
@@ -205,21 +228,24 @@ Full reference for every version setting: [:octicons-arrow-right-24: Versions](.
 
 ---
 
-## TMDB API key
+## Metadata (TVDB and TMDB)
 
-Go to **Settings → Required Settings** (or the wizard step) and enter your TMDB API key from [Step 1](prerequisites.md).
+cli_debrid looks up shows, seasons, episodes and release dates. The wizard's **Metadata** section asks for both keys from [Step 1](prerequisites.md), each with a **Test key** button:
 
----
+| Key | Needed? | Used for |
+|---|---|---|
+| **TVDB API key** | Required, unless you use Trakt instead | Show and movie lookups, episode matching, alternative episode orders |
+| **TMDB API key** | Recommended | Posters, digital/physical release dates, Discover |
 
-## TVDB API key
+Use TMDB's short **API Key**, not the long "API Read Access Token". The wizard tells you if you paste the wrong one.
 
-Enter your TVDB API key. Used for TV show episode matching.
+You can change both later under **Settings → Required Settings**.
 
 ---
 
 ## Trakt (optional)
 
-Trakt is not required to run cli_debrid. If you want to use it as a content source or as a metadata fallback (when no TVDB key is set), go to **Settings → Additional Settings**, enter your Trakt **Client ID** and **Client Secret**, then click **Authorise Trakt** to complete the OAuth flow.
+Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open **Use Trakt instead (optional)** under Metadata; after setup it's under **Settings → Additional Settings**. Enter your Trakt **Client ID** and **Client Secret**, then click **Authorize Trakt** to complete the OAuth flow.
 
 ---
 
@@ -239,7 +265,7 @@ Once connected, Scrob lists show up on the **Discover** page and you can add Scr
 
 ## Verify the connection
 
-After saving, cli_debrid will test the connections to your debrid and/or Usenet provider and media server. You should see green checkmarks next to each service on the dashboard.
+**Save & Validate** in step 2 tests your provider, mount, media server and metadata keys. Failed checks have to be fixed before you can continue; warnings (like a missing TMDB key or an empty mount) don't block you. The wizard's last step runs the same checks again, plus a check that each scraper's server answers, before you start the program.
 
 If any connection fails:
 

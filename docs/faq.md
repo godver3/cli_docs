@@ -29,8 +29,9 @@ Use the **API Key (v3 auth)** from your TMDB account settings — not the Read A
 
 **The onboarding wizard isn't completing / settings aren't saving**
 
-- Make sure all required fields are filled in (debrid key, Plex URL, TMDB key)
-- Click **Validate** on the debrid key before saving
+- Click **Save & Validate** in step 2 and read the results: each failed check says what's wrong. Warnings (yellow) don't block you, failures (red) do
+- Use the **Test** buttons next to the provider, mount path and TVDB/TMDB keys to check one thing at a time
+- You need a debrid or Usenet provider, a mount path (Symlink mode), Plex details (Plex mode) and a TVDB key or Trakt credentials
 - Check the Logs page for any errors during save
 
 ---
