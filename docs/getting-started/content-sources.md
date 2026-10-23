@@ -30,13 +30,15 @@ To add a single title by hand, use the **Discover** page, or **Magnet Assign** t
 
 ---
 
-## Recommended: Trakt Watchlist
+## Recommended: My Plex Watchlist
 
-The quickest way to get started. Anything you add to your Trakt watchlist will be picked up by cli_debrid automatically.
+The quickest way to get started if you use Plex. Anything you add to your Plex watchlist will be picked up by cli_debrid automatically, with no extra accounts.
 
-1. Go to **Settings → Content Sources**
-2. Enable **Trakt Watchlist**
+1. In the onboarding wizard's content sources step, or **Settings → Content Sources**, click **Add Content Source**
+2. Pick **My Plex Watchlist** and choose which versions it uses
 3. Save
+
+If you use Trakt instead, **Trakt Watchlist** works the same way once Trakt is connected.
 
 Now add something to your Trakt watchlist at [trakt.tv](https://trakt.tv) — cli_debrid will find and add it within the next queue cycle.
 

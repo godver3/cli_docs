@@ -222,13 +222,17 @@ The first time you visit, the onboarding wizard will launch automatically.
 
 The onboarding wizard will guide you through:
 
-1. **Account setup** — create your admin account
-2. **Required settings** — connect your debrid provider and Plex/Jellyfin
-3. **Scrapers** — configure at least one scraper (Zilean recommended to start)
-4. **Content sources** — add your Trakt watchlists or other sources
-5. **Library management** — choose Plex or Symlinked mode
+1. **Account setup**: create your admin account
+2. **Connect your services**: your debrid and/or Usenet provider, your mount path, Plex or Symlink mode with your media server, and TVDB/TMDB keys. Each has a **Test** button
+3. **Scrapers**: debrid users get Torrentio added automatically; Usenet users add their indexers
+4. **Versions**: a 1080p Default version is added for you
+5. **Content sources**: e.g. your Plex watchlist or Seerr requests
+6. **Library management**: optionally scan or convert an existing library
+7. **Review & start**: a summary, a health check of every connection, and **Start Program**
 
-![Onboarding step 2 — debrid and Plex setup](../assets/screenshots/installation/docker-onboarding-step2.png)
+See [Step 4 — Configure](../getting-started/configure.md) for what each field means.
+
+![Onboarding step 2 — connect your services](../assets/screenshots/installation/docker-onboarding-step2.png)
 
 !!! tip "Take your time with onboarding"
     You can always change settings later via the Settings page. The onboarding just gets you to a working state quickly.

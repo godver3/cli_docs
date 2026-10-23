@@ -109,7 +109,7 @@ TMDB (The Movie Database) is used for metadata, posters, the Discover page, and 
 
 ### 4. TVDB API key
 
-TVDB is used for TV show metadata and episode matching.
+TVDB is where cli_debrid looks up shows and movies, and matches episodes. It's required unless you use Trakt instead.
 
 1. Create a free account at [thetvdb.com](https://www.thetvdb.com/register)
 2. Go to **API Keys** under your account: [thetvdb.com/dashboard/account/apikey](https://www.thetvdb.com/dashboard/account/apikey)
@@ -158,7 +158,7 @@ Before moving on, confirm you have:
 - [ ] A download source: debrid account + API key, **and/or** a Usenet provider login + indexer API key
 - [ ] Plex, Jellyfin, or Emby installed
 - [ ] TMDB API key
-- [ ] TVDB API key (or Trakt, as a fallback for TV metadata)
+- [ ] TVDB API key (or Trakt instead)
 
 ---
 
