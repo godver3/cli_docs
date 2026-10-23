@@ -859,6 +859,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#your-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your mount
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#media-server" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -926,21 +937,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tmdb-api-key" class="md-nav__link">
+  <a href="#metadata-tvdb-and-tmdb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TMDB API key
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tvdb-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TVDB API key
+        Metadata (TVDB and TMDB)
       
     </span>
   </a>
@@ -3246,6 +3246,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#your-mount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your mount
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#media-server" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3313,21 +3324,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tmdb-api-key" class="md-nav__link">
+  <a href="#metadata-tvdb-and-tmdb" class="md-nav__link">
     <span class="md-ellipsis">
       
-        TMDB API key
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tvdb-api-key" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        TVDB API key
+        Metadata (TVDB and TMDB)
       
     </span>
   </a>
@@ -3455,18 +3455,50 @@
 <p>With cli_debrid installed and the onboarding wizard open, work through each section below. You will need the API keys and paths gathered in <a href="../prerequisites/">Step 1</a> and the mount path from <a href="../mount/">Step 2</a>.</p>
 <hr>
 <h2 id="onboarding-wizard">Onboarding wizard<a class="headerlink" href="#onboarding-wizard" title="Permanent link">¶</a></h2>
-<p>The wizard runs automatically on first launch. It covers:</p>
-<ol>
-<li><strong>Admin account</strong> — set your username and password</li>
-<li><strong>Required settings</strong> — debrid or Usenet provider, media server, mount path</li>
-<li><strong>File management mode</strong> — Plex mode or Symlink mode</li>
-<li><strong>Scrapers</strong> — add at least one scraper</li>
-<li><strong>Content sources</strong> — add at least one content source</li>
-</ol>
-<p>You can re-visit any of these at any time under <strong>Settings</strong>.</p>
+<p>The wizard runs automatically on first launch. If you leave partway through, logging back in takes you to the first step you haven't finished.</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What you do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1. Admin account</strong></td>
+<td>Set your username and password</td>
+</tr>
+<tr>
+<td><strong>2. Connect your services</strong></td>
+<td>Four sections: where your media comes from (debrid and/or Usenet), your mount, your library (Plex or Symlink mode) and metadata (TVDB/TMDB). Each connection has a <strong>Test</strong> button, and <strong>Save &amp; Validate</strong> checks everything before you can move on</td>
+</tr>
+<tr>
+<td><strong>3. Scrapers</strong></td>
+<td>Debrid users get <strong>Torrentio</strong> added automatically. Usenet users add their indexers as <strong>Newznab</strong> scrapers</td>
+</tr>
+<tr>
+<td><strong>3a. Versions</strong></td>
+<td>The <strong>Default</strong> version (1080p) is added for you. Keep it or pick another option</td>
+</tr>
+<tr>
+<td><strong>4. Content sources</strong></td>
+<td>Add at least one, e.g. <strong>My Plex Watchlist</strong></td>
+</tr>
+<tr>
+<td><strong>5. Library management</strong></td>
+<td>Optionally scan or convert an existing library</td>
+</tr>
+<tr>
+<td><strong>6. Review &amp; start</strong></td>
+<td>A summary of your setup, a health check of every connection, and <strong>Start Program</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under <strong>Settings</strong>.</p>
+<p>The sections below explain the fields in step 2 in more detail.</p>
 <hr>
 <h2 id="debrid-or-usenet-provider">Debrid or Usenet provider<a class="headerlink" href="#debrid-or-usenet-provider" title="Permanent link">¶</a></h2>
-<p>The wizard's <strong>Debrid or Usenet Provider</strong> section has a tab for each. cli_debrid needs at least one; you can add the other later under <strong>Settings → Required Settings</strong>.</p>
+<p>In the wizard's <strong>Where your media comes from</strong> section, tick <strong>Debrid</strong>, <strong>Usenet</strong> or both. cli_debrid needs at least one; you can add the other later under <strong>Settings → Required Settings</strong>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Debrid</label><label for="__tabbed_1_2">Usenet</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3488,7 +3520,7 @@
 </tr>
 </tbody>
 </table>
-<p>Click <strong>Validate</strong> to test the key before saving.</p>
+<p><strong>Save &amp; Validate</strong> tests the key.</p>
 </div>
 <div class="tabbed-block">
 <table>
@@ -3500,15 +3532,20 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>Usenet Provider URL</strong></td>
-<td>Your cli_mount URL, e.g. <code>http://192.168.1.x:8282</code> (NzbDAV uses port <code>3000</code>)</td>
+<td><strong>Usenet Provider</strong></td>
+<td><strong>cli_mount</strong> (recommended), <strong>NzbDAV</strong> or <strong>Zurg 2.0</strong></td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>cli_mount: <code>http://192.168.1.x:8282</code>. NzbDAV: port <code>3000</code>. Zurg 2.0: its own address</td>
 </tr>
 <tr>
 <td><strong>API Token</strong></td>
-<td>Only if your cli_mount has authentication enabled — otherwise leave blank</td>
+<td>cli_mount: only if you turned on authentication, otherwise leave blank. NzbDAV/Zurg: the SABnzbd API key</td>
 </tr>
 </tbody>
 </table>
+<p>Click <strong>Test connection</strong> to check the URL and token before moving on. If you pick NzbDAV, the wizard also shows the NzbDAV setup helper.</p>
 <p>Use the server's IP or container name, <strong>not</strong> <code>localhost</code> — inside the cli_debrid container that points at cli_debrid itself.</p>
 <p>Your news server login lives in cli_mount (<a href="../mount/">Step 2</a>), not in cli_debrid. To find content you'll also add your indexers as <strong>Newznab</strong> scrapers in <a href="../scrapers/">Step 5</a>.</p>
 <p>After onboarding, <strong>Settings → Required Settings → Usenet Provider</strong> has more options:</p>
@@ -3520,10 +3557,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><strong>Provider</strong></td>
-<td><code>climount</code> (default), <code>nzbdav</code>, or <code>zurg</code> (Zurg 2.0)</td>
-</tr>
 <tr>
 <td><strong>Download Folder</strong></td>
 <td>Leave empty for cli_mount's default</td>
@@ -3574,6 +3607,29 @@
 <p>The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Plex mode this happens <strong>before</strong> cli_debrid tells Plex about it, so broken files never show up in your library.</p>
 <p>The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.</p>
 </div>
+<hr>
+<h2 id="your-mount">Your mount<a class="headerlink" href="#your-mount" title="Permanent link">¶</a></h2>
+<p>cli_debrid doesn't download or store files itself. A mount tool (<a href="../mount/">Step 2</a>) shows your debrid and Usenet files as a normal folder, and both cli_debrid and your media server read from it. The wizard's <strong>Your mount</strong> section asks for that folder:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mount tool</strong></td>
+<td>The tool you set up. It only picks the example path shown under the field</td>
+</tr>
+<tr>
+<td><strong>Mount Path</strong></td>
+<td>The folder as cli_debrid sees it inside its container, e.g. <code>/mnt/climount/__all__</code>, <code>/mnt/zurg/__all__</code> or <code>/mnt/decypharr/__all__</code></td>
+</tr>
+</tbody>
+</table>
+<p>Click <strong>Check path</strong>. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an <code>__all__</code> folder (point it at <code>__all__</code> itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.</p>
+<p>The mount path is required in Symlink mode. In Plex mode it's only needed for <strong>Update Plex on file discovery</strong>.</p>
 <hr>
 <h2 id="media-server">Media server<a class="headerlink" href="#media-server" title="Permanent link">¶</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex</label><label for="__tabbed_2_2">Jellyfin</label></div>
@@ -3815,14 +3871,34 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </div>
 <p>Full reference for every version setting: <a class="md-button" href="../../configuration/versions/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Versions</a></p>
 <hr>
-<h2 id="tmdb-api-key">TMDB API key<a class="headerlink" href="#tmdb-api-key" title="Permanent link">¶</a></h2>
-<p>Go to <strong>Settings → Required Settings</strong> (or the wizard step) and enter your TMDB API key from <a href="../prerequisites/">Step 1</a>.</p>
-<hr>
-<h2 id="tvdb-api-key">TVDB API key<a class="headerlink" href="#tvdb-api-key" title="Permanent link">¶</a></h2>
-<p>Enter your TVDB API key. Used for TV show episode matching.</p>
+<h2 id="metadata-tvdb-and-tmdb">Metadata (TVDB and TMDB)<a class="headerlink" href="#metadata-tvdb-and-tmdb" title="Permanent link">¶</a></h2>
+<p>cli_debrid looks up shows, seasons, episodes and release dates. The wizard's <strong>Metadata</strong> section asks for both keys from <a href="../prerequisites/">Step 1</a>, each with a <strong>Test key</strong> button:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Needed?</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TVDB API key</strong></td>
+<td>Required, unless you use Trakt instead</td>
+<td>Show and movie lookups, episode matching, alternative episode orders</td>
+</tr>
+<tr>
+<td><strong>TMDB API key</strong></td>
+<td>Recommended</td>
+<td>Posters, digital/physical release dates, Discover</td>
+</tr>
+</tbody>
+</table>
+<p>Use TMDB's short <strong>API Key</strong>, not the long "API Read Access Token". The wizard tells you if you paste the wrong one.</p>
+<p>You can change both later under <strong>Settings → Required Settings</strong>.</p>
 <hr>
 <h2 id="trakt-optional">Trakt (optional)<a class="headerlink" href="#trakt-optional" title="Permanent link">¶</a></h2>
-<p>Trakt is not required to run cli_debrid. If you want to use it as a content source or as a metadata fallback (when no TVDB key is set), go to <strong>Settings → Additional Settings</strong>, enter your Trakt <strong>Client ID</strong> and <strong>Client Secret</strong>, then click <strong>Authorise Trakt</strong> to complete the OAuth flow.</p>
+<p>Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open <strong>Use Trakt instead (optional)</strong> under Metadata; after setup it's under <strong>Settings → Additional Settings</strong>. Enter your Trakt <strong>Client ID</strong> and <strong>Client Secret</strong>, then click <strong>Authorize Trakt</strong> to complete the OAuth flow.</p>
 <hr>
 <h2 id="scrob-optional">Scrob (optional)<a class="headerlink" href="#scrob-optional" title="Permanent link">¶</a></h2>
 <p>If you use <a href="https://github.com/ellite/scrob" target="_blank" rel="noopener">Scrob</a>, go to <strong>Settings → Additional Settings → Scrob</strong>:</p>
@@ -3851,7 +3927,7 @@ If the paths differ between containers, symlinks will appear as broken files in 
 <p>Once connected, Scrob lists show up on the <strong>Discover</strong> page and you can add Scrob content sources in <a href="../content-sources/">Step 6</a>.</p>
 <hr>
 <h2 id="verify-the-connection">Verify the connection<a class="headerlink" href="#verify-the-connection" title="Permanent link">¶</a></h2>
-<p>After saving, cli_debrid will test the connections to your debrid and/or Usenet provider and media server. You should see green checkmarks next to each service on the dashboard.</p>
+<p><strong>Save &amp; Validate</strong> in step 2 tests your provider, mount, media server and metadata keys. Failed checks have to be fixed before you can continue; warnings (like a missing TMDB key or an empty mount) don't block you. The wizard's last step runs the same checks again, plus a check that each scraper's server answers, before you start the program.</p>
 <p>If any connection fails:</p>
 <ul>
 <li>Double-check the URL includes <code>http://</code> and the correct port</li>
