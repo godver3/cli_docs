@@ -139,7 +139,7 @@ See the [example 1080p version](../getting-started/configure.md#example-a-tuned-
 | **Language Code** | `en` | Preferred language (ISO 639-1 code, e.g. `en`, `fr`, `ja`) |
 | **Enable Spanish Episode Parsing** | Off | Converts Spanish episode naming (`Cap.XXYY`) to standard format |
 | **Use Alternative Titles** | Off | Search using translated/alias titles for international content |
-| **Foreign Language Penalty** | `30` | Score penalty for releases tagged with a different **audio** language than the Language Code (e.g. `GERMAN` for an `en` version), multiplied by Language Weight. Subtitle-only tags (e.g. `SWESUB`, `VOSTFR`) and multi-audio releases (`MULTi`, `Dual Audio`) aren't penalised. Set `0` to turn off. |
+| **Foreign Language Penalty** | `30` | Score penalty for releases tagged with a different **audio** language than the Language Code (e.g. `GERMAN` for an `en` version), multiplied by Language Weight. Subtitle-only tags (e.g. `SWESUB`, `VOSTFR`) and multi-audio releases (`MULTi`, `Dual Audio`, `DL`) aren't penalised, and neither are untagged releases or a tag for the title's own original language (`KOREAN` on a Korean film). For a title whose original language isn't the Language Code (e.g. a Korean show on an `en` version), releases tagged `DUAL` or with the Language Code's language get a small tiebreaker bonus instead: this value × Language Weight, at most 50 (half for a bare `MULTi`/`DL`). Set `0` to turn both off. |
 
 ---
 
