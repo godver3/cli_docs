@@ -192,7 +192,7 @@ Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newzna
 | **Repair: Exclude Categories** | Categories the repair tool must always ignore — e.g. ones Radarr/Sonarr use on the same NzbDAV. |
 | `nzbdav_category_map` | *(config file only)* Which categories to use and what they're called on your instance, as `bucket=name` pairs, e.g. `movies=movies, shows=shows, fallback=__unplayable__`. Omitted buckets fall back to their parent category. |
 
-See [cli_mount](../integrations/cli_mount.md#usenet-with-cli_mount) and [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full setup.
+See [cli_mount](../integrations/cli_mount.md#usenet-with-cli_mount) and [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full setup. Switching between cli_mount and NzbDAV? See [Usenet Migration](../features/usenet-migration.md).
 
 !!! info "Trakt is optional"
     Trakt used to be listed here as a required setting. It is now an **optional** integration — cli_debrid no longer requires Trakt authorization to start or run the queue. See [Additional Settings → Trakt](additional.md#trakt) to configure it.

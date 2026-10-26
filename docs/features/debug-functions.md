@@ -324,6 +324,12 @@ Configure NAS paths in **Settings → Advanced Settings → Library Management �
 
 **When to use:** Upgrade Hub scoring is incorrect, or resolution badges in overlays are wrong/missing.
 
+### Migrate between usenet providers
+
+**What it does:** Copies each item's stored `.nzb` from cli_mount to NzbDAV or the other way round. The new provider fetches it from Usenet again; nothing is searched for again.
+
+**When to use:** You're switching Usenet mount provider. See [Usenet Migration](usenet-migration.md) for the fields and the steps afterwards.
+
 ---
 
 ## Symlink tab
