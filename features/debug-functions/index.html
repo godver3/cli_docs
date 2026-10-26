@@ -13,14 +13,14 @@
         <link rel="prev" href="../database/">
       
       
-        <link rel="next" href="../other-tools/">
+        <link rel="next" href="../usenet-migration/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -28,10 +28,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -2264,6 +2264,8 @@
       
         
       
+        
+      
     
     
     
@@ -3215,6 +3217,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#migrate-between-usenet-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate between usenet providers
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3484,6 +3497,36 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usenet-migration/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 4a2 2 0 0 0-2 2v4h2V6h8v3h-2.5l3.5 3.5L20.5 9H18V6a2 2 0 0 0-2-2zm-5 8v2h8v-2zm0 3v2h8v-2zm10 0v2h8v-2zM3 18v2h8v-2zm10 0v2h8v-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Usenet Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -3857,6 +3900,17 @@
     <span class="md-ellipsis">
       
         Backfill Resolution Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#migrate-between-usenet-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Migrate between usenet providers
       
     </span>
   </a>
@@ -4461,6 +4515,9 @@
 <h3 id="backfill-resolution-data">Backfill Resolution Data<a class="headerlink" href="#backfill-resolution-data" title="Permanent link">¶</a></h3>
 <p><strong>What it does:</strong> Extracts resolution information (2160p, 1080p, 720p) from file paths for items that are missing this data in the database.</p>
 <p><strong>When to use:</strong> Upgrade Hub scoring is incorrect, or resolution badges in overlays are wrong/missing.</p>
+<h3 id="migrate-between-usenet-providers">Migrate between usenet providers<a class="headerlink" href="#migrate-between-usenet-providers" title="Permanent link">¶</a></h3>
+<p><strong>What it does:</strong> Copies each item's stored <code>.nzb</code> from cli_mount to NzbDAV or the other way round. The new provider fetches it from Usenet again; nothing is searched for again.</p>
+<p><strong>When to use:</strong> You're switching Usenet mount provider. See <a href="../usenet-migration/">Usenet Migration</a> for the fields and the steps afterwards.</p>
 <hr>
 <h2 id="symlink-tab">Symlink tab<a class="headerlink" href="#symlink-tab" title="Permanent link">¶</a></h2>
 <p><em>(For users running Symlinked/Local mode only)</em></p>
@@ -4621,13 +4678,13 @@
         
         
           
-          <a href="../other-tools/" class="md-footer__link md-footer__link--next" aria-label="Next: Other Tools">
+          <a href="../usenet-migration/" class="md-footer__link md-footer__link--next" aria-label="Next: Usenet Migration">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Other Tools
+                Usenet Migration
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4688,10 +4745,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   
