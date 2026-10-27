@@ -27,7 +27,6 @@ Configure advanced and debug options.
 
 | Setting | Default | Description |
 |---|---|---|
-| **Skip Initial Plex Update** | Off | Skip Plex initial collection scan on startup |
 | **Enable Plex Removal Caching** | On | Enable caching of Plex removal operations before executing them |
 | **Plex Removal Cache Delay (Minutes)** | `360` | Delay in minutes before processing a cached Plex removal operation |
 | **Cinesync Path** | — | Absolute path to your CineSync MediaHub `main.py` file |
@@ -117,7 +116,6 @@ Configure advanced and debug options.
 |---|---|---|
 | **Symlink Movie Template** | `{title} ({year})/{title} ({year}) - {imdb_id} - {version} - ({original_filename})` | Template for movie symlink names. Variables: `{title}`, `{year}`, `{imdb_id}`, `{tmdb_id}`, `{quality}`, `{original_filename}` |
 | **Symlink Episode Template** | `{title} ({year})/Season {season_number:02d}/...` | Template for episode symlink names. Variables: `{title}`, `{year}`, `{imdb_id}`, `{tmdb_id}`, `{season_number}`, `{episode_number}`, `{episode_title}`, `{version}`, `{original_filename}` |
-| **Anime Renaming Using AniDB** | Off | Use AniDB to rename anime episodes instead of Trakt metadata (symlink mode only) |
 | **Enable Separate Anime Folders** | Off | Create separate folders for anime content when organising symlinks |
 | **Enable Separate Documentary Folders** | Off | Create separate folders for documentary content when organising symlinks |
 | **Movies Folder Name** | `Movies` | Custom name for the Movies folder |

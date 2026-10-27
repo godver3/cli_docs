@@ -71,7 +71,7 @@ Go to **Settings → UI Settings → System Behavior → Enable User System**. T
 
 - Use **Fix Incorrect Match** in Plex (right-click the item) and search manually
 - Common with titles that share names or anime with non-standard naming
-- For anime: consider enabling **Anime Renaming Using AniDB** in Additional Settings → Symlink Settings
+- For anime: open the show in the Library and use **Show options** to mark it as anime and pick its episode order
 
 ---
 
@@ -200,7 +200,7 @@ When a torrent fails (wrong files, download error, mismatch), it's added to the 
 
 Anime uses absolute episode numbering on some sources but Plex expects season-based. Solutions:
 
-- Enable **Anime Renaming Using AniDB** in Additional Settings → Symlink Settings (symlink mode only)
+- Open the show in the Library → **Show options**, set **Series type** to Anime and pick the **Episode order** the releases use (TVDB aired, DVD or absolute, or a TMDB episode group). **Preview** shows where each library entry would move before you apply it
 - Enable **Enable Separate Anime Folders** to keep anime in its own folder structure
 - Lower the **Similarity Threshold (Anime)** in Version Settings (default 0.80) if matches are being rejected
 
