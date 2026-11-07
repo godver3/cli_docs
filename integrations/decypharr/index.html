@@ -4316,82 +4316,46 @@
 </div>
 <h3 id="content-routing">Content routing<a class="headerlink" href="#content-routing" title="Permanent link">¶</a></h3>
 <p>Decypharr sorts incoming torrents into subfolders using <code>custom_folders</code>. Each folder has regex filters that match against the torrent name and file list:</p>
-<h4 id="shows">shows<a class="headerlink" href="#shows" title="Permanent link">¶</a></h4>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|Sezon[.\s]?\d+|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Complete.Series|(19|20)([0-9]{2}\.[0-9]{2}\.[0-9]{2}\.))</code></td>
-</tr>
-<tr>
-<td><code>files_regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="movies">movies<a class="headerlink" href="#movies" title="Permanent link">¶</a></h4>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>regex</code></td>
-<td><code>(?i)(?:[A-Za-z0-9-]*[A-Za-z][. ](19|20)[0-9]{2}(?:[. ](?:[A-RT-Za-rt-z0-9'][A-Za-z0-9'._+=-]*|[Ss][A-Za-z][A-Za-z0-9'._+=-]*))*[. -](?:4[Kk][.-])?(2160|1080|720|480)[pi]|\b[0-9]{1,4}\.(19|20)[0-9]{2}(?:[. ](?:[A-RT-Za-rt-z0-9'][A-Za-z0-9'._+=-]*|[Ss][A-Za-z][A-Za-z0-9'._+=-]*))*[. -](?:4[Kk][.-])?(2160|1080|720|480)[pi]|\((19|20)[0-9]{2}\)\s*[\[(]?(2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9 ]+ (19|20)[0-9]{2} (?:[A-Za-z]+ )?(2160|1080|720|480)[pi]|\[(19|20)[0-9]{2}\][^\n]{0,20}?(2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9.-]*[. ](19|20)[0-9]{2}[+](2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9_]+_\((19|20)[0-9]{2}\)_(2160|1080|720|480)[pi]|[\[(. ](19|20)[0-9]{2}[\]). _\-]|[\[(. ](19|20)[0-9]{2}$|[A-Za-z0-9][!.](19|20)[0-9]{2}[. ])</code></td>
-</tr>
-<tr>
-<td><code>not_regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_E\-]|[\[(]S[0-9]{2,3}[\])]|S[0-9]{2,3}-S[0-9]{2,3}|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Sezon[.\s]?\d+|Complete[.\s]Series|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)</code></td>
-</tr>
-<tr>
-<td><code>not_files_regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="default">default<a class="headerlink" href="#default" title="Permanent link">¶</a></h4>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>not_regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_E\-]|[\[(]S[0-9]{2,3}[\])]|S[0-9]{2,3}-S[0-9]{2,3}|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Sezon[.\s]?\d+|Complete[.\s]Series|\(Batch\)|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.|^UFC[.\s]\d\d\d|(19|20)[0-9]{2})</code></td>
-</tr>
-<tr>
-<td><code>not_files_regex</code></td>
-<td><code>(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)</code></td>
-</tr>
-</tbody>
-</table>
+<h4 id="tv-shows">TV Shows<a class="headerlink" href="#tv-shows" title="Permanent link">¶</a></h4>
+<p>Add <strong>two</strong> filters to this folder:</p>
+<p><code>regex</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>(?i)((?:^|[^a-z0-9])S[0-9]{1,4}(?:[ ._-]?E[0-9]{1,4}|E?(?:[^a-z0-9]|$))|(?:^|[^a-z0-9])[0-9]{1,2}E[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])Ep[ .]?[0-9]{1,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|Series[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|Cap[ií]tulo[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])EP?[0-9]{2,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|[0-9]{1,2}(?:st|nd|rd|th|ª|º)?[ ._-]*(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)(?:[^a-z0-9]|$)|[EÉ]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:Complete|Mini|TV|Web)[ ._-]?Series|\[Cap[ .][0-9]{3,4}\]|[\[(][0-9]{2,3} ?[~-] ?[0-9]{2,4}[\])]|[0-9]{2,4} ?~ ?[0-9]{2,4}|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?(?:[ .](?:[^0-9]|$)|[_\[(\]~-]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$))
+</code></pre></div>
+<p><code>files_regex</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>(?i)((?:^|[^a-z0-9])s[0-9]{1,4}[ ._-]*e[0-9]{1,4}|(?:^|[^a-z0-9])s[0-9]{2,3}p[0-9]{2}|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])ep?[0-9]{2,4}(?:[^a-z0-9]|$)|[eé]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?[ _\[(]|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ .][0-9]{3}[ .])
+</code></pre></div>
+<h4 id="movies">Movies<a class="headerlink" href="#movies" title="Permanent link">¶</a></h4>
+<p>Add <strong>two</strong> filters to this folder. They are the same two patterns as TV Shows, used as exclusions:</p>
+<p><code>not_regex</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>(?i)((?:^|[^a-z0-9])S[0-9]{1,4}(?:[ ._-]?E[0-9]{1,4}|E?(?:[^a-z0-9]|$))|(?:^|[^a-z0-9])[0-9]{1,2}E[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])Ep[ .]?[0-9]{1,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|Series[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|Cap[ií]tulo[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])EP?[0-9]{2,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|[0-9]{1,2}(?:st|nd|rd|th|ª|º)?[ ._-]*(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)(?:[^a-z0-9]|$)|[EÉ]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:Complete|Mini|TV|Web)[ ._-]?Series|\[Cap[ .][0-9]{3,4}\]|[\[(][0-9]{2,3} ?[~-] ?[0-9]{2,4}[\])]|[0-9]{2,4} ?~ ?[0-9]{2,4}|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?(?:[ .](?:[^0-9]|$)|[_\[(\]~-]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$))
+</code></pre></div>
+<p><code>not_files_regex</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>(?i)((?:^|[^a-z0-9])s[0-9]{1,4}[ ._-]*e[0-9]{1,4}|(?:^|[^a-z0-9])s[0-9]{2,3}p[0-9]{2}|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])ep?[0-9]{2,4}(?:[^a-z0-9]|$)|[eé]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?[ _\[(]|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ .][0-9]{3}[ .])
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">How the filters fit together</p>
+<ul>
+<li><strong>TV Shows</strong> takes a release when its name looks like TV (<code>S01E05</code>, <code>S01</code>, <code>Season 2</code>, <code>1x05</code>, <code>Show - 12</code> anime numbering, daily dates, and more) <strong>or</strong> any file inside it does.</li>
+<li><strong>Movies</strong> takes everything else. Because it reuses the TV patterns as exclusions, every release lands in exactly one of the two folders. Nothing ends up in both, and nothing goes missing.</li>
+<li>Add every filter listed for a folder. Using only one of them is the most common cause of TV showing up in Movies or the other way round.</li>
+<li>Copy each pattern in full with the copy button. Then restart Decypharr. Existing content is re-sorted after the restart, so nothing needs re-adding.</li>
+</ul>
+</div>
 <p>The <code>categories</code> setting (<code>sonarr</code>, <code>radarr</code>) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.</p>
 <p><code>default_download_action: symlink</code> makes Decypharr create symlinks into the mount rather than downloading files — this is required for cli_debrid to work correctly.</p>
 <hr>
 <h2 id="configuring-cli_debrid">Configuring cli_debrid<a class="headerlink" href="#configuring-cli_debrid" title="Permanent link">¶</a></h2>
 <p>In cli_debrid settings, set <strong>Original Files Path</strong> to the host path where your debrid library is mounted:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>/path/to/debrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>/path/to/debrid
 </code></pre></div>
 <p>This is the same path Plex uses — cli_debrid follows symlinks back to this location to check file existence and build its own symlinks.</p>
 <hr>
 <h2 id="verify-the-setup">Verify the setup<a class="headerlink" href="#verify-the-setup" title="Permanent link">¶</a></h2>
 <p>Check the mount is populated:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>ls<span class="w"> </span>/path/to/debrid
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>ls<span class="w"> </span>/path/to/debrid
 </code></pre></div>
 <p>You should see your content folders from Real-Debrid. Open the web UI to confirm Decypharr is connected:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>http://YOUR_SERVER_IP:8282
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>http://YOUR_SERVER_IP:8282
 </code></pre></div>
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
@@ -4403,7 +4367,7 @@
 </ul>
 <p><strong>"Transport endpoint is not connected"</strong></p>
 <p>The FUSE mount dropped. Restart the container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>decypharr
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker<span class="w"> </span>restart<span class="w"> </span>decypharr
 </code></pre></div>
 <p><strong>DFS: files appear but won't play smoothly</strong></p>
 <p>Increase <code>read_ahead_size</code> (e.g. <code>256MB</code>) or switch to rclone mode.</p>
