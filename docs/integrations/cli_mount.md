@@ -457,29 +457,46 @@ cli_mount can sort incoming torrents and NZBs into extra subfolders using `custo
     - **Plex mode — yes.** Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a *Movies* library on `Movies/` and a *TV* library on `TV Shows/`).
     - **Symlink mode — optional.** cli_debrid builds its own organised folder tree from `__all__`, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the [symlink mode example](#example-symlink-mode-setup) below.
 
-The default filters below create `shows`, `movies` and `default` folders. Name them whatever you like — the example further down uses `TV Shows` and `Movies`.
+The filters below create a `TV Shows` and a `Movies` folder. You can name the folders whatever you like.
 
-#### shows
+#### TV Shows
 
-| Filter | Pattern |
-|---|---|
-| `regex` | `(?i)(S[0-9]{2,3}|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|Sezon[.\s]?\d+|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Complete.Series|(19|20)([0-9]{2}\.[0-9]{2}\.[0-9]{2}\.))` |
-| `files_regex` | `(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)` |
+Add **two** filters to this folder:
 
-#### movies
+`regex`
 
-| Filter | Pattern |
-|---|---|
-| `regex` | `(?i)(?:[A-Za-z0-9-]*[A-Za-z][. ](19|20)[0-9]{2}(?:[. ](?:[A-RT-Za-rt-z0-9'][A-Za-z0-9'._+=-]*|[Ss][A-Za-z][A-Za-z0-9'._+=-]*))*[. -](?:4[Kk][.-])?(2160|1080|720|480)[pi]|\b[0-9]{1,4}\.(19|20)[0-9]{2}(?:[. ](?:[A-RT-Za-rt-z0-9'][A-Za-z0-9'._+=-]*|[Ss][A-Za-z][A-Za-z0-9'._+=-]*))*[. -](?:4[Kk][.-])?(2160|1080|720|480)[pi]|\((19|20)[0-9]{2}\)\s*[\[(]?(2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9 ]+ (19|20)[0-9]{2} (?:[A-Za-z]+ )?(2160|1080|720|480)[pi]|\[(19|20)[0-9]{2}\][^\n]{0,20}?(2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9.-]*[. ](19|20)[0-9]{2}[+](2160|1080|720|480)[pi]|[A-Za-z][A-Za-z0-9_]+_\((19|20)[0-9]{2}\)_(2160|1080|720|480)[pi]|[\[(. ](19|20)[0-9]{2}[\]). _\-]|[\[(. ](19|20)[0-9]{2}$|[A-Za-z0-9][!.](19|20)[0-9]{2}[. ])` |
-| `not_regex` | `(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_E\-]|[\[(]S[0-9]{2,3}[\])]|S[0-9]{2,3}-S[0-9]{2,3}|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Sezon[.\s]?\d+|Complete[.\s]Series|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)` |
-| `not_files_regex` | `(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)` |
+```text
+(?i)((?:^|[^a-z0-9])S[0-9]{1,4}(?:[ ._-]?E[0-9]{1,4}|E?(?:[^a-z0-9]|$))|(?:^|[^a-z0-9])[0-9]{1,2}E[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])Ep[ .]?[0-9]{1,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|Series[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|Cap[ií]tulo[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])EP?[0-9]{2,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|[0-9]{1,2}(?:st|nd|rd|th|ª|º)?[ ._-]*(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)(?:[^a-z0-9]|$)|[EÉ]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:Complete|Mini|TV|Web)[ ._-]?Series|\[Cap[ .][0-9]{3,4}\]|[\[(][0-9]{2,3} ?[~-] ?[0-9]{2,4}[\])]|[0-9]{2,4} ?~ ?[0-9]{2,4}|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?(?:[ .](?:[^0-9]|$)|[_\[(\]~-]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$))
+```
 
-#### default
+`files_regex`
 
-| Filter | Pattern |
-|---|---|
-| `not_regex` | `(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_E\-]|[\[(]S[0-9]{2,3}[\])]|S[0-9]{2,3}-S[0-9]{2,3}|Season[.\s]?(?:[0-9]{1,2})(?:[.\s_\-E(]|$)|SEASONS?(?:[0-9]{1,2})(?:[.\s_\-E]|$)|\(Season\s+[0-9]+\)|Seasons\s+[0-9]|Sezon[.\s]?\d+|Complete[.\s]Series|\(Batch\)|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.|^UFC[.\s]\d\d\d|(19|20)[0-9]{2})` |
-| `not_files_regex` | `(?i)(S[0-9]{2,3}E[0-9]{2}|S[0-9]{2,3}P[0-9]{2}|[.\s_]S[0-9]{2,3}[.\s_\-E]|[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.)` |
+```text
+(?i)((?:^|[^a-z0-9])s[0-9]{1,4}[ ._-]*e[0-9]{1,4}|(?:^|[^a-z0-9])s[0-9]{2,3}p[0-9]{2}|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])ep?[0-9]{2,4}(?:[^a-z0-9]|$)|[eé]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?[ _\[(]|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ .][0-9]{3}[ .])
+```
+
+#### Movies
+
+Add **two** filters to this folder. They are the same two patterns as TV Shows, used as exclusions:
+
+`not_regex`
+
+```text
+(?i)((?:^|[^a-z0-9])S[0-9]{1,4}(?:[ ._-]?E[0-9]{1,4}|E?(?:[^a-z0-9]|$))|(?:^|[^a-z0-9])[0-9]{1,2}E[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])Ep[ .]?[0-9]{1,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|Series[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|Cap[ií]tulo[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])EP?[0-9]{2,4}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)[ ._-]*[0-9]{1,2}(?:[^a-z0-9]|$)|[0-9]{1,2}(?:st|nd|rd|th|ª|º)?[ ._-]*(?:Seasons?|Temporadas?|Saison|Staffel|Sezon|Stagione|Seizoen|Сезон)(?:[^a-z0-9]|$)|[EÉ]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:Complete|Mini|TV|Web)[ ._-]?Series|\[Cap[ .][0-9]{3,4}\]|[\[(][0-9]{2,3} ?[~-] ?[0-9]{2,4}[\])]|[0-9]{2,4} ?~ ?[0-9]{2,4}|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?(?:[ .](?:[^0-9]|$)|[_\[(\]~-]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$))
+```
+
+`not_files_regex`
+
+```text
+(?i)((?:^|[^a-z0-9])s[0-9]{1,4}[ ._-]*e[0-9]{1,4}|(?:^|[^a-z0-9])s[0-9]{2,3}p[0-9]{2}|(?:^|[^a-z0-9])[0-9]{1,2}x[0-9]{2,3}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])ep?[0-9]{2,4}(?:[^a-z0-9]|$)|[eé]pisod(?:e|io)s?[ ._-]*[0-9]{1,4}|(?:^|[^a-z0-9])[0-9]{1,2}of[0-9]{1,2}(?:[^a-z0-9]|$)|[ _]-[ _](?:[0-9]{2,3}|1[01][0-79][0-9]|108[1-9])(?:v[0-9])?[ _\[(]|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ ._-][0-9]{2}[ ._-][0-9]{2}(?:[^a-z0-9]|$)|(?:^|[^a-z0-9])(?:19|20)[0-9]{2}[ .][0-9]{3}[ .])
+```
+
+!!! tip "How the filters fit together"
+    - **TV Shows** takes a release when its name looks like TV (`S01E05`, `S01`, `Season 2`, `1x05`, `Show - 12` anime numbering, daily dates, and more) **or** any file inside it does.
+    - **Movies** takes everything else. Because it reuses the TV patterns as exclusions, every release lands in exactly one of the two folders. Nothing ends up in both, and nothing goes missing.
+    - Add every filter listed for a folder. Using only one of them is the most common cause of TV showing up in Movies or the other way round.
+    - Copy each pattern in full with the copy button. Then restart cli_mount. Existing content is re-sorted after the restart, so nothing needs re-adding.
+    - With *Allowed file types* limited to video (see the [example below](#example-symlink-mode-setup)), non-video downloads don't show up in Movies.
 
 The `categories` setting (`sonarr`, `radarr`) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.
 
