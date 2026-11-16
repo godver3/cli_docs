@@ -29,13 +29,15 @@ Before you begin, confirm you have:
 
 ## Image tags
 
-| Tag | Architecture | Branch | Notes |
-|---|---|---|---|
-| `godver3/cli_debrid:dev` | amd64 | dev | Latest features — recommended |
-| `godver3/cli_debrid:dev-arm64` | arm64 | dev | For ARM devices (Raspberry Pi, Apple Silicon) |
-| `godver3/cli_debrid:main` | amd64 | main | Stable, updated every 6–8 weeks |
-| `godver3/cli_debrid:main-arm64` | arm64 | main | Stable ARM build |
-| `godver3/cli_debrid:latest` | amd64 | dev | Pinned to newest dev build |
+Every tag is multi-arch: the same tag works on amd64 and arm64 (Raspberry Pi, Apple Silicon).
+
+| Tag | Branch | Notes |
+|---|---|---|
+| `godver3/cli_debrid:dev` | dev | **Recommended.** New features and fixes first |
+| `godver3/cli_debrid:dev-<version>` | dev | A specific dev release, e.g. `dev-0.7.87` |
+| `godver3/cli_debrid:latest` | dev | Same as `:dev` |
+| `godver3/cli_debrid:main` | main | Updated less often, at the end of each development cycle |
+| `godver3/cli_debrid:main-<version>` | main | A specific main release |
 
 !!! note "Which tag should I use?"
     Use `:dev` for day-to-day use. Bugs are caught and fixed fastest on the dev branch. Use `:main` if you prefer less frequent updates.
@@ -68,7 +70,7 @@ cli_mount runs as user `1000` (the `PUID` in the compose file) and can only moun
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
-curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/main/docker-compose.cli_mount.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.cli_mount.yml
 ```
 
 Or create `docker-compose.yml` with this content:
@@ -253,7 +255,7 @@ cd ${HOME}/cli_debrid
 Download the default compose file:
 
 ```bash
-curl -O https://raw.githubusercontent.com/godver3/cli_debrid/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.yml
 ```
 
 Or create it manually:
