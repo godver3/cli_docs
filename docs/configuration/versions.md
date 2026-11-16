@@ -61,7 +61,6 @@ cli_debrid ships with a **Default** version pre-configured for balanced quality 
 |---|---|---|
 | **Min Size (GB)** | `0.0` | Reject files smaller than this. Useful to avoid low-quality small encodes. |
 | **Max Size (GB)** | (no limit) | Reject files larger than this. Useful to keep storage under control. |
-| **Soft Max Size** | Off | If enabled and no results fit within Max Size, accept the smallest available result instead of failing. *This is a global setting under **Other Scraping Settings**, not per version.* |
 
 ---
 
@@ -177,36 +176,9 @@ See the [example 1080p version](../getting-started/configure.md#example-a-tuned-
 
 ---
 
-## Other scraping settings
+## Global scraping settings
 
-These global settings apply across all versions and control scraping behaviour, upgrading, and content filtering. They are found at the bottom of the Versions page under **Other Scraping Settings**.
-
-### Uncached content
-
-| Setting | Default | Description |
-|---|---|---|
-| **Uncached Content Handling** | `None` | How to handle uncached torrents. `None` — only take the best cached result. `Hybrid` — take the best cached result, and if no cached results are found take the best uncached result. `Full` — take the best result whether cached or uncached. |
-| **Accept Uncached Within Hours** | `0` | If an item was released within the last X hours, accept uncached releases regardless of the above setting. Set to `0` to disable. |
-
-### Scraping
-
-| Setting | Default | Description |
-|---|---|---|
-| **Filter Trash Releases** | On | Filter out releases flagged as trash by the parser (typically low-quality or badly formatted releases) |
-| **Minimum Scrape Score** | `0.0` | Minimum calculated score for a result to be accepted. Based on version weights. Set to `0.0` to accept any score. |
-| **Scraper Timeout** | `5` | Timeout in seconds for each scraping request. Set to `0` to disable. Increase for slower scrapers like AIOStreams. |
-| **Disable Adult** | On | Filter out adult content |
-| **Trakt Early Releases** | Off | Check Trakt for early release information |
-| **Trakt Rate Limit Enabled** | On | Enable Trakt API rate limiting to prevent 429 errors. Automatically detects VIP/Free tier. Recommended to leave enabled. |
-
-### Upgrading
-
-| Setting | Default | Description |
-|---|---|---|
-| **Enable Upgrading** | Off | Allow cli_debrid to replace a collected item with a better version if one is found |
-| **Upgrading Percentage Threshold** | `0.1` | How much better a result must be to qualify as an upgrade (decimal, 0.0–1.0). `0.1` = must score at least 10% higher than the current file. |
-| **Delayed Upgrade Scrape Days** | `0` | Number of days to wait before attempting a single upgrade scrape on an item. Set to `0` to disable. |
-| **Enable Upgrading Cleanup** | Off | Remove the original file from your Debrid Provider after a successful upgrade |
+Settings that apply to every version (uncached handling, Minimum Scrape Score, upgrading, scraper timeout) used to be at the bottom of this page under **Other Scraping Settings**. They're now on their own page: [Settings → Scraping](scraping.md).
 
 ---
 

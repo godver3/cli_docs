@@ -32,8 +32,8 @@ cli_debrid is a full media automation suite. Here's everything it can do.
 - ## :material-arrow-up-bold:{ .lg .middle } [Upgrade Hub](upgrade-hub.md)
   Find and queue quality upgrades for your existing collection.
 
-- ## :material-robot:{ .lg .middle } [AI Butler](ai-butler.md)
-  AI-powered assistant for diagnostics, settings help, and content recommendations.
+- ## :material-clock-check:{ .lg .middle } [Automation](automation.md)
+  Every scheduled task by feature: turn tasks on or off, change intervals, run them now.
 
 - ## :material-label:{ .lg .middle } [Plex Labels](plex-labels.md)
   Automatically label Plex items by content source or requester.

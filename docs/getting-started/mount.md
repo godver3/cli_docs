@@ -25,6 +25,9 @@ cli_mount mounts your debrid library and streams Usenet NZBs from your news serv
 
 Full setup guide: [:octicons-arrow-right-24: cli_mount](../integrations/cli_mount.md){ .md-button }
 
+!!! tip "Installing both? Use one compose file"
+    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) runs cli_mount and cli_debrid together from one compose file, so this step and [Step 3](install.md) happen at once.
+
 In short:
 
 1. Run the `ghcr.io/mash2k3/cli_mount:dev` container (needs `/dev/fuse`), with your mount folder mapped to `/mnt`

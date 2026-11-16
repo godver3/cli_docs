@@ -5,7 +5,7 @@ icon: material/alert-circle
 
 # Required Settings
 
-These settings must be configured for cli_debrid to function. They are collected during onboarding and can be updated at any time from **Settings → Required Settings**.
+These settings must be configured for cli_debrid to function. They are collected during onboarding and can be changed any time under **Settings → Required Settings**.
 
 ![Required settings tab](../assets/screenshots/configuration/required-settings.png)
 
@@ -13,10 +13,7 @@ These settings must be configured for cli_debrid to function. They are collected
 
 ## Debrid Provider
 
-| Setting | Description |
-|---|---|
-| **Provider** | Your debrid service: Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link |
-| **API Key** | Your debrid API key — found in your account dashboard |
+**Debrid Providers** is one ranked list. Add a row for each debrid service (Real-Debrid, AllDebrid, Premiumize, TorBox, Debrid-Link or HighWay) with its API key, drag rows to set the order, and use each row's **Test** button to check the key. The first row is your main provider. Leave the list empty for a Usenet-only setup.
 
 !!! tip "Getting your API key"
     === "Real-Debrid"
@@ -34,11 +31,12 @@ These settings must be configured for cli_debrid to function. They are collected
     === "Debrid-Link"
         Go to [debrid-link.com/webapp/apikey](https://debrid-link.com/webapp/apikey) while logged in.
 
-### Fallback Providers
+### More than one provider
 
-You can configure additional fallback debrid providers. When the primary provider fails — due to rate limits, DMCA blocks, or errors — cli_debrid automatically tries the next provider in order.
+When the first provider can't deliver a release (rate limits, DMCA blocks, errors), cli_debrid tries the next one in the list. Deleting from your library removes each torrent from the provider that added it. With two or more providers, the [Debrid Manager](../features/debrid-manager.md) has a provider picker.
 
-Click **Add Fallback Provider** in the Debrid Provider section to add a fallback. Each fallback has its own provider selection and API key. Fallbacks are tried in the order they are listed.
+!!! warning "AllDebrid"
+    AllDebrid can't say whether a release is cached without adding it to your account, and it has suspended accounts that add many releases without downloading them. cli_debrid limits AllDebrid cache checks to 150 an hour and 10 per item, removes the ones it doesn't use, and only asks AllDebrid when no provider higher in the list has the release cached. Put AllDebrid lower in the list if you have another provider.
 
 ### More debrid options
 
@@ -152,37 +150,37 @@ This is one of the most important settings.
 
 ### More file management options
 
+Symlink naming and folder options are under [Library & Files → Symlink Settings](library-files.md#symlink-settings).
+
 | Setting | Description |
 |---|---|
 | **File Collection Management** | `Plex` or `Symlinked/Local` — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks. |
-| **Symlink Organize By Type** | Put symlinks in separate Movies and TV Shows folders. On by default. |
-| **Symlink Organize By Resolution** | Add a resolution folder (e.g. `1080p`, `2160p`) before the type folders. |
-| **Symlink Organize By Version** | Add a version folder (e.g. `Remux`, `WEB-DL`) before the type folders. |
 | **Media Server Type** | `plex` or `jellyfin` — which server to notify about new symlinks. |
 | **Plex URL For Symlink** / **Plex Token For Symlink** | The Plex server to scan after creating symlinks (symlink mode). |
 | **Scan Mount For External Adds** | Regularly scan the original files path for content added *outside* cli_debrid (e.g. via DMM or your debrid provider's website) and import it — symlink it and trigger a scan. Use this if your mount has no library-update hook (cli_mount, Decypharr, plain rclone); Zurg users get this through Zurg's `on_library_update`. The first run only records what's already there, without importing it. |
-| **Process Non Checking Items** | Also process files reported by the rclone webhook that don't match an item cli_debrid is currently checking. |
 
 ---
 
-## Usenet Provider
+## Usenet Mount
 
 Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newznab.md). Works alongside a debrid provider, or on its own (leave the debrid API key empty for a Usenet-only setup).
 
 | Setting | Description |
 |---|---|
-| **Enable Usenet** | Turn on Usenet support |
+| **Enable Usenet Mount** | Turn on Usenet support |
 | **Provider** | `cli_mount` (recommended), `NzbDAV`, or `Zurg` (Zurg 2.0's SABnzbd-compatible endpoint) |
-| **Provider URL** | e.g. `http://192.168.1.x:8282` for cli_mount or `:3000` for NzbDAV. Use the host IP or container name — **not** `localhost`, which inside the cli_debrid container points at cli_debrid itself. |
+| **Mount URL** | Where cli_debrid reaches the mount, e.g. `http://cli_mount:8282` for cli_mount or `http://nzbdav:3000` for NzbDAV. Use the container name or host IP — **not** `localhost`, which inside the cli_debrid container points at cli_debrid itself. |
 | **API Token** | Only if your provider has authentication enabled |
-| **Download Folder / Category** | Leave empty for the provider's default |
-| **cli_mount Data Path** | cli_mount's appdata folder as seen *inside the cli_debrid container* — needed for the cli_mount DB backup, restore and cleanup tools. Add `- /path/to/appdata/cli_mount:/climount_data` to your cli_debrid volumes and set this to `/climount_data`. |
+| **Fallback Category** | Rarely used. Leave empty for the provider's default. |
+| **cli_mount Data Path** | cli_mount's data folder as seen *inside the cli_debrid container*, needed for the cli_mount database backups and tools on the [Maintenance](../features/maintenance.md) page. Add `- /path/to/appdata/cli_mount:/climount_data` to your cli_debrid volumes and set this to `/climount_data`. |
 | **Usenet Retention Days** | Ignore NZB results older than this many days. Default `5000`; `0` turns it off. |
 | **Disable NZB Season Packs** | **On by default — recommended.** Skips NZB season packs (movies aren't affected). One missing article in a season pack fails the whole pack and the repair re-downloads the entire season; per-episode NZBs keep a bad file to one episode. |
 | **Ffprobe All NZBs** | Before collecting an NZB file, open it with `ffprobe` to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower. Requires `ffprobe` (included in the Docker image). |
 | **Enable NZB File Naming** | Name NZB jobs as `{title} ({year}) - {imdb-id} - {version} - (original)` for movies and `{title} ({year}) - SxxExx - {episode title} - {imdb-id} - {version} - (original)` for episodes, instead of the raw release name. |
 | ↳ **Include Version in NZB Name** | Add the version (e.g. `Default`, `4K Remux`) to the name. On by default. |
 | ↳ **Include Content Source in NZB Name** | Add the content source's display name. Off by default. |
+
+Click **Detect** under the Provider to find the mount. It tries the usual container names, the Docker host and localhost on each backend's ports, and only counts a backend that answers its own handshake. It also finds cli_mount's data folder and NzbDAV/Zurg mounts. Results are suggestions: a field is only filled on its own when it's empty and there's exactly one match.
 
 **NzbDAV / Zurg only**
 
@@ -192,7 +190,17 @@ Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newzna
 | **Repair: Exclude Categories** | Categories the repair tool must always ignore — e.g. ones Radarr/Sonarr use on the same NzbDAV. |
 | `nzbdav_category_map` | *(config file only)* Which categories to use and what they're called on your instance, as `bucket=name` pairs, e.g. `movies=movies, shows=shows, fallback=__unplayable__`. Omitted buckets fall back to their parent category. |
 
-See [cli_mount](../integrations/cli_mount.md#usenet-with-cli_mount) and [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full setup. Switching between cli_mount and NzbDAV? See [Usenet Migration](../features/usenet-migration.md).
+For a setup where everything is filled in for you, see [cli_debrid and cli_mount in one stack](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack). See [cli_mount](../integrations/cli_mount.md#usenet-with-cli_mount) and [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full setup. Switching between cli_mount and NzbDAV? See [Usenet Migration](../features/usenet-migration.md).
+
+---
+
+## Metadata Providers
+
+| Setting | Default | Description |
+|---|---|---|
+| **TMDB Api Key** | — | Used for posters, Discover and release dates. Use the **API Key**, not the "API Read Access Token". Register at [themoviedb.org](https://www.themoviedb.org/) and request a free key under **Settings → API**. |
+| **TMDB Certification Region** | `US` | Which country's age ratings to show (e.g. US: `R`, `PG-13` · GB: `15`, `12A`) |
+| **TVDB Api Key** | — | TVDB v4 key. When set, TVDB is used instead of Trakt for metadata; a TMDB key is still needed for full release dates. It also unlocks TVDB's other episode orders (DVD, absolute…), which a show can switch to from **Show options** on its library page. Get a key at [thetvdb.com/api-information](https://thetvdb.com/api-information). |
 
 !!! info "Trakt is optional"
-    Trakt used to be listed here as a required setting. It is now an **optional** integration — cli_debrid no longer requires Trakt authorization to start or run the queue. See [Additional Settings → Trakt](additional.md#trakt) to configure it.
+    cli_debrid doesn't need Trakt to start or run the queue. To use Trakt content sources, set it up under [Tracking accounts](tracking-accounts.md#trakt).

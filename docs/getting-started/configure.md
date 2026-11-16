@@ -18,10 +18,10 @@ The wizard runs automatically on first launch. If you leave partway through, log
 | **1. Admin account** | Set your username and password |
 | **2. Connect your services** | Four sections: where your media comes from (debrid and/or Usenet), your mount, your library (Plex or Symlink mode) and metadata (TVDB/TMDB). Each connection has a **Test** button, and **Save & Validate** checks everything before you can move on |
 | **3. Scrapers** | Debrid users get **Torrentio** added automatically. Usenet users add their indexers as **Newznab** scrapers |
-| **3a. Versions** | The **Default** version (1080p) is added for you. Keep it or pick another option |
+| **3a. Versions** | The **Default** version (1080p) is added for you. Keep it, or switch to **Separate 1080p/4K Versions** or **Alternate Default Versions** |
 | **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
 | **5. Library management** | Optionally scan or convert an existing library |
-| **6. Review & start** | A summary of your setup, a health check of every connection, and **Start Program** |
+| **6. Review & start** | A summary of your setup, a health check of every connection, optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
 
 Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
 
@@ -46,9 +46,9 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     | Field | Value |
     |---|---|
-    | **Usenet Provider** | **cli_mount** (recommended), **NzbDAV** or **Zurg 2.0** |
-    | **URL** | cli_mount: `http://192.168.1.x:8282`. NzbDAV: port `3000`. Zurg 2.0: its own address |
-    | **API Token** | cli_mount: only if you turned on authentication, otherwise leave blank. NzbDAV/Zurg: the SABnzbd API key |
+    | **Usenet Mount** | **cli_mount** (recommended), **NzbDAV** or **Zurg 2.0** |
+    | **Mount URL** | cli_mount: `http://192.168.1.x:8282`, or `http://cli_mount:8282` in the [one-stack compose](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack). NzbDAV: port `3000`. Zurg 2.0: its own address. **Detect** looks for it and fills the field in when it finds exactly one |
+    | **API Token (optional)** / **SABnzbd API Key** | cli_mount: only if you turned on authentication, otherwise leave blank. NzbDAV/Zurg: the SABnzbd API key |
 
     Click **Test connection** to check the URL and token before moving on. If you pick NzbDAV, the wizard also shows the NzbDAV setup helper.
 
@@ -56,12 +56,12 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     Your news server login lives in cli_mount ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
 
-    After onboarding, **Settings → Required Settings → Usenet Provider** has more options:
+    After onboarding, **Settings → Required Settings → Usenet Mount** has more options:
 
     | Setting | Value |
     |---|---|
-    | **Download Folder** | Leave empty for cli_mount's default |
-    | **Data Path** | `/climount_data` if you mapped cli_mount's appdata into cli_debrid ([Step 3](install.md)) — enables the cli_mount DB tools |
+    | **Download Folder / Category** | Leave empty for cli_mount's default |
+    | **cli_mount Data Path** | `/climount_data` if you mapped cli_mount's appdata into cli_debrid ([Step 3](install.md)). Enables the cli_mount DB tools. **Detect** (under **Provider**) fills it in |
 
 !!! tip "Using both?"
     With debrid and Usenet both configured, torrent and NZB results are scored together using the same quality rules, and the best one wins.
@@ -72,8 +72,8 @@ These live under **Settings → Required Settings** and are worth turning on onc
 
 | Setting | Where | Recommendation |
 |---|---|---|
-| **Disable NZB Season Packs** | Usenet Provider | **Keep on** (it's the default). A single missing article in a season pack fails the whole pack, and the repair re-downloads the entire season. With this on, cli_debrid grabs NZBs per episode, so one bad file only affects one episode. Movies aren't affected. |
-| **Ffprobe All NZBs** | Usenet Provider | Optional. Before an NZB file is collected, cli_debrid opens it with `ffprobe` to make sure it actually plays, on top of the normal missing-article check. |
+| **Disable NZB Season Packs** | Usenet Mount | **Keep on** (it's the default). A single missing article in a season pack fails the whole pack, and the repair re-downloads the entire season. With this on, cli_debrid grabs NZBs per episode, so one bad file only affects one episode. Movies aren't affected. |
+| **Ffprobe All NZBs** | Usenet Mount | Optional. Before an NZB file is collected, cli_debrid opens it with `ffprobe` to make sure it actually plays, on top of the normal missing-article check. |
 | **Ffprobe All Debrid Additions** | Debrid Provider | Optional. The same playability check for debrid files. |
 
 !!! info "What the ffprobe checks cost"
@@ -90,7 +90,7 @@ cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.
 | Field | Value |
 |---|---|
 | **Mount tool** | The tool you set up. It only picks the example path shown under the field |
-| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/climount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
+| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
 
 Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.
 
@@ -98,16 +98,27 @@ The mount path is required in Symlink mode. In Plex mode it's only needed for **
 
 ---
 
-## Media server
+## Your library
 
-=== "Plex"
+The wizard's **Your library** section picks how cli_debrid gets files into your media server. **File Collection Management** is one of the most important settings, and it decides which fields show up below it.
+
+=== "Plex mode"
+
+    Plex reads straight from your mount, and cli_debrid uses the Plex API to track what's in your library.
+
+    - Plex only: doesn't work with Jellyfin or Emby
+    - No symlinks
+    - Plex must see the mount at the same path as cli_debrid
+
+    Click **Sign in to Plex** to fill the fields in, or enter them yourself (sign-in can fail when Plex can't work out your network; the direct IP and token always work):
 
     | Field | Value |
     |---|---|
-    | **Plex URL** | `http://YOUR_PLEX_IP:32400` |
+    | **Plex URL** | `http://YOUR_PLEX_IP:32400`, without a trailing slash |
     | **Plex Token** | Your Plex auth token (see below) |
-    | **Movies libraries** | Comma-separated list of your movie library names or IDs, e.g. `Movies,4K Movies` or `1,3` |
-    | **Shows libraries** | Comma-separated list of your TV library names or IDs, e.g. `TV Shows,Anime` or `2,4` |
+    | **Movie Libraries** | Comma-separated movie library names or IDs, e.g. `Movies,4K Movies` or `1,3` |
+    | **TV Libraries** | Comma-separated TV library names or IDs, e.g. `TV Shows,Anime` or `2,4` |
+    | **Update Plex on file discovery** | Optional. Tells Plex to scan a file as soon as cli_debrid finds it on the mount. Needs the mount path from [Your mount](#your-mount) |
 
     !!! tip "Using library IDs"
         You can use either the library name or its numeric ID. To find the ID, open your Plex library in the browser — the `source=` value at the end of the URL is the library ID. For example, `source=1` means the library ID is `1`.
@@ -120,52 +131,23 @@ The mount path is required in Symlink mode. In Plex mode it's only needed for **
 
     Full guide: [:octicons-arrow-right-24: Plex integration](../integrations/plex.md){ .md-button }
 
-=== "Jellyfin"
-
-    | Field | Value |
-    |---|---|
-    | **Jellyfin URL** | `http://YOUR_JELLYFIN_IP:8096` |
-    | **API Key** | Create one under Jellyfin → Dashboard → API Keys |
-    | **Movies libraries** | Comma-separated library names |
-    | **Shows libraries** | Comma-separated library names |
-
-    Full guide: [:octicons-arrow-right-24: Jellyfin integration](../integrations/jellyfin.md){ .md-button }
-
----
-
-## File management mode
-
-This is one of the most important settings.
-
-=== "Plex mode"
-
-    cli_debrid uses the Plex API to track which files are in your library. Plex reads directly from your debrid mount.
-
-    - Plex only — does not work with Jellyfin or Emby
-    - No symlinks needed
-    - Plex must be able to read the mount path
-
-    **Mounted File Location:** Set to your mount path, e.g.:
-
-    - cli_mount: `/path/to/debrid/__all__` (the folder you mapped to `/mnt` in cli_mount)
-    - Zurg: `/mnt/zurg/__all__`
-    - Decypharr: `/mnt/decypharr/__all__`
-
 === "Symlink mode"
 
-    cli_debrid creates symlinks from the mount into an organised folder structure. Your media server scans the symlink folder.
+    cli_debrid makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is **Symlinked/Local**.
 
-    - Works with Plex, Jellyfin, and Emby
+    - Works with Plex, Jellyfin and Emby
     - Required for Jellyfin and Emby
-    - Required on Windows (use Jellyfin — Plex doesn't support symlinks on Windows)
+    - On Windows it's off unless you tick **Allow Symlinks on Windows** (needs Admin or Developer Mode). Without it, use Plex mode
 
     | Field | Value |
     |---|---|
-    | **Original files path** | Your mount path (e.g. `/path/to/debrid/__all__` for cli_mount, `/mnt/zurg/__all__` for Zurg, `/mnt/decypharr/__all__` for Decypharr) |
-    | **Symlinked files path** | Where organised symlinks go, e.g. `/mnt/symlinks` |
+    | **Symlinked Files Path** | Where the symlinks go, e.g. `/mnt/symlinks`. cli_debrid creates `Movies` and `TV Shows` folders inside it; point your media server's libraries at those |
+    | **Media Server** | Optional: **None**, **Plex** or **Jellyfin / Emby**. Lets cli_debrid start a library scan when new files are added |
+    | **Plex URL** / **Plex Token** | Shown when you pick Plex |
+    | **Jellyfin / Emby URL** / **Jellyfin / Emby API Token** | Shown when you pick Jellyfin / Emby, e.g. `http://YOUR_JELLYFIN_IP:8096`. Create the key under Jellyfin → Dashboard → API Keys |
 
     !!! warning "Volume mounts must match exactly"
-        In symlink mode, cli_debrid creates symlinks that point to files inside the debrid mount. For these symlinks to resolve correctly, **both cli_debrid and your media server containers must mount the debrid storage and symlink folder at identical paths**.
+        Each symlink points at a file inside the mount. For it to resolve, **cli_debrid and your media server must see the mount and the symlink folder at identical paths**.
 
         For example, if cli_debrid has:
         ```
@@ -177,7 +159,9 @@ This is one of the most important settings.
         /mnt/remotes/zurg  →  /media/mount   (debrid mount)
         /mnt/symlinks      →  /mnt/symlinked  (symlink folder)
         ```
-        If the paths differ between containers, symlinks will appear as broken files in your media server.
+        If the paths differ between containers, symlinks will appear as broken files in your media server. The [one-stack compose](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) avoids this by using the same path on the host and in every container.
+
+    Full guide: [:octicons-arrow-right-24: Jellyfin integration](../integrations/jellyfin.md){ .md-button }
 
 ---
 
@@ -245,13 +229,13 @@ You can change both later under **Settings → Required Settings**.
 
 ## Trakt (optional)
 
-Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open **Use Trakt instead (optional)** under Metadata; after setup it's under **Settings → Additional Settings**. Enter your Trakt **Client ID** and **Client Secret**, then click **Authorize Trakt** to complete the OAuth flow.
+Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open **Use Trakt instead (optional)** under Metadata; after setup it's under **Settings → Tracking accounts**. Enter your Trakt **Client ID**, and the **Client Secret** if your Trakt app has one (new Trakt apps don't), then click **Authorize Trakt** and enter the code it shows on Trakt's site.
 
 ---
 
 ## Scrob (optional)
 
-If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Additional Settings → Scrob**:
+If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Tracking accounts → Scrob**:
 
 | Field | Value |
 |---|---|

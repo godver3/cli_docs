@@ -34,6 +34,9 @@ flowchart LR
 
 ## Installation
 
+!!! tip "Installing cli_debrid too? Use one compose file"
+    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) has a single compose file that runs cli_mount and cli_debrid together, with the mount shared between them. It's the simplest setup on a Linux host.
+
 === "Docker Compose"
 
     ```yaml title="docker-compose.yml"
@@ -46,7 +49,7 @@ flowchart LR
         ports:
           - "8282:8282/tcp"
         volumes:
-          - /path/to/debrid:/mnt:rw,shared     # (1)
+          - /path/to/debrid:/mnt:rshared     # (1)
           - /path/to/cache:/cache:rw # (2)
           - /path/to/appdata:/app:rw  # (3)
         devices:
@@ -653,26 +656,27 @@ Verify the cache path exists on the host and is writable. Also check `docker log
 
 cli_mount also supports Usenet downloads. cli_debrid can submit NZBs to cli_mount from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
 
-### Usenet provider settings
+### Usenet Mount settings
 
-In **Settings → Required Settings → Usenet Provider**:
+In **Settings → Required Settings → Usenet Mount**:
 
 | Setting | Description |
 |---|---|
-| **Enabled** | Turn on Usenet support |
-| **URL** | cli_mount base URL (e.g. `http://cli_mount:8282`) |
-| **API Token** | cli_mount API token (if authentication is enabled) |
-| **Download Folder** | Optional override for the download destination inside cli_mount |
-| **cli_mount Data Path** | Path to cli_mount's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/cli_mount:/cli_mount_data` to your docker-compose volumes, then set this to `/cli_mount_data` |
+| **Enable Usenet Mount** | Turn on Usenet support |
+| **Provider** | **cli_mount**. The **Detect** button under it finds cli_mount on your network and fills in **Mount URL** and **cli_mount Data Path** |
+| **Mount URL** | cli_mount base URL, e.g. `http://cli_mount:8282` (default port `8282`). Don't use `localhost` or port `8888`: inside the cli_debrid container those point at cli_debrid and its Phalanx DB |
+| **API Token** | cli_mount API token, only if you turned on authentication in cli_mount |
+| **Download Folder / Category** | Leave empty to use cli_mount's default download folder |
+| **cli_mount Data Path** | cli_mount's data folder as cli_debrid sees it, default `/climount_data`. Add `- /path/to/appdata/cli_mount:/climount_data` to cli_debrid's volumes. Used by the DB tools below and by **Tools → Usenet → Migrate between usenet providers** |
 
 ### cli_mount DB tools
 
-When **cli_mount Data Path** is configured, additional tools appear in **Debug Functions**:
+When **cli_mount Data Path** is configured, these tools work on the [Maintenance](../features/maintenance.md) page:
 
-- **cli_mount DB Cleanup** (Library tab) — remove entries for a specific debrid provider from cli_mount's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
-- **Backup cli_mount Databases** (Database tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
-- **Restore cli_mount Database from Backup** (Database tab) — restore from a previous backup
-- **Clean Up Old cli_mount Backup Files** (Database tab) — remove old backup files to free disk space
+- **cli_mount DB Cleanup** (Cleanup & repair tab) — remove entries for a specific debrid provider from cli_mount's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
+- **Backup cli_mount Databases** (Backups tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
+- **Restore cli_mount Database from Backup** (Backups tab) — restore from a previous backup
+- **Clean Up Old cli_mount Backup Files** (Backups tab) — remove old backup files to free disk space
 
 See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full Usenet setup.
 

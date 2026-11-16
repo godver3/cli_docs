@@ -36,7 +36,7 @@ Available for local accounts only. SSO users manage their password through their
 
 ## API Token
 
-Used to access cli_debrid endpoints externally (e.g. OpenClaw, homepage widgets).
+Used to access cli_debrid endpoints externally (e.g. homepage widgets, scripts).
 
 - Append `?token=<your-token>` to API requests
 - Use **Regenerate** to invalidate the old token and issue a new one immediately

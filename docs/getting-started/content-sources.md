@@ -104,8 +104,8 @@ After adding a content source:
 3. Items will move through **Scraping → Adding → Checking → Collected** as they are processed
 
 !!! tip "Nothing appearing in Wanted?"
-    - If using a Trakt source, check that Trakt authorisation completed successfully (**Settings → Additional Settings**)
-    - If using a Scrob source, check the Scrob URL and API key under **Settings → Additional Settings → Scrob**
+    - If using a Trakt source, check that Trakt sign-in completed successfully (**Settings → Tracking accounts → Trakt**)
+    - If using a Scrob source, check the Scrob URL and API key under **Settings → Tracking accounts → Scrob**
     - Make sure your watchlist/list has items in it
     - Check the logs for errors: **Logs** page in the nav
 

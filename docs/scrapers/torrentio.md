@@ -30,7 +30,7 @@ There's no URL to set: cli_debrid always uses the public instance at `https://to
 ## Notes
 
 - Torrentio is a public service with no authentication required
-- Results include both cached and uncached torrents — CLI_Debrid will filter based on your [Uncached Content Handling](../configuration/versions.md#uncached-content) setting
+- Results include both cached and uncached torrents — CLI_Debrid will filter based on your [Uncached Content Handling](../configuration/scraping.md#uncached-content-and-filtering) setting
 - For better results on anime, use [Nyaa](nyaa.md) alongside Torrentio
 
 ---

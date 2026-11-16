@@ -146,5 +146,5 @@ Bulk operations are batched (450 items per batch) to avoid database lock issues.
 
 1. Find the item in the database
 2. Note the Item ID
-3. Go to **Debug Functions → Fix Episode Numbers**
+3. Go to **System → Maintenance → Cleanup & repair → Fix Episode Numbers**
 4. Enter the Item ID and correct episode number

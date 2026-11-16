@@ -35,7 +35,7 @@ Toggle between **Grid view** (poster-based) and **List view** (table-based) usin
 | **Resolution** | All, 4K (2160p), 1080p, 720p, 480p, Unknown |
 | **Sort** | Title A–Z, Title Z–A, Year (Newest), Year (Oldest), Added (Newest), Added (Oldest) |
 
-\* The **NAS / Network** filter option only appears when NAS path prefixes are configured in **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**.
+\* The **NAS / Network** filter option only appears when NAS path prefixes are configured in **Settings → Library & Files → Library → NAS / Network Drive Paths**.
 
 When **Duplicates** is selected an additional filter appears:
 
@@ -60,7 +60,7 @@ The toolbar also contains:
 | **Select** | (Admin) Toggle multi-select mode |
 | **Delete** | (Admin) Delete selected items — badge shows count |
 | **Refresh** | Reload library data |
-| **Settings** | (Admin) Open [Library Manager Settings](../configuration/additional.md#library-manager) |
+| **Settings** | (Admin) Open the [Library settings](../configuration/library-files.md#library) |
 | **Grid / List** | Toggle view mode |
 
 Click **Select** (admin only) to enter multi-select mode. Select items then use the **Delete** button to remove them in bulk. A badge on the button shows how many items are selected.
@@ -157,4 +157,4 @@ Ghostlist Mode marks deleted items as ghosted in the database instead of fully r
 
 When Ghostlist Mode is **off**, deleted content can be re-added by content sources. Use **Remove From Content Sources** in that case to explicitly remove items from your lists during deletion — though this makes deletion slower.
 
-Enable in **Settings → Additional Settings → Library Manager → Ghostlist Mode**, or via the **Settings** button directly in the Library toolbar.
+Enable in **Settings → Library & Files → Library → Auto Ghostlist Deleted**, or via the **Settings** button directly in the Library toolbar.

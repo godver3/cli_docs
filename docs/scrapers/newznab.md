@@ -8,7 +8,7 @@ icon: material/newspaper-variant
 Newznab is the standard API protocol used by most Usenet indexers. Adding a Newznab scraper lets cli_debrid search Usenet alongside torrents and deliver NZB downloads via your Usenet provider ([cli_mount](../integrations/cli_mount.md), NzbDAV or Zurg).
 
 !!! info "Usenet prerequisite"
-    Newznab scrapers require a Usenet provider (cli_mount recommended) under **Settings → Required Settings → Usenet Provider**. See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for full setup.
+    Newznab scrapers require a Usenet provider (cli_mount recommended) under **Settings → Required Settings → Usenet Mount**. See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for full setup.
 
 ---
 
@@ -70,4 +70,4 @@ Clicking the folder icon on an NZB result fetches the NZB XML and lists the file
 
 If an NZB download fails health validation after submission to the Usenet provider, the segment ID is added to a not-wanted list. Future searches will skip that specific NZB automatically, and clicking ADD on a known-broken NZB will show an error before submission.
 
-The [NZB Repair Engine](../features/debrid-manager.md#usenet) automatically detects broken downloads and finds replacements.
+The [NZB Repair Engine](../features/debrid-manager.md#cli_mount) automatically detects broken downloads and finds replacements.

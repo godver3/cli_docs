@@ -28,11 +28,10 @@ Plex automatically maintains smart collections in each library section. This fea
 
 ## Setup
 
-In **Settings → Additional Settings → Plex Smart Collection Posters**, enable the feature and configure the shared poster design. Once enabled, all discovered smart collections appear as individual toggles below the design settings.
+In **Settings → Media Server → Plex Collections → Smart collection posters**, click **Load Collections from Plex**, tick the collections you want and configure the shared poster design. There's no separate on/off switch: only ticked collections get the custom poster.
 
 | Setting | Description |
 |---|---|
-| **Enable Plex Smart Collection Posters** | Turns the feature on/off |
 | **Poster Design** | Layout applied to all enabled collections. Options: Plex Default, Layout 1–5 |
 | **Poster Accent Color** | Accent color for header text, glow, and decorative elements. Leave unset to use each layout's built-in default |
 | **Eyebrow Text** | Small text displayed above the collection title on the poster. Leave blank to hide |
@@ -40,10 +39,10 @@ In **Settings → Additional Settings → Plex Smart Collection Posters**, enabl
 | **Card Overlay Opacity** | Darkness of the gradient fade at the bottom of each card. Range: 0–100%, default 60% |
 | **Accent Glow Opacity** | Brightness of the accent color glow around the poster edges. Range: 0–100%, default 80% |
 | **Accent Glow Radius** | How far the accent color spreads across the poster background. Range: 10–200, default 55 |
-| **Per-collection toggles** | After enabling, each discovered Plex smart collection appears as an individual toggle |
+| **Per-collection toggles** | After **Load Collections from Plex**, each Plex smart collection appears as its own toggle |
 
 !!! tip "Per-collection toggles"
-    Toggles only appear after the feature is enabled and a run has completed (or triggered manually). If no toggles appear, verify Plex has at least one smart collection in any library section.
+    Toggles appear after you click **Load Collections from Plex**. If none appear, check that Plex has at least one smart collection in any library section.
 
 ---
 
@@ -63,8 +62,8 @@ On each run, CLI Debrid:
 
 Runs automatically on a **24-hour schedule**. To trigger immediately:
 
-- **Task Manager** — find "Plex Smart Collection Posters" and click Run
-- **Settings** — use the **Run Now** button in the Plex Smart Collection Posters settings section
+- **Automation** — find "Smart collection posters" and click **Run now**
+- **Settings** — use the **Run Now** button under **Smart collection posters**
 
 ---
 
@@ -89,7 +88,7 @@ CLI Debrid tracks content fingerprints in `plex_smart_collection_state.json` to 
 **No smart collections appearing as toggles**
 
 - Plex must have generated at least one smart collection in any library section — check your library's Collections view in Plex
-- Trigger the task manually after enabling the feature to force a discovery scan
+- Click **Load Collections from Plex** again to re-read the list from Plex
 
 **Poster not updating in Plex**
 

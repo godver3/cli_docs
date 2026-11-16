@@ -557,26 +557,26 @@ Verify the cache path exists on the host and is writable. Also check `docker log
 
 Decypharr also supports Usenet downloads. cli_debrid can submit NZBs to Decypharr from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
 
-### Usenet provider settings
+### Usenet Mount settings
 
-In **Settings → Required Settings → Usenet Provider**:
+In **Settings → Required Settings → Usenet Mount**:
 
 | Setting | Description |
 |---|---|
-| **Enabled** | Turn on Usenet support |
-| **URL** | Decypharr base URL (e.g. `http://decypharr:8282`) |
-| **API Token** | Decypharr API token (if authentication is enabled) |
-| **Download Folder** | Optional override for the download destination inside Decypharr |
-| **Decypharr Data Path** | Path to Decypharr's data directory inside the cli_debrid container — used for DB backup and cleanup tools. Add `- /path/to/appdata/decypharr:/decypharr_data` to your docker-compose volumes, then set this to `/decypharr_data` |
+| **Enable Usenet Mount** | Turn on Usenet support |
+| **Mount URL** | Decypharr base URL, e.g. `http://decypharr:8282`. Don't use `localhost`: inside the cli_debrid container it points at cli_debrid |
+| **API Token** | Decypharr API token, only if authentication is enabled |
+| **Download Folder / Category** | Leave empty to use Decypharr's default download folder |
+| **cli_mount Data Path** | Decypharr's data folder as cli_debrid sees it. Add `- /path/to/appdata/decypharr:/decypharr_data` to cli_debrid's volumes, then set this to `/decypharr_data` |
 
 ### Decypharr DB tools
 
-When **Decypharr Data Path** is configured, additional tools appear in **Debug Functions**:
+When the data path is configured (**cli_mount Data Path** under **Settings → Required Settings → Usenet Mount**), these tools on the [Maintenance](../features/maintenance.md) page work with Decypharr's databases too:
 
-- **Decypharr DB Cleanup** (Library tab) — remove entries for a specific debrid provider from Decypharr's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
-- **Backup Decypharr Databases** (Database tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
-- **Restore Decypharr Database from Backup** (Database tab) — restore from a previous backup
-- **Clean Up Old Decypharr Backup Files** (Database tab) — remove old backup files to free disk space
+- **cli_mount DB Cleanup** (Cleanup & repair tab) — remove entries for a specific debrid provider from `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
+- **Backup cli_mount Databases** (Backups tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
+- **Restore cli_mount Database from Backup** (Backups tab) — restore from a previous backup
+- **Clean Up Old cli_mount Backup Files** (Backups tab) — remove old backup files to free disk space
 
 See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full Usenet setup.
 
