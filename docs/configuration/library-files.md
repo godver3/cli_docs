@@ -7,6 +7,9 @@ icon: material/folder-cog
 
 **Settings → Library & Files** controls deleting from the library, symlink naming, post-processing scripts and file names.
 
+
+![Library & Files settings page](../assets/screenshots/configuration/library-files-overview.png)
+
 ---
 
 ## Library

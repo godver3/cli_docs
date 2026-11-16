@@ -14,6 +14,8 @@ It replaces the old Debug page together with [Maintenance](maintenance.md) (back
 
 The page has six tabs: **Library**, **Queues & tasks**, **Symlinks**, **Plex Labels**, **Usenet** and **More tools**.
 
+![Tools page](../assets/screenshots/features/tools-overview.png)
+
 ---
 
 ## Library
@@ -131,9 +133,9 @@ You can also run any task with **Run now** on the [Automation](automation.md) pa
 3. Select items (shift+click for range, ctrl/cmd+click for individual)
 4. Choose **Delete** or **Move to...** under **Action**
 5. If moving, pick the **Target Queue**
-6. Click **Execute**
+6. Click **Apply Action**
 
-![Bulk queue actions](../assets/screenshots/features/debug-bulk-queue.png)
+![Bulk queue actions](../assets/screenshots/features/tools-bulk-queue.png)
 
 ---
 

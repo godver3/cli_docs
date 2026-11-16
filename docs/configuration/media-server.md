@@ -9,6 +9,9 @@ icon: material/plex
 
 Your Plex or Jellyfin/Emby connection itself is under [Required Settings → File Management](required.md).
 
+
+![Media Server settings page](../assets/screenshots/configuration/media-server-overview.png)
+
 ---
 
 ## Plex Collections

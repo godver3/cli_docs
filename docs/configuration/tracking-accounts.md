@@ -7,6 +7,9 @@ icon: material/account-sync
 
 **Settings → Tracking accounts** holds your accounts on list and tracking services: MDBList, Trakt, Scrob, Floppy and Simkl. [Content sources](content-sources.md) and Discover use them. Each service is a sub-section of one card. All of them are optional.
 
+
+![Tracking accounts settings page](../assets/screenshots/configuration/tracking-accounts-overview.png)
+
 ---
 
 ## MDBList

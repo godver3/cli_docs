@@ -9,6 +9,8 @@ The Automation page shows everything cli_debrid does on its own schedule, and le
 
 It replaces the old Task Manager.
 
+![Automation page](../assets/screenshots/features/automation-overview.png)
+
 ---
 
 ## How the page works

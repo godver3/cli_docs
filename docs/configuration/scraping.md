@@ -7,6 +7,9 @@ icon: material/magnify-scan
 
 **Settings → Scraping** holds the scraping settings that apply to every version, plus filtering and the blacklist. Per-version rules (resolution, size, scoring weights, filter terms) are under [Version Settings](versions.md).
 
+
+![Scraping settings page](../assets/screenshots/configuration/scraping-overview.png)
+
 ---
 
 ## Scraping

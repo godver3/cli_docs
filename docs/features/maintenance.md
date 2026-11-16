@@ -9,6 +9,8 @@ The Maintenance page holds backups, cleanups and repairs for cli_debrid's databa
 
 It has three tabs: **Backups**, **Cleanup & repair** and **Danger zone**.
 
+![Maintenance page](../assets/screenshots/features/maintenance-overview.png)
+
 !!! warning "Back up first"
     Most of these change data permanently. Take a backup before using the cleanup and danger-zone cards, and use **Dry Run** where a card offers it.
 
