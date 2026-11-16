@@ -34,6 +34,9 @@ flowchart LR
 
 ## Installation
 
+!!! tip "Installing cli_debrid too? Use one compose file"
+    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) has a single compose file that runs cli_mount and cli_debrid together, with the mount shared between them. It's the simplest setup on a Linux host.
+
 === "Docker Compose"
 
     ```yaml title="docker-compose.yml"
@@ -46,7 +49,7 @@ flowchart LR
         ports:
           - "8282:8282/tcp"
         volumes:
-          - /path/to/debrid:/mnt:rw,shared     # (1)
+          - /path/to/debrid:/mnt:rshared     # (1)
           - /path/to/cache:/cache:rw # (2)
           - /path/to/appdata:/app:rw  # (3)
         devices:
