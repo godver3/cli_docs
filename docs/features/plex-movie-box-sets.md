@@ -32,12 +32,12 @@ In **Settings → Media Server → Plex Collections → Movie box sets**, enable
 
 | Setting | Default | Description |
 |---|---|---|
-| **Enable** | Off | Turns the feature on/off |
-| **Grab Missing Movies** | Off | Adds franchise movies not in your library to the wanted queue |
-| **Version to Grab** | Default | Quality/version used when grabbing missing movies |
-| **Collection Name Pattern** | `{title} Collection` | Template for Plex collection names. `{title}` is the franchise name (e.g. "The Godfather"). Examples: `{title} Box Set`, `{title} Saga` |
-| **Minimum Owned Movies** | 2 | Minimum number of owned movies required to create a collection. Collections that drop below this threshold are automatically deleted from Plex on the next run |
-| **Collection Sort Order** | Release Date | How movies are ordered inside the Plex collection (Release Date, Title, Custom) |
+| **Enable Plex Movie Box Sets** | Off | Turns the feature on/off |
+| **Grab missing movies from box sets** | Off | Adds franchise movies not in your library to the wanted queue |
+| **Version to use when grabbing missing movies** | Default | Quality/version used when grabbing missing movies |
+| **Collection name pattern** | `{title} Collection` | Template for Plex collection names. `{title}` is the franchise name (e.g. "The Godfather"). Examples: `{title} Box Set`, `{title} Saga` |
+| **Minimum owned movies to create/keep a box set** | 2 | Minimum number of owned movies required to create a collection. Collections that drop below this threshold are automatically deleted from Plex on the next run |
+| **Collection sort order** | Release Date | How movies are ordered inside the Plex collection (Release Date, Title, Custom) |
 
 ---
 
@@ -49,7 +49,7 @@ Each run processes in five phases:
 2. **Build box set list** — movies are grouped by franchise. Only franchises with at least the configured minimum number of owned movies are included. Full collection details and posters are fetched from TMDB.
 3. **Sync Plex collections** — Plex collections are created or updated. The configured sort order is applied.
 4. **Apply posters** — the TMDB franchise poster is downloaded and uploaded to Plex. If TMDB has no poster for the franchise, a fallback Layout 1 poster is rendered using the CLI Debrid icon. Collections whose content fingerprint hasn't changed are skipped.
-5. **Queue missing movies** *(optional)* — if **Grab Missing Movies** is enabled, franchise members not in your library are added to the wanted queue.
+5. **Queue missing movies** *(optional)* — if **Grab missing movies from box sets** is on, franchise members not in your library are added to the wanted queue.
 
 ---
 
@@ -71,7 +71,7 @@ For franchises where TMDB has no collection name, the title of the earliest owne
 
 ## Minimum movies threshold
 
-Collections that fall below the **Minimum Owned Movies** threshold — because you deleted a movie or the threshold was increased — are automatically removed from Plex on the next run. No manual cleanup needed.
+Collections that fall below the **Minimum owned movies** threshold — because you deleted a movie or the threshold was increased — are automatically removed from Plex on the next run. No manual cleanup needed.
 
 ---
 
@@ -118,7 +118,7 @@ For individual collections, use **Manage Posters** instead.
 
 **Too many collections created**
 
-- Lower the **Minimum Owned Movies** threshold. Any franchise collection that doesn't meet the new minimum is automatically deleted from Plex on the next run.
+- Lower the **Minimum owned movies** threshold. Any franchise collection that doesn't meet the new minimum is automatically deleted from Plex on the next run.
 
 **A collection is not showing in Plex**
 
@@ -136,5 +136,5 @@ For individual collections, use **Manage Posters** instead.
 
 **Missing movies not being queued**
 
-- Confirm **Grab Missing Movies** is enabled and a **Version to Grab** is set
+- Confirm **Grab missing movies from box sets** is on and a version is picked under **Version to use when grabbing missing movies**
 - The TMDB lookup phase must complete for the relevant movies before missing members can be identified

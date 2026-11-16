@@ -148,5 +148,5 @@ The Diagnostics tab holds the status checks that used to be on the Debug page's 
 | **Torrent Tracking** | A link to the history of every torrent added and its current status |
 | **API Summary** / **Real Time API** | How many calls cli_debrid makes to each API, in total and live |
 
-To send a test notification, use the **Test** button on the [Notifications](../configuration/notifications.md) settings page. To share logs, use **Share** on the **Logs** page.
+To send a test notification, use the **Test** button on the [Notifications](../configuration/notifications.md) settings page. To share logs, use **Share cli_debrid Logs** on the **Logs** page.
 

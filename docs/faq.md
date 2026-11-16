@@ -331,7 +331,11 @@ Labels are applied automatically when items are collected. If they're missing:
 
 **How do I share logs when reporting a bug?**
 
-Go to **Logs** → click **Share Logs**. This uploads the log to a paste service and gives you a link to share. API keys and tokens are **not** automatically redacted — review carefully before sharing publicly. Alternatively use **Debug Functions → Download Logs** and redact manually.
+Go to **Logs** and click **Share cli_debrid Logs**. This uploads the logs to paste.c-net.org and gives you a link to share. If cli_mount is set up, there are also **Share cli_mount Logs** and **Share Both** buttons.
+
+The cli_debrid upload includes the app version and a snapshot of your settings, so you don't need to send a settings screenshot. API keys, tokens, passwords and usernames are redacted in both the logs and the settings snapshot. Redaction works by matching known secret values and key names, so skim the link before posting it publicly.
+
+The raw log files are in the `logs` folder of your data directory (`/user/logs` in Docker).
 
 ---
 

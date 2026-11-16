@@ -110,7 +110,7 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 | Upgrading | 1 hr | Scrapes for quality upgrades for recently collected items |
 | Blacklisted | 2 hrs | Periodically reviews blacklisted items |
 | Pending Uncached | 1 hr | Waits for uncached debrid downloads |
-| Final Check | 15 min | Last-attempt scrape for long-waiting items |
+| Final Scrape | 15 min | Last-attempt scrape for long-waiting items |
 | Pre-release | 24 hrs | Handles pre-release content |
 
 !!! tip
@@ -122,7 +122,7 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 
 Items enter the Upgrading queue when they are successfully collected and were released recently. cli_debrid scrapes for better quality versions every **hour**.
 
-By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Settings → Queues & Upgrades → Upgrade Queue Duration**.
+By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Settings → Queues & Upgrades → Upgrade Queue Duration Hours**.
 
 ---
 

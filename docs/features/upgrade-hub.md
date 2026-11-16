@@ -30,10 +30,10 @@ The **Score Δ** column shows the improvement percentage and the before→after 
 !!! info "Scheduled tasks"
     | Task | Default interval |
     |---|---|
-    | **Upgrade Hub Scan** | Every **24 hours** |
-    | **Upgrade Hub Auto Queue** | Every **24 hours** |
+    | **Upgrade Hub scan** | Every **24 hours** |
+    | **Upgrade Hub auto-queue** | Every **24 hours** |
 
-    Both require **Automatic Scan** and **Auto Queue** to be enabled in the Settings tab. Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
+    They're off by default. **Automatic Scan** and **Auto Queue** in the Settings tab switch them on (the same switches as on the Automation page). Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
 
 Click **Scan for Upgrades** to start a scan. The button shows how long ago the last scan ran (e.g. `2h ago`). During a scan a progress bar shows the current phase and ETA:
 
@@ -113,7 +113,7 @@ Same filters, cache badges, and Queue/Ignore actions as the Upgrades tab.
 
 | Setting | Default | Description |
 |---|---|---|
-| **Automatic Scan** | Off | Run a scan automatically every 24 hours. Requires enabling in the task scheduler. |
+| **Automatic Scan** | Off | Run a scan every 24 hours. This is the same switch as the **Upgrade Hub scan** task on the [Automation](automation.md) page. |
 | **Score Threshold** | `0%` | Minimum improvement % to show a candidate. Applied to both Upgrades and Season Packs. |
 | **Only Show Recent Items** | Off | Hide candidates older than the recent threshold from both tabs by default |
 | **Recent Threshold** | `90` days | How many days back defines "recent" |

@@ -23,7 +23,7 @@ Real-time log viewer with live streaming via Server-Sent Events.
 | **Search** | Search through displayed logs with Enter/Shift+Enter to navigate matches — shows X/Y position |
 | **Source chips** | Filter by source file group (queues, scraper, database, plex, trakt, etc.) — click Hide All/Show All to manage |
 | **↓ Bottom** | Jump to the latest log entry (appears when you scroll up) |
-| **Share Logs** | Uploads logs to a paste service and gives you a `wget` + `lnav` command for local viewing |
+| **Share cli_debrid Logs** | Uploads the logs, with your app version and a redacted settings snapshot, to paste.c-net.org and gives you a link. With cli_mount set up there are also **Share cli_mount Logs** and **Share Both** |
 
 **Behaviour:**
 - Auto-scrolls to the bottom when new logs arrive — pauses automatically when you scroll up

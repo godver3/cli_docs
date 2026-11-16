@@ -209,7 +209,7 @@ Procedurally rendered vector badges — no image uploads required. Each preset g
 
 **Title Logo**
 
-Renders the title onto the poster. When **Enable Textless Posters** is on and a textless poster is found, the title is rendered as a clearlogo PNG from TMDB — the official transparent title treatment. If no clearlogo exists, falls back to text in the configured font. This is the main reason to use textless posters: place the title exactly where you want it rather than relying on the baked-in title from a standard poster.
+Renders the title onto the poster. When **Enable Textless / Clean Posters** is on and a textless poster is found, the title is rendered as a clearlogo PNG from TMDB — the official transparent title treatment. If no clearlogo exists, falls back to text in the configured font. This is the main reason to use textless posters: place the title exactly where you want it rather than relying on the baked-in title from a standard poster.
 
 ---
 
@@ -298,12 +298,12 @@ Long-running operations show a **Task Progress** overlay with a live progress ba
 
 ## Automatic regeneration
 
-When overlays are enabled, newly collected items are automatically queued for overlay generation. Configure the check interval via the **Settings** button on the Overlay Management page, or under **Settings → Additional Settings → Overlay Settings → Ratings Check Interval**.
+When overlays are enabled, newly collected items are automatically queued for overlay generation. Configure the check interval via the **Settings** button on the Overlay Management page, or under **Settings → Media Server → Overlay Settings → Overlay Content Check Interval Days**.
 
 !!! info "Scheduled tasks"
     | Task | Default interval |
     |---|---|
-    | **Overlay Sync** | Every **1 hour** |
-    | **Overlay Cleanup** | Every **24 hours** |
+    | **Poster overlays** | Every **1 hour** |
+    | **Poster overlay cleanup** | Every **24 hours** |
 
     Adjust intervals or run them now on the [Automation](automation.md) page (Plex & Media Server group).
