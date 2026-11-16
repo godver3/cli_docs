@@ -7,24 +7,24 @@
       
       
       
-        <link rel="canonical" href="https://godver3.github.io/cli_docs/features/debug-functions/">
+        <link rel="canonical" href="https://godver3.github.io/cli_docs/configuration/performance-logging/">
       
       
-        <link rel="prev" href="../database/">
+        <link rel="prev" href="../queues-upgrades/">
       
       
-        <link rel="next" href="../usenet-migration/">
+        <link rel="next" href="../notifications/">
       
       
         
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
-        <title>Debug Functions - cli_debrid</title>
+        <title>Performance &amp; Logging - cli_debrid</title>
       
     
     
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debug-functions" class="md-skip">
+        <a href="#performance-logging" class="md-skip">
           Skip to content
         </a>
       
@@ -178,7 +178,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Debug Functions
+              Performance &amp; Logging
             
           </span>
         </div>
@@ -435,11 +435,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../configuration/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -459,13 +461,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../features/" class="md-tabs__link">
           
   
   
@@ -1232,8 +1232,6 @@
       
         
       
-        
-      
     
     
     
@@ -1459,36 +1457,6 @@
     
   
     Seerr
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../integrations/openclaw/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    OpenClaw
   
 
     
@@ -1847,372 +1815,6 @@
       
   
   
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6">
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../configuration/" class="md-nav__link ">
-              
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Configuration
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix="">
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/ui-settings/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16H3V4h18m0-2H3c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    UI Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/required/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Required Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/additional/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 12a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2 2 2 0 0 1 2 2 2 2 0 0 1-2 2 2 2 0 0 1-2-2"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Additional Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/scrapers/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Scrapers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/versions/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 13.5h2v-3h-2M18 14a1 1 0 0 1-1 1h-.75v1.5h-1.5V15H14a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1m-7 5H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11m8-5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Version Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/content-sources/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16h7v-2H3m15 0v-4h-2v4h-4v2h4v4h2v-4h4v-2m-8-8H3v2h11m0 2H3v2h11z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Content Sources
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/advanced/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17v2h6v-2zM3 5v2h10V5zm10 16v-2h8v-2h-8v-2h-2v6zM7 9v2H3v2h4v2h2V9zm14 4v-2H11v2zm-6-4h2V7h4V5h-4V3h-2z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Advanced Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/notifications/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Notifications
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../configuration/manage-users/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Manage Users
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -2222,20 +1824,6 @@
       
         
           
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
         
       
         
@@ -2282,7 +1870,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked="">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked="">
         
           
           <div class="md-nav__link md-nav__container">
@@ -2290,12 +1878,12 @@
               
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Features
+    Configuration
   
 
     
@@ -2306,18 +1894,18 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_7">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Features
+    Configuration
   
 
           </label>
@@ -2332,16 +1920,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../dashboard/" class="md-nav__link">
+      <a href="../ui-settings/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v6h8V3m-8 18h8V11h-8M3 21h8v-6H3m0-2h8V3H3z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16H3V4h18m0-2H3c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h7v2H8v2h8v-2h-2v-2h7a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Dashboard
+    UI Settings
   
 
     
@@ -2362,16 +1950,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
+      <a href="../required/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 9h-2V7h2m0 6h-2v-2h2m0 6h-2v-2h2M8 9H6V7h2m0 6H6v-2h2m0 6H6v-2h2M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 13h-2V7h2m0 10h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Library
+    Required Settings
   
 
     
@@ -2392,16 +1980,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../discover/" class="md-nav__link">
+      <a href="../scrapers/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.19 14.19 6 18l3.81-8.19L18 6m-6-4A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 8.9a1.1 1.1 0 0 0-1.1 1.1 1.1 1.1 0 0 0 1.1 1.1 1.1 1.1 0 0 0 1.1-1.1 1.1 1.1 0 0 0-1.1-1.1"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Discover
+    Scrapers
   
 
     
@@ -2422,16 +2010,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../queues/" class="md-nav__link">
+      <a href="../versions/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h6v6H3zm2 2v2h2V7zm6 0h10v2H11zm0 8h10v2H11zm-6 5-3.5-3.5 1.41-1.41L5 17.17l4.59-4.58L11 14z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.5 13.5h2v-3h-2M18 14a1 1 0 0 1-1 1h-.75v1.5h-1.5V15H14a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1m-7 5H9.5v-2h-2v2H6V9h1.5v2.5h2V9H11m8-5H5c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Queues
+    Version Settings
   
 
     
@@ -2452,16 +2040,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../debrid-manager/" class="md-nav__link">
+      <a href="../scraping/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.58-2.02 2.14-3.4Q8.95 4.38 11 4.08v8.07L9.4 10.6 8 12l4 4 4-4-1.4-1.4-1.6 1.55V4.08q2.58.35 4.29 2.31T19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 22v-2h3v-3h2v3.5c0 .39-.16.74-.46 1.04s-.65.46-1.04.46zM7 22H3.5c-.39 0-.74-.16-1.04-.46S2 20.89 2 20.5V17h2v3h3zM17 2h3.5c.39 0 .74.16 1.04.46s.46.65.46 1.04V7h-2V4h-3zM7 2v2H4v3H2V3.5c0-.39.16-.74.46-1.04S3.11 2 3.5 2zm3.5 4C13 6 15 8 15 10.5c0 .88-.25 1.7-.69 2.4l3.26 3.26-1.41 1.41-3.26-3.26c-.7.44-1.52.69-2.4.69C8 15 6 13 6 10.5S8 6 10.5 6m0 2a2.5 2.5 0 0 0 0 5 2.5 2.5 0 0 0 0-5"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Debrid Manager
+    Scraping
   
 
     
@@ -2482,16 +2070,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../overlays/" class="md-nav__link">
+      <a href="../content-sources/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-11-4 2.03 2.71L16 11l4 5H8M2 6v14a2 2 0 0 0 2 2h14v-2H4V6"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 16h7v-2H3m15 0v-4h-2v4h-4v2h4v4h2v-4h4v-2m-8-8H3v2h11m0 2H3v2h11z"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Overlays
+    Content Sources
   
 
     
@@ -2512,16 +2100,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../upgrade-hub/" class="md-nav__link">
+      <a href="../tracking-accounts/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 4C8.8 4 7 5.8 7 8s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4m0 10c-4.4 0-8 1.8-8 4v2h9.5c-.3-.8-.5-1.6-.5-2.5 0-1.2.3-2.3.9-3.4-.6 0-1.2-.1-1.9-.1m7 6c-1.4 0-2.5-1.1-2.5-2.5 0-.4.1-.8.3-1.1l-1.1-1.1c-.4.6-.7 1.4-.7 2.2 0 2.2 1.8 4 4 4V23l2.2-2.2-2.2-2.3zm0-6.5V12l-2.2 2.2 2.2 2.2V15c1.4 0 2.5 1.1 2.5 2.5 0 .4-.1.8-.3 1.1l1.1 1.1c.4-.6.7-1.4.7-2.2 0-2.2-1.8-4-4-4"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Upgrade Hub
+    Tracking accounts
   
 
     
@@ -2542,16 +2130,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../ai-butler/" class="md-nav__link">
+      <a href="../library-files/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h8.08a7 7 0 0 1-.08-1 7 7 0 0 1 7-7 7 7 0 0 1 3 .69V8a2 2 0 0 0-2-2h-8l-2-2zm14 10a.26.26 0 0 0-.26.21l-.19 1.32c-.3.13-.59.29-.85.47l-1.24-.5c-.11 0-.24 0-.31.13l-1 1.73c-.06.11-.04.24.06.32l1.06.82a4.2 4.2 0 0 0 0 1l-1.06.82a.26.26 0 0 0-.06.32l1 1.73c.06.13.19.13.31.13l1.24-.5c.26.18.54.35.85.47l.19 1.32c.02.12.12.21.26.21h2c.11 0 .22-.09.24-.21l.19-1.32c.3-.13.57-.29.84-.47l1.23.5c.13 0 .26 0 .33-.13l1-1.73a.26.26 0 0 0-.06-.32l-1.07-.82c.02-.17.04-.33.04-.5s-.01-.33-.04-.5l1.06-.82a.26.26 0 0 0 .06-.32l-1-1.73c-.06-.13-.19-.13-.32-.13l-1.23.5c-.27-.18-.54-.35-.85-.47l-.19-1.32A.236.236 0 0 0 20 14zm1 3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5c-.84 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    AI Butler
+    Library &amp; Files
   
 
     
@@ -2572,16 +2160,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../plex-labels/" class="md-nav__link">
+      <a href="../media-server/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11c.67 0 1.27-.34 1.63-.85L22 12z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V4c0-1.11-.89-2-2-2zm4.56 4h3.5l3.44 6-3.44 6h-3.5L12 12z"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Plex Labels
+    Media Server
   
 
     
@@ -2602,16 +2190,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../plex-collections/" class="md-nav__link">
+      <a href="../subtitles/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M4 12h4v2H4zm10 6H4v-2h10zm6 0h-4v-2h4zm0-4H10v-2h10z"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Plex Collections
+    Subtitles
   
 
     
@@ -2632,226 +2220,16 @@
   
   
     <li class="md-nav__item">
-      <a href="../plex-smart-collections/" class="md-nav__link">
+      <a href="../queues-upgrades/" class="md-nav__link">
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 5H6v2h12M6 9h12v2H6m-4 1h2v5h16v-5h2v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2m16-4H6v2h12Z"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Plex Smart Collection Posters
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plex-movie-box-sets/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Plex Movie Box Sets
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../performance/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Performance
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../calendar/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Calendar
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../task-manager/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5zM13 19c0-1.5.5-2.8 1.4-3.9L11 13V7h1.5v5.2l3.1 1.9c1-.7 2.1-1.1 3.4-1.1 1 0 2 .3 2.8.7.1-.6.2-1.1.2-1.7 0-5.5-4.5-10-10-10S2 6.5 2 12s4.5 10 10 10c.6 0 1.2-.1 1.7-.2-.4-.8-.7-1.8-.7-2.8"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Task Manager
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../phalanx-db/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 12v1.5a4 4 0 0 1 4 4c0 .82-.25 1.58-.67 2.21l-1.09-1.09c.17-.34.26-.72.26-1.12A2.5 2.5 0 0 0 19 15v1.5l-2.25-2.25zm0 11v-1.5a4 4 0 0 1-4-4c0-.82.25-1.58.67-2.21l1.09 1.09c-.17.34-.26.72-.26 1.12A2.5 2.5 0 0 0 19 20v-1.5l2.25 2.25zM12 3c4.42 0 8 1.79 8 4s-3.58 4-8 4-8-1.79-8-4 3.58-4 8-4M4 9c0 2.21 3.58 4 8 4 1.11 0 2.17-.11 3.14-.32-.95.86-1.64 1.99-1.96 3.28L12 16c-4.42 0-8-1.79-8-4zm16 0v2h-.5l-.6.03c.7-.6 1.1-1.29 1.1-2.03M4 14c0 2.21 3.58 4 8 4l1-.03c.09 1.06.42 2.03.95 2.91L12 21c-4.42 0-8-1.79-8-4z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Phalanx DB
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../scraper-tester/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2zm4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4z"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Scraper Tester
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../database/" class="md-nav__link">
-        
-  
-  
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"></path></svg>
-  
-  <span class="md-ellipsis">
-    
-  
-    Database Browser
+    Queues &amp; Upgrades
   
 
     
@@ -2885,12 +2263,12 @@
           
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16a3 3 0 0 1-3-3c0-1.12.61-2.1 1.5-2.61l9.71-5.62-5.53 9.58c-.5.98-1.51 1.65-2.68 1.65m0-13c1.81 0 3.5.5 4.97 1.32l-2.1 1.21C14 5.19 13 5 12 5a8 8 0 0 0-8 8c0 2.21.89 4.21 2.34 5.65h.01c.39.39.39 1.02 0 1.41s-1.03.39-1.42.01A9.97 9.97 0 0 1 2 13 10 10 0 0 1 12 3m10 10c0 2.76-1.12 5.26-2.93 7.07-.39.38-1.02.38-1.41-.01a.996.996 0 0 1 0-1.41A7.95 7.95 0 0 0 20 13c0-1-.19-2-.54-2.9L20.67 8C21.5 9.5 22 11.18 22 13"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Debug Functions
+    Performance &amp; Logging
   
 
     
@@ -2905,12 +2283,12 @@
         
   
   
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16a3 3 0 0 1-3-3c0-1.12.61-2.1 1.5-2.61l9.71-5.62-5.53 9.58c-.5.98-1.51 1.65-2.68 1.65m0-13c1.81 0 3.5.5 4.97 1.32l-2.1 1.21C14 5.19 13 5 12 5a8 8 0 0 0-8 8c0 2.21.89 4.21 2.34 5.65h.01c.39.39.39 1.02 0 1.41s-1.03.39-1.42.01A9.97 9.97 0 0 1 2 13 10 10 0 0 1 12 3m10 10c0 2.76-1.12 5.26-2.93 7.07-.39.38-1.02.38-1.41-.01a.996.996 0 0 1 0-1.41A7.95 7.95 0 0 0 20 13c0-1-.19-2-.54-2.9L20.67 8C21.5 9.5 22 11.18 22 13"></path></svg>
   
   <span class="md-ellipsis">
     
   
-    Debug Functions
+    Performance &amp; Logging
   
 
     
@@ -2936,560 +2314,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#database-tab" class="md-nav__link">
+  <a href="#system-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database tab
+        System &amp; Logging
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Database tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bulk-delete-by-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bulk Delete by ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-battery-database-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Battery Database Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-battery-show-status-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reset Battery Show Status Cache
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-task-manually" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Task Manually
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-plex-item-lookup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test Plex Item Lookup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-missing-imdb-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Missing IMDb ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove-duplicate-database-items" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Remove Duplicate Database Items
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restore-database-from-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore Database from Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clean-up-old-database-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clean Up Old Database Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manage-duplicate-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Duplicate Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-episode-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Episode Numbers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#library-tab" class="md-nav__link">
+  <a href="#performance-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Library tab
+        Performance &amp; Monitoring
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Library tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-collected-from-library-plex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get Collected from Library (Plex)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cleanup-plex-watchlists" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cleanup Plex Watchlists
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-wanted-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get Wanted Content
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#refresh-release-dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Refresh Release Dates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manage-cache-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Cache Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bulk-queue-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bulk Queue Actions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-propagator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Propagator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#direct-embyjellyfin-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Direct Emby/Jellyfin Scan
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#move-item-to-upgrading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Move Item to Upgrading
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manual-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backfill-resolution-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backfill Resolution Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migrate-between-usenet-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migrate between usenet providers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#symlink-tab" class="md-nav__link">
+  <a href="#phalanx-db-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Symlink tab
+        Phalanx DB Settings
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Symlink tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#symlink-verification-queue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Verification Queue
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#convert-library-to-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Convert Library to Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#symlink-library-recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#riven-symlink-library-recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Riven Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-zurg-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Zurg Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modify-symlink-base-paths" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modify Symlink Base Paths
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#symlink-library-recovery_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resync-symlinks-with-new-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resync Symlinks with New Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rclone-mount-to-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rclone Mount to Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoring tab
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#current-rate-limit-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Rate Limit State
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plex-token-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plex Token Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trakt-token-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trakt Token Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#torrent-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Torrent Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-test-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send Test Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#download-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-troubleshooting-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common troubleshooting workflows
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common troubleshooting workflows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nothing-is-being-downloaded" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nothing is being downloaded
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#items-stuck-in-sleeping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Items stuck in Sleeping
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#duplicate-episodes-in-library" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate episodes in library
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#overlays-not-working-for-a-specific-item" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overlays not working for a specific item
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3509,7 +2362,757 @@
   
   
     <li class="md-nav__item">
-      <a href="../usenet-migration/" class="md-nav__link">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2 2 2 0 0 1-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manage-users/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9 3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65 2.56.34 4.45 1.51 4.45 2.9z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Manage Users
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7">
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../features/" class="md-nav__link ">
+              
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24l5.45 4.73L5.82 21z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/dashboard/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 3v6h8V3m-8 18h8V11h-8M3 21h8v-6H3m0-2h8V3H3z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/library/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 9h-2V7h2m0 6h-2v-2h2m0 6h-2v-2h2M8 9H6V7h2m0 6H6v-2h2m0 6H6v-2h2M18 3v2h-2V3H8v2H6V3H4v18h2v-2h2v2h8v-2h2v2h2V3z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/discover/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.19 14.19 6 18l3.81-8.19L18 6m-6-4A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 8.9a1.1 1.1 0 0 0-1.1 1.1 1.1 1.1 0 0 0 1.1 1.1 1.1 1.1 0 0 0 1.1-1.1 1.1 1.1 0 0 0-1.1-1.1"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Discover
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/queues/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 5h6v6H3zm2 2v2h2V7zm6 0h10v2H11zm0 8h10v2H11zm-6 5-3.5-3.5 1.41-1.41L5 17.17l4.59-4.58L11 14z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Queues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/debrid-manager/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.58-2.02 2.14-3.4Q8.95 4.38 11 4.08v8.07L9.4 10.6 8 12l4 4 4-4-1.4-1.4-1.6 1.55V4.08q2.58.35 4.29 2.31T19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Debrid Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/overlays/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 16V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2m-11-4 2.03 2.71L16 11l4 5H8M2 6v14a2 2 0 0 0 2 2h14v-2H4V6"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Overlays
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/upgrade-hub/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 20H9v-8H4.16L12 4.16 19.84 12H15z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrade Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/plex-labels/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h11c.67 0 1.27-.34 1.63-.85L22 12z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Plex Labels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/plex-collections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Plex Collections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/plex-smart-collections/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Plex Smart Collection Posters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/plex-movie-box-sets/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.987 8.409c-.96 0-1.587.28-2.12.933v-.72H0v8.88s.038.018.127.037c.138.03.821.187 1.331-.249.441-.377.542-.814.542-1.318v-1.283c.533.573 1.147.813 2 .813 1.84 0 3.253-1.493 3.253-3.48 0-2.12-1.36-3.613-3.266-3.613m16.748 5.595.406.591c.391.614.894.906 1.492.908.621-.012 1.064-.562 1.226-.755 0 0-.307-.27-.686-.72-.517-.614-1.214-1.755-1.24-1.803zm-3.205-1.955c0-2.08-1.52-3.64-3.52-3.64s-3.467 1.587-3.467 3.573a3.48 3.48 0 0 0 3.507 3.52c1.413 0 2.626-.84 3.253-2.293h-2.04l-.093.093c-.427.4-.72.533-1.227.533-.787 0-1.373-.506-1.453-1.266h4.986c.04-.214.054-.307.054-.52m-7.671-.219c0 .769.11 1.701.868 2.722l.056.069c-.306.526-.742.88-1.248.88-.399 0-.814-.211-1.138-.579a2.18 2.18 0 0 1-.538-1.441V6.409H9.86zm9.283 3.46h-2.39l2.247-3.332-2.247-3.335h2.39l2.248 3.335zM3.573 13.662c-.933 0-1.68-.773-1.68-1.72s.76-1.666 1.68-1.666 1.68.733 1.68 1.68c0 .946-.733 1.706-1.68 1.706m18.361-1.974L24 8.622h-2.391l-.87 1.293zm-9.404-.466c.16-.706.72-1.133 1.493-1.133s1.373.467 1.507 1.133z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Plex Movie Box Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/performance/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m16 11.78 4.24-7.33 1.73 1-5.23 9.05-6.51-3.75L5.46 19H22v2H2V3h2v14.54L9.5 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/calendar/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Calendar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/automation/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23.5 17-5 5-3.5-3.5 1.5-1.5 2 2 3.5-3.5zM13 19c0-1.5.5-2.8 1.4-3.9L11 13V7h1.5v5.2l3.1 1.9c1-.7 2.1-1.1 3.4-1.1 1 0 2 .3 2.8.7.1-.6.2-1.1.2-1.7 0-5.5-4.5-10-10-10S2 6.5 2 12s4.5 10 10 10c.6 0 1.2-.1 1.7-.2-.4-.8-.7-1.8-.7-2.8"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/phalanx-db/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 12v1.5a4 4 0 0 1 4 4c0 .82-.25 1.58-.67 2.21l-1.09-1.09c.17-.34.26-.72.26-1.12A2.5 2.5 0 0 0 19 15v1.5l-2.25-2.25zm0 11v-1.5a4 4 0 0 1-4-4c0-.82.25-1.58.67-2.21l1.09 1.09c-.17.34-.26.72-.26 1.12A2.5 2.5 0 0 0 19 20v-1.5l2.25 2.25zM12 3c4.42 0 8 1.79 8 4s-3.58 4-8 4-8-1.79-8-4 3.58-4 8-4M4 9c0 2.21 3.58 4 8 4 1.11 0 2.17-.11 3.14-.32-.95.86-1.64 1.99-1.96 3.28L12 16c-4.42 0-8-1.79-8-4zm16 0v2h-.5l-.6.03c.7-.6 1.1-1.29 1.1-2.03M4 14c0 2.21 3.58 4 8 4l1-.03c.09 1.06.42 2.03.95 2.91L12 21c-4.42 0-8-1.79-8-4z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Phalanx DB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/scraper-tester/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2v2h1v14a4 4 0 0 0 4 4 4 4 0 0 0 4-4V4h1V2zm4 14c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m2-4c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1m1-5h-4V4h4z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Scraper Tester
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/database/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/tools/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16h-2v-1H8v1H6v-1H2v5h20v-5h-4zm2-8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v4h4v-2h2v2h8v-2h2v2h4v-4c0-1.1-.9-2-2-2m-5 0H9V6h6z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/maintenance/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4-3.58 4-8 4-8-1.79-8-4m8.08 11H12c-4.42 0-8-1.79-8-4v3c0 2.21 3.58 4 8 4h.29a7.4 7.4 0 0 1-.29-2c0-.34.03-.67.08-1M20 12.08V9c0 2.21-3.58 4-8 4s-8-1.79-8-4v3c0 2.21 3.58 4 8 4h.69c1.13-2.37 3.53-4 6.31-4 .34 0 .67.03 1 .08m3.8 8.32c.1 0 .1.1 0 .2l-1 1.7c-.1.1-.2.1-.3.1l-1.2-.4c-.3.2-.5.3-.8.5l-.2 1.3c0 .1-.1.2-.2.2h-2c-.1 0-.2-.1-.3-.2l-.2-1.3c-.3-.1-.6-.3-.8-.5l-1.2.5c-.1 0-.2 0-.3-.1l-1-1.7c-.1-.1 0-.2.1-.3l1.1-.8v-1l-1.1-.8c-.1-.1-.1-.2-.1-.3l1-1.7c.1-.1.2-.1.3-.1l1.2.5c.3-.2.5-.3.8-.5l.2-1.3c0-.1.1-.2.3-.2h2c.1 0 .2.1.2.2l.2 1.3c.3.1.6.3.9.5l1.2-.5c.1 0 .3 0 .3.1l1 1.7c.1.1 0 .2-.1.3l-1.1.8v1zM20.5 19c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5.7 1.5 1.5 1.5 1.5-.7 1.5-1.5"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Maintenance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/usenet-migration/" class="md-nav__link">
         
   
   
@@ -3539,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../other-tools/" class="md-nav__link">
+      <a href="../../features/other-tools/" class="md-nav__link">
         
   
   
@@ -3625,560 +3228,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#database-tab" class="md-nav__link">
+  <a href="#system-logging" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Database tab
+        System &amp; Logging
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Database tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#bulk-delete-by-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bulk Delete by ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-battery-database-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Battery Database Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset-battery-show-status-cache" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reset Battery Show Status Cache
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#delete-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Delete Database
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-task-manually" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run Task Manually
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-plex-item-lookup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test Plex Item Lookup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-missing-imdb-id" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Missing IMDb ID
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove-duplicate-database-items" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Remove Duplicate Database Items
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#restore-database-from-backup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Restore Database from Backup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clean-up-old-database-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Clean Up Old Database Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manage-duplicate-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Duplicate Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-episode-numbers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Episode Numbers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#library-tab" class="md-nav__link">
+  <a href="#performance-monitoring" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Library tab
+        Performance &amp; Monitoring
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Library tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#get-collected-from-library-plex" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get Collected from Library (Plex)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cleanup-plex-watchlists" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cleanup Plex Watchlists
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get-wanted-content" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Get Wanted Content
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#refresh-release-dates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Refresh Release Dates
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manage-cache-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manage Cache Files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bulk-queue-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bulk Queue Actions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#version-propagator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Propagator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#direct-embyjellyfin-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Direct Emby/Jellyfin Scan
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#move-item-to-upgrading" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Move Item to Upgrading
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manual-blacklist" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Manual Blacklist
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backfill-resolution-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Backfill Resolution Data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#migrate-between-usenet-providers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Migrate between usenet providers
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#symlink-tab" class="md-nav__link">
+  <a href="#phalanx-db-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Symlink tab
+        Phalanx DB Settings
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Symlink tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#symlink-verification-queue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Verification Queue
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#convert-library-to-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Convert Library to Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#symlink-library-recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#riven-symlink-library-recovery" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Riven Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-zurg-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix Zurg Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modify-symlink-base-paths" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modify Symlink Base Paths
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#symlink-library-recovery_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Symlink Library Recovery
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#resync-symlinks-with-new-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resync Symlinks with New Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rclone-mount-to-symlinks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Rclone Mount to Symlinks
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#monitoring-tab" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Monitoring tab
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Monitoring tab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#current-rate-limit-state" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current Rate Limit State
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plex-token-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Plex Token Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#trakt-token-status" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Trakt Token Status
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#torrent-tracking" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Torrent Tracking
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#send-test-notification" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send Test Notification
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#download-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Download Logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-troubleshooting-workflows" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common troubleshooting workflows
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common troubleshooting workflows">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nothing-is-being-downloaded" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Nothing is being downloaded
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#items-stuck-in-sleeping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Items stuck in Sleeping
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#duplicate-episodes-in-library" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Duplicate episodes in library
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#overlays-not-working-for-a-specific-item" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overlays not working for a specific item
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -4228,7 +3306,7 @@
         <a href="../" class="md-path__link">
           
   <span class="md-ellipsis">
-    Features
+    Configuration
   </span>
 
         </a>
@@ -4247,7 +3325,7 @@
 
 
   
-    <a href="https://github.com/godver3/cli_debrid/edit/dev/cli/docs/features/debug-functions.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/godver3/cli_debrid/edit/dev/cli/docs/configuration/performance-logging.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -4255,374 +3333,108 @@
   
 
 
-<h1 id="debug-functions">Debug Functions<a class="headerlink" href="#debug-functions" title="Permanent link">¶</a></h1>
-<p>Debug Functions is the toolbox for fixing problems, repairing the database, managing symlinks, and performing maintenance tasks that aren't available elsewhere in the UI.</p>
-<p>Access it from <strong>Tools → Debug</strong> in the navigation menu.</p>
-<div class="admonition warning">
-<p class="admonition-title">These are powerful tools</p>
-<p>Most debug functions make permanent changes to your database or files. Always read the description carefully before running anything. Use <strong>Dry Run</strong> where available to preview changes first.</p>
-</div>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debug-overview.png" data-desc-position="bottom"><img alt="Debug Functions overview" src="../../assets/screenshots/features/debug-overview.png"></a></p>
+<h1 id="performance-logging">Performance &amp; Logging<a class="headerlink" href="#performance-logging" title="Permanent link">¶</a></h1>
+<p><strong>Settings → Performance &amp; Logging</strong> holds logging, metadata freshness, load limits and Phalanx DB.</p>
 <hr>
-<h2 id="database-tab">Database tab<a class="headerlink" href="#database-tab" title="Permanent link">¶</a></h2>
-<h3 id="bulk-delete-by-id">Bulk Delete by ID<a class="headerlink" href="#bulk-delete-by-id" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Deletes all database entries matching an IMDb or TMDB ID.</p>
-<p><strong>When to use:</strong> You want to completely remove a title (all seasons, all episodes) from the database at once.</p>
-<p><strong>How to use:</strong>
-1. Find the IMDb ID (format: <code>tt1234567</code>) or TMDB ID (numeric)
-2. Paste it into the field
-3. Click <strong>Delete</strong>
-4. Confirm the count of items deleted</p>
-<hr>
-<h3 id="delete-battery-database-files">Delete Battery Database Files<a class="headerlink" href="#delete-battery-database-files" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Deletes <code>cli_battery.db</code> and its associated files from the db_content directory.</p>
-<p><strong>When to use:</strong> The metadata battery is corrupted or returning incorrect data. This resets it completely — cli_battery will rebuild from scratch.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>After deleting, metadata will need to be re-fetched for all items. This may take time and cause temporary issues with overlay generation and upgrade scoring.</p>
-</div>
-<hr>
-<h3 id="reset-battery-show-status-cache">Reset Battery Show Status Cache<a class="headerlink" href="#reset-battery-show-status-cache" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Forces all shows in the battery to re-fetch their status (Ended, Continuing, Cancelled) from TVDB/Trakt on the next run.</p>
-<p><strong>When to use:</strong> Shows are showing incorrect statuses — e.g. a show is marked "Ended" when it was actually just "Cancelled", or a returning show is still marked "Ended".</p>
-<p><strong>After running:</strong> Go to <strong>Task Manager</strong> and run <strong>Update TV Show Status</strong> to apply the refresh immediately.</p>
-<hr>
-<h3 id="delete-database">Delete Database<a class="headerlink" href="#delete-database" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Completely deletes <code>media_items.db</code> and all cache files. cli_debrid starts fresh with an empty database.</p>
-<p><strong>When to use:</strong> Only as a last resort — database is severely corrupted and cannot be repaired.</p>
-<p><strong>How to use:</strong>
-1. Type <code>DELETE</code> in the confirmation box
-2. Optionally check <strong>Retain Blacklisted Items</strong> to preserve your blacklist
-3. Click <strong>Delete</strong> — the app will reload automatically</p>
-<div class="admonition tip">
-<p class="admonition-title">Back up first</p>
-<p>Use <strong>Restore Database from Backup</strong> (below) after deleting if you have a backup available.</p>
-</div>
-<hr>
-<h3 id="run-task-manually">Run Task Manually<a class="headerlink" href="#run-task-manually" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Immediately triggers any scheduled background task without waiting for its scheduled time.</p>
-<p><strong>When to use:</strong> You want to force an immediate run of things like:
-- Get Wanted Content (re-check all sources now)
-- Update TV Show Status
-- Sync Overlays
-- Battery sync</p>
-<p><strong>How to use:</strong>
-1. Select the task from the dropdown
-2. Click <strong>Run</strong>
-3. Check the logs for output</p>
-<hr>
-<h3 id="test-plex-item-lookup">Test Plex Item Lookup<a class="headerlink" href="#test-plex-item-lookup" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Tests whether a specific database item can be matched in your Plex library.</p>
-<p><strong>When to use:</strong> Overlays aren't being applied to a specific item — test if cli_debrid can find it in Plex.</p>
-<p><strong>How to use:</strong>
-1. Find the Item ID in the Database Browser
-2. Enter the Item ID
-3. Click <strong>Test</strong> — it will show whether the match succeeded and via what method (IMDb, TMDB, or title+year fallback)</p>
-<hr>
-<h3 id="fix-missing-imdb-id">Fix Missing IMDb ID<a class="headerlink" href="#fix-missing-imdb-id" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Adds or updates the IMDb ID for a media item.</p>
-<p><strong>When to use:</strong> An item has no IMDb ID and features like overlays, upgrading, or battery metadata aren't working for it.</p>
-<p><strong>How to use:</strong>
-1. Enter the Item ID (single row) <strong>or</strong> TMDB ID (updates all matching rows)
-2. Enter the correct IMDb ID in <code>ttXXXXXXX</code> format
-3. Click <strong>Fix</strong></p>
-<hr>
-<h3 id="remove-duplicate-database-items">Remove Duplicate Database Items<a class="headerlink" href="#remove-duplicate-database-items" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Finds and removes duplicate entries based on the <code>filled_by_file</code> field — keeping one entry per unique file.</p>
-<p><strong>When to use:</strong> You see duplicate items in your library that point to the same file.</p>
-<p><strong>How to use:</strong>
-1. Click <strong>Dry Run</strong> first to preview what would be removed
-2. Review the list
-3. Click <strong>Remove</strong> to execute</p>
-<p><strong>NAS / Network Filter</strong> <em>(only shown when NAS paths are configured)</em></p>
+<h2 id="system-logging">System &amp; Logging<a class="headerlink" href="#system-logging" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Setting</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>All items</td>
-<td>No filtering — process all duplicates</td>
+<td><strong>Logging Level</strong></td>
+<td><code>DEBUG</code></td>
+<td>Detail level for the console and log files</td>
 </tr>
 <tr>
-<td>Exclude NAS items</td>
-<td>Skip duplicate groups stored on NAS/network drives</td>
+<td><strong>Timezone Override</strong></td>
+<td>—</td>
+<td>Use this timezone instead of the system's (e.g. <code>America/New_York</code>)</td>
 </tr>
 <tr>
-<td>Only NAS items</td>
-<td>Only process duplicate groups stored on NAS/network drives</td>
+<td><strong>Enable Tracemalloc</strong></td>
+<td>Off</td>
+<td>Track memory use per task with Python's tracemalloc. Adds overhead; for chasing memory leaks only.</td>
+</tr>
+<tr>
+<td><strong>Tracemalloc Sample Rate</strong></td>
+<td><code>100</code></td>
+<td>Sample 1 in this many tasks. Lower gives more data and more overhead.</td>
+</tr>
+<tr>
+<td><strong>Check For Updates</strong></td>
+<td>On</td>
+<td>Check for new versions and show an indicator in the header</td>
 </tr>
 </tbody>
 </table>
-<p>Configure NAS paths in <strong>Settings → Advanced Settings → Library Management → NAS / Network Drive Paths</strong>.</p>
 <hr>
-<h3 id="restore-database-from-backup">Restore Database from Backup<a class="headerlink" href="#restore-database-from-backup" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Restores <code>media_items.db</code> from a previous automatic backup.</p>
-<p><strong>When to use:</strong> The database was accidentally corrupted or deleted and you need to roll back.</p>
-<p><strong>How to use:</strong>
-1. Select a backup from the list (shows date and size)
-2. Optionally enable <strong>Create Safety Backup</strong> to save the current database before overwriting
-3. Click <strong>Restore</strong> — the app will restart (~60 seconds)</p>
-<hr>
-<h3 id="clean-up-old-database-files">Clean Up Old Database Files<a class="headerlink" href="#clean-up-old-database-files" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Scans and removes old database backup files, manual copies, and corrupted files from the backups folder and db_content directory.</p>
-<p><strong>How to use:</strong>
-1. Click <strong>Scan</strong> to see what would be removed
-2. Review the list
-3. Click <strong>Delete Selected</strong> to free up disk space</p>
-<hr>
-<h3 id="manage-duplicate-versions">Manage Duplicate Versions<a class="headerlink" href="#manage-duplicate-versions" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Cleans up situations where the same item exists multiple times in different states (e.g. one Collected and one Blacklisted copy of the same file).</p>
-<p><strong>When to use:</strong>
-- After failed upgrades that left both old and new versions
-- After blacklist bugs that created duplicate entries
-- When you see multiple copies of the same episode in different states</p>
-<p><strong>Options:</strong></p>
+<h2 id="performance-monitoring">Performance &amp; Monitoring<a class="headerlink" href="#performance-monitoring" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Setting</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Keep Collected, delete Blacklisted</td>
-<td>Clean up failed upgrade leftovers</td>
+<td><strong>Staleness Threshold (Days)</strong></td>
+<td><code>7</code></td>
+<td>Days before stored metadata is refreshed</td>
 </tr>
 <tr>
-<td>Keep Blacklisted, delete Collected</td>
-<td>Fix blacklist bug duplicates</td>
+<td><strong>Cpu Threshold Percent</strong></td>
+<td><code>75</code></td>
+<td>CPU use that makes cli_debrid slow down</td>
 </tr>
 <tr>
-<td>Keep Collected, delete Ghostlisted</td>
-<td>Clean soft-deleted duplicates</td>
+<td><strong>Ram Threshold Percent</strong></td>
+<td><code>75</code></td>
+<td>RAM use that makes cli_debrid slow down</td>
 </tr>
 <tr>
-<td>Keep Ghostlisted, delete Collected</td>
-<td>Keep ghostlisted versions</td>
+<td><strong>Regulation Increase Step Seconds</strong></td>
+<td><code>1.0</code></td>
+<td>How much the pause between tasks grows while load is high</td>
 </tr>
 <tr>
-<td>Keep best quality, delete rest</td>
-<td>When multiple Collected copies exist</td>
+<td><strong>Regulation Decrease Step Seconds</strong></td>
+<td><code>1.0</code></td>
+<td>How much it shrinks once load is back to normal</td>
+</tr>
+<tr>
+<td><strong>Regulation Max Sleep Seconds</strong></td>
+<td><code>60.0</code></td>
+<td>Longest pause the regulation can set</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Exclude patterns:</strong> Enter terms (e.g. <code>REMUX, IMAX</code>) to protect specific versions from being deleted regardless of the rule.</p>
-<p><strong>NAS / Network Filter</strong> <em>(only shown when NAS paths are configured)</em></p>
+<p>The load settings only apply while the <strong>Slow down under high system load</strong> task is on (on the <a href="../../features/automation/">Automation</a> page, System group). It's on by default in limited installs.</p>
+<hr>
+<h2 id="phalanx-db-settings">Phalanx DB Settings<a class="headerlink" href="#phalanx-db-settings" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Option</th>
+<th>Setting</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>All items</td>
-<td>No filtering — process all duplicate groups</td>
-</tr>
-<tr>
-<td>Exclude NAS items</td>
-<td>Skip groups where items are stored on NAS/network drives</td>
-</tr>
-<tr>
-<td>Only NAS items</td>
-<td>Only process groups where items are stored on NAS/network drives</td>
+<td><strong>Enable Phalanx DB</strong></td>
+<td>Off</td>
+<td>Join the <a href="../../features/phalanx-db/">Phalanx DB</a> peer network. Needs a restart. Optional; turning it off doesn't affect anything else.</td>
 </tr>
 </tbody>
 </table>
-<p>Configure NAS paths in <strong>Settings → Advanced Settings → Library Management → NAS / Network Drive Paths</strong>.</p>
-<p><strong>Always use Dry Run first.</strong></p>
-<hr>
-<h3 id="fix-episode-numbers">Fix Episode Numbers<a class="headerlink" href="#fix-episode-numbers" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Fixes incorrect episode numbers by parsing them from the actual filename.</p>
-<p><strong>When to use:</strong> Episodes have wrong numbers in the database — e.g. the file is S02E05 but the database says S02E01.</p>
-<p><strong>How to use:</strong>
-1. Optionally enable <strong>Dry Run</strong> to preview
-2. Enable <strong>Find and Remove Duplicates</strong> to clean up any duplicates created by the bug
-3. Click <strong>Fix</strong></p>
-<hr>
-<h2 id="library-tab">Library tab<a class="headerlink" href="#library-tab" title="Permanent link">¶</a></h2>
-<h3 id="get-collected-from-library-plex">Get Collected from Library (Plex)<a class="headerlink" href="#get-collected-from-library-plex" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Scans your Plex library and imports any items that are in Plex but not yet in cli_debrid's database.</p>
-<p><strong>When to use:</strong>
-- After restoring a database backup — re-import what Plex already has
-- When items were added manually to Plex outside cli_debrid</p>
-<p><strong>Modes:</strong>
-- <strong>All</strong> — scan the entire library
-- <strong>Recent</strong> — only scan recently added items
-- <strong>Backfill</strong> — update file sizes for existing database entries</p>
-<hr>
-<h3 id="cleanup-plex-watchlists">Cleanup Plex Watchlists<a class="headerlink" href="#cleanup-plex-watchlists" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Removes all Collected items from your Plex Watchlist(s). Plex automatically adds items to your watchlist when they're not in your library — this cleans them up after collection.</p>
-<p><strong>When to use:</strong> Your Plex watchlist is cluttered with items you've already collected.</p>
-<hr>
-<h3 id="get-wanted-content">Get Wanted Content<a class="headerlink" href="#get-wanted-content" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Manually triggers a check of all enabled content sources and adds any new items to the Wanted queue.</p>
-<p><strong>When to use:</strong> You just added a new content source and want to pull its items immediately without waiting for the next cycle.</p>
-<hr>
-<h3 id="refresh-release-dates">Refresh Release Dates<a class="headerlink" href="#refresh-release-dates" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Re-fetches release dates from TMDB for all items in the database.</p>
-<p><strong>When to use:</strong> Items that should have moved from Unreleased to Wanted haven't — their stored release dates may be outdated.</p>
-<hr>
-<h3 id="manage-cache-files">Manage Cache Files<a class="headerlink" href="#manage-cache-files" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Lists and lets you delete content source cache files (<code>.pkl</code> files). These caches speed up source checks but can become stale.</p>
-<p><strong>When to use:</strong> A content source isn't picking up new items or is returning old/stale data.</p>
-<p><strong>How to use:</strong>
-1. View the list of cache files with their labels
-2. Select the ones you want to clear
-3. Click <strong>Delete Selected</strong></p>
-<hr>
-<h3 id="bulk-queue-actions">Bulk Queue Actions<a class="headerlink" href="#bulk-queue-actions" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Lets you select items from any queue and move them to another queue or delete them in bulk.</p>
-<p><strong>When to use:</strong>
-- Move all Sleeping items back to Wanted
-- Delete all items in a specific state
-- Force-move items that are stuck</p>
-<p><strong>How to use:</strong>
-1. Pick the queue under <strong>Select Queue</strong>
-2. Items populate automatically
-3. Select items (shift+click for range, ctrl/cmd+click for individual)
-4. Choose <strong>Delete</strong> or <strong>Move to...</strong> under <strong>Action</strong>
-5. If moving, pick the <strong>Target Queue</strong>
-6. Click <strong>Execute</strong></p>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/debug-bulk-queue.png" data-desc-position="bottom"><img alt="Bulk queue actions" src="../../assets/screenshots/features/debug-bulk-queue.png"></a></p>
-<hr>
-<h3 id="version-propagator">Version Propagator<a class="headerlink" href="#version-propagator" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Changes all items currently assigned one version to a different version in bulk.</p>
-<p><strong>When to use:</strong> You renamed a version profile or want to migrate everything from an old version to a new one.</p>
-<p><strong>How to use:</strong>
-1. Select the <strong>Media Type</strong> (All, Movies Only, Episodes Only)
-2. Select the <strong>Original Version</strong> (what items currently have)
-3. Select the <strong>Propagated Version</strong> (what to change them to)
-4. Click <strong>Propagate Version</strong></p>
-<hr>
-<h3 id="direct-embyjellyfin-scan">Direct Emby/Jellyfin Scan<a class="headerlink" href="#direct-embyjellyfin-scan" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Triggers a full library scan on your Emby or Jellyfin server and imports any new items into the database.</p>
-<p><strong>When to use:</strong> Items are in Emby/Jellyfin but not showing in cli_debrid's database.</p>
-<hr>
-<h3 id="move-item-to-upgrading">Move Item to Upgrading<a class="headerlink" href="#move-item-to-upgrading" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Moves a specific item directly to the Upgrading queue by Item ID.</p>
-<p><strong>When to use:</strong> You want to force a single item to be checked for an upgrade immediately.</p>
-<hr>
-<h3 id="manual-blacklist">Manual Blacklist<a class="headerlink" href="#manual-blacklist" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Opens the manual blacklist management page where you can view and manage manually blacklisted torrents.</p>
-<hr>
-<h3 id="backfill-resolution-data">Backfill Resolution Data<a class="headerlink" href="#backfill-resolution-data" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Extracts resolution information (2160p, 1080p, 720p) from file paths for items that are missing this data in the database.</p>
-<p><strong>When to use:</strong> Upgrade Hub scoring is incorrect, or resolution badges in overlays are wrong/missing.</p>
-<h3 id="migrate-between-usenet-providers">Migrate between usenet providers<a class="headerlink" href="#migrate-between-usenet-providers" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Copies each item's stored <code>.nzb</code> from cli_mount to NzbDAV or the other way round. The new provider fetches it from Usenet again; nothing is searched for again.</p>
-<p><strong>When to use:</strong> You're switching Usenet mount provider. See <a href="../usenet-migration/">Usenet Migration</a> for the fields and the steps afterwards.</p>
-<hr>
-<h2 id="symlink-tab">Symlink tab<a class="headerlink" href="#symlink-tab" title="Permanent link">¶</a></h2>
-<p><em>(For users running Symlinked/Local mode only)</em></p>
-<h3 id="symlink-verification-queue">Symlink Verification Queue<a class="headerlink" href="#symlink-verification-queue" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Shows the current symlink verification status — total files, verified count and percentage, unverified count, and a table of queued items with title, filename, date added, and attempts.</p>
-<p><strong>Buttons:</strong>
-- <strong>Refresh Queue</strong> — reload the current queue state
-- <strong>Verification Scan</strong> — trigger a new verification scan</p>
-<hr>
-<h3 id="convert-library-to-symlinks">Convert Library to Symlinks<a class="headerlink" href="#convert-library-to-symlinks" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Converts an existing Plex library to use symlinks. Streams live progress via Server-Sent Events showing files scanned, media found, items processed, DB entries added, symlinks created, and any errors.</p>
-<div class="admonition warning">
-<p class="admonition-title">One-time, irreversible</p>
-<p>This is intended only for converting existing Plex libraries and should only be done once. It cannot be undone.</p>
-</div>
-<hr>
-<h3 id="symlink-library-recovery">Symlink Library Recovery<a class="headerlink" href="#symlink-library-recovery" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Reconstructs database entries from your existing symlink folder structure — useful if you lost your database but still have your symlinks.</p>
-<hr>
-<h3 id="riven-symlink-library-recovery">Riven Symlink Library Recovery<a class="headerlink" href="#riven-symlink-library-recovery" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Same as Symlink Library Recovery but for libraries originally created by Riven.</p>
-<hr>
-<h3 id="fix-zurg-symlinks">Fix Zurg Symlinks<a class="headerlink" href="#fix-zurg-symlinks" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Repairs symlinks where Zurg's folder structure changed — specifically when file extensions were removed from directory names.</p>
-<p><strong>How to use:</strong>
-1. Click <strong>Dry Run</strong> to preview what would be fixed
-2. Review
-3. Click <strong>Fix</strong> to apply</p>
-<hr>
-<h3 id="modify-symlink-base-paths">Modify Symlink Base Paths<a class="headerlink" href="#modify-symlink-base-paths" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Updates the base paths for symlinks and original file locations across all database entries.</p>
-<p><strong>When to use:</strong> You moved your Zurg mount to a different path, or you moved your symlink folder.</p>
-<p><strong>How to use:</strong>
-1. Enter the <strong>Old Base Path</strong> (what the paths currently say)
-2. Enter the <strong>New Base Path</strong> (what they should say)
-3. Click <strong>Dry Run</strong> to preview
-4. Click <strong>Apply</strong></p>
-<hr>
-<h3 id="symlink-library-recovery_1">Symlink Library Recovery<a class="headerlink" href="#symlink-library-recovery_1" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Reconstructs database entries from your existing symlink folder structure — useful if you lost your database but still have your symlinks.</p>
-<hr>
-<h3 id="resync-symlinks-with-new-settings">Resync Symlinks with New Settings<a class="headerlink" href="#resync-symlinks-with-new-settings" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Regenerates symlinks for all collected items using the current symlink settings. Can optionally update stored original file paths before regenerating.</p>
-<p><strong>When to use:</strong> You changed your symlink folder structure settings and want to rebuild all symlinks to match.</p>
-<hr>
-<h3 id="rclone-mount-to-symlinks">Rclone Mount to Symlinks<a class="headerlink" href="#rclone-mount-to-symlinks" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Scans an rclone mount path, creates database entries, and generates symlinks for all found files. Streams live progress.</p>
-<p><strong>When to use:</strong> Migrating from a non-cli_debrid setup where you have a working rclone mount but no database.</p>
-<p><strong>Inputs:</strong> Rclone Mount Path, Symlink Base Path, optional Dry Run.</p>
-<hr>
-<h2 id="monitoring-tab">Monitoring tab<a class="headerlink" href="#monitoring-tab" title="Permanent link">¶</a></h2>
-<h3 id="current-rate-limit-state">Current Rate Limit State<a class="headerlink" href="#current-rate-limit-state" title="Permanent link">¶</a></h3>
-<p>Shows the current rate limiting status for all external API providers (Trakt, Debrid, etc.) with 5-minute and hourly counts. Warnings highlight when limits are exceeded. Use this to diagnose whether cli_debrid is being throttled.</p>
-<hr>
-<h3 id="plex-token-status">Plex Token Status<a class="headerlink" href="#plex-token-status" title="Permanent link">¶</a></h3>
-<p>Shows validity and expiration information for all configured Plex tokens by user — username, valid/invalid status, Plex username, expiration date, and last checked timestamp.</p>
-<hr>
-<h3 id="trakt-token-status">Trakt Token Status<a class="headerlink" href="#trakt-token-status" title="Permanent link">¶</a></h3>
-<p>Shows your personal Trakt authentication token status — valid/invalid, expiration date, hours remaining, last refreshed time, and a preview of the access and refresh tokens.</p>
-<hr>
-<h3 id="torrent-tracking">Torrent Tracking<a class="headerlink" href="#torrent-tracking" title="Permanent link">¶</a></h3>
-<p>Opens the torrent history page showing a log of all torrent additions and their current status.</p>
-<hr>
-<h3 id="send-test-notification">Send Test Notification<a class="headerlink" href="#send-test-notification" title="Permanent link">¶</a></h3>
-<p>Sends a test notification through all your configured notification channels. Use this to verify Discord/Telegram/Email notifications are working correctly.</p>
-<hr>
-<h3 id="download-logs">Download Logs<a class="headerlink" href="#download-logs" title="Permanent link">¶</a></h3>
-<p>Downloads the last N lines of <code>debug.log</code> as a file. Useful for sharing logs when reporting a bug.</p>
-<ol>
-<li>Set the number of lines (default: 250, max: 1000)</li>
-<li>Click <strong>Download</strong></li>
-</ol>
-<hr>
-<h2 id="common-troubleshooting-workflows">Common troubleshooting workflows<a class="headerlink" href="#common-troubleshooting-workflows" title="Permanent link">¶</a></h2>
-<h3 id="nothing-is-being-downloaded">Nothing is being downloaded<a class="headerlink" href="#nothing-is-being-downloaded" title="Permanent link">¶</a></h3>
-<ol>
-<li>Check <strong>Monitoring → Rate Limit State</strong> — are you rate limited?</li>
-<li>Go to <strong>Connections</strong> page — are all your scrapers green?</li>
-<li>Check <strong>Database Browser</strong> — are items in Wanted state?</li>
-<li>If Wanted is empty — run <strong>Get Wanted Content</strong> from the Library tab</li>
-<li>Check the logs (<strong>Logs</strong> page) for errors</li>
-</ol>
-<h3 id="items-stuck-in-sleeping">Items stuck in Sleeping<a class="headerlink" href="#items-stuck-in-sleeping" title="Permanent link">¶</a></h3>
-<ol>
-<li>Open <strong>Bulk Queue Actions</strong></li>
-<li>Select <strong>Source Queue = Sleeping</strong></li>
-<li>Select All</li>
-<li>Move to <strong>Wanted</strong></li>
-<li>Items will be retried on the next cycle</li>
-</ol>
-<h3 id="duplicate-episodes-in-library">Duplicate episodes in library<a class="headerlink" href="#duplicate-episodes-in-library" title="Permanent link">¶</a></h3>
-<ol>
-<li>Go to <strong>Manage Duplicate Versions</strong></li>
-<li>Select <strong>Keep best quality, delete rest</strong></li>
-<li>Add any protected terms (e.g. <code>REMUX</code>) to Exclude Patterns</li>
-<li>Run <strong>Dry Run</strong> first</li>
-<li>Apply</li>
-</ol>
-<h3 id="overlays-not-working-for-a-specific-item">Overlays not working for a specific item<a class="headerlink" href="#overlays-not-working-for-a-specific-item" title="Permanent link">¶</a></h3>
-<ol>
-<li>Go to <strong>Test Plex Item Lookup</strong></li>
-<li>Enter the Item ID</li>
-<li>If the test fails — use <strong>Fix Missing IMDb ID</strong> to ensure the item has a valid IMDb ID</li>
-<li>Re-run <strong>Sync Library</strong> from the Overlays page</li>
-</ol>
 
 
 
@@ -4661,7 +3473,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../database/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Database Browser">
+          <a href="../queues-upgrades/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Queues &amp; Upgrades">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -4671,20 +3483,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Database Browser
+                Queues &amp; Upgrades
               </div>
             </div>
           </a>
         
         
           
-          <a href="../usenet-migration/" class="md-footer__link md-footer__link--next" aria-label="Next: Usenet Migration">
+          <a href="../notifications/" class="md-footer__link md-footer__link--next" aria-label="Next: Notifications">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Usenet Migration
+                Notifications
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4748,7 +3560,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.expand", "navigation.tabs", "navigation.path", "navigation.indexes", "navigation.top", "navigation.footer", "navigation.sections", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.action.edit", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   
