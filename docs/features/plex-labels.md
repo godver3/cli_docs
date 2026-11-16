@@ -39,13 +39,13 @@ Configure the label mode per content source in **Settings → Content Sources �
 Labels are applied in two ways:
 
 - **During collection** — when an item is successfully collected, labels are generated and synced to Plex immediately
-- **Manual sync** — use the utilities in Debug Functions to sync labels for existing items
+- **Manual sync** — use the label tools on the [Tools](tools.md#plex-labels) page to sync labels for existing items
 
 ---
 
-## Utilities (Debug Functions)
+## Utilities (Tools → Plex Labels)
 
-Access all label management tools from **Debug Functions → Plex Label Management**.
+Access all label management tools from **Tools → All Tools → Plex Labels → Plex Labels Management**.
 
 ### View Items by Label
 
@@ -75,43 +75,33 @@ Re-syncs all labels based on current content source configurations. Applies labe
 
 ---
 
-## Sync functions (Debug Functions → Run Task Manually)
+## Sync functions (Automation)
 
 | Function | Processes | Updates DB? | Syncs to Plex? | Time | Use case |
 |---|---|---|---|---|---|
 | **Sync Plex Labels** | Collected items due for sync | ✅ Labels | ✅ | Minutes | Automatic periodic sync (every 30 min) |
-| **Backfill Plex Labels Content Source Detail** | Items with NULL/Unknown requester | ✅ Requester names only | ❌ | Minutes | Fix missing requester names |
-| **Sync Labels from Content Sources (Full - All Items)** | ALL items (5000+) | ✅ Labels | ✅ | 13–14 hours | Initial setup, after config changes |
-| **Sync Labels from Content Sources (Incremental - Last 7 Days)** | Changed/new items (~5–30) | ✅ Labels | ✅ | 5–15 minutes | Routine maintenance |
-| **Backfill Missing Labels** | Items with NULL/empty labels | ✅ Labels | ✅ | Varies | Catch-up, error recovery |
+| **Rebuild Plex labels (all)** | ALL items | ✅ Requester names and labels | ✅ | Hours on a large library | Initial setup, after config changes |
+| **Rebuild Plex labels (recent)** | Recently changed/new items | ✅ Requester names and labels | ✅ | Minutes | Catch-up, missing labels |
+
+The two rebuild tasks are in the **One-time fixes** group on the [Automation](automation.md) page (shown in Advanced view). They replace the old "from details", "missing" and "backfill" variants: each first fills in missing requester names, then syncs the labels.
 
 ### Sync Plex Labels
 
 !!! info "Scheduled task"
-    Runs automatically every **30 minutes** by default. Adjust the interval or trigger manually in the [Task Manager](task-manager.md) under the **Features** tab.
+    Runs automatically every **30 minutes** by default. Turn it on, adjust the interval or run it now on the [Automation](automation.md) page (Plex & Media Server group).
 
 The automatic periodic task that runs in the background. Syncs labels for Collected items that are due for a sync. You can also trigger it manually to force an immediate sync without waiting for the next scheduled run.
 
-### Backfill Plex Labels Content Source Detail
+### Rebuild Plex labels (all)
 
-Queries the Overseerr API to retrieve actual requester names for items showing "Unknown" and updates the database. Does **not** sync labels to Plex — only updates the database.
+Fills in missing requester names (from Seerr), regenerates labels for **every** collected item from current content source data, and syncs them to Plex. Sets the timestamps the recent rebuild uses.
 
-Use when: upgrading from an older version that didn't track requester names, or after restoring from a backup with incomplete data.
+!!! warning "Slow on a large library"
+    At 2–3 items a second, 5000 items take 13–14 hours. Run it overnight and follow progress on the Logs page. It's safe to restart if interrupted and won't duplicate labels.
 
-### Sync Labels from Content Sources (Full - All Items)
+### Rebuild Plex labels (recent)
 
-Processes all collected items, regenerates labels from current content source data, and syncs all labels to Plex. Sets timestamp tracking for future incremental syncs.
-
-!!! warning "Full sync is slow"
-    Processing 5000+ items at 2–3 items/second takes 13–14 hours. Schedule overnight. Progress is logged every 20 items — monitor in the Logs page. Safe to restart if interrupted — won't duplicate labels.
-
-### Sync Labels from Content Sources (Incremental - Last 7 Days)
-
-Only processes items that have never been synced (`plex_labels_last_synced = NULL`) or were collected in the last 7 days. Typically completes in 5–15 minutes — **recommended for routine maintenance**.
-
-### Backfill Missing Labels
-
-Finds items with a NULL or empty labels field, generates labels from their content source data, and syncs to Plex. Non-destructive — preserves existing labels on other items. Safe to run multiple times.
+The same, but only for items that were never synced or were collected in the last 7 days. Usually done in minutes — use this for routine catch-up.
 
 ---
 
@@ -120,19 +110,16 @@ Finds items with a NULL or empty labels field, generates labels from their conte
 ### Initial setup
 
 1. Configure label settings in **Settings → Content Sources**
-2. Run **Backfill Content Source Detail** (5–15 min) — fills in requester names
-3. Run **Full Sync** (13–14 hours — run overnight)
-4. Verify in Plex that labels appear correctly
+2. Run **Rebuild Plex labels (all)** overnight
+3. Check in Plex that the labels appear
 
 ### Routine maintenance
 
-- **Daily or weekly:** Run **Incremental Sync** (5–15 minutes)
-- **As needed:** Run **Backfill Missing Labels** if any items are missing labels
+**Sync Plex labels** runs every 30 minutes once it's on. Run **Rebuild Plex labels (recent)** if items are missing labels.
 
 ### After configuration changes
 
-1. Optionally run **Backfill Content Source Detail** if requester data may have changed
-2. Run **Full Sync** to ensure all items reflect the new configuration
+Run **Rebuild Plex labels (all)** so every item reflects the new configuration.
 
 ---
 
@@ -158,26 +145,24 @@ Examples:
 **Labels not appearing in Plex**
 
 1. Check **Settings → Content Sources** — verify labels are enabled for the source
-2. Run **Backfill Content Source Detail**
-3. Run **Full Sync**
-4. Force a metadata refresh in Plex
+2. Run **Rebuild Plex labels (all)**
+3. Force a metadata refresh in Plex
 
 **Labels show "Unknown" instead of names**
 
-1. Run **Backfill Content Source Detail** — fetches actual names from Overseerr
-2. Run **Full Sync** — applies updated names to Plex
+Run **Rebuild Plex labels (all)** or **(recent)**. Both fetch the requester names from Seerr before syncing.
 
 **Some items have labels, others don't**
 
-- Run **Backfill Missing Labels** — catches items with NULL labels
-- Check logs for errors about specific titles
-- Verify the items exist in Plex
+- Run **Rebuild Plex labels (recent)**
+- Check the logs for errors about specific titles
+- Check that the items exist in Plex
 
-**Full sync taking too long**
+**The full rebuild takes too long**
 
-- This is expected — 5000+ items at 2–3 items/second = 13–14 hours
-- Let it run overnight and monitor progress in the Logs page
-- Use Incremental Sync for all future routine maintenance
+- That's expected — 5000 items at 2–3 items a second take 13–14 hours
+- Let it run overnight and follow progress on the Logs page
+- Use the recent rebuild for routine catch-up
 
 ---
 

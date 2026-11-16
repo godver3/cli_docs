@@ -73,7 +73,7 @@ Click any row to open the full detail modal — includes item snapshot, selected
 ### Debrid Backup
 
 !!! info "Scheduled task"
-    Runs automatically every **24 hours** by default. Adjust the interval or trigger manually in the [Task Manager](task-manager.md) under the **Features** tab.
+    Runs automatically every **24 hours** by default. Turn it on, adjust the interval or run it now on the [Automation](automation.md) page (Library & Upgrades group).
 
 Automatically backs up your debrid torrent library on a rotating schedule.
 
@@ -90,7 +90,7 @@ An activity log on the right shows recent backup events.
 ### Debrid Cleanup
 
 !!! info "Scheduled task"
-    Runs automatically every **24 hours** by default. Adjust the interval or trigger manually in the [Task Manager](task-manager.md) under the **Features** tab.
+    Runs automatically every **24 hours** by default. Turn it on, adjust the interval or run it now on the [Automation](automation.md) page (Library & Upgrades group).
 
 Automatically removes problematic torrents based on configurable rules:
 
@@ -100,7 +100,7 @@ Automatically removes problematic torrents based on configurable rules:
 | **Delete Duplicates** | Remove duplicate hashes, keeping the most recent |
 | **Delete Stalled** | Remove torrents stuck at 0% for longer than N days (1–30, default 3) |
 
-Click **Run Now** to trigger cleanup immediately. See **Task Manager** (linked in the scheduler notice) to configure the cleanup schedule.
+Click **Run Now** to trigger cleanup immediately. Configure the cleanup schedule on the [Automation](automation.md) page (linked in the scheduler notice).
 
 ![Maintenance tab](../assets/screenshots/features/debrid-manager-maintenance.png)
 
@@ -148,12 +148,34 @@ Live account statistics from your debrid provider.
 
 ---
 
-## Usenet
+## Health & Repair
 
-!!! info "Requires Decypharr"
-    The Usenet tab is only visible when a Usenet provider (cli_mount, NzbDAV or Zurg) is configured in **Settings → Required Settings → Usenet Provider**.
+!!! info "Requires cli_mount"
+    Shown when cli_mount is set up under **Settings → Required Settings → Usenet Mount**.
 
-Shows the health of your Usenet NZB library and controls the repair engine.
+Health checks and repair for **debrid** torrents served through cli_mount.
+
+| Part | What it does |
+|---|---|
+| **Scan** | Run a health scan: **Partial** checks only files not checked yet, **Full** checks every file |
+| **Stats** | Healthy, Broken and Unknown torrents, and how many were re-inserted or replaced in the last 30 days |
+| **View Broken** | Lists the broken torrents with the reason and broken file count, with a repair action per torrent |
+| **Version** | Which version to use when searching for a replacement (default: the item's own version) |
+| **Repair Activity Log** | Every repair attempt, filterable by outcome |
+
+A torrent missing its provider link is re-inserted. Otherwise only the item whose file is broken goes back to Wanted, and the torrent is deleted only when nothing else (such as the rest of a season pack) still uses it.
+
+!!! info "Scheduled task"
+    **Repair broken debrid files** runs every 6 hours. Change it on the [Automation](automation.md) page (Usenet & Mount group).
+
+---
+
+## cli_mount
+
+!!! info "Requires a Usenet mount"
+    Shown when a Usenet mount (cli_mount, NzbDAV or Zurg) is configured in **Settings → Required Settings → Usenet Mount**.
+
+Shows the health of your Usenet NZB library and controls the repair engine. Debrid torrents are on the [Health & Repair](#health-repair) tab instead.
 
 ### Stats
 
@@ -178,8 +200,8 @@ Click **View Broken** to expand a list of all broken entries, showing title and 
 | **Version dropdown** | Select a version filter for replacement NZB searches |
 | **Fix Broken** | Run the repair engine immediately |
 
-!!! info "Scheduled task"
-    The repair engine runs automatically on a schedule. Enable and configure it in [Task Manager](task-manager.md) under the **Features** tab — look for **Repair Broken NZBs**. Disabled by default.
+!!! info "Scheduled tasks"
+    Everyday repairs happen within about 5 minutes through **Watch usenet downloads**. **Scheduled repair scan** re-checks every file once a month to catch articles that have expired since. Both are on the [Automation](automation.md) page (Usenet & Mount group) and on by default.
 
 ### Repair Activity Log
 
@@ -204,7 +226,7 @@ The stats header shows counts across: debrid torrents, database items, Plex/Jell
 | **Torrent Gone** | RD✗ DB✓ Plex✓ | Items in database and Plex but whose torrent no longer exists in debrid |
 | **Lost** | RD✗ DB✓ Plex✗ | Items in database only — torrent gone and not in Plex |
 | **Untracked** | RD✓ DB✗ | Torrents in debrid with no matching database entry |
-| **NAS** | FS± | Collected items stored on NAS / network drives rather than your debrid mount. Detection uses configured NAS path prefixes (see **Settings → Advanced Settings → Library Management → NAS / Network Drive Paths**) if set, otherwise falls back to smart detection by comparing path roots against known debrid mount prefixes. |
+| **NAS** | FS± | Collected items stored on NAS / network drives rather than your debrid mount. Detection uses configured NAS path prefixes (see **Settings → Library & Files → Library Management → NAS / Network Drive Paths**) if set, otherwise falls back to smart detection by comparing path roots against known debrid mount prefixes. |
 
 Each sub-tab supports bulk actions (Reinsert All, Re-queue All, Delete All, Scan All) and text/type filters.
 

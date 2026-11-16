@@ -658,7 +658,7 @@ cli_mount also supports Usenet downloads. cli_debrid can submit NZBs to cli_moun
 
 ### Usenet provider settings
 
-In **Settings → Required Settings → Usenet Provider**:
+In **Settings → Required Settings → Usenet Mount**:
 
 | Setting | Description |
 |---|---|
@@ -670,7 +670,7 @@ In **Settings → Required Settings → Usenet Provider**:
 
 ### cli_mount DB tools
 
-When **cli_mount Data Path** is configured, additional tools appear in **Debug Functions**:
+When **cli_mount Data Path** is configured, these tools work on the [Maintenance](../features/maintenance.md) page:
 
 - **cli_mount DB Cleanup** (Library tab) — remove entries for a specific debrid provider from cli_mount's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
 - **Backup cli_mount Databases** (Database tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup

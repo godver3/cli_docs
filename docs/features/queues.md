@@ -114,7 +114,7 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 | Pre-release | 24 hrs | Handles pre-release content |
 
 !!! tip
-    All intervals can be customised from the **Task Manager** page.
+    All intervals can be changed on the [Automation](automation.md) page (Advanced view).
 
 ---
 
@@ -122,7 +122,7 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 
 Items enter the Upgrading queue when they are successfully collected and were released recently. cli_debrid scrapes for better quality versions every **hour**.
 
-By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Advanced Settings → Upgrade Queue Duration**.
+By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Settings → Queues & Upgrades → Upgrade Queue Duration**.
 
 ---
 
@@ -137,7 +137,7 @@ Items that can't be found go to **Sleeping**. Each time an item wakes and is ret
 
 When the wake limit is reached, the item moves to **Blacklisted**. Items with a release date older than one week are also blacklisted immediately.
 
-The wake limit is configurable per Version (set to `-1` to skip sleeping and blacklist immediately) and globally in **Settings → Additional Settings → Queue → Wake Limit**.
+The wake limit is configurable per Version (set to `-1` to skip sleeping and blacklist immediately) and globally in **Settings → Queues & Upgrades → Queue → Wake Limit**.
 
 ---
 

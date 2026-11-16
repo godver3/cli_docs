@@ -81,7 +81,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
     AIOStreams queries multiple addons simultaneously, which can be slow. The default cli_debrid timeout is too short.
 
-    1. Go to **Settings → Version Settings → Other Scraping Settings**
+    1. Go to **Settings → Scraping**
     2. Find **Scraper Timeout**
     3. Set it to **15 seconds minimum** — 20–30 seconds recommended
 
@@ -124,7 +124,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
     AIOStreams queries multiple addons and sources simultaneously, which can be slow. The default cli_debrid scraper timeout is too short.
 
-    1. Go to **Settings → Version Settings → Other Scraping Settings**
+    1. Go to **Settings → Scraping**
     2. Find **Scraper Timeout**
     3. Set it to **15 seconds minimum** — 20–30 seconds recommended
 

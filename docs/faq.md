@@ -102,7 +102,7 @@ Checking means cli_debrid is waiting for the file to appear at the mount path. C
 - The mount path isn't accessible inside the container
 - Zurg/rclone isn't running or the mount is stale — try remounting
 
-Items stay in Checking for up to 1 hour before being moved back. For uncached content, set **Uncached Content Handling** to `Hybrid` in **Settings → Version Settings → Other Scraping Settings**.
+Items stay in Checking for up to 1 hour before being moved back. For uncached content, set **Uncached Content Handling** to `Hybrid` in **Settings → Scraping**.
 
 ---
 
@@ -118,9 +118,9 @@ Items stay in Checking for up to 1 hour before being moved back. For uncached co
 
 RD has a 400GB/day bandwidth limit and API rate limits. To reduce calls:
 
-- Lower the **Main Loop Sleep** interval in Advanced Settings → Queue
+- Lower **Main Loop Sleep Seconds** under **Settings → Queues & Upgrades → Queue**
 - Disable unnecessary scrapers
-- Check **Monitoring → Rate Limit State** in Debug Functions to see current counts
+- Check **Current Rate Limit State** on the Performance Dashboard's **Diagnostics** tab to see current counts
 
 ---
 
@@ -141,7 +141,7 @@ The torrent was added to debrid but contained no valid video files (e.g. only RA
 
 **How do I use uncached content?**
 
-In **Settings → Version Settings → Other Scraping Settings**, set **Uncached Content Handling** to `Hybrid` (tries cache first, falls back to uncached if nothing found) or `Full` (always takes the best result regardless of cache status). Note: uncached downloads can take hours.
+In **Settings → Scraping**, set **Uncached Content Handling** to `Hybrid` (tries cache first, falls back to uncached if nothing found) or `Full` (always takes the best result regardless of cache status). Note: uncached downloads can take hours.
 
 ---
 
@@ -165,13 +165,13 @@ In **Settings → Version Settings → Other Scraping Settings**, set **Uncached
 
 **Items are showing as Unreleased but they've already been released**
 
-Release dates may be outdated in the database. Go to **Debug Functions → Library → Refresh Release Dates** to re-fetch dates from TMDB.
+Release dates may be outdated in the database. Run **Refresh Release Dates** under **Tools → All Tools → Library** to fetch fresh dates.
 
 ---
 
 **How do I move items stuck in Sleeping back to Wanted?**
 
-1. Go to **Debug Functions → Library → Bulk Queue Actions**
+1. Go to **Tools → All Tools → Queues & tasks → Bulk Queue Actions**
 2. Select **Source Queue = Sleeping**
 3. Select All → Move to **Wanted**
 
@@ -222,7 +222,7 @@ This is a known issue — Overseerr uses TMDB metadata which sometimes has incor
 
 **Non-English filenames (Chinese characters, etc.) failing**
 
-Enable the **Sanitizer Replacement Character** in Advanced Settings → File System to replace unsupported characters. Make sure your filesystem supports Unicode filenames.
+Set the **Sanitizer Replacement Character** under **Settings → Library & Files → File System** to replace unsupported characters. Make sure your filesystem supports Unicode filenames.
 
 ---
 
@@ -269,7 +269,7 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 
 **Trakt 401 errors / deactivated account**
 
-- Go to Settings → Additional Settings → click **Authorise Trakt** again to refresh the OAuth token
+- Go to **Settings → Tracking accounts → Trakt** and click **Authorize Trakt** again to refresh the sign-in
 - Trakt tokens expire and need periodic re-authorisation
 
 ---
@@ -279,8 +279,8 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 **Overlays aren't being applied to some items**
 
 - Run **Sync Library** on the Overlays page to match database items to Plex entries
-- Use **Debug Functions → Test Plex Item Lookup** to check if cli_debrid can find the item in Plex
-- Items without IMDB/TMDB IDs won't sync — use **Fix Missing IMDb ID** in Debug Functions
+- Use **Test Plex Item Lookup** (Tools → All Tools → Library) to check if cli_debrid can find the item in Plex
+- Items without IMDB/TMDB IDs won't sync — use **Fix Missing IMDb ID** on the Tools page
 - The title+year fallback handles items without external IDs, but requires a good title match
 
 ---
@@ -295,7 +295,7 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 
 **Plex labels show "Unknown" instead of requester names**
 
-Run **Backfill Plex Labels Content Source Detail** from Debug Functions → Run Task Manually. This queries Overseerr to fill in the actual requester names.
+Run **Rebuild Plex labels (recent)** (or **(all)**) with **Run now** on the [Automation](features/automation.md) page, One-time fixes group in Advanced view. It fills in the requester names from Seerr, then syncs the labels.
 
 ---
 
@@ -303,7 +303,7 @@ Run **Backfill Plex Labels Content Source Detail** from Debug Functions → Run 
 
 Labels are applied automatically when items are collected. If they're missing:
 
-- Run **Backfill Missing Labels** from Debug Functions
+- Run **Rebuild Plex labels (recent)** on the [Automation](features/automation.md) page (One-time fixes, Advanced view)
 - Verify labels are enabled for the content source in Settings → Content Sources
 
 ---
@@ -325,7 +325,7 @@ Labels are applied automatically when items are collected. If they're missing:
 - Check the **Performance Dashboard** for CPU and memory spikes
 - Large libraries with overlays enabled will use more resources during sync
 - Reduce the number of enabled scrapers if API calls are excessive
-- Check **Debug Functions → Monitoring → Rate Limit State** for throttling
+- Check **Current Rate Limit State** on the Performance Dashboard's **Diagnostics** tab for throttling
 
 ---
 
@@ -363,7 +363,7 @@ Your server has run out of disk space. Common causes:
 
 - Log files growing too large — check `/user/logs/`
 - Docker overlay storage filling up — run `docker system prune`
-- Database backups accumulating — use **Debug Functions → Clean Up Old Database Files**
+- Database backups accumulating — use **Clean Up Old Database Files** under **System → Maintenance → Backups**
 
 ---
 

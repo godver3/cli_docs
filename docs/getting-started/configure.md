@@ -56,7 +56,7 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     Your news server login lives in cli_mount ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
 
-    After onboarding, **Settings → Required Settings → Usenet Provider** has more options:
+    After onboarding, **Settings → Required Settings → Usenet Mount** has more options:
 
     | Setting | Value |
     |---|---|
@@ -251,7 +251,7 @@ Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks sh
 
 ## Scrob (optional)
 
-If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Additional Settings → Scrob**:
+If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Tracking accounts → Scrob**:
 
 | Field | Value |
 |---|---|

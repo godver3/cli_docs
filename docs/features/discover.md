@@ -8,7 +8,7 @@ icon: material/compass
 The Discover page lets you browse and search TMDB for movies and TV shows to add to your library — with powerful filtering, curated charts, and content source integration.
 
 !!! note "TMDB API key required"
-    Discover requires a TMDB API key configured in **Settings → Additional Settings → TMDB**.
+    Discover requires a TMDB API key under **Settings → Required Settings → Metadata Providers**.
 
 ![Discover page overview](../assets/screenshots/features/discover-overview.png)
 

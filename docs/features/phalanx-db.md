@@ -7,7 +7,7 @@ icon: material/database-sync
 
 Phalanx DB is a distributed hash-checking network that allows multiple cli_debrid instances to share cached torrent hash data with each other. When enabled, your instance can check whether a torrent hash is cached on debrid without having to query the debrid API directly — using data contributed by other nodes in the network.
 
-Enable it in **Settings → Additional Settings → Phalanx DB Settings → Enable Phalanx DB**.
+Enable it in **Settings → Performance & Logging → Phalanx DB Settings → Enable Phalanx DB**.
 
 ---
 

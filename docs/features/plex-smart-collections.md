@@ -28,7 +28,7 @@ Plex automatically maintains smart collections in each library section. This fea
 
 ## Setup
 
-In **Settings → Additional Settings → Plex Smart Collection Posters**, enable the feature and configure the shared poster design. Once enabled, all discovered smart collections appear as individual toggles below the design settings.
+In **Settings → Media Server → Plex Collections → Smart collection posters**, click **Load Collections from Plex**, tick the collections and configure the shared poster design. Once enabled, all discovered smart collections appear as individual toggles below the design settings.
 
 | Setting | Description |
 |---|---|
@@ -63,7 +63,7 @@ On each run, CLI Debrid:
 
 Runs automatically on a **24-hour schedule**. To trigger immediately:
 
-- **Task Manager** — find "Plex Smart Collection Posters" and click Run
+- **Automation** — find "Smart collection posters" and click **Run now**
 - **Settings** — use the **Run Now** button in the Plex Smart Collection Posters settings section
 
 ---

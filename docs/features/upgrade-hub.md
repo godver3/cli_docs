@@ -33,7 +33,7 @@ The **Score Δ** column shows the improvement percentage and the before→after 
     | **Upgrade Hub Scan** | Every **24 hours** |
     | **Upgrade Hub Auto Queue** | Every **24 hours** |
 
-    Both require **Automatic Scan** and **Auto Queue** to be enabled in the Settings tab. Adjust intervals or trigger manually in the [Task Manager](task-manager.md) under the **Features** tab.
+    Both require **Automatic Scan** and **Auto Queue** to be enabled in the Settings tab. Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
 
 Click **Scan for Upgrades** to start a scan. The button shows how long ago the last scan ran (e.g. `2h ago`). During a scan a progress bar shows the current phase and ETA:
 
@@ -122,7 +122,7 @@ Same filters, cache badges, and Queue/Ignore actions as the Upgrades tab.
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
 | **Excluded Genres** | — | Skip items from these genres during scan. Applies to movies and shows. |
-| **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Advanced Settings → Library Management → NAS / Network Drive). NAS items will not be scanned or listed. |
+| **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Library & Files → Library → NAS / Network Drive Paths). NAS items will not be scanned or listed. |
 
 **Settings actions:**
 
@@ -159,6 +159,6 @@ When an item is queued for upgrade:
 1. It enters the **Upgrading** queue state
 2. cli_debrid scrapes for the better torrent
 3. The new version is added to debrid and checked in
-4. Once confirmed, the old version is removed if **Enable Upgrading Cleanup** is enabled in **Advanced Settings**
+4. Once confirmed, the old version is removed if **Enable Upgrading Cleanup** is on under **Settings → Scraping**
 
 The Upgrade Hub polls in the background and automatically removes rows for items that have been successfully upgraded.

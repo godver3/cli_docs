@@ -9,6 +9,10 @@ Content sources tell cli_debrid **what to download**. Each source you enable is 
 
 You can have multiple sources active at the same time.
 
+To add one, go to **Settings → Content Sources** and click **Add New Source**. The picker groups every source type as **Watchlists**, **Lists**, **Collections** and **Requests**, with what each does and what it needs. Type to search.
+
+Each source is checked on its own schedule: every 15 minutes by default, daily for Collected. Change a source's interval on the [Automation](../features/automation.md) page (Content Sources group, Advanced view).
+
 ![Content sources settings page](../assets/screenshots/configuration/content-sources-overview.png)
 
 ---
@@ -29,6 +33,15 @@ Every content source shares these settings regardless of type:
 | **Cutoff Date** | Only download content released after this date. Accepts either a date (`2023-01-01`) or a number of days (`30` = only content from the last 30 days). Leave blank for no cutoff. |
 | **Exclude Genres** | Skip items belonging to these genres. Useful to exclude e.g. Documentary or Animation from a broad source. |
 | **List Length Limit** | Maximum number of items to process per run. `0` = no limit. |
+
+**Watchlist sources** (Trakt Watchlist, My Plex Watchlist, Other Plex Watchlist and the Plex RSS watchlists) also have:
+
+| Setting | Description |
+|---|---|
+| **Remove When Collected** | Remove items from the watchlist once they're collected. On Plex watchlists, movies go once every wanted version is collected, and shows only once the series has ended, so running shows keep getting new episodes. Default: off. |
+| **Keep Series** | Never remove series, only movies. Default: off. |
+
+These used to be global settings; existing values were copied to every source of the matching type.
 
 ---
 
@@ -64,6 +77,31 @@ See [Plex Collections](../features/plex-collections.md) for full setup and confi
 
 | Source | What it does |
 |---|---|
+| **Watchlists** | |
+| [My Plex Watchlist](#my-plex-watchlist) | Your own Plex watchlist |
+| [Other Plex Watchlist](#other-plex-watchlist) | Another plex.tv account's or Plex Home profile's watchlist |
+| [Plex Friends Watchlist](#plex-friends-watchlist) | Your Plex friends' watchlists |
+| [My Plex RSS Watchlist / My Friends Plex RSS Watchlist](#plex-rss-watchlists) | A Plex watchlist through its RSS feed |
+| [Trakt Watchlist](#trakt-watchlist) | Your Trakt watchlist |
+| [Friends Trakt Watchlist](#friends-trakt-watchlist) | A friend's Trakt watchlist |
+| [Simkl Watchlist](#simkl-watchlist) | Your Simkl Plan to Watch list, and other statuses if you choose |
+| [Floppy Watchlist](#floppy-watchlist-and-floppy-lists) | Titles you track in Floppy with the chosen statuses |
+| **Lists** | |
+| [MDBList](#mdblist) | Any MDBList list, or a compatible JSON list URL |
+| [Trakt Lists](#trakt-lists) | Your own or public Trakt lists, by URL |
+| [Special Trakt Lists](#special-trakt-lists) | Trakt charts: trending, popular, anticipated and more |
+| [Scrob Lists / Special Scrob Lists](#scrob) | Lists and charts on your Scrob server |
+| [Floppy Lists](#floppy-watchlist-and-floppy-lists) | Custom lists on your Floppy server |
+| [Adaptive List](#adaptive-lists) | TMDB filters whose results change over time |
+| **Collections** | |
+| [Collected](#collected) | Shows already in your library: new and missing episodes are added as they air |
+| [Trakt Collection](#trakt-collection) | Your Trakt collection |
+| [Scrob Collection](#scrob) | Your Scrob collection |
+| **Requests** | |
+| [Seerr](#seerr) | Approved requests from Seerr (Overseerr / Jellyseerr) |
+| [Agregarr](#agregarr) | Agregarr sends its requests to cli_debrid as if it were Overseerr |
+
+---|---|
 | [Trakt Watchlist](#trakt-watchlist) | Your personal Trakt watchlist |
 | [Trakt Lists](#trakt-lists) | Any public or private Trakt list by URL |
 | [Trakt Collection](#trakt-collection) | Items marked as collected in Trakt |
@@ -93,7 +131,7 @@ Your personal Trakt watchlist. Any item you add to your watchlist on Trakt will 
 4. Set your preferred **Media Type** and **Versions**
 5. Click **Save**
 
-That's it — no URLs or API keys needed. cli_debrid uses the Trakt account you already authenticated in Additional Settings.
+That's it — no URLs or API keys needed. cli_debrid uses the Trakt account you signed in with under [Settings → Tracking accounts](tracking-accounts.md#trakt).
 
 
 ---
@@ -199,7 +237,7 @@ Automatically downloads approved requests from your Seerr instance.
 | **URL** | Full URL to your Seerr instance, e.g. `http://192.168.1.10:5055` |
 | **API Key** | Your Seerr API key |
 | **Ignore Tags** | Comma-separated Seerr tags to skip. Items with any of these tags won't be downloaded. |
-| **Allow Partial Requests** | Allow partial show requests from Seerr (e.g. individual seasons rather than the full series). Default: off. *Set globally under **Settings → Advanced Settings** (Allow Partial Overseerr Requests), not per source.* |
+| **Allow Partial Requests** | Only add the seasons that were requested in Seerr, instead of the whole show. Default: off. |
 
 **How to find your Seerr API key:**
 
@@ -323,14 +361,54 @@ Monitors a Plex watchlist via its RSS feed URL. Works for your own watchlist or 
 
 ## Plex Watch History
 
-Monitors your Plex watch history and adds watched items to cli_debrid's wanted queue — useful for automatically tracking content you've already watched so it can be collected or upgraded.
+Plex watch history isn't a content source. The **Import Plex watch history** task on the [Automation](../features/automation.md) page (Plex & Media Server group) downloads it daily, so items you've already watched aren't added to the queue again. To stop watch-history items being queued at all, turn on **Do Not Add Plex Watch History Items To Queue** under [Settings → Queues & Upgrades](queues-upgrades.md#content-processing).
 
-Sync pulls from **both your Plex account history and your server libraries** using batch processing. IMDb IDs are resolved via Trakt as a fallback when Plex metadata doesn't provide them directly.
+---
 
-**Setup:** Enable and configure **Media Type** and **Versions**. A Plex connection must be configured in **Settings → Required Settings** (Plex section).
+## Plex Friends Watchlist
 
-!!! note
-    To prevent watch history items from being re-added to the queue (e.g. if you want to watch without collecting), enable **Do Not Add Plex Watch History Items To Queue** in **Settings → Advanced Settings**.
+Adds the watchlists of your Plex friends.
+
+| Field | Description |
+|---|---|
+| **Friends** | Comma-separated Plex usernames or display names. Leave empty for all friends. |
+
+Uses your main Plex token. Each friend must allow their watchlist to be shared with friends in their Plex privacy settings.
+
+---
+
+## Simkl Watchlist
+
+Adds titles from your [Simkl](https://simkl.com) lists. Needs the Simkl sign-in under [Settings → Tracking accounts](tracking-accounts.md#simkl).
+
+| Field | Default | Description |
+|---|---|---|
+| **Simkl Statuses** | Plan to Watch | Which lists to add: Plan to Watch (the watchlist), Watching, On Hold, Completed, Dropped. Watching and On Hold only apply to shows and anime. |
+| **Include Anime** | On | Also add anime from your Simkl anime list (Simkl keeps anime separate from shows) |
+
+---
+
+## Floppy Watchlist and Floppy Lists
+
+Add titles from your [Floppy](https://github.com/dannyvfilms/Floppy) server. Both need the Floppy URL and API key under [Settings → Tracking accounts](tracking-accounts.md#floppy).
+
+| Source | Field | Description |
+|---|---|---|
+| Floppy Watchlist | **Floppy Statuses** | Which statuses to add. Default: Planning, which is Floppy's watchlist. Also: In progress, Paused, Completed, Dropped. |
+| Floppy Lists | **Floppy List IDs** | Comma-separated list IDs (the number in the list's URL, e.g. `/lists/3`), e.g. `3,7`. Floppy Lists can also create a Plex collection. |
+
+---
+
+## Scrob
+
+Three source types use your [Scrob](https://github.com/ellite/scrob) server. All need the Scrob URL and API key under [Settings → Tracking accounts](tracking-accounts.md#scrob).
+
+| Source | Field | Description |
+|---|---|---|
+| Scrob Lists | **Scrob List IDs** | Comma-separated numeric list IDs (from the list's URL in Scrob), e.g. `2,7` |
+| Scrob Collection | — | Everything in your Scrob collection |
+| Special Scrob Lists | **Special List Type** | Trending, Popular, Top Rated, Now Playing, Upcoming, On Air Today, On Air This Week, New Episodes, Hidden Gems, For You, Recently Added. Now Playing, Upcoming and Hidden Gems are movies only; the On Air and New Episodes lists are shows only. For You needs genre preferences in your Scrob profile. |
+| Special Scrob Lists | **Special List Genres** | Optional genre lists (e.g. Animation), on their own or with the types above |
 
 ---
 

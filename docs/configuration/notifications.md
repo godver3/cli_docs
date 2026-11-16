@@ -109,4 +109,5 @@ Each notification service has a **Notify On** section to control which events tr
 | Setting | Default | Description |
 |---|---|---|
 | **Truncate Episode Notifications** | Off | Show only the first episode and a summary count instead of listing every episode in the notification |
+| **Enable Detailed Notification Information** | Off | Include the content source and its details in notifications |
 | **Enabled Content Sources** | All | Filter notifications to only fire for specific content sources. Leave empty to include all. Hold Ctrl/Cmd to select multiple. |

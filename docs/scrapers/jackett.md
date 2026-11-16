@@ -64,7 +64,7 @@ Access Jackett at `http://YOUR_SERVER_IP:9117`.
     | **Enabled Indexers** | Optional. Comma-separated Jackett indexer IDs to search; leave empty to search all of them |
     | **Priority** | Scraper priority score — higher wins when results are otherwise similar |
 
-    To skip results with no seeders, turn on **Jackett Seeders Only** under **Settings → Version Settings → Other Scraping Settings** (a global setting, off by default).
+    Results with no seeders are always skipped for Jackett and Prowlarr; the old **Jackett Seeders Only** setting was removed.
 
 4. Toggle **Enabled** on
 5. Click **Save Settings**

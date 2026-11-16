@@ -28,7 +28,7 @@ TMDB groups movies into franchise collections — "The Godfather Collection", "S
 
 ## Setup
 
-In **Settings → Additional Settings → Plex Movie Box Sets**, enable the feature and configure the options below.
+In **Settings → Media Server → Plex Collections → Movie box sets**, enable the feature and configure the options below.
 
 | Setting | Default | Description |
 |---|---|---|
@@ -79,7 +79,7 @@ Collections that fall below the **Minimum Owned Movies** threshold — because y
 
 Runs automatically on a **24-hour schedule**. To trigger immediately:
 
-- **Task Manager** — find "Plex Movie Box Sets" and click Run
+- **Automation** — find "Movie box sets" and click **Run now**
 - **Settings** — use the **Run Now** button in the Plex Movie Box Sets settings section
 
 ---

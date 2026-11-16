@@ -559,7 +559,7 @@ Decypharr also supports Usenet downloads. cli_debrid can submit NZBs to Decyphar
 
 ### Usenet provider settings
 
-In **Settings → Required Settings → Usenet Provider**:
+In **Settings → Required Settings → Usenet Mount**:
 
 | Setting | Description |
 |---|---|
@@ -571,12 +571,12 @@ In **Settings → Required Settings → Usenet Provider**:
 
 ### Decypharr DB tools
 
-When **Decypharr Data Path** is configured, additional tools appear in **Debug Functions**:
+When the data path is configured (**cli_mount Data Path** under **Settings → Required Settings → Usenet Mount**), these tools on the [Maintenance](../features/maintenance.md) page work with Decypharr's databases too:
 
-- **Decypharr DB Cleanup** (Library tab) — remove entries for a specific debrid provider from Decypharr's `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
-- **Backup Decypharr Databases** (Database tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
-- **Restore Decypharr Database from Backup** (Database tab) — restore from a previous backup
-- **Clean Up Old Decypharr Backup Files** (Database tab) — remove old backup files to free disk space
+- **cli_mount DB Cleanup** (Cleanup & repair tab) — remove entries for a specific debrid provider from `entries.db` and `items.db` using infohash matching. Useful when migrating away from a debrid provider.
+- **Backup cli_mount Databases** (Backups tab) — backs up `entries.db` and `items.db` on the same schedule as the CLI database backup
+- **Restore cli_mount Database from Backup** (Backups tab) — restore from a previous backup
+- **Clean Up Old cli_mount Backup Files** (Backups tab) — remove old backup files to free disk space
 
 See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for the full Usenet setup.
 

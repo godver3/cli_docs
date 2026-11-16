@@ -7,7 +7,18 @@ icon: material/chart-line
 
 The Performance Dashboard gives you real-time visibility into cli_debrid's CPU and memory usage. Useful for diagnosing slowdowns, memory leaks, or high resource consumption.
 
-Access it by clicking the **Uptime** card on the Dashboard, or from the navigation menu.
+Access it by clicking the **Uptime** card on the Dashboard, or from **System → Performance Dashboard**. Hovering the menu entry opens its tabs directly.
+
+The dashboard has four tabs:
+
+| Tab | What it shows |
+|---|---|
+| **Performance** | CPU and memory, described on the rest of this page |
+| **Connections** | Whether each scraper, provider and service is reachable |
+| **Scraper Stats** | Per-scraper results and timings |
+| **Diagnostics** | Token status, rate limits and API calls — see [Diagnostics](#diagnostics) below |
+
+The Connections, Scraper Stats and Diagnostics tabs load when you open them and stop refreshing when you leave. Their old page addresses open the matching tab.
 
 ![Performance dashboard overview](../assets/screenshots/features/performance-overview.png)
 
@@ -122,3 +133,20 @@ For reference, typical memory usage:
 | Cold start (no activity) | ~280–300 MB |
 | Warm idle (after running) | ~350–400 MB |
 | Active scraping | ~400–500 MB |
+
+---
+
+## Diagnostics
+
+The Diagnostics tab holds the status checks that used to be on the Debug page's Monitoring tab.
+
+| Section | What it shows |
+|---|---|
+| **Current Rate Limit State** | Rate limiting for each external API (Trakt, debrid and others), with 5-minute and hourly counts. Warnings show when a limit is exceeded, which tells you whether cli_debrid is being throttled. |
+| **Plex Token Status** | Every configured Plex token by user: valid or not, Plex username, expiry and when it was last checked |
+| **Personal Trakt Token Status** | Your own Trakt sign-in: valid or not, expiry, hours left and when it was last refreshed |
+| **Torrent Tracking** | A link to the history of every torrent added and its current status |
+| **API Summary** / **Real Time API** | How many calls cli_debrid makes to each API, in total and live |
+
+To send a test notification, use the **Test** button on the [Notifications](../configuration/notifications.md) settings page. To share logs, use **Share** on the **Logs** page.
+

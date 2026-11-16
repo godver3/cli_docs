@@ -61,11 +61,11 @@ Now that the basics are running, explore what cli_debrid can do:
 
     [:octicons-arrow-right-24: Scraper Tester](../features/scraper-tester.md)
 
-- **Task Manager**
+- **Automation**
 
     See and adjust the background tasks — library syncs, repairs, cleanups — and run any of them on demand.
 
-    [:octicons-arrow-right-24: Task Manager](../features/task-manager.md)
+    [:octicons-arrow-right-24: Automation](../features/automation.md)
 
 - **Seerr**
 
@@ -73,21 +73,15 @@ Now that the basics are running, explore what cli_debrid can do:
 
     [:octicons-arrow-right-24: Seerr setup](../integrations/seerr.md)
 
-- **AI Butler**
-
-    Natural-language assistant for searching and managing your library.
-
-    [:octicons-arrow-right-24: AI Butler](../features/ai-butler.md)
-
 </div>
 
 ---
 
 ## Tweak your configuration
 
-- **[Advanced Settings](../configuration/advanced.md)** — quality profiles, size limits, resolution preferences
-- **[Content sources](../configuration/content-sources.md)** — add more lists, adjust sync intervals
-- **[Additional settings](../configuration/additional.md)** — notifications, Bazarr, advanced options
+- **[Scraping](../configuration/scraping.md)** — uncached handling, minimum score, upgrading, filtering
+- **[Content sources](../configuration/content-sources.md)** — add more watchlists, lists and requests
+- **[Library & Files](../configuration/library-files.md)**, **[Media Server](../configuration/media-server.md)** and **[Subtitles](../configuration/subtitles.md)** — symlink naming, collections, overlays, subtitles
 - **[Versions](../configuration/versions.md)** — pin specific versions or qualities per title
 
 ---

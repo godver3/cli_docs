@@ -123,7 +123,6 @@ nav:
     - Plex: integrations/plex.md
     - Jellyfin: integrations/jellyfin.md
     - Seerr: integrations/seerr.md
-    - OpenClaw: integrations/openclaw.md
   - Scrapers:
     - scrapers/index.md
     - Zilean: scrapers/zilean.md
@@ -138,11 +137,16 @@ nav:
     - configuration/index.md
     - UI Settings: configuration/ui-settings.md
     - Required Settings: configuration/required.md
-    - Additional Settings: configuration/additional.md
     - Scrapers: configuration/scrapers.md
     - Version Settings: configuration/versions.md
+    - Scraping: configuration/scraping.md
     - Content Sources: configuration/content-sources.md
-    - Advanced Settings: configuration/advanced.md
+    - Tracking accounts: configuration/tracking-accounts.md
+    - Library & Files: configuration/library-files.md
+    - Media Server: configuration/media-server.md
+    - Subtitles: configuration/subtitles.md
+    - Queues & Upgrades: configuration/queues-upgrades.md
+    - Performance & Logging: configuration/performance-logging.md
     - Notifications: configuration/notifications.md
     - Manage Users: configuration/manage-users.md
   - Features:
@@ -154,18 +158,18 @@ nav:
     - Debrid Manager: features/debrid-manager.md
     - Overlays: features/overlays.md
     - Upgrade Hub: features/upgrade-hub.md
-    - AI Butler: features/ai-butler.md
     - Plex Labels: features/plex-labels.md
     - Plex Collections: features/plex-collections.md
     - Plex Smart Collection Posters: features/plex-smart-collections.md
     - Plex Movie Box Sets: features/plex-movie-box-sets.md
     - Performance: features/performance.md
     - Calendar: features/calendar.md
-    - Task Manager: features/task-manager.md
+    - Automation: features/automation.md
     - Phalanx DB: features/phalanx-db.md
     - Scraper Tester: features/scraper-tester.md
     - Database Browser: features/database.md
-    - Debug Functions: features/debug-functions.md
+    - Tools: features/tools.md
+    - Maintenance: features/maintenance.md
     - Usenet Migration: features/usenet-migration.md
     - Other Tools: features/other-tools.md
   - FAQ: faq.md

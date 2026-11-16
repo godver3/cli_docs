@@ -306,4 +306,4 @@ When overlays are enabled, newly collected items are automatically queued for ov
     | **Overlay Sync** | Every **1 hour** |
     | **Overlay Cleanup** | Every **24 hours** |
 
-    Adjust intervals or trigger manually in the [Task Manager](task-manager.md) under the **Features** tab.
+    Adjust intervals or run them now on the [Automation](automation.md) page (Plex & Media Server group).
