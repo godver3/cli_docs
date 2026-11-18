@@ -190,11 +190,12 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | Importing & health checks | **Processing connections / timeout** | `8` / 5 min | Used while reading a new NZB's archives. A timeout is retried, never treated as a dead release |
 | | **NZB import availability sample %** | `1` | Share of articles checked before a download counts as added. Only a proven missing article rejects it |
 | | **Repair availability sample %** | Automatic | Share of each file's articles checked by health checks (automatic = 10%, no cap, the same as cli_mount) |
+| | **Check playability with ffprobe** | Off | Health checks also open each video file with ffprobe, like cli_mount's media probe |
 | Advanced | **Debug logging** | Off | Logs every debrid link, API call and what each import found. Problems are always logged |
 
 Repair follows cli_mount's rules, so a file is only marked broken on proof. Timeouts, connection errors and rate limits never count.
 
-- **Usenet:** an article missing on every server (during playback or a health check), a video file whose first bytes aren't its container's header, or a download whose saved file map can't be read.
+- **Usenet:** an article missing on every server, or short on every server (it decodes to less than its own yEnc trailer says), found during playback or a health check; a video file whose first bytes aren't its container's header; a download whose saved file map can't be read; and, with **Check playability with ffprobe** on, a video file ffprobe can't open or that has no audio or video stream. That option matches cli_mount's media probe, is off by default, and reads up to 5 MB per file per check. Replacements are always checked with ffprobe. **Migrate → Import** copies cli_mount's repair settings when it can see cli_mount's `config.json`.
 - **Debrid:** health checks ask the service about each file, the same way cli_mount does: Real-Debrid's link check says 404 or a link fails with error 19, 24 or 35; TorBox no longer has the download; AllDebrid's link info reports an error; Premiumize has no link for the item; a Debrid-Link link answers 404/410; HighWay answers 404; or the torrent no longer has the file. The same answers during playback mark the file at once. cli_debrid's debrid repair then re-adds the torrent or finds another release.
 
 ---
