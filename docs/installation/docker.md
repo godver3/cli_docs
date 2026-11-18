@@ -20,7 +20,7 @@ Before you begin, confirm you have:
 - [Docker Compose](https://docs.docker.com/compose/install/) v2 or later (`docker compose` command)
 - A debrid account and/or a Usenet provider
 - Plex, Jellyfin, or Emby
-- A mount for your files. The [stack below](#recommended-cli_debrid-and-cli_mount-in-one-stack) sets up cli_mount for you; [Zurg + rclone](../integrations/zurg.md) and [Decypharr](../integrations/decypharr.md) also work
+- A mount for your files. The [built-in mount](#easiest-one-container-with-the-built-in-mount) runs inside cli_debrid; the [cli_mount stack](#recommended-cli_debrid-and-cli_mount-in-one-stack) runs a separate mount container; [Zurg + rclone](../integrations/zurg.md) and [Decypharr](../integrations/decypharr.md) also work
 
 !!! warning "Avoid Docker Desktop on Linux"
     On Linux servers, install Docker Engine directly — not Docker Desktop. Docker Desktop on Linux runs in a VM which can cause permission and mount issues with cli_debrid.
@@ -44,9 +44,23 @@ Every tag is multi-arch: the same tag works on amd64 and arm64 (Raspberry Pi, Ap
 
 ---
 
-## Recommended: cli_debrid and cli_mount in one stack
+## Easiest: one container with the built-in mount
 
-The simplest setup runs cli_debrid and [cli_mount](../integrations/cli_mount.md) from one compose file. cli_mount mounts your debrid and Usenet files, and cli_debrid reads them from the same folder. This needs a Linux host running Docker Engine. Mount sharing between containers doesn't work in Docker Desktop on macOS or Windows.
+cli_debrid's [built-in mount](../integrations/builtin-mount.md) streams your debrid account and your Usenet server from inside the cli_debrid container. This needs a Linux host running Docker Engine.
+
+```bash
+mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml
+docker compose up -d
+```
+
+Open `http://your-server-ip:5000` and follow the [onboarding wizard](../getting-started/configure.md). It picks the built-in mount, fills in `/mnt/clid/__all__`, and its last step checks that cli_debrid and your media server see the same folders. Give your media server `/mnt/clid` (with `:rslave`) and, for Symlink mode, `/mnt/symlinks`, at the same paths. The compose file has a Plex service you can uncomment. Every line is explained on the [built-in mount](../integrations/builtin-mount.md#docker-setup) page.
+
+---
+
+## cli_debrid and cli_mount in one stack { #recommended-cli_debrid-and-cli_mount-in-one-stack }
+
+This setup runs cli_debrid and [cli_mount](../integrations/cli_mount.md) from one compose file. cli_mount mounts your debrid and Usenet files, and cli_debrid reads them from the same folder. This needs a Linux host running Docker Engine. Mount sharing between containers doesn't work in Docker Desktop on macOS or Windows.
 
 Everything uses two folders on the host, and every container sees them at the **same path** as the host:
 

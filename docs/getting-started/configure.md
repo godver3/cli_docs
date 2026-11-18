@@ -21,7 +21,7 @@ The wizard runs automatically on first launch. If you leave partway through, log
 | **3a. Versions** | The **Default** version (1080p) is added for you. Keep it, or switch to **Separate 1080p/4K Versions** or **Alternate Default Versions** |
 | **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
 | **5. Library management** | Optionally scan or convert an existing library |
-| **6. Review & start** | A summary of your setup, a health check of every connection, optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
+| **6. Review & start** | A summary of your setup, a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
 
 Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
 
@@ -105,7 +105,7 @@ cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.
 
 | Field | Value |
 |---|---|
-| **Mount tool** | The tool you set up. It picks the example path shown under the field. **Built-in mount** also fills in its path, `/mnt/clid/__all__` |
+| **Mount tool** | The tool you set up. It picks the example path shown under the field. **Built-in mount** (the default when the container can run it) also fills in its path, `/mnt/clid/__all__`, and runs the mount for debrid even without Usenet |
 | **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/clid/__all__`, `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
 
 Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.

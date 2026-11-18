@@ -8,7 +8,7 @@ icon: material/download
 Select your platform below. All methods install the same app — only the steps differ.
 
 !!! info "Using the built-in mount?"
-    The engine runs inside cli_debrid's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (e.g. `/path/to/clid:/mnt/clid:rshared`). Give your media server the same folder at the same path with `rslave`. The full compose example is on the [Built-in mount](../integrations/builtin-mount.md#docker-setup) page.
+    The engine runs inside cli_debrid's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (`/mnt/clid:/mnt/clid:rshared`). [docker-compose.builtin.yml](https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml) has all of it ([Docker guide](../installation/docker.md#easiest-one-container-with-the-built-in-mount)). Give your media server the same folder at the same path with `rslave`.
 
 !!! info "Using cli_mount?"
     cli_mount runs as its own container next to cli_debrid (you set it up in [Step 2](mount.md)). Two things to get right:

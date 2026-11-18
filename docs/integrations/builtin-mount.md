@@ -5,14 +5,14 @@ icon: material/harddisk-plus
 
 # Built-in mount
 
-The built-in mount is cli_debrid's own mount engine. It runs inside the cli_debrid container, so there is no separate mount app to install. It streams your Usenet downloads (NZBs) straight from your news server, and it can also stream the finished torrents in your **Real-Debrid** or **TorBox** account.
+The built-in mount is cli_debrid's own mount engine. It runs inside the cli_debrid container, so there is no separate mount app to install. It streams your Usenet downloads (NZBs) straight from your news server, and the finished torrents in your debrid account: **Real-Debrid**, **AllDebrid**, **TorBox**, **Premiumize**, **Debrid-Link** or **HighWay**.
 
-It's the default Usenet mount for new installs. cli_mount, NzbDAV and Zurg 2.0 are still available, and existing installs keep the mount they already use.
+It's the default mount for new installs, for Usenet, debrid, or both. cli_mount, Decypharr, NzbDAV and Zurg are still available, and existing installs keep the mount they already use.
 
 ```mermaid
 flowchart LR
     N["News server"] --> E["cli_debrid\nbuilt-in mount"]
-    D["Real-Debrid / TorBox"] --> E
+    D["Debrid account"] --> E
     E -->|"Plex mode\ndirect"| M["Media server\nPlex / Jellyfin / Emby"]
     E -->|"Symlink mode\nsymlinks"| S["Symlinks"]
     S --> M
@@ -23,55 +23,66 @@ flowchart LR
 
 **When to use it**
 
-- **Usenet**, with or without Real-Debrid / TorBox: use the built-in mount.
-- **Other debrid services** (AllDebrid, Premiumize, Debrid-Link), or a debrid-only setup: use [cli_mount](cli_mount.md), [Decypharr](decypharr.md) or [Zurg](zurg.md). The built-in mount only runs when it's your Usenet mount.
+- **Any setup that can run it**: Usenet, debrid, or both. One container, and onboarding sets it up for you.
+- **Use a separate mount instead** if Docker can't give cli_debrid FUSE access (some NAS systems), or you'd rather run the mount in its own container: [cli_mount](cli_mount.md), [Decypharr](decypharr.md) or [Zurg](zurg.md).
 
 ---
 
 ## Docker setup
 
-The engine mounts its files inside the cli_debrid container with FUSE. The container needs FUSE access, and the mount folder has to be shared with the host so your media server can see it.
+The engine mounts its files inside the cli_debrid container with FUSE. The container needs FUSE access, and the mount folder has to be shared with the host so your media server can see it. The ready-made compose file has all of that:
+
+```bash
+mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml
+docker compose up -d
+```
+
+Or add these lines to your own compose file:
 
 ```yaml title="docker-compose.yml"
 services:
   cli_debrid:
     image: godver3/cli_debrid:dev
     container_name: cli_debrid
+    restart: unless-stopped
     ports:
       - "5000:5000"
+      # - "8284:8284"                              # (1)!
     volumes:
-      - /path/to/appdata/db_content:/user/db_content
-      - /path/to/appdata/config:/user/config
-      - /path/to/appdata/logs:/user/logs
-      - /path/to/cache:/user/cache                     # (1)
-      - /path/to/clid:/mnt/clid:rshared                # (2)
-      - /path/to/symlinks:/mnt/symlinked               # (3) Symlink mode only
+      - ./cli_debrid/db_content:/user/db_content
+      - ./cli_debrid/config:/user/config
+      - ./cli_debrid/logs:/user/logs
+      - ./cli_debrid/cache:/user/cache            # (2)!
+      - /mnt/clid:/mnt/clid:rshared              # (3)!
+      - /mnt/symlinks:/mnt/symlinks              # (4)!
     devices:
-      - /dev/fuse
+      - /dev/fuse:/dev/fuse:rwm
     cap_add:
       - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
     environment:
       - TZ=America/New_York
-    stop_grace_period: 40s                             # (4)
-    restart: unless-stopped
+    stop_grace_period: 40s                        # (5)!
 ```
 
-1. The engine's disk cache (default 50 GB). Put it on a fast disk with room to spare.
-2. The mount. `rshared` makes the files the engine mounts here show up on the host at `/path/to/clid`.
-3. Your symlink folder, if you use Symlink mode.
-4. Gives the engine time to unmount cleanly when the container stops, so no dead mount is left on the host.
+1. Only for the [WebDAV share](#webdav-share).
+2. The engine's disk cache (default 50 GB). Put it on a fast disk with room to spare.
+3. The mount. `rshared` makes the files the engine mounts here show up on the host at `/mnt/clid`.
+4. Your symlink folder, if you use Symlink mode.
+5. Gives the engine time to unmount cleanly when the container stops, so no dead mount is left on the host.
 
-**Your media server** gets the same host folder at the same path, with `rslave` so it sees the engine's mount:
+**Your media server** gets the same host folder at the same path, with `rslave` so it sees the engine's mount. The compose file has a Plex service you can uncomment:
 
 ```yaml
     volumes:
-      - /path/to/clid:/mnt/clid:rslave
+      - /mnt/clid:/mnt/clid:rslave
+      - /mnt/symlinks:/mnt/symlinks
 ```
 
 !!! warning "Same path everywhere"
-    cli_debrid and your media server must see the mount at the same path (`/mnt/clid` above). In Symlink mode the symlinks point at `/mnt/clid/__all__/...`, so a different path in Plex means broken links.
+    cli_debrid and your media server must see the mount at the same path (`/mnt/clid` above). In Symlink mode the symlinks point at `/mnt/clid/__all__/...`, so a different path in Plex means broken links. Onboarding's last step checks this for you ([below](#path-checks)).
 
 ??? info "Windows (experimental)"
     On Windows the built-in mount uses [WinFsp](https://winfsp.dev) instead of FUSE. Install WinFsp first and set **Mount path** to a free drive letter such as `M:`. The Mount page lists what's missing if the engine can't start.
@@ -84,16 +95,29 @@ services:
 
 In Step 2 of the onboarding wizard ([Configure](../getting-started/configure.md#debrid-or-usenet-provider)):
 
-1. Tick **Usenet** and leave **Usenet Mount** on **Built-in mount**.
-2. Enter your news server: **host**, **port** (usually `563` with **SSL**), **username**, **password** and **connections** (what your plan allows; leave a few free if you also download elsewhere).
-3. **Mount tool** switches to **Built-in mount** and fills in **Mount Path** as `/mnt/clid/__all__`.
+1. **Debrid:** tick **Debrid** and enter your API key. Nothing else to set: the mount lists the finished torrents in your account.
+2. **Usenet:** tick **Usenet**, leave **Usenet Mount** on **Built-in mount** and enter your news server: **host**, **port** (usually `563` with **SSL**), **username**, **password** and **connections** (what your plan allows; leave a few free if you also download elsewhere).
+3. **Mount tool** is **Built-in mount** on a new install and fills in **Mount Path** as `/mnt/clid/__all__`. If the container is missing FUSE access, the wizard says which compose lines are missing.
 4. **Save & Validate** starts the engine. If your server login is wrong, the check says so (e.g. `can't connect to news.example.com: 502 Authentication Failed`).
 
-Add your indexers as [Newznab scrapers](../scrapers/newznab.md) in the next step, as with any Usenet mount.
+For Usenet, add your indexers as [Newznab scrapers](../scrapers/newznab.md) in the next step, as with any Usenet mount.
+
+#### Path checks
+
+The wizard's last step tests your setup. For the mount it also checks:
+
+| Check | Passes when |
+|---|---|
+| **Mount shared with host** | `/mnt/clid` is a host folder mapped with `:rshared` |
+| **Symlink folder on host** | The symlink folder is a host folder, not inside the container |
+| **Plex sees the mount** (or Jellyfin / Emby) | Your media server lists the same files at the same path |
+| **Plex sees the symlinks** | A test folder cli_debrid creates in the symlink folder shows up in your media server at the same path (then it's removed) |
+
+A failed check names the compose line to add or change.
 
 ### After onboarding
 
-Pick **Built-in mount** under **Settings → Required Settings → Usenet Mount → Provider**. A **Mount** item then appears in the top menu. Add your news server on its **Settings** tab, then click **Save**. Set **File Management → Original Files Path** to `/mnt/clid/__all__`.
+For Usenet, pick **Built-in mount** under **Settings → Required Settings → Usenet Mount → Provider**. For debrid only, turn on **Settings → Required Settings → Built-in Mount → Run the built-in mount for debrid**. A **Mount** item then appears in the top menu. Add your news server on its **Settings** tab (Usenet only), then click **Save**. Set **File Management → Original Files Path** to `/mnt/clid/__all__`.
 
 ---
 
@@ -125,7 +149,7 @@ Servers are tried top to bottom; use the arrows to reorder them. Tick **Backup**
   TV Shows/     ← virtual folder: shows
   nzbs/         ← Usenet downloads
   torrents/     ← debrid torrents
-  realdebrid/   ← one folder per debrid account
+  realdebrid/   ← one folder per debrid service (alldebrid/, torbox/, premiumize/, debridlink/, highway/)
   __bad__/      ← downloads with a broken file
 ```
 
@@ -146,7 +170,10 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | Mount | **Mount path** | `/mnt/clid` | Where the engine mounts inside the container |
 | | **Let other users (Plex) read the mount** | On | Needed when Plex runs as another user |
 | | **UID / GID / UMASK** | Container's PUID/PGID | Owner and permissions of the mounted files |
-| Debrid | **Stream debrid torrents through this mount** | On | Mirrors the finished torrents in your Real-Debrid / TorBox account into the mount |
+| Debrid | **Run the built-in mount for debrid (without usenet)** | Off | Runs the mount for a debrid-only setup. Onboarding turns it on when you pick **Built-in mount** as the mount tool |
+| | **Stream debrid torrents through this mount** | On | Mirrors the finished torrents in your debrid account into the mount |
+| WebDAV share | **Share the mount over WebDAV** | Off | A read-only copy of the mount over WebDAV ([below](#webdav-share)) |
+| | **WebDAV port / username / password** | `8284` | The share stays off until a username and password are set |
 | Files | **Allowed file extensions** | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only these files are listed, so `.nfo`, images and archives stay out of your library. Empty lists everything |
 | | **Deobfuscate mode** | Season/Episode | How new NZB imports name video files whose real name couldn't be found: `S01E01`-style, `Name - 01`, or off |
 | Streaming | **Read ahead (MB)** | `16` | Fetched ahead of playback |
@@ -169,6 +196,32 @@ A download is only marked broken when a missing article is proven. Timeouts and 
 
 ---
 
+## Debrid streaming
+
+Every two minutes the mount lists the finished torrents in your debrid account, adds new ones to `__all__/` and to the service's own folder, and removes ones that are gone from the account. An empty listing never empties the mount.
+
+Download links are created when a file is first read and kept until they expire, also across restarts (AllDebrid: 48 hours). That matters for **AllDebrid**, which suspends accounts that create many links without downloading. Real-Debrid packs a torrent into one archive link when it can't serve the files one by one; those torrents stay out of the mount.
+
+---
+
+## Subtitles
+
+Subtitle files (`.srt`, `.ass`, `.ssa`, `.sub`, `.vtt`, `.idx`, `.sup`) can be saved into a download's folder in the mount, next to the video. cli_debrid's [subtitle downloader](../configuration/subtitles.md), Bazarr and your media server do this with ordinary file writes. They're stored in cli_debrid's data folder, listed next to the video, and deleted with the download. Everything else in the mount stays read-only.
+
+---
+
+## WebDAV share
+
+For a media server on another machine (or Windows without WinFsp), the mount can also be shared over WebDAV, read-only:
+
+1. On the Mount page's **Settings** tab, turn on **Share the mount over WebDAV** and set a **username** and **password**.
+2. Publish the port in docker-compose: `- "8284:8284"`.
+3. On the other machine, mount it with rclone (`rclone mount clid: /mnt/clid --vfs-cache-mode off`, with a `webdav` remote pointing at `http://your-server-ip:8284`, vendor `other`), and give the media server that folder at the same path as on cli_debrid's side (`/mnt/clid`).
+
+Playback over WebDAV gets the same treatment as the mount: playback priority, **Now playing**, and repair of proven-missing files.
+
+---
+
 ## Moving from cli_mount
 
 The **Migrate from cli_mount** tab moves a cli_mount library into the built-in mount, keeping every download and its ID, so nothing is re-downloaded or re-added:
@@ -187,7 +240,9 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 
 **The Mount page says the engine can't start.** It lists why: `/dev/fuse` missing (add the `devices` and `cap_add` lines), no news server set, or on Windows WinFsp missing.
 
-**Plex shows an empty folder.** The media server's volume needs `rslave` (or `rshared`) on the same host folder, and cli_debrid's needs `rshared`. Restart the media server after changing it.
+**Plex shows an empty folder.** The media server's volume needs `rslave` (or `rshared`) on the same host folder, and cli_debrid's needs `rshared`. Restart the media server after changing it. Onboarding's **Mount shared with host** and **Plex sees the mount** checks catch this.
+
+**A subtitle couldn't be saved.** Only subtitle files can be written into the mount, and only into a download's folder. The engine has to be running.
 
 **A news server shows errors on the Overview tab.** Hover the error count for the last error. `authentication failed` means a wrong username or password; a timeout usually means a wrong port or SSL setting.
 

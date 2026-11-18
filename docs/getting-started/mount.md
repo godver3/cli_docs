@@ -11,21 +11,21 @@ These tools handle this:
 
 | Tool | Debrid | Usenet | Notes |
 |---|---|---|---|
-| **Built-in mount** | Real-Debrid, Torbox | ✓ | **Default for Usenet.** Runs inside cli_debrid, no extra container |
-| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | **Recommended.** All-in-one, built alongside cli_debrid |
+| **Built-in mount** | Real-Debrid, AllDebrid, Torbox, Premiumize, Debrid-Link, HighWay | ✓ | **Default.** Runs inside cli_debrid, no extra container |
+| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | All-in-one in its own container, built alongside cli_debrid |
 | **Decypharr** | Real-Debrid, AllDebrid, Torbox, Premiumize | | The original project cli_mount is forked from |
 | **Zurg + rclone** | Real-Debrid, AllDebrid, Debrid-Link | ✓ (Zurg 2.0) | Long-standing, well-tested Real-Debrid setup |
 
 Choose one:
 
-- **Usenet** (with or without Real-Debrid / Torbox): the **built-in mount**. Nothing to install here; you set it up in [Step 4](configure.md).
-- **Debrid only, or AllDebrid / Premiumize**: **cli_mount** — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
+- **Most setups** (Usenet, debrid, or both): the **built-in mount**. Nothing to install here; you set it up in [Step 4](configure.md).
+- **A separate mount container**, or a host where cli_debrid can't get FUSE access: **cli_mount** — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
 
 ---
 
 ## Option A — Built-in mount
 
-cli_debrid's own mount engine runs inside the cli_debrid container. It streams NZBs from your news server and can also stream your Real-Debrid or Torbox torrents. The container needs FUSE access and a shared mount folder, covered in [Step 3](install.md).
+cli_debrid's own mount engine runs inside the cli_debrid container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in [Step 3](install.md).
 
 Full guide: [:octicons-arrow-right-24: Built-in mount](../integrations/builtin-mount.md){ .md-button }
 
