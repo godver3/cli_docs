@@ -117,7 +117,7 @@ A failed check names the compose line to add or change.
 
 ### After onboarding
 
-For Usenet, pick **Built-in mount** under **Settings → Required Settings → Usenet Mount → Provider**. For debrid only, turn on **Settings → Required Settings → Built-in Mount → Run the built-in mount for debrid**. A **Mount** item then appears in the top menu. Add your news server on its **Settings** tab (Usenet only), then click **Save**. Set **File Management → Original Files Path** to `/mnt/clid/__all__`.
+For Usenet, pick **Built-in mount** under **Settings → Required Settings → Usenet Mount → Provider**. For debrid only, pick **Built-in mount** as the mount tool in onboarding (step 2; to change it later, open `/onboarding/step/2`). Either way, the mount also streams your debrid account: there is no separate switch for it. A **Mount** item then appears in the top menu. Add your news server on its **Settings** tab (Usenet only), then click **Save**. Set **File Management → Original Files Path** to `/mnt/clid/__all__`.
 
 ---
 
@@ -170,8 +170,6 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | Mount | **Mount path** | `/mnt/clid` | Where the engine mounts inside the container |
 | | **Let other users (Plex) read the mount** | On | Needed when Plex runs as another user |
 | | **UID / GID / UMASK** | Container's PUID/PGID | Owner and permissions of the mounted files |
-| Debrid | **Run the built-in mount for debrid (without usenet)** | Off | Runs the mount for a debrid-only setup. Onboarding turns it on when you pick **Built-in mount** as the mount tool |
-| | **Stream debrid torrents through this mount** | On | Mirrors the finished torrents in your debrid account into the mount |
 | WebDAV share | **Share the mount over WebDAV** | Off | A read-only copy of the mount over WebDAV ([below](#webdav-share)) |
 | | **WebDAV port / username / password** | `8284` | The share stays off until a username and password are set |
 | Files | **Allowed file extensions** | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only these files are listed, so `.nfo`, images and archives stay out of your library. Empty lists everything |
