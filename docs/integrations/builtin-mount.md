@@ -189,10 +189,13 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | | **Cache expiry / cleanup interval** | Off / 1 min | Drop cached parts unused for this many hours |
 | Importing & health checks | **Processing connections / timeout** | `8` / 5 min | Used while reading a new NZB's archives. A timeout is retried, never treated as a dead release |
 | | **NZB import availability sample %** | `1` | Share of articles checked before a download counts as added. Only a proven missing article rejects it |
-| | **Repair availability sample %** | Automatic | Share checked by health checks (automatic = 2%, at most 30 per file) |
+| | **Repair availability sample %** | Automatic | Share of each file's articles checked by health checks (automatic = 10%, no cap, the same as cli_mount) |
 | Advanced | **Debug logging** | Off | Logs every debrid link, API call and what each import found. Problems are always logged |
 
-A download is only marked broken when a missing article is proven. Timeouts and connection errors are retried.
+Repair follows cli_mount's rules, so a file is only marked broken on proof. Timeouts, connection errors and rate limits never count.
+
+- **Usenet:** an article missing on every server (during playback or a health check), a video file whose first bytes aren't its container's header, or a download whose saved file map can't be read.
+- **Debrid:** health checks ask the service about each file, the same way cli_mount does: Real-Debrid's link check says 404 or a link fails with error 19, 24 or 35; TorBox no longer has the download; AllDebrid's link info reports an error; Premiumize has no link for the item; a Debrid-Link link answers 404/410; HighWay answers 404; or the torrent no longer has the file. The same answers during playback mark the file at once. cli_debrid's debrid repair then re-adds the torrent or finds another release.
 
 ---
 
