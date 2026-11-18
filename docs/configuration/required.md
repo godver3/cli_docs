@@ -168,7 +168,7 @@ Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newzna
 | Setting | Description |
 |---|---|
 | **Enable Usenet Mount** | Turn on Usenet support |
-| **Provider** | `cli_mount` (recommended), `NzbDAV`, or `Zurg` (Zurg 2.0's SABnzbd-compatible endpoint) |
+| **Provider** | `Built-in mount` (default for new installs), `cli_mount`, `NzbDAV`, or `Zurg` (Zurg 2.0's SABnzbd-compatible endpoint). The built-in mount runs inside cli_debrid: it has no URL or token, and its servers and settings are on the **Mount** page ([Built-in mount](../integrations/builtin-mount.md)) |
 | **Mount URL** | Where cli_debrid reaches the mount, e.g. `http://cli_mount:8282` for cli_mount or `http://nzbdav:3000` for NzbDAV. Use the container name or host IP — **not** `localhost`, which inside the cli_debrid container points at cli_debrid itself. |
 | **API Token** | Only if your provider has authentication enabled |
 | **Fallback Category** | Rarely used. Leave empty for the provider's default. |

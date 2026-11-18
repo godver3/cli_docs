@@ -117,6 +117,7 @@ nav:
     - Updating: installation/updating.md
   - Integrations:
     - integrations/index.md
+    - Built-in mount: integrations/builtin-mount.md
     - Zurg + rclone: integrations/zurg.md
     - Decypharr: integrations/decypharr.md
     - cli_mount: integrations/cli_mount.md

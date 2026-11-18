@@ -13,6 +13,8 @@ CLI_Debrid integrates with a number of external services. Some are required, oth
 
 | Integration | Purpose |
 |---|---|
+| [Built-in mount](builtin-mount.md) | cli_debrid's own mount: streams Usenet and Real-Debrid / Torbox from inside the cli_debrid container |
+| [cli_mount](cli_mount.md) | All-in-one debrid and Usenet mount in its own container |
 | [Zurg + rclone](zurg.md) | Mounts your debrid cloud library as a local filesystem Plex can read |
 | [Decypharr](decypharr.md) | All-in-one debrid client with built-in DFS/rclone mounting and symlink delivery |
 | [Plex](plex.md) | Media server — scans and serves your Debrid library |
