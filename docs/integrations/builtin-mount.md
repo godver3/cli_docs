@@ -138,7 +138,9 @@ The engine's own log is on the **Logs** page (**Mount** tab). While something pl
 
 ### News servers
 
-Servers are tried top to bottom; use the arrows to reorder them. Tick **Backup** for fill or block accounts: they're only asked for an article the others don't have. Leave a password blank to keep the saved one.
+Servers are tried top to bottom; use the arrows to reorder them. When the first server is busy, the next one takes the request, and when every server is busy the request goes to whichever frees a connection first. Tick **Backup** for fill or block accounts: they're only asked for an article the others don't have. Leave a password blank to keep the saved one.
+
+**Backbone** (optional): servers that share an article store, such as two Omicron providers, get the same backbone name (e.g. `omicron`). When one of them says an article is missing, the others on that backbone aren't asked, because they'd give the same answer. **Migrate → Import** copies the backbones from cli_mount's settings.
 
 ### Mount layout
 
@@ -152,6 +154,8 @@ Servers are tried top to bottom; use the arrows to reorder them. Tick **Backup**
   realdebrid/   ← one folder per debrid service (alldebrid/, torbox/, premiumize/, debridlink/, highway/)
   __bad__/      ← downloads with a broken file
 ```
+
+**Extras.** In a movie download, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). In Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
 
 ### Virtual folders
 
@@ -174,15 +178,21 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | | **WebDAV port / username / password** | `8284` | The share stays off until a username and password are set |
 | Files | **Allowed file extensions** | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only these files are listed, so `.nfo`, images and archives stay out of your library. Empty lists everything |
 | | **Deobfuscate mode** | Season/Episode | How new NZB imports name video files whose real name couldn't be found: `S01E01`-style, `Name - 01`, or off |
-| Streaming | **Read ahead (MB)** | `16` | Fetched ahead of playback |
+| Media servers | **Plex URL / token** | cli_debrid's Plex | Used for stream protection, show precache and Now playing. **Test Plex** checks them |
+| | **Jellyfin / Emby URL / API key** | Empty | The same for Jellyfin or Emby, next to or instead of Plex |
+| Streaming | **Read ahead (MB)** | `16` | Fetched ahead of playback. A reader that jumps around the file (thumbnails, intro and credit detection) gets only what its own reading earns, so scans don't fill your line |
 | | **Max connections per file** | `15` | Downloads at once for one playing file |
 | | **Pre-cache on open (MB)** | `2` | Start and end of a file fetched the moment a player opens it, so playback starts sooner |
 | | **Warm connections per server** | `2` | Kept logged in ahead of time (backups excluded) |
-| | **Playback connection reserve %** | `10` | Share of each server's connections only playback may use |
-| | **Plex playback protection** | On | The reserve only goes to files Plex reports playing, so library scans and thumbnails can't take it while someone watches. Needs your Plex URL and token |
+| | **Playback connection reserve %** | `11` | Share of each server's connections only playback may use, between **Reserve at least** (`6`) and **Reserve at most** (`100`) connections |
+| | **Stream protection** | On | The reserve only goes to files your media servers report playing, so library scans, thumbnails, intro detection and Bazarr can't take it while someone watches |
 | | **Buffer memory (MB)** | `512` | RAM for downloaded parts across all open files |
 | | **Connection idle timeout** | 5 min | Unused connections are closed after this |
-| Plex next-episode prewarm | **Prewarm the next episode while one plays** | On | Once an episode is 70% watched, the start of the next one (20%, at most 256 MB) is fetched so it starts instantly |
+| | **Show precache** | On | Once an episode is 70% watched (**Start at**), the start of the next one (**Fetch** 20%, at most 256 MB) is fetched so it starts instantly |
+| Debrid streaming | **Range size / connections per file / read ahead** | `8` MB / `4` / `32` MB | How debrid files are downloaded while they play |
+| | **Account sync interval** | 30 s | How often the debrid accounts are listed (new torrents appear within this time) |
+| | **Link lifetime (hours)** | `0` (the service's own) | How long a download link is reused before a new one is made |
+| | **Extra download API keys / Proxy / User-Agent** | Empty | Real-Debrid keys used when the main key hits a limit, a proxy for downloads, and the User-Agent sent |
 | Disk cache | **Cache directory / size** | `/user/cache/engine`, 50 GB | Use a folder of its own: the engine deletes files in it |
 | | **Cache expiry / cleanup interval** | Off / 1 min | Drop cached parts unused for this many hours |
 | Importing & health checks | **Processing connections / timeout** | `8` / 5 min | Used while reading a new NZB's archives. A timeout is retried, never treated as a dead release |
@@ -200,9 +210,9 @@ Repair follows cli_mount's rules, so a file is only marked broken on proof. Time
 
 ## Debrid streaming
 
-Every two minutes the mount lists the finished torrents in your debrid account, adds new ones to `__all__/` and to the service's own folder, and removes ones that are gone from the account. An empty listing never empties the mount.
+Every 30 seconds (**Account sync interval**) the mount lists the finished torrents in your debrid account, adds new ones to `__all__/` and to the service's own folder, and removes ones that are gone from the account. An empty listing never empties the mount.
 
-Download links are created when a file is first read and kept until they expire, also across restarts (AllDebrid: 48 hours). That matters for **AllDebrid**, which suspends accounts that create many links without downloading. Real-Debrid packs a torrent into one archive link when it can't serve the files one by one; those torrents stay out of the mount.
+Download links are created when a file is first read and kept until they expire, also across restarts (AllDebrid: 48 hours). A busy service (HTTP 429 or 5xx) is waited out on the same link rather than asking for a new one, and a download that stops sending data for 30 seconds is restarted. Links come from cli_debrid itself: while its web app restarts, files already playing keep going, and a file opened in that window waits for it (up to 90 seconds) instead of failing. That matters for **AllDebrid**, which suspends accounts that create many links without downloading. Real-Debrid packs a torrent into one archive link when it can't serve the files one by one; those torrents stay out of the mount.
 
 ---
 
@@ -246,6 +256,10 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 
 **A subtitle couldn't be saved.** Only subtitle files can be written into the mount, and only into a download's folder. The engine has to be running.
 
+**Playback stutters or a read fails on Usenet.** A read that fails without proof (a timeout, a dropped connection, `502 Too many connections`) is tried again for up to 45 seconds before the player gets an error. A server whose copy of an article is the wrong one (a reused Message-ID) is skipped and the next server is asked. Neither marks the file broken: only an article missing or short on every server does.
+
+**Sharing logs for help.** **Logs → Mount → Share Mount Logs** uploads the engine log with a snapshot at the top: engine stats (goroutines, memory, connections, caches, debrid), open streams, and your Mount settings with every password, token and key replaced by `(set)`.
+
 **A news server shows errors on the Overview tab.** Hover the error count for the last error. `authentication failed` means a wrong username or password; a timeout usually means a wrong port or SSL setting.
 
-**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; cli_debrid's repair finds another one. Compressed archives can't be streamed by any mount. Password-protected RAR5 and 7z archives stream when the NZB carries the password (indexers put it in the NZB as `<meta type="password">`; a `{{password}}` at the end of the download's name works too). `password needed` or `wrong password` fails the download so repair tries another release. Encrypted RAR4 archives aren't supported.
+**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; cli_debrid's repair finds another one. RAR, 7z and ZIP sets stream when their files are stored (not compressed), including split and spanned sets (`.zip.001`, `.z01`); compressed archives can't be streamed by any mount. Password-protected RAR5 and 7z archives stream when the NZB carries the password (indexers put it in the NZB as `<meta type="password">`; a `{{password}}` at the end of the download's name works too). `password needed` or `wrong password` fails the download so repair tries another release. Encrypted RAR4 archives aren't supported.
