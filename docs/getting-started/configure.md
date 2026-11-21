@@ -21,7 +21,7 @@ The wizard runs automatically on first launch. If you leave partway through, log
 | **3a. Versions** | The **Default** version (1080p) is added for you. Keep it, or switch to **Separate 1080p/4K Versions** or **Alternate Default Versions** |
 | **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
 | **5. Library management** | Optionally scan or convert an existing library |
-| **6. Review & start** | A summary of your setup, a health check of every connection, optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
+| **6. Review & start** | A summary of your setup, a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
 
 Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
 
@@ -46,7 +46,23 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     | Field | Value |
     |---|---|
-    | **Usenet Mount** | **cli_mount** (recommended), **NzbDAV** or **Zurg 2.0** |
+    | **Usenet Mount** | **Built-in mount** (default), **cli_mount**, **NzbDAV** or **Zurg 2.0** |
+
+    **Built-in mount:** the wizard asks for your news server instead of a URL:
+
+    | Field | Value |
+    |---|---|
+    | **Usenet server** | Your provider's news server, e.g. `news.example.com` (not your indexer) |
+    | **Port / SSL** | Usually `563` with SSL on |
+    | **Connections** | What your plan allows; leave a few free if you also download elsewhere |
+    | **Username / Password** | Your news server login |
+
+    **Save & Validate** starts the mount and checks the login. Add more servers (backup or block accounts) later on the **Mount** page. See [Built-in mount](../integrations/builtin-mount.md).
+
+    **cli_mount, NzbDAV or Zurg 2.0:**
+
+    | Field | Value |
+    |---|---|
     | **Mount URL** | cli_mount: `http://192.168.1.x:8282`, or `http://cli_mount:8282` in the [one-stack compose](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack). NzbDAV: port `3000`. Zurg 2.0: its own address. **Detect** looks for it and fills the field in when it finds exactly one |
     | **API Token (optional)** / **SABnzbd API Key** | cli_mount: only if you turned on authentication, otherwise leave blank. NzbDAV/Zurg: the SABnzbd API key |
 
@@ -54,7 +70,7 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     Use the server's IP or container name, **not** `localhost` — inside the cli_debrid container that points at cli_debrid itself.
 
-    Your news server login lives in cli_mount ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
+    With these, your news server login lives in the mount app ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
 
     After onboarding, **Settings → Required Settings → Usenet Mount** has more options:
 
@@ -89,8 +105,8 @@ cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.
 
 | Field | Value |
 |---|---|
-| **Mount tool** | The tool you set up. It only picks the example path shown under the field |
-| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
+| **Mount tool** | The tool you set up. It picks the example path shown under the field. **Built-in mount** (the default when the container can run it) also fills in its path, `/mnt/clid/__all__`, and runs the mount for debrid even without Usenet |
+| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/clid/__all__`, `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
 
 Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.
 

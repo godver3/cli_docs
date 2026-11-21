@@ -7,19 +7,33 @@ icon: material/harddisk
 
 Before cli_debrid can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.
 
-Three tools handle this:
+These tools handle this:
 
 | Tool | Debrid | Usenet | Notes |
 |---|---|---|---|
-| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | **Recommended.** All-in-one, built alongside cli_debrid |
+| **Built-in mount** | Real-Debrid, AllDebrid, Torbox, Premiumize, Debrid-Link, HighWay | ✓ | **Default.** Runs inside cli_debrid, no extra container |
+| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | All-in-one in its own container, built alongside cli_debrid |
 | **Decypharr** | Real-Debrid, AllDebrid, Torbox, Premiumize | | The original project cli_mount is forked from |
 | **Zurg + rclone** | Real-Debrid, AllDebrid, Debrid-Link | ✓ (Zurg 2.0) | Long-standing, well-tested Real-Debrid setup |
 
-Choose one. **cli_mount is recommended** — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
+Choose one:
+
+- **Most setups** (Usenet, debrid, or both): the **built-in mount**. Nothing to install here; you set it up in [Step 4](configure.md).
+- **A separate mount container**, or a host where cli_debrid can't get FUSE access: **cli_mount** — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
 
 ---
 
-## Option A — cli_mount (recommended)
+## Option A — Built-in mount
+
+cli_debrid's own mount engine runs inside the cli_debrid container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in [Step 3](install.md).
+
+Full guide: [:octicons-arrow-right-24: Built-in mount](../integrations/builtin-mount.md){ .md-button }
+
+Skip ahead to [Step 3](install.md); the mount appears once cli_debrid runs.
+
+---
+
+## Option B — cli_mount
 
 cli_mount mounts your debrid library and streams Usenet NZBs from your news server, all in one container. It's a fork of [Decypharr](https://github.com/sirrobot01/decypharr) maintained by mash2k3 ([source](https://github.com/mash2k3/decypharr/tree/dev)).
 
@@ -41,7 +55,7 @@ Note the path and the cli_mount URL (`http://YOUR_SERVER_IP:8282`) — you'll ne
 
 ---
 
-## Option B — Decypharr
+## Option C — Decypharr
 
 Decypharr is an all-in-one debrid mount tool that also handles symlink management and supports multiple debrid providers.
 
@@ -49,7 +63,7 @@ Full setup guide: [:octicons-arrow-right-24: Decypharr](../integrations/decyphar
 
 ---
 
-## Option C — Zurg + rclone
+## Option D — Zurg + rclone
 
 Zurg exposes your debrid library as a WebDAV server. rclone mounts it as a local filesystem.
 
@@ -72,6 +86,12 @@ Note the path — you'll need it in the next step.
 
 Before proceeding, confirm the mount is working by listing your mount path:
 
+=== "Built-in mount"
+    Check this after Step 4, once cli_debrid runs:
+    ```bash
+    ls /path/to/clid
+    ```
+
 === "cli_mount"
     ```bash
     ls /path/to/debrid
@@ -87,7 +107,7 @@ Before proceeding, confirm the mount is working by listing your mount path:
     ls /mnt/zurg/__all__
     ```
 
-You should see your files listed (a new Usenet-only setup will be empty until the first NZB is added). If the command fails or the command fails, fix the mount before continuing.
+You should see your files listed (a new Usenet-only setup will be empty until the first NZB is added). If the command fails, fix the mount before continuing.
 
 !!! warning "Mount must be working before installing cli_debrid"
     cli_debrid needs to be able to read the mount path at startup. If the mount isn't working, cli_debrid won't be able to verify files exist.

@@ -560,33 +560,35 @@ A working cli_mount + cli_debrid setup using **symlink mode**, with Real-Debrid 
 
 ---
 
-## Plex page
+## Media servers page
 
-cli_mount's **Plex** page (in the main menu) connects cli_mount to your Plex server. It reads Plex's own list of what's playing (`/status/sessions`), so only real Plex viewers count — library scans, Bazarr, cli_debrid's checks and repairs don't. It powers two features, both optional.
+cli_mount's **Media servers** page (in the main menu; called **Plex** before 2.5.21) connects cli_mount to Plex and/or Jellyfin or Emby. It reads each server's own list of what's playing, so only real viewers count — library scans, Bazarr, cli_debrid's checks and repairs don't. It powers two features, both optional.
 
-**Plex connection**
+**Connections**
 
 | Setting | Description |
 |---|---|
 | **Plex Server URL** | Must be reachable *from cli_mount* (not necessarily from your browser), e.g. `http://192.168.1.x:32400` |
 | **Plex Token** | Your Plex token — [how to find it](../getting-started/configure.md#finding-your-plex-token) |
+| **Jellyfin or Emby Server URL** | Optional, next to Plex or instead of it: sessions of every server are used |
+| **Jellyfin / Emby API key** | Dashboard → API Keys (Jellyfin) or Settings → API Keys (Emby) |
 
-### Next-episode prewarm
+### Show precache
 
-When someone watching in Plex passes about **70%** of an episode, cli_mount fetches the first ~20% of the next episode into the cache, so it starts quickly if they keep watching.
+Called *next-episode prewarm* before 2.5.21. When someone watching passes about **70%** of an episode, cli_mount fetches the first ~20% of the next episode into the cache, so it starts quickly if they keep watching.
 
 | Setting | Description |
 |---|---|
-| **Enable next-episode prewarm** | Off by default. Uses extra bandwidth and cache space, which only pays off if people keep watching. |
-| **Prewarm size cap** | Max bytes fetched per prewarm. Blank = 256MB. |
+| **Enable show precache** | Off by default. Uses extra bandwidth and cache space, which only pays off if people keep watching. |
+| **Precache size cap** | Max bytes fetched per precache. Blank = 256MB. |
 
-### Playback protection (Usenet)
+### Stream protection (Usenet)
 
 Reserves Usenet (NNTP) connections for people actually watching while bulk imports are running, so a big batch of new downloads doesn't make active streams buffer. When nothing is importing, playback uses the full pool.
 
 | Setting | Description |
 |---|---|
-| **Protect Plex streams during playback** | Turns protection on. Needs the Plex URL and token above — without them it does nothing. |
+| **Protect media server streams during playback** | Turns protection on. Needs a media server connection above — without one it does nothing. |
 | **Per-stream reserve (% of pool)** | Connections reserved per confirmed Plex stream: `round(total × percent ÷ 100)`, minimum 6 |
 | **Max total protected** | Upper limit on connections reserved across all streams |
 | **Detect bytes** / **Detect window** | How much sustained reading within the window counts as playback before the reserve kicks in |
@@ -594,7 +596,15 @@ Reserves Usenet (NNTP) connections for people actually watching while bulk impor
 | **Pre-cache on open** | Starts caching a file as soon as it's opened; throttled to the background budget while protection is active |
 
 !!! tip
-    Playback protection only affects **Usenet** streams. For debrid-only setups, only next-episode prewarm applies.
+    Stream protection only affects **Usenet** streams. For debrid-only setups, only show precache applies.
+
+### Extras in movie folders (2.5.22)
+
+In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
+
+### Broken files are only marked on proof (2.5.22)
+
+A failed playback read marks a Usenet file broken only when the articles are missing (or short) on every provider. A read that failed for another reason (a timeout, a dropped connection, retries used up) no longer sends the file to cli_debrid's repair. The repair sweep's media probe still catches files that really don't play.
 
 ---
 
