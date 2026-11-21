@@ -230,7 +230,7 @@ The **Migrate from cli_mount** tab moves a cli_mount library into the built-in m
 
 1. Set your news servers on the **Settings** tab.
 2. **Start alongside**: the built-in mount starts on its own path (e.g. `/mnt/clid`) while cli_mount keeps serving.
-3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again. Encrypted archives can't be imported.
+3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again.
 4. **Compare 10 files**: reads random files through both mounts and compares them.
 5. Stop the cli_mount container, then **Switch to the built-in mount**: it takes over cli_mount's mount path, so your symlinks and Plex keep working, and becomes the Usenet mount. cli_debrid needs `/dev/fuse`, `SYS_ADMIN` and cli_mount's mount folder bound with `rshared`.
 
@@ -248,4 +248,4 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 
 **A news server shows errors on the Overview tab.** Hover the error count for the last error. `authentication failed` means a wrong username or password; a timeout usually means a wrong port or SSL setting.
 
-**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; cli_debrid's repair finds another one. Compressed or encrypted archives can't be streamed by any mount.
+**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; cli_debrid's repair finds another one. Compressed archives can't be streamed by any mount. Password-protected RAR5 and 7z archives stream when the NZB carries the password (indexers put it in the NZB as `<meta type="password">`; a `{{password}}` at the end of the download's name works too). `password needed` or `wrong password` fails the download so repair tries another release. Encrypted RAR4 archives aren't supported.
