@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
     
     
       
@@ -1445,6 +1445,8 @@
       
         
       
+        
+      
     
     
     
@@ -1501,6 +1503,36 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix="">
             
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrations/builtin-mount/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a1 1 0 1 0 1 1 1 1 0 0 0-1-1m0 0a1 1 0 1 0 1 1 1 1 0 0 0-1-1m6-7H6a2 2 0 0 0-2 2v9.09A5.5 5.5 0 0 1 5 13a5.7 5.7 0 0 1 2 .36 6 6 0 1 1 8.71 1.33l-1.92-2.42a1 1 0 0 0-1.37-.37l-.86.5a1 1 0 0 0-.37 1.37L12.1 16a6.1 6.1 0 0 1-2.1-.38 6 6 0 0 1 .19 6.38H18a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m-3.42 17.58-2.49-6.31.86-.5 4.22 5.31M12 11a1 1 0 1 0-1-1 1 1 0 0 0 1 1m-3 9H6v3H4v-3H1v-2h3v-3h2v3h3Z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Built-in mount
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
               
             
               
@@ -3628,7 +3660,7 @@
 </tr>
 <tr>
 <td><strong>6. Review &amp; start</strong></td>
-<td>A summary of your setup, a health check of every connection, optional <strong>Simple</strong> poster overlays, then <strong>Start Program &amp; Go to Dashboard</strong> (or <strong>Finish Setup</strong> to look around before starting)</td>
+<td>A summary of your setup, a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional <strong>Simple</strong> poster overlays, then <strong>Start Program &amp; Go to Dashboard</strong> (or <strong>Finish Setup</strong> to look around before starting)</td>
 </tr>
 </tbody>
 </table>
@@ -3671,8 +3703,47 @@
 <tbody>
 <tr>
 <td><strong>Usenet Mount</strong></td>
-<td><strong>cli_mount</strong> (recommended), <strong>NzbDAV</strong> or <strong>Zurg 2.0</strong></td>
+<td><strong>Built-in mount</strong> (default), <strong>cli_mount</strong>, <strong>NzbDAV</strong> or <strong>Zurg 2.0</strong></td>
 </tr>
+</tbody>
+</table>
+<p><strong>Built-in mount:</strong> the wizard asks for your news server instead of a URL:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usenet server</strong></td>
+<td>Your provider's news server, e.g. <code>news.example.com</code> (not your indexer)</td>
+</tr>
+<tr>
+<td><strong>Port / SSL</strong></td>
+<td>Usually <code>563</code> with SSL on</td>
+</tr>
+<tr>
+<td><strong>Connections</strong></td>
+<td>What your plan allows; leave a few free if you also download elsewhere</td>
+</tr>
+<tr>
+<td><strong>Username / Password</strong></td>
+<td>Your news server login</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Save &amp; Validate</strong> starts the mount and checks the login. Add more servers (backup or block accounts) later on the <strong>Mount</strong> page. See <a href="../../integrations/builtin-mount/">Built-in mount</a>.</p>
+<p><strong>cli_mount, NzbDAV or Zurg 2.0:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><strong>Mount URL</strong></td>
 <td>cli_mount: <code>http://192.168.1.x:8282</code>, or <code>http://cli_mount:8282</code> in the <a href="../../installation/docker/#recommended-cli_debrid-and-cli_mount-in-one-stack">one-stack compose</a>. NzbDAV: port <code>3000</code>. Zurg 2.0: its own address. <strong>Detect</strong> looks for it and fills the field in when it finds exactly one</td>
@@ -3685,7 +3756,7 @@
 </table>
 <p>Click <strong>Test connection</strong> to check the URL and token before moving on. If you pick NzbDAV, the wizard also shows the NzbDAV setup helper.</p>
 <p>Use the server's IP or container name, <strong>not</strong> <code>localhost</code> — inside the cli_debrid container that points at cli_debrid itself.</p>
-<p>Your news server login lives in cli_mount (<a href="../mount/">Step 2</a>), not in cli_debrid. To find content you'll also add your indexers as <strong>Newznab</strong> scrapers in <a href="../scrapers/">Step 5</a>.</p>
+<p>With these, your news server login lives in the mount app (<a href="../mount/">Step 2</a>), not in cli_debrid. To find content you'll also add your indexers as <strong>Newznab</strong> scrapers in <a href="../scrapers/">Step 5</a>.</p>
 <p>After onboarding, <strong>Settings → Required Settings → Usenet Mount</strong> has more options:</p>
 <table>
 <thead>
@@ -3758,11 +3829,11 @@
 <tbody>
 <tr>
 <td><strong>Mount tool</strong></td>
-<td>The tool you set up. It only picks the example path shown under the field</td>
+<td>The tool you set up. It picks the example path shown under the field. <strong>Built-in mount</strong> (the default when the container can run it) also fills in its path, <code>/mnt/clid/__all__</code>, and runs the mount for debrid even without Usenet</td>
 </tr>
 <tr>
 <td><strong>Mount Path</strong></td>
-<td>The folder as cli_debrid sees it inside its container, e.g. <code>/mnt/cli_mount/__all__</code>, <code>/mnt/zurg/__all__</code> or <code>/mnt/decypharr/__all__</code></td>
+<td>The folder as cli_debrid sees it inside its container, e.g. <code>/mnt/clid/__all__</code>, <code>/mnt/cli_mount/__all__</code>, <code>/mnt/zurg/__all__</code> or <code>/mnt/decypharr/__all__</code></td>
 </tr>
 </tbody>
 </table>
