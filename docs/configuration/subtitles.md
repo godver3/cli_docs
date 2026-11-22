@@ -36,7 +36,6 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | Setting | Default | Description |
 |---|---|---|
 | **Enable Subtitle Downloads** | Off | Download subtitles when an item is collected |
-| **Download Automatically For** | All | Movies, TV episodes, anime movies, anime episodes. Anime only counts separately when separate anime folders are on. Searches you start in the Subtitle Manager always run. |
 | **OpenSubtitles Username / Password** | — | Your free [OpenSubtitles.com](https://www.opensubtitles.com/en/users/sign_up) account. Searching works without one, but **downloading needs it**. A free account can download about 20 subtitles a day. |
 | **Subtitle Languages** | `eng,zho` | The languages you want. Pick them from the list. |
 | **Subtitle Providers** | OpenSubtitles.com, Podnapisi, Gestdown, TVsubtitles | Every selected provider is searched. See [Providers](#providers). |
