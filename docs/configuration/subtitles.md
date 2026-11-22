@@ -76,6 +76,15 @@ When a provider runs out of downloads or its login fails, it's paused (6 hours f
 | **Delete** (item details) | Remove a subtitle: a sidecar file, or a subtitle uploaded to Plex. Embedded tracks inside the video are never touched. |
 | **History** tab | What was downloaded, from which provider, with which score |
 
+### Remove orphaned subtitles
+
+Symlinked/Local only. When a file is replaced, upgraded or repaired, its old subtitle files can stay in the folder. Plex may still offer them for that movie or episode, and sometimes picks one. **Remove orphaned subtitles** scans your library for subtitle files named after a video that's no longer in their folder, shows how many there are with examples, and deletes them permanently once you type `DELETE`.
+
+!!! danger "Permanent"
+    Deleted files can't be recovered. Only separate subtitle files are removed. Subtitles inside your videos, subtitles that came with a release, and the subtitles of videos still in the folder (including ones the Subtitle Manager added) are never touched. A leftover that was still right for a renamed file is removed too; search again for that item afterwards.
+
+Deleting an item from cli_debrid always removes its own subtitle files with it.
+
 Searches and fixes run in the background with their own progress and **Stop** button.
 
 The **Bulk subtitles** task on the [Automation](../features/automation.md) page (off by default) searches up to 200 items an hour that are missing a language. Items searched in the last 24 hours without a result are skipped.
