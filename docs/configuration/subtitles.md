@@ -42,8 +42,6 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **SubDL API Key** | — | Free key from [subdl.com](https://subdl.com) → account → API. Add **subdl** to the providers to use it. |
 | **SubSource API Key** | — | Free key from [subsource.net](https://subsource.net) → profile → API. Add **subsource** to the providers to use it. |
 | **Avoid Transcoding Formats** | Off | Styled ASS/SSA and image (PGS/VobSub) subtitles make most clients transcode. On: downloaded ASS/SSA is converted to plain SRT, and an embedded image or styled track doesn't count as having that language. |
-| **Sync Subtitles** | Off | Check the timing of a downloaded subtitle against the file's own embedded text subtitle track, when it has one. **Unless matched by hash or release** skips subtitles made for this release. It reads a few short parts of the file, so a bulk run that syncs waits while something is playing. |
-| **Sync Max Offset (s)** | 60 | Largest timing shift sync looks for, each way |
 | **Ignore Embedded Subtitles** | Off | Always download a separate subtitle, even when the file has a good embedded track in that language |
 | **Probe for Embedded Subtitles** | Off | Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Plex mode it uses Plex's own track list. |
 
@@ -75,7 +73,7 @@ When a provider runs out of downloads or its login fails, it's paused (6 hours f
 | **Search all missing** | The same for everything matching the search box and filters. Use it after turning subtitles on for an existing library. |
 | **Fix existing subtitles** | For each subtitle you already have: replace it with one made for this release (file hash, same release group, or same Blu-ray/WEB source) when a provider has one, else keep it. Only the file's 64 KB hash is read. |
 | **Search providers** (item details) | List every candidate with its score and why it matched, and pick one by hand. **Auto-pick best** takes the top one. |
-| **Sync** / **Delete** (item details) | Re-time one subtitle against the file, or remove it (a sidecar file, or a subtitle uploaded to Plex) |
+| **Delete** (item details) | Remove a subtitle: a sidecar file, or a subtitle uploaded to Plex. Embedded tracks inside the video are never touched. |
 | **History** tab | What was downloaded, from which provider, with which score |
 
 Searches and fixes run in the background with their own progress and **Stop** button.
@@ -88,7 +86,7 @@ The **Bulk subtitles** task on the [Automation](../features/automation.md) page 
 
 ### Moving from Bazarr
 
-**Subtitle Manager → Import from Bazarr** copies Bazarr's languages, providers, OpenSubtitles.com login, embedded-subtitle and sync settings into Subtitle Settings. Subtitles Bazarr already synced or matched are marked as checked, so **Fix existing subtitles** leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than `localhost`.
+**Subtitle Manager → Import from Bazarr** copies Bazarr's languages, providers, OpenSubtitles.com login and embedded-subtitle settings into Subtitle Settings. Bazarr's subsync isn't copied: cli_debrid doesn't re-time subtitles, it picks ones made for your release. Subtitles Bazarr already synced or matched are marked as checked, so **Fix existing subtitles** leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than `localhost`.
 
 ### Keeping Bazarr
 
