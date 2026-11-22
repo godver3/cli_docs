@@ -21,7 +21,8 @@ The wizard runs automatically on first launch. If you leave partway through, log
 | **3a. Versions** | The **Default** version (1080p) is added for you. Keep it, or switch to **Separate 1080p/4K Versions** or **Alternate Default Versions** |
 | **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
 | **5. Library management** | Optionally scan or convert an existing library |
-| **6. Review & start** | A summary of your setup, a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
+| **5a. Subtitles** (optional) | How cli_debrid handles subtitles, and whether it should. Choose **Yes** to set your languages, your OpenSubtitles.com login and optional SubDL/SubSource API keys, each with a **Test** button. Choose **No**, or just move on, to skip. See [Subtitles](../configuration/subtitles.md). |
+| **6. Review & start** | A summary of your setup (including whether subtitles are on), a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
 
 Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
 
