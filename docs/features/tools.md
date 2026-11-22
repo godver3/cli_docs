@@ -47,7 +47,7 @@ The page has six tabs: **Library**, **Queues & tasks**, **Symlinks**, **Plex Lab
 
 ### Bulk Subtitle Scan
 
-**What it does:** Scans your symlinked library for missing subtitles and downloads them, using the settings under **Settings → Subtitles**.
+**What it does:** Searches subtitles for every collected item missing a language, in both file management modes, using **Settings → Subtitles**. It runs on the same queue as **Search all missing** in the [Subtitle Manager](../configuration/subtitles.md#subtitle-manager), and the progress shows there.
 
 **When to use:** You turned subtitles on after building your library, or added languages.
 
@@ -236,6 +236,8 @@ Links to tools that have a page of their own:
 | Create a Symlink | Make a single symlink by hand |
 | Metadata Lookup | See the metadata stored for a title |
 | [Overlays](overlays.md) | Design the badges drawn on your posters |
+| [Subtitle Manager](../configuration/subtitles.md#subtitle-manager) | See which items are missing subtitles, search providers and pick one by hand, fix existing subtitles, import from Bazarr |
+| [Upgrade Hub](upgrade-hub.md) | Find collected items with a much better release available and queue upgrades |
 | Trakt Friends | Link friends' Trakt accounts |
 | Plex User Tokens | Collect Plex tokens for friends' watchlists |
 

@@ -7,6 +7,8 @@ icon: material/arrow-up-bold
 
 The Upgrade Hub scans your collected library and identifies items where a significantly better quality version is available — then lets you review and queue them for upgrade in bulk.
 
+Open it from **Tools → Upgrade Hub**.
+
 !!! warning "Beta feature"
     The Upgrade Hub is in beta. Verify suggestions before queuing and report issues on Discord.
 
