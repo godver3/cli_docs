@@ -4082,7 +4082,7 @@
 3. Select the <strong>Propagated Version</strong> (what to change them to)
 4. Click <strong>Propagate Version</strong></p>
 <h3 id="bulk-subtitle-scan">Bulk Subtitle Scan<a class="headerlink" href="#bulk-subtitle-scan" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Scans your symlinked library for missing subtitles and downloads them, using the settings under <strong>Settings → Subtitles</strong>.</p>
+<p><strong>What it does:</strong> Searches subtitles for every collected item missing a language, in both file management modes, using <strong>Settings → Subtitles</strong>. It runs on the same queue as <strong>Search all missing</strong> in the <a href="../../configuration/subtitles/#subtitle-manager">Subtitle Manager</a>, and the progress shows there.</p>
 <p><strong>When to use:</strong> You turned subtitles on after building your library, or added languages.</p>
 <h3 id="direct-embyjellyfin-scan">Direct Emby/Jellyfin Scan<a class="headerlink" href="#direct-embyjellyfin-scan" title="Permanent link">¶</a></h3>
 <p><strong>What it does:</strong> Triggers a full library scan on your Emby or Jellyfin server and imports any new items into the database.</p>
@@ -4253,6 +4253,14 @@
 <tr>
 <td><a href="../overlays/">Overlays</a></td>
 <td>Design the badges drawn on your posters</td>
+</tr>
+<tr>
+<td><a href="../../configuration/subtitles/#subtitle-manager">Subtitle Manager</a></td>
+<td>See which items are missing subtitles, search providers and pick one by hand, fix existing subtitles, import from Bazarr</td>
+</tr>
+<tr>
+<td><a href="../upgrade-hub/">Upgrade Hub</a></td>
+<td>Find collected items with a much better release available and queue upgrades</td>
 </tr>
 <tr>
 <td>Trakt Friends</td>
