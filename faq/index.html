@@ -3700,6 +3700,13 @@
 <li>If you migrated from Kometa/PMM, use <strong>Reset All Posters</strong> first to clear foreign overlays</li>
 </ul>
 <hr>
+<p><strong>Old overlay posters aren't being cleaned up / Plex's data folder keeps growing</strong></p>
+<p>Click 👁 on the <strong>Cleaned Up</strong> card on the Overlays page. It says what's wrong. Usually it's one of two things:</p>
+<ul>
+<li><strong>Media Server Data Path</strong> doesn't point at the folder that contains Plex's <code>Metadata</code> folder (often one level too high). Overlay Settings offers the right folder.</li>
+<li>cli_debrid isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time <code>setfacl</code> command from <a href="../features/overlays/#poster-cleanup">Poster cleanup</a>.</li>
+</ul>
+<hr>
 <p><strong>Plex labels show "Unknown" instead of requester names</strong></p>
 <p>Run <strong>Rebuild Plex labels (recent)</strong> (or <strong>(all)</strong>) with <strong>Run now</strong> on the <a href="../features/automation/">Automation</a> page, One-time fixes group in Advanced view. It fills in the requester names from Seerr, then syncs the labels.</p>
 <hr>

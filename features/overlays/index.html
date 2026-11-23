@@ -2861,6 +2861,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#poster-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster cleanup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poster cleanup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mount-plexs-data-folder-and-set-the-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Mount Plex's data folder and set the path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-make-sure-cli_debrid-may-delete-there" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Make sure cli_debrid may delete there
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-preview-then-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Preview, then run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#top-level-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3559,6 +3609,56 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#poster-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Poster cleanup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Poster cleanup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-mount-plexs-data-folder-and-set-the-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Mount Plex's data folder and set the path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-make-sure-cli_debrid-may-delete-there" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Make sure cli_debrid may delete there
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-preview-then-run-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Preview, then run it
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#top-level-actions" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3689,11 +3789,15 @@
 </tr>
 <tr>
 <td><strong>Cleaned Up</strong></td>
-<td>Disk space reclaimed from old overlay files. Click ↺ to reset the counter.</td>
+<td>Old overlay posters deleted by the <a href="#poster-cleanup">poster cleanup</a> and the space freed. Click 👁 to preview what the next cleanup would delete (nothing is deleted). Turns orange when cleanup can't do its job: a data path without Plex's Metadata folder, or no permission to delete. Click ↺ to reset the counter.</td>
 </tr>
 <tr>
 <td><strong>Failed</strong></td>
 <td>Items where overlay generation failed — click to filter. Click ↺ to retry all.</td>
+</tr>
+<tr>
+<td><strong>Last Sync</strong></td>
+<td>When the overlay sync last ran, how many overlays it rendered, and how many existing overlays it sent back for a re-render (hover for quality / content / poster). Turns orange if it keeps re-rendering the same posters sync after sync, which means something is wrong: check the logs.</td>
 </tr>
 <tr>
 <td><strong>Backup Size</strong></td>
@@ -4104,8 +4208,8 @@
 </tr>
 <tr>
 <td><strong>Media Server Data Path</strong></td>
-<td><code>/plex_data</code></td>
-<td>Path to the Plex Media Server data directory. Required for the poster cleanup task to delete old uploaded overlay versions directly from the filesystem.</td>
+<td>—</td>
+<td>Plex's data folder as cli_debrid sees it: the folder that contains Plex's <code>Metadata</code> folder (e.g. <code>/plex_data</code> with the mount from the install guides). Only used by the <a href="#poster-cleanup">poster cleanup</a>. The modal checks it when you save and offers the right folder if it's one level off.</td>
 </tr>
 <tr>
 <td><strong>Ratings Check Interval (days)</strong></td>
@@ -4139,6 +4243,57 @@
 </tr>
 </tbody>
 </table>
+<hr>
+<h2 id="poster-cleanup">Poster cleanup<a class="headerlink" href="#poster-cleanup" title="Permanent link">¶</a></h2>
+<p>Every time an overlay is re-rendered, Plex keeps the previous version of the poster on disk. Over months this adds up to gigabytes. The <strong>Poster overlay cleanup</strong> task deletes those old versions.</p>
+<p>It only deletes uploaded posters that Plex reports as <strong>not selected</strong>, on items cli_debrid has overlaid. Posters you or other tools (Kometa, PMM) uploaded to other items are never touched, and neither is any poster Plex is currently showing.</p>
+<h3 id="1-mount-plexs-data-folder-and-set-the-path">1. Mount Plex's data folder and set the path<a class="headerlink" href="#1-mount-plexs-data-folder-and-set-the-path" title="Permanent link">¶</a></h3>
+<p>cli_debrid needs to reach Plex's data folder. The install guides mount it at <code>/plex_data</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">volumes</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/plex/Library/Application Support/Plex Media Server:/plex_data</span>
+</code></pre></div>
+<p>Then set <strong>Media Server Data Path</strong> to <code>/plex_data</code> in Overlay Settings. Don't mount it read-only (<code>:ro</code>): cleanup has to delete files.</p>
+<p>The path must point at the folder that <strong>contains <code>Metadata</code></strong>. A common mistake is one level too high: mounting <code>/var/lib/plexmediaserver</code> and setting the path to <code>/var/lib/plexmediaserver/Library</code>. The right path there is <code>/var/lib/plexmediaserver/Library/Application Support/Plex Media Server</code>. The Overlay Settings modal spots this and offers <strong>Use this</strong>.</p>
+<h3 id="2-make-sure-cli_debrid-may-delete-there">2. Make sure cli_debrid may delete there<a class="headerlink" href="#2-make-sure-cli_debrid-may-delete-there" title="Permanent link">¶</a></h3>
+<p>Plex owns its data folder. If cli_debrid runs as a different user, it can read the posters but not delete them. You'll see this as:</p>
+<ul>
+<li>the <strong>Cleaned Up</strong> card saying old posters couldn't be deleted,</li>
+<li>the 👁 preview saying files can't be deleted, with the command below,</li>
+<li>one warning per run in the logs: <code>Plex poster cleanup: N file(s) not deleted, no write access</code>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Your setup</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Plex in Docker with the same <code>PUID</code> as cli_debrid</td>
+<td>Nothing, it already works</td>
+</tr>
+<tr>
+<td>Plex installed on the Linux host (runs as the <code>plex</code> user)</td>
+<td>Run the command below once</td>
+</tr>
+<tr>
+<td>Plex in Docker with a different <code>PUID</code></td>
+<td>Run the command below once, on the host path of Plex's config folder</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Usually nothing</td>
+</tr>
+</tbody>
+</table>
+<p>On the Linux host, give cli_debrid's user write access to Plex's Metadata folders. Replace <code>1000</code> with cli_debrid's <code>PUID</code> and use the <strong>host</strong> path to Plex's folder:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>find<span class="w"> </span><span class="s2">"/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Metadata"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>setfacl<span class="w"> </span>-m<span class="w"> </span>u:1000:rwx,d:u:1000:rwx<span class="w"> </span><span class="o">{}</span><span class="w"> </span>+
+</code></pre></div>
+<p>This adds an access rule for that one user and doesn't change who owns the files or how Plex runs. The <code>d:</code> part makes folders Plex creates later get the same rule. Adding cli_debrid to the <code>plex</code> group doesn't work: the container doesn't keep host groups.</p>
+<h3 id="3-preview-then-run-it">3. Preview, then run it<a class="headerlink" href="#3-preview-then-run-it" title="Permanent link">¶</a></h3>
+<p>Click 👁 on the <strong>Cleaned Up</strong> card to see what the next cleanup would delete and how much space it frees. Nothing is changed. Then run <strong>Poster overlay cleanup</strong> from the <a href="../automation/">Automation</a> page, or let it run on its daily schedule. The first run on an older install can delete thousands of files; after that each run only checks items re-rendered since the last one.</p>
 <hr>
 <h2 id="top-level-actions">Top-level actions<a class="headerlink" href="#top-level-actions" title="Permanent link">¶</a></h2>
 <table>
