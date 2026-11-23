@@ -59,7 +59,7 @@ Poster overlays add media-info badges to your Plex posters. The badges themselve
 |---|---|---|
 | **Overlays Enabled** | Off | Turn on the overlay system and its sync tasks. Needs your Plex URL and token. |
 | **Textless Posters** | Off | Start from a textless TMDB poster and add the title with the **Title Logo** badge. Falls back to the normal poster when TMDB has no textless one. |
-| **Plex Data Path** | — | Plex Media Server's data folder (e.g. `/config/Library/Application Support/Plex Media Server`). Needed for the cleanup task to delete old uploaded posters. |
+| **Plex Data Path** | — | Plex's data folder as cli_debrid sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data`). Needed for the cleanup task to delete old overlay versions of posters. See [Poster cleanup](../features/overlays.md#poster-cleanup) for the mount and permissions. |
 | **Overlay Content Check Interval Days** | `7` | How often to re-check ratings and show status for changes that need a new overlay. `0` checks on every sync. |
 | **Sync Items Per Run** | `200` | Most shows and movies processed per sync. Higher clears a backlog faster, but each run takes longer. |
 
