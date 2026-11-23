@@ -293,6 +293,15 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 
 ---
 
+**Old overlay posters aren't being cleaned up / Plex's data folder keeps growing**
+
+Click 👁 on the **Cleaned Up** card on the Overlays page. It says what's wrong. Usually it's one of two things:
+
+- **Media Server Data Path** doesn't point at the folder that contains Plex's `Metadata` folder (often one level too high). Overlay Settings offers the right folder.
+- cli_debrid isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time `setfacl` command from [Poster cleanup](features/overlays.md#poster-cleanup).
+
+---
+
 **Plex labels show "Unknown" instead of requester names**
 
 Run **Rebuild Plex labels (recent)** (or **(all)**) with **Run now** on the [Automation](features/automation.md) page, One-time fixes group in Advanced view. It fills in the requester names from Seerr, then syncs the labels.

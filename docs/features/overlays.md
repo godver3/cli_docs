@@ -29,8 +29,9 @@ The top row shows a live summary of your overlay state:
 | **Total Layouts** | Number of layouts defined, broken down by Movie/Show/Season |
 | **Overlays Applied** | Items with an active overlay, broken down by type |
 | **Unprocessed** | Items not yet processed — click to filter the grid to these items |
-| **Cleaned Up** | Disk space reclaimed from old overlay files. Click ↺ to reset the counter. |
+| **Cleaned Up** | Old overlay posters deleted by the [poster cleanup](#poster-cleanup) and the space freed. Click 👁 to preview what the next cleanup would delete (nothing is deleted). Turns orange when cleanup can't do its job: a data path without Plex's Metadata folder, or no permission to delete. Click ↺ to reset the counter. |
 | **Failed** | Items where overlay generation failed — click to filter. Click ↺ to retry all. |
+| **Last Sync** | When the overlay sync last ran, how many overlays it rendered, and how many existing overlays it sent back for a re-render (hover for quality / content / poster). Turns orange if it keeps re-rendering the same posters sync after sync, which means something is wrong: check the logs. |
 | **Backup Size** | Total size of backed-up original posters and orphaned backup count. Use the trash button to clean up orphaned backups, or the broom button to delete all backups and reset overlays to pending. |
 
 ---
@@ -270,7 +271,7 @@ Click **Settings** (top right of the Overlay Management page) to open the Overla
 |---|---|---|
 | **Enable Overlay System** | Off | Master toggle. When enabled, overlay sync tasks run automatically and apply media info badges to Plex posters. Requires Plex URL and token to be configured. |
 | **Enable Textless / Clean Posters** | Off | When enabled, cli_debrid fetches a language-neutral (textless) poster from TMDB as the base image — these have no baked-in title text so the **Title Logo** badge can render cleanly at your chosen position. Use the Title Logo badge in the layout editor to add the show or movie title as a transparent clearlogo PNG (with text fallback if no clearlogo exists). The Title Logo badge is only available in the layout editor when this setting is on. **Note:** Not all titles have textless posters on TMDB — if none is found, the standard English poster is used as fallback. |
-| **Media Server Data Path** | `/plex_data` | Path to the Plex Media Server data directory. Required for the poster cleanup task to delete old uploaded overlay versions directly from the filesystem. |
+| **Media Server Data Path** | — | Plex's data folder as cli_debrid sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data` with the mount from the install guides). Only used by the [poster cleanup](#poster-cleanup). The modal checks it when you save and offers the right folder if it's one level off. |
 | **Ratings Check Interval (days)** | `7` | How often to re-fetch ratings (IMDb/TMDB/Trakt/RT) and show status to detect changes. Set to `0` to check every sync run. Version count changes are always checked every sync regardless of this setting. |
 | **Items Per Sync Run** | `200` | Maximum number of shows/movies processed per overlay sync run. Higher values clear backlogs faster but each run takes longer (~1s per item). |
 
@@ -282,6 +283,55 @@ Use these when migrating from another overlay app (Kometa, PMM, etc.) or to clea
 |---|---|
 | **Reset All Posters** | Reset ALL posters to clean originals from TMDB |
 | **Review & Reset Selected** | Opens a selective grid to choose specific items to reset |
+
+---
+
+## Poster cleanup
+
+Every time an overlay is re-rendered, Plex keeps the previous version of the poster on disk. Over months this adds up to gigabytes. The **Poster overlay cleanup** task deletes those old versions.
+
+It only deletes uploaded posters that Plex reports as **not selected**, on items cli_debrid has overlaid. Posters you or other tools (Kometa, PMM) uploaded to other items are never touched, and neither is any poster Plex is currently showing.
+
+### 1. Mount Plex's data folder and set the path
+
+cli_debrid needs to reach Plex's data folder. The install guides mount it at `/plex_data`:
+
+```yaml
+volumes:
+  - /path/to/plex/Library/Application Support/Plex Media Server:/plex_data
+```
+
+Then set **Media Server Data Path** to `/plex_data` in Overlay Settings. Don't mount it read-only (`:ro`): cleanup has to delete files.
+
+The path must point at the folder that **contains `Metadata`**. A common mistake is one level too high: mounting `/var/lib/plexmediaserver` and setting the path to `/var/lib/plexmediaserver/Library`. The right path there is `/var/lib/plexmediaserver/Library/Application Support/Plex Media Server`. The Overlay Settings modal spots this and offers **Use this**.
+
+### 2. Make sure cli_debrid may delete there
+
+Plex owns its data folder. If cli_debrid runs as a different user, it can read the posters but not delete them. You'll see this as:
+
+- the **Cleaned Up** card saying old posters couldn't be deleted,
+- the 👁 preview saying files can't be deleted, with the command below,
+- one warning per run in the logs: `Plex poster cleanup: N file(s) not deleted, no write access`.
+
+| Your setup | What to do |
+|---|---|
+| Plex in Docker with the same `PUID` as cli_debrid | Nothing, it already works |
+| Plex installed on the Linux host (runs as the `plex` user) | Run the command below once |
+| Plex in Docker with a different `PUID` | Run the command below once, on the host path of Plex's config folder |
+| Windows | Usually nothing |
+
+On the Linux host, give cli_debrid's user write access to Plex's Metadata folders. Replace `1000` with cli_debrid's `PUID` and use the **host** path to Plex's folder:
+
+```bash
+sudo find "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Metadata" \
+  -type d -exec setfacl -m u:1000:rwx,d:u:1000:rwx {} +
+```
+
+This adds an access rule for that one user and doesn't change who owns the files or how Plex runs. The `d:` part makes folders Plex creates later get the same rule. Adding cli_debrid to the `plex` group doesn't work: the container doesn't keep host groups.
+
+### 3. Preview, then run it
+
+Click 👁 on the **Cleaned Up** card to see what the next cleanup would delete and how much space it frees. Nothing is changed. Then run **Poster overlay cleanup** from the [Automation](automation.md) page, or let it run on its daily schedule. The first run on an older install can delete thousands of files; after that each run only checks items re-rendered since the last one.
 
 ---
 
