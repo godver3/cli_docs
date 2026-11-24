@@ -25,7 +25,11 @@ Where the subtitle goes:
 | Mode | Saved as |
 |---|---|
 | **Symlinked/Local** | A file next to the library file, e.g. `Movie (2020).en.srt`. Plex, Jellyfin and Emby all pick it up. |
-| **Direct Mount** | Uploaded to the Plex item (the mount is read-only), so it shows in the Plex subtitle menu. |
+| **Direct Mount with Plex** | Uploaded to the Plex item (the mount is read-only), so it shows in the Plex subtitle menu. |
+| **Direct Mount with Jellyfin, Emby or Silo** | A file next to the video when the mount accepts it (the built-in mount does), then the server is asked to pick it up. On a read-only mount it's uploaded to Jellyfin or Silo instead. Emby takes no uploads, so it needs a mount that accepts files. |
+
+!!! tip "Jellyfin on a read-only mount"
+    Jellyfin saves an uploaded subtitle next to the video by default, which fails on a read-only mount. In the Jellyfin library's settings, turn off **Save subtitles into media folders** so Jellyfin keeps them in its own data folder.
 
 With **Probe for Embedded Subtitles** on, a language the file already has as a good embedded text track (not forced, not commentary) is skipped. The Subtitle Manager also shows such languages as present, unless **Ignore Embedded Subtitles** is on.
 
@@ -43,7 +47,7 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **SubSource API Key** | — | Free key from [subsource.net](https://subsource.net) → profile → API. Add **subsource** to the providers to use it. |
 | **Avoid Transcoding Formats** | Off | Styled ASS/SSA and image (PGS/VobSub) subtitles make most clients transcode. On: downloaded ASS/SSA is converted to plain SRT, and an embedded image or styled track doesn't count as having that language. |
 | **Ignore Embedded Subtitles** | Off | Always download a separate subtitle, even when the file has a good embedded track in that language |
-| **Probe for Embedded Subtitles** | Off | Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Direct Mount it uses Plex's own track list. |
+| **Probe for Embedded Subtitles** | Off | Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Direct Mount it uses the media server's own track list. |
 
 ### Providers
 

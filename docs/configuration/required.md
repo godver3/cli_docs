@@ -79,8 +79,8 @@ When the first provider can't deliver a release (rate limits, DMCA blocks, error
 
 === "Jellyfin / Emby"
 
-    !!! warning "Symlink mode required"
-        Jellyfin and Emby do not support the Plex API. You must use **Symlinked/Local** file management mode. See [File Management](#file-management) below.
+    !!! note "Either mode"
+        Jellyfin and Emby work in both modes (Direct Mount since 0.8.7). In Direct Mount, pick **Jellyfin / Emby** as the **Media Server** under [File Management](#file-management); in Symlinked/Local, pick it as the **Media Server Type**.
 
     | Setting | Description |
     |---|---|
@@ -105,11 +105,12 @@ This is one of the most important settings.
 
 === "Direct Mount"
 
-    cli_debrid uses the Plex API to track which files are in your library. Plex reads directly from your debrid mount.
+    Your media server reads directly from your debrid mount, and cli_debrid uses its API to track which files are in your library. Called **Plex mode** before 0.8.7.
 
-    - Plex only — does not work with Jellyfin or Emby
+    - **Media Server:** Plex, Silo or Jellyfin / Emby (Jellyfin and Emby since 0.8.7)
     - No symlinks needed
-    - Plex must be able to read the mount path
+    - The media server must be able to read the mount path
+    - Point the server's libraries at the mount's folders, e.g. a Movies library on `Movies/` and a TV library on `TV Shows/`
 
     **Mounted File Location:** Set to your mount path, e.g.:
 
@@ -121,8 +122,7 @@ This is one of the most important settings.
 
     cli_debrid creates symlinks from the mount into an organised folder structure. Your media server scans the symlink folder.
 
-    - Works with Plex, Jellyfin, and Emby
-    - Required for Jellyfin and Emby
+    - Works with Plex, Jellyfin, Emby and Silo
     - Required on Windows (use Jellyfin — Plex doesn't support symlinks on Windows)
 
     | Field | Value |

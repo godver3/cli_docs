@@ -81,7 +81,7 @@ flowchart LR
         C -->|"triggers library scan via API"| B
     ```
 
-    Plex reads files directly from the debrid mount. cli_debrid uses the Plex API to trigger scans. **Plex only.**
+    Your media server (Plex, Silo, Jellyfin or Emby) reads files directly from the debrid mount. cli_debrid uses its API to trigger scans and track your library.
 
 === "Symlink mode"
 

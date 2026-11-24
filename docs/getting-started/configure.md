@@ -123,9 +123,9 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
 
     Your media server reads straight from your mount, and cli_debrid uses its API to track what's in your library. Called **Plex mode** before 0.8.7.
 
-    - Plex or Silo: for Jellyfin or Emby use Symlinked/Local
+    - **Media Server:** Plex, Silo or Jellyfin / Emby. For Silo or Jellyfin / Emby, enter its URL and API key instead of the Plex fields below
     - No symlinks
-    - Plex must see the mount at the same path as cli_debrid
+    - The media server must see the mount. Jellyfin, Emby and Silo may see it at another path: cli_debrid matches their library folders by name
 
     Click **Sign in to Plex** to fill the fields in, or enter them yourself (sign-in can fail when Plex can't work out your network; the direct IP and token always work):
 
@@ -153,7 +153,6 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
     cli_debrid makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is **Symlinked/Local**.
 
     - Works with Plex, Jellyfin and Emby
-    - Required for Jellyfin and Emby
     - On Windows it's off unless you tick **Allow Symlinks on Windows** (needs Admin or Developer Mode). Without it, use Direct Mount
 
     | Field | Value |

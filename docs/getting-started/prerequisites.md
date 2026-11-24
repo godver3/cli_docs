@@ -87,7 +87,7 @@ cli_debrid works with Plex, Jellyfin, or Emby. You need one installed and access
 !!! info "File management modes"
     cli_debrid has two file management modes that affect which media servers are supported:
 
-    - **Direct Mount** (called Plex mode before 0.8.7) — your media server (Plex or Silo) reads the mount directly, and cli_debrid tracks your library through its API.
+    - **Direct Mount** (called Plex mode before 0.8.7) — your media server (Plex, Silo, Jellyfin or Emby) reads the mount directly, and cli_debrid tracks your library through its API.
     - **Symlink mode** — creates symlinks on disk. Works with Plex, Jellyfin, and Emby.
 
 You don't need to configure any libraries yet — that happens after the mount is set up. See the integration guides for setup instructions: [Plex](../integrations/plex.md) · [Jellyfin](../integrations/jellyfin.md)
