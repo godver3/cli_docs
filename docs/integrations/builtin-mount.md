@@ -260,6 +260,8 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 
 **Import fails on every job with "unreadable metadata: unsupported protobuf wire type".** Your Decypharr saves its file maps in its newer, compressed format, which older Clyde versions can't read. Update Clyde and run **Import** again.
 
+**Switch says the old mount is still held by Clyde's container.** Clyde's container was created while cli_mount or Decypharr was running, so Docker gave it that mount itself rather than the folder. Stopping cli_mount leaves a dead mount behind that only a new container clears. Keep cli_mount stopped, run `docker compose up -d --force-recreate` for Clyde, then press **Switch** again.
+
 **Sharing logs for help.** **Logs → Mount → Share Mount Logs** uploads the engine log with a snapshot at the top: engine stats (goroutines, memory, connections, caches, debrid), open streams, and your Mount settings with every password, token and key replaced by `(set)`.
 
 **A news server shows errors on the Overview tab.** Hover the error count for the last error. `authentication failed` means a wrong username or password; a timeout usually means a wrong port or SSL setting.
