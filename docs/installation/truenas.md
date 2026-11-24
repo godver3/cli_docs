@@ -47,7 +47,7 @@ Installation method depends on whether you're running **TrueNAS SCALE** (Linux-b
 
 Choose the mode that matches your setup:
 
-=== "Plex mode"
+=== "Direct Mount"
 
     ```yaml title="docker-compose.yml"
     services:

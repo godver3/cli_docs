@@ -42,7 +42,7 @@ When the first provider can't deliver a release (rate limits, DMCA blocks, error
 
 | Setting | Description |
 |---|---|
-| **Ffprobe All Debrid Additions** | Before collecting a debrid file, open it with `ffprobe` to confirm it plays, on top of the normal checks. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower. |
+| **Ffprobe All Debrid Additions** | Before collecting a debrid file, open it with `ffprobe` to confirm it plays, on top of the normal checks. Catches broken files before they reach your library (in Direct Mount, before Plex is told about them), but makes every addition slower. |
 | **Enable Debrid Naming** | *cli_mount only.* Rename debrid entries in cli_mount's DFS mount to `{title} ({year}) - {imdb-id} - {version} - (original)` for movies and `{title} ({year}) - SxxExx - {episode title} - {imdb-id} - {version} - (original)` for episodes. Only the entry in cli_mount is renamed. Needs cli_mount configured as the Usenet provider (URL set). |
 | ↳ **Include Version In Debrid Naming** | Add the version to the name. On by default. |
 | ↳ **Include Content Source In Debrid Naming** | Add the content source's display name. Off by default. |
@@ -103,7 +103,7 @@ When the first provider can't deliver a release (rate limits, DMCA blocks, error
 
 This is one of the most important settings.
 
-=== "Plex mode"
+=== "Direct Mount"
 
     cli_debrid uses the Plex API to track which files are in your library. Plex reads directly from your debrid mount.
 
@@ -154,7 +154,7 @@ Symlink naming and folder options are under [Library & Files → Symlink Setting
 
 | Setting | Description |
 |---|---|
-| **File Collection Management** | `Plex` or `Symlinked/Local` — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks. |
+| **File Collection Management** | **Direct Mount** (saved as `Plex` in `config.json`) or **Symlinked/Local** — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks. |
 | **Media Server Type** | `plex` or `jellyfin` — which server to notify about new symlinks. |
 | **Plex URL For Symlink** / **Plex Token For Symlink** | The Plex server to scan after creating symlinks (symlink mode). |
 | **Scan Mount For External Adds** | Regularly scan the original files path for content added *outside* cli_debrid (e.g. via DMM or your debrid provider's website) and import it — symlink it and trigger a scan. Use this if your mount has no library-update hook (cli_mount, Decypharr, plain rclone); Zurg users get this through Zurg's `on_library_update`. The first run only records what's already there, without importing it. |
@@ -175,7 +175,7 @@ Optional. Needed to download NZBs found by [Newznab scrapers](../scrapers/newzna
 | **cli_mount Data Path** | cli_mount's data folder as seen *inside the cli_debrid container*, needed for the cli_mount database backups and tools on the [Maintenance](../features/maintenance.md) page. Add `- /path/to/appdata/cli_mount:/climount_data` to your cli_debrid volumes and set this to `/climount_data`. |
 | **Usenet Retention Days** | Ignore NZB results older than this many days. Default `5000`; `0` turns it off. |
 | **Disable NZB Season Packs** | **On by default — recommended.** Skips NZB season packs (movies aren't affected). One missing article in a season pack fails the whole pack and the repair re-downloads the entire season; per-episode NZBs keep a bad file to one episode. |
-| **Ffprobe All NZBs** | Before collecting an NZB file, open it with `ffprobe` to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower. Requires `ffprobe` (included in the Docker image). |
+| **Ffprobe All NZBs** | Before collecting an NZB file, open it with `ffprobe` to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Direct Mount, before Plex is told about them), but makes every addition slower. Requires `ffprobe` (included in the Docker image). |
 | **Enable NZB File Naming** | Name NZB jobs as `{title} ({year}) - {imdb-id} - {version} - (original)` for movies and `{title} ({year}) - SxxExx - {episode title} - {imdb-id} - {version} - (original)` for episodes, instead of the raw release name. |
 | ↳ **Include Version in NZB Name** | Add the version (e.g. `Default`, `4K Remux`) to the name. On by default. |
 | ↳ **Include Content Source in NZB Name** | Add the content source's display name. Off by default. |

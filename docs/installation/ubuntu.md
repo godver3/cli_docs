@@ -53,7 +53,7 @@ nano docker-compose.yml
 
 Paste:
 
-=== "Plex mode"
+=== "Direct Mount"
 
     ```yaml title="docker-compose.yml"
     services:

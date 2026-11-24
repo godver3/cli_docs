@@ -457,7 +457,7 @@ cli_mount supports two mount backends. Choose one:
 cli_mount can sort incoming torrents and NZBs into extra subfolders using `custom_folders` (shown as **virtual folders** in the UI). Each folder has regex filters that match against the release name and its file list. Everything is always available in `__all__` as well.
 
 !!! info "Do you need content routing?"
-    - **Plex mode — yes.** Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a *Movies* library on `Movies/` and a *TV* library on `TV Shows/`).
+    - **Direct Mount — yes.** Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a *Movies* library on `Movies/` and a *TV* library on `TV Shows/`).
     - **Symlink mode — optional.** cli_debrid builds its own organised folder tree from `__all__`, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the [symlink mode example](#example-symlink-mode-setup) below.
 
 The filters below create a `TV Shows` and a `Movies` folder. You can name the folders whatever you like.
@@ -600,7 +600,7 @@ Reserves Usenet (NNTP) connections for people actually watching while bulk impor
 
 ### Extras in movie folders (2.5.22)
 
-In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
+In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
 
 ### Broken files are only marked on proof (2.5.22)
 

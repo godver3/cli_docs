@@ -13,7 +13,7 @@ It's the default mount for new installs, for Usenet, debrid, or both. cli_mount,
 flowchart LR
     N["News server"] --> E["cli_debrid\nbuilt-in mount"]
     D["Debrid account"] --> E
-    E -->|"Plex mode\ndirect"| M["Media server\nPlex / Jellyfin / Emby"]
+    E -->|"Direct Mount"| M["Media server\nPlex / Jellyfin / Emby"]
     E -->|"Symlink mode\nsymlinks"| S["Symlinks"]
     S --> M
 ```
@@ -155,11 +155,11 @@ Servers are tried top to bottom; use the arrows to reorder them. When the first 
   __bad__/      ← downloads with a broken file
 ```
 
-**Extras.** In a movie download, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). In Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
+**Extras.** In a movie download, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). In Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
 
 ### Virtual folders
 
-New installs start with **Movies** and **TV Shows**, using the filters from cli_mount's [Content routing](cli_mount.md#content-routing): every download lands in exactly one of the two. In **Plex mode**, point a Movies library at `/mnt/clid/Movies` and a TV library at `/mnt/clid/TV Shows`. In Symlink mode they're optional, handy for browsing.
+New installs start with **Movies** and **TV Shows**, using the filters from cli_mount's [Content routing](cli_mount.md#content-routing): every download lands in exactly one of the two. In **Direct Mount**, point a Movies library at `/mnt/clid/Movies` and a TV library at `/mnt/clid/TV Shows`. In Symlink mode they're optional, handy for browsing.
 
 Edit, rename or add folders on the **Settings** tab. On an older install, **Add Movies + TV Shows** adds the two default folders. A folder lists the downloads that match **all** its filters, except that a name regex and a files regex together match either one.
 

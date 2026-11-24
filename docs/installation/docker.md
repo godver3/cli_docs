@@ -222,7 +222,7 @@ Your media server needs the same folders at the same paths. If it runs in Docker
           - VERSION=docker
     ```
 
-    Add libraries pointing at `/mnt/symlinks/...` (Symlink mode) or `/mnt/cli_mount/__all__` (Plex mode).
+    Add libraries pointing at `/mnt/symlinks/...` (Symlink mode) or `/mnt/cli_mount/__all__` (Direct Mount).
 
 If the media server runs directly on the host (not in Docker), point it at `/mnt/cli_mount` and `/mnt/symlinks` as they are.
 
@@ -326,9 +326,9 @@ Choose the compose file that matches your file management mode:
     !!! warning "Unraid users"
         Use the actual pool path for your volumes (e.g. `/mnt/cache/appdata/cli_debrid`), not the user share path (`/mnt/user/...`). This avoids array startup issues.
 
-=== "Plex mode"
+=== "Direct Mount"
 
-    Use this when running Plex with Plex mode (no symlinks). Plex reads directly from the debrid mount.
+    Use this when running Plex with Direct Mount (no symlinks). Plex reads directly from the debrid mount.
 
     **cli_debrid**
 
@@ -385,7 +385,7 @@ Choose the compose file that matches your file management mode:
           - /dev/dri:/dev/dri                                # (2) optional — hardware transcoding
     ```
 
-    1. Your debrid mount — in Plex mode the container path does not need to match cli_debrid
+    1. Your debrid mount — in Direct Mount the container path does not need to match cli_debrid
     2. **Optional** — only needed for hardware transcoding
 
     !!! warning "Unraid users"

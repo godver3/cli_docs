@@ -25,7 +25,7 @@ Where the subtitle goes:
 | Mode | Saved as |
 |---|---|
 | **Symlinked/Local** | A file next to the library file, e.g. `Movie (2020).en.srt`. Plex, Jellyfin and Emby all pick it up. |
-| **Plex** | Uploaded to the Plex item (the mount is read-only), so it shows in the Plex subtitle menu. |
+| **Direct Mount** | Uploaded to the Plex item (the mount is read-only), so it shows in the Plex subtitle menu. |
 
 With **Probe for Embedded Subtitles** on, a language the file already has as a good embedded text track (not forced, not commentary) is skipped. The Subtitle Manager also shows such languages as present, unless **Ignore Embedded Subtitles** is on.
 
@@ -43,7 +43,7 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **SubSource API Key** | — | Free key from [subsource.net](https://subsource.net) → profile → API. Add **subsource** to the providers to use it. |
 | **Avoid Transcoding Formats** | Off | Styled ASS/SSA and image (PGS/VobSub) subtitles make most clients transcode. On: downloaded ASS/SSA is converted to plain SRT, and an embedded image or styled track doesn't count as having that language. |
 | **Ignore Embedded Subtitles** | Off | Always download a separate subtitle, even when the file has a good embedded track in that language |
-| **Probe for Embedded Subtitles** | Off | Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Plex mode it uses Plex's own track list. |
+| **Probe for Embedded Subtitles** | Off | Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Direct Mount it uses Plex's own track list. |
 
 ### Providers
 

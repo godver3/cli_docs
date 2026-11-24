@@ -14,7 +14,7 @@ These GUI tools let you manage Docker containers and compose stacks through a we
 
 ## Docker Compose file
 
-=== "Plex mode"
+=== "Direct Mount"
 
     ```yaml title="docker-compose.yml"
     services:
