@@ -21,7 +21,7 @@ Open it from **Tools → Upgrade Hub**.
 
 ## How upgrades work
 
-cli_debrid assigns a **quality score** to each collected item based on resolution, codec, HDR format, audio, and release type. When a torrent with a substantially higher score is found via Zilean, it appears in the Upgrade Hub.
+Clyde assigns a **quality score** to each collected item based on resolution, codec, HDR format, audio, and release type. When a torrent with a substantially higher score is found via Zilean, it appears in the Upgrade Hub.
 
 The **Score Δ** column shows the improvement percentage and the before→after scores.
 
@@ -159,7 +159,7 @@ Filter by action type. Paginated at 50 entries per page. Auto-refreshes every 30
 When an item is queued for upgrade:
 
 1. It enters the **Upgrading** queue state
-2. cli_debrid scrapes for the better torrent
+2. Clyde scrapes for the better torrent
 3. The new version is added to debrid and checked in
 4. Once confirmed, the old version is removed if **Enable Upgrading Cleanup** is on under **Settings → Scraping**
 

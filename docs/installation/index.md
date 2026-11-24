@@ -5,7 +5,7 @@ icon: material/download
 
 # Installation
 
-cli_debrid runs as a Docker container and is the recommended installation method for all platforms. A Windows executable is also available for users who prefer not to use Docker.
+Clyde runs as a Docker container and is the recommended installation method for all platforms. A Windows executable is also available for users who prefer not to use Docker.
 
 ---
 
@@ -70,7 +70,7 @@ Regardless of platform, you will need the following before setting up cli_debrid
 | **Mount tool** | [Zurg + rclone](../integrations/zurg.md) or [Decypharr](../integrations/decypharr.md) to mount your debrid storage as a local filesystem |
 
 !!! tip "Set up your mount first"
-    cli_debrid needs your debrid storage mounted as a local filesystem before it can manage your library. Set up [Zurg + rclone](../integrations/zurg.md) or [Decypharr](../integrations/decypharr.md) before installing cli_debrid.
+    Clyde needs your debrid storage mounted as a local filesystem before it can manage your library. Set up [Zurg + rclone](../integrations/zurg.md) or [Decypharr](../integrations/decypharr.md) before installing Clyde.
 
 ---
 
@@ -79,7 +79,7 @@ Regardless of platform, you will need the following before setting up cli_debrid
 For experienced Linux users who want to get a full stack running in one go, there is a community-maintained setup script that automates the entire process.
 
 !!! warning "Review before running"
-    This script is **not officially maintained by the cli_debrid project** — it is a community contribution. It runs as root and installs Docker, rclone, and multiple containers automatically. Review the script before running it on any system you care about.
+    This script is **not officially maintained by the Clyde project** — it is a community contribution. It runs as root and installs Docker, rclone, and multiple containers automatically. Review the script before running it on any system you care about.
 
 The script handles:
 
@@ -97,4 +97,4 @@ sudo curl -sO https://raw.githubusercontent.com/delete2020/cli_debrid-setup-/mai
 
 ## Updating
 
-Once installed, see the [Updating](updating.md) guide to keep cli_debrid current.
+Once installed, see the [Updating](updating.md) guide to keep Clyde current.

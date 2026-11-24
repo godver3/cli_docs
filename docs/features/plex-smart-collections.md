@@ -5,7 +5,7 @@ icon: simple/plex
 
 # Plex Smart Collection Posters
 
-CLI Debrid can apply custom designed posters to the built-in smart collections Plex auto-generates — "Recently Added", "Top Rated", and similar library-level collections.
+Clyde can apply custom designed posters to the built-in smart collections Plex auto-generates — "Recently Added", "Top Rated", and similar library-level collections.
 
 !!! warning "Posters only — no collection creation"
     This feature does **not** create smart collections. It only applies custom posters to smart collections that Plex has already created. Plex generates these automatically based on your library content.
@@ -17,7 +17,7 @@ CLI Debrid can apply custom designed posters to the built-in smart collections P
 
 ## Overview
 
-Plex automatically maintains smart collections in each library section. This feature applies a consistent, custom-designed poster to whichever of those collections you enable — keeping your Collections view visually uniform with the rest of your CLI Debrid posters.
+Plex automatically maintains smart collections in each library section. This feature applies a consistent, custom-designed poster to whichever of those collections you enable — keeping your Collections view visually uniform with the rest of your Clyde posters.
 
 - **One shared design** — a single poster design applies across all enabled smart collections
 - **Per-collection control** — enable or disable poster overrides for individual smart collections
@@ -35,7 +35,7 @@ In **Settings → Media Server → Plex Collections → Smart collection posters
 | **Poster Design** | Layout applied to all enabled collections. Options: Plex Default, Layout 1–5 |
 | **Poster Accent Color** | Accent color for header text, glow, and decorative elements. Leave unset to use each layout's built-in default |
 | **Eyebrow Text** | Small text displayed above the collection title on the poster. Leave blank to hide |
-| **Poster Icon** | Icon displayed on the poster. Defaults to the CLI Debrid icon |
+| **Poster Icon** | Icon displayed on the poster. Defaults to the Clyde icon |
 | **Card Overlay Opacity** | Darkness of the gradient fade at the bottom of each card. Range: 0–100%, default 60% |
 | **Accent Glow Opacity** | Brightness of the accent color glow around the poster edges. Range: 0–100%, default 80% |
 | **Accent Glow Radius** | How far the accent color spreads across the poster background. Range: 10–200, default 55 |
@@ -69,7 +69,7 @@ Runs automatically on a **24-hour schedule**. To trigger immediately:
 
 ## State file
 
-CLI Debrid tracks content fingerprints in `plex_smart_collection_state.json` to avoid re-rendering unchanged posters. To force a full re-render on the next run:
+Clyde tracks content fingerprints in `plex_smart_collection_state.json` to avoid re-rendering unchanged posters. To force a full re-render on the next run:
 
 **Debug → Manage Cache Files → Plex Smart Collection State** — delete the state file, then trigger the task manually.
 

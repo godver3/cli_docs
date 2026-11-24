@@ -5,9 +5,9 @@ icon: material/rocket-launch
 
 # Getting Started
 
-This guide walks you through everything needed to get cli_debrid up and running from scratch — from signing up for the required services to streaming your first file.
+This guide walks you through everything needed to get Clyde up and running from scratch — from signing up for the required services to streaming your first file.
 
-cli_debrid can get content from a **debrid service** (Real-Debrid, AllDebrid, etc.), from **Usenet**, or both. Each step below covers both options — follow whichever applies to you.
+Clyde can get content from a **debrid service** (Real-Debrid, AllDebrid, etc.), from **Usenet**, or both. Each step below covers both options — follow whichever applies to you.
 
 Follow the steps in order. Each page ends with a link to the next step.
 
@@ -29,13 +29,13 @@ Follow the steps in order. Each page ends with a link to the next step.
 
     [:octicons-arrow-right-24: Mount setup](mount.md){ .md-button .md-button--primary }
 
-- **Step 3 — Install cli_debrid**
+- **Step 3 — Install Clyde**
 
     Install the app on your platform — Unraid, Docker, TrueNAS, Proxmox, Ubuntu, or Windows.
 
     [:octicons-arrow-right-24: Install](install.md){ .md-button .md-button--primary }
 
-- **Step 4 — Configure cli_debrid**
+- **Step 4 — Configure Clyde**
 
     Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Direct Mount or symlink mode.
 
@@ -43,13 +43,13 @@ Follow the steps in order. Each page ends with a link to the next step.
 
 - **Step 5 — Add scrapers**
 
-    Set up at least one scraper so cli_debrid can find torrents or NZBs for your content.
+    Set up at least one scraper so Clyde can find torrents or NZBs for your content.
 
     [:octicons-arrow-right-24: Scrapers](scrapers.md){ .md-button .md-button--primary }
 
 - **Step 6 — Add content sources**
 
-    Tell cli_debrid what to download — Trakt watchlists, Seerr requests, or manual lists.
+    Tell Clyde what to download — Trakt watchlists, Seerr requests, or manual lists.
 
     [:octicons-arrow-right-24: Content sources](content-sources.md){ .md-button .md-button--primary }
 
@@ -81,7 +81,7 @@ flowchart LR
         C -->|"triggers library scan via API"| B
     ```
 
-    Your media server (Plex, Silo, Jellyfin or Emby) reads files directly from the debrid mount. cli_debrid uses its API to trigger scans and track your library.
+    Your media server (Plex, Silo, Jellyfin or Emby) reads files directly from the debrid mount. Clyde uses its API to trigger scans and track your library.
 
 === "Symlink mode"
 
@@ -95,7 +95,7 @@ flowchart LR
         B -->|"triggers scan"| D
     ```
 
-    cli_debrid creates symlinks from the mount into an organised folder. Your media server scans the symlink folder. **Works with Plex, Jellyfin, and Emby.**
+    Clyde creates symlinks from the mount into an organised folder. Your media server scans the symlink folder. **Works with Plex, Jellyfin, and Emby.**
 
 ---
 

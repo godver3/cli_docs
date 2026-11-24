@@ -16,7 +16,7 @@ Torrentio is a torrent metadata API that aggregates results from multiple public
 3. Toggle **Enabled** on
 4. Click **Save Settings**
 
-There's no URL to set: cli_debrid always uses the public instance at `https://torrentio.strem.fun` (self-hosted instances aren't supported by this scraper).
+There's no URL to set: Clyde always uses the public instance at `https://torrentio.strem.fun` (self-hosted instances aren't supported by this scraper).
 
 | Field | Description |
 |---|---|

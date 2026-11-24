@@ -5,7 +5,7 @@ icon: material/playlist-plus
 
 # Step 6 — Add content sources
 
-Content sources tell cli_debrid *what* to find. Without a content source, cli_debrid won't download anything.
+Content sources tell Clyde *what* to find. Without a content source, Clyde won't download anything.
 
 Add at least one source to get started. For full details on every source and its settings, see the [:octicons-arrow-right-24: Content Sources reference](../configuration/content-sources.md).
 
@@ -32,7 +32,7 @@ To add a single title by hand, use the **Discover** page, or **Magnet Assign** t
 
 ## Recommended: My Plex Watchlist
 
-The quickest way to get started if you use Plex. Anything you add to your Plex watchlist will be picked up by cli_debrid automatically, with no extra accounts.
+The quickest way to get started if you use Plex. Anything you add to your Plex watchlist will be picked up by Clyde automatically, with no extra accounts.
 
 1. In the onboarding wizard's content sources step, or **Settings → Content Sources**, click **Add Content Source**
 2. Pick **My Plex Watchlist** and choose which versions it uses
@@ -40,13 +40,13 @@ The quickest way to get started if you use Plex. Anything you add to your Plex w
 
 If you use Trakt instead, **Trakt Watchlist** works the same way once Trakt is connected.
 
-Now add something to your Trakt watchlist at [trakt.tv](https://trakt.tv) — cli_debrid will find and add it within the next queue cycle.
+Now add something to your Trakt watchlist at [trakt.tv](https://trakt.tv) — Clyde will find and add it within the next queue cycle.
 
 ---
 
 ## Seerr
 
-Seerr gives you a polished request UI — users search for content and submit requests, which cli_debrid then fulfils automatically.
+Seerr gives you a polished request UI — users search for content and submit requests, which Clyde then fulfils automatically.
 
 Full setup guide: [:octicons-arrow-right-24: Seerr integration](../integrations/seerr.md){ .md-button }
 
@@ -54,11 +54,11 @@ Full setup guide: [:octicons-arrow-right-24: Seerr integration](../integrations/
 
 1. Install Seerr (see guide above)
 2. In Seerr, go to **Settings → General** and copy your API key
-3. In cli_debrid → **Settings → Content Sources**, enable **Seerr**
+3. In Clyde → **Settings → Content Sources**, enable **Seerr**
 4. Enter your Seerr URL and API key
 5. Save
 
-Approved requests in Seerr will now feed automatically into cli_debrid.
+Approved requests in Seerr will now feed automatically into Clyde.
 
 ---
 
@@ -76,11 +76,11 @@ To also pick up what your Plex friends add to their watchlists, add a **Plex Fri
 
 ## MDBList
 
-MDBList hosts curated lists (e.g. IMDb Top 250, popular by genre). You can point cli_debrid at any list.
+MDBList hosts curated lists (e.g. IMDb Top 250, popular by genre). You can point Clyde at any list.
 
 1. Create a free account at [mdblist.com](https://mdblist.com)
 2. Find a list you want to follow, copy its URL
-3. In cli_debrid → **Settings → Content Sources**, add an **MDBList** source with the list URL
+3. In Clyde → **Settings → Content Sources**, add an **MDBList** source with the list URL
 4. Save
 
 ---

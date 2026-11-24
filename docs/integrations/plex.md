@@ -26,11 +26,11 @@ The Plex docker container needs to be able to see your debrid mount and — if u
 
 | Mode | Host Path | Container Path |
 |---|---|---|
-| Both modes | Your debrid mount (e.g. `/mnt/remotes/zurg`) | Must match cli_debrid exactly (e.g. `/media/mount`) |
-| Symlink mode only | Your symlink folder (e.g. `/mnt/symlinks`) | Must match cli_debrid exactly (e.g. `/mnt/symlinked`) |
+| Both modes | Your debrid mount (e.g. `/mnt/remotes/zurg`) | Must match Clyde exactly (e.g. `/media/mount`) |
+| Symlink mode only | Your symlink folder (e.g. `/mnt/symlinks`) | Must match Clyde exactly (e.g. `/mnt/symlinked`) |
 
 !!! warning "Paths must match cli_debrid exactly"
-    In symlink mode, symlinks created by cli_debrid point to files inside the debrid mount using the container path. Plex must mount both the debrid storage and symlink folder at **identical container paths** to cli_debrid — otherwise symlinks will appear broken.
+    In symlink mode, symlinks created by Clyde point to files inside the debrid mount using the container path. Plex must mount both the debrid storage and symlink folder at **identical container paths** to Clyde — otherwise symlinks will appear broken.
 
 === "Unraid"
     Edit your Plex docker template and add the path mappings above.
@@ -137,7 +137,7 @@ Go to **Settings → Settings → Library** and enable:
 
 ![Plex library scan settings](../assets/screenshots/integrations/plex-scan-settings.png)
 
-These settings ensure Plex picks up new content automatically. Zurg, Decypharr, and cli_debrid each handle library notifications via their own methods.
+These settings ensure Plex picks up new content automatically. Zurg, Decypharr, and Clyde each handle library notifications via their own methods.
 
 ---
 

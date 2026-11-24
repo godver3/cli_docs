@@ -5,7 +5,7 @@ icon: material/magnify
 
 # AIOStreams
 
-AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stremio addons (Torrentio, MediaFusion, Comet, etc.) into a single endpoint. cli_debrid supports two integration modes.
+AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stremio addons (Torrentio, MediaFusion, Comet, etc.) into a single endpoint. Clyde supports two integration modes.
 
 ---
 
@@ -20,7 +20,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
 === "Stremio Endpoint"
 
-    ### Connect to cli_debrid
+    ### Connect to Clyde
 
     1. Go to **Settings → Scrapers**
     2. Click **Add Scraper** and select **AIOStreams (Stremio Endpoint)**
@@ -36,14 +36,14 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
     ### Required AIOStreams configuration
 
     !!! warning "Additional setup required"
-        Without the steps below, AIOStreams will not return usable results. The custom description template is required for cli_debrid to extract torrent information.
+        Without the steps below, AIOStreams will not return usable results. The custom description template is required for Clyde to extract torrent information.
 
     **Step 1 — Install P2P-compatible addons**
 
     Add source addons that support P2P torrents — for example Comet, TorrentsDB, or MediaFusion. In each addon's settings, enable **Include P2P** or the equivalent option.
 
     !!! info "What 'P2P' means here"
-        Enabling P2P in AIOStreams does **not** create direct peer-to-peer connections. It simply filters for torrent-based streams (infohashes) that cli_debrid can send to your debrid service. All downloading is handled through your debrid provider, not through direct P2P connections.
+        Enabling P2P in AIOStreams does **not** create direct peer-to-peer connections. It simply filters for torrent-based streams (infohashes) that Clyde can send to your debrid service. All downloading is handled through your debrid provider, not through direct P2P connections.
 
     **Step 2 — Configure stream type filters**
 
@@ -53,7 +53,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
     **Step 3 — Set the custom description format**
 
-    This template is required for cli_debrid to extract addon and indexer information from results.
+    This template is required for Clyde to extract addon and indexer information from results.
 
     1. Go to **AIOStreams → Formatter**
     2. Under **Formatter Selection**, choose **Custom** from the dropdown
@@ -79,7 +79,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
     **Step 5 — Increase the scraper timeout**
 
-    AIOStreams queries multiple addons simultaneously, which can be slow. The default cli_debrid timeout is too short.
+    AIOStreams queries multiple addons simultaneously, which can be slow. The default Clyde timeout is too short.
 
     1. Go to **Settings → Scraping**
     2. Find **Scraper Timeout**
@@ -90,7 +90,7 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
 === "API"
 
-    ### Connect to cli_debrid
+    ### Connect to Clyde
 
     1. Go to **Settings → Scrapers**
     2. Click **Add Scraper** and select **AIOStreams (API)**
@@ -118,11 +118,11 @@ AIOStreams is a self-hosted Stremio addon aggregator that combines multiple Stre
 
     - Set your resolution, quality, and content filters to match your use case
     - Disable addons or sources you don't need — fewer active sources means faster responses
-    - The more precisely you filter, the less time cli_debrid spends waiting for results
+    - The more precisely you filter, the less time Clyde spends waiting for results
 
     **Step 2 — Increase the scraper timeout**
 
-    AIOStreams queries multiple addons and sources simultaneously, which can be slow. The default cli_debrid scraper timeout is too short.
+    AIOStreams queries multiple addons and sources simultaneously, which can be slow. The default Clyde scraper timeout is too short.
 
     1. Go to **Settings → Scraping**
     2. Find **Scraper Timeout**

@@ -5,7 +5,7 @@ icon: material/bell
 
 # Notifications
 
-cli_debrid can send notifications when items change state or the program starts/stops. You can add multiple notification services and configure each one independently.
+Clyde can send notifications when items change state or the program starts/stops. You can add multiple notification services and configure each one independently.
 
 To add a service go to **Settings → Notifications** and click **Add New Notification**, then select the type.
 
@@ -89,11 +89,11 @@ Each notification service has a **Notify On** section to control which events tr
 | **Blacklisted** | Off | A torrent for an item has been blacklisted |
 | **Pending Uncached** | Off | An item is waiting for an uncached torrent to finish downloading |
 | **Upgrading** | Off | An item is being upgraded to a better version |
-| **Program Stop** | On | The cli_debrid program has stopped |
-| **Program Crash** | On | The cli_debrid program crashed |
-| **Program Start** | On | The cli_debrid program has started |
-| **Program Pause** | Off | The program has been paused. *Can be ticked, but cli_debrid doesn't currently send this notification.* |
-| **Program Resume** | Off | The program has been resumed. *Can be ticked, but cli_debrid doesn't currently send this notification.* |
+| **Program Stop** | On | The Clyde program has stopped |
+| **Program Crash** | On | The Clyde program crashed |
+| **Program Start** | On | The Clyde program has started |
+| **Program Pause** | Off | The program has been paused. *Can be ticked, but Clyde doesn't currently send this notification.* |
+| **Program Resume** | Off | The program has been resumed. *Can be ticked, but Clyde doesn't currently send this notification.* |
 | **Queue Pause** | Off | A queue has been paused |
 | **Queue Resume** | Off | A queue has been resumed |
 | **Queue Start** | Off | A queue has been started |

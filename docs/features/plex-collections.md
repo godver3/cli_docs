@@ -5,7 +5,7 @@ icon: simple/plex
 
 # Plex Collections
 
-CLI Debrid can automatically create and maintain Plex collections that mirror your content source lists — keeping items in the correct sort order and applying a custom designed poster.
+Clyde can automatically create and maintain Plex collections that mirror your content source lists — keeping items in the correct sort order and applying a custom designed poster.
 
 !!! warning "Supported sources"
     Plex Collections is only available for [Trakt Lists](../configuration/content-sources.md#trakt-lists), [MDBList](../configuration/content-sources.md#mdblist), and [Adaptive List](../configuration/content-sources.md#adaptive-lists) sources. Other source types (Overseerr, Trakt Watchlist, Plex Watchlist, etc.) do not support this feature.
@@ -85,7 +85,7 @@ Small text displayed above the collection title on the poster (e.g. `TRAKT`, `TO
 
 ### Poster Icon
 
-An icon displayed at the top of the poster. Defaults to the source type icon (Trakt, MDBList, or CLI Debrid). Click **Choose icon from library** to pick any overlay logo. Wide logos (e.g. Netflix, Crave) are automatically scaled to fill the available space while preserving aspect ratio.
+An icon displayed at the top of the poster. Defaults to the source type icon (Trakt, MDBList, or Clyde). Click **Choose icon from library** to pick any overlay logo. Wide logos (e.g. Netflix, Crave) are automatically scaled to fill the available space while preserving aspect ratio.
 
 ### Card Overlay Opacity
 

@@ -5,7 +5,7 @@ icon: material/cloud-sync
 
 # Decypharr
 
-Decypharr is an all-in-one debrid client that handles torrent management, mounting, and symlink delivery in a single container. It replaces the Zurg + rclone stack and integrates directly with cli_debrid via a blackhole/symlink workflow.
+Decypharr is an all-in-one debrid client that handles torrent management, mounting, and symlink delivery in a single container. It replaces the Zurg + rclone stack and integrates directly with Clyde via a blackhole/symlink workflow.
 
 ```mermaid
 flowchart LR
@@ -57,7 +57,7 @@ flowchart LR
           - TZ=America/New_York
     ```
 
-    1. Host path where your debrid library will be mounted — point Plex and cli_debrid here
+    1. Host path where your debrid library will be mounted — point Plex and Clyde here
     2. Cache directory for rclone VFS or DFS chunk cache
     3. Config file, database, and downloads folder
 
@@ -495,19 +495,19 @@ Add **two** filters to this folder. They are the same two patterns as TV Shows, 
 
 The `categories` setting (`sonarr`, `radarr`) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.
 
-`default_download_action: symlink` makes Decypharr create symlinks into the mount rather than downloading files — this is required for cli_debrid to work correctly.
+`default_download_action: symlink` makes Decypharr create symlinks into the mount rather than downloading files — this is required for Clyde to work correctly.
 
 ---
 
-## Configuring cli_debrid
+## Configuring Clyde
 
-In cli_debrid settings, set **Original Files Path** to the host path where your debrid library is mounted:
+In Clyde settings, set **Original Files Path** to the host path where your debrid library is mounted:
 
 ```
 /path/to/debrid
 ```
 
-This is the same path Plex uses — cli_debrid follows symlinks back to this location to check file existence and build its own symlinks.
+This is the same path Plex uses — Clyde follows symlinks back to this location to check file existence and build its own symlinks.
 
 ---
 
@@ -555,7 +555,7 @@ Verify the cache path exists on the host and is writable. Also check `docker log
 
 ## Usenet with Decypharr
 
-Decypharr also supports Usenet downloads. cli_debrid can submit NZBs to Decypharr from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
+Decypharr also supports Usenet downloads. Clyde can submit NZBs to Decypharr from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
 
 ### Usenet Mount settings
 
@@ -564,10 +564,10 @@ In **Settings → Required Settings → Usenet Mount**:
 | Setting | Description |
 |---|---|
 | **Enable Usenet Mount** | Turn on Usenet support |
-| **Mount URL** | Decypharr base URL, e.g. `http://decypharr:8282`. Don't use `localhost`: inside the cli_debrid container it points at cli_debrid |
+| **Mount URL** | Decypharr base URL, e.g. `http://decypharr:8282`. Don't use `localhost`: inside the Clyde container it points at Clyde |
 | **API Token** | Decypharr API token, only if authentication is enabled |
 | **Download Folder / Category** | Leave empty to use Decypharr's default download folder |
-| **cli_mount Data Path** | Decypharr's data folder as cli_debrid sees it. Add `- /path/to/appdata/decypharr:/decypharr_data` to cli_debrid's volumes, then set this to `/decypharr_data` |
+| **cli_mount Data Path** | Decypharr's data folder as Clyde sees it. Add `- /path/to/appdata/decypharr:/decypharr_data` to Clyde's volumes, then set this to `/decypharr_data` |
 
 ### Decypharr DB tools
 
@@ -588,4 +588,4 @@ See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider)
 - [Newznab scrapers](../scrapers/newznab.md) — add Usenet indexers
 - [Debrid Manager](../features/debrid-manager.md) — NZB health and the repair engine
 - [Configure Plex](plex.md) to add libraries pointing at your mount path
-- [Configure cli_debrid](../getting-started/configure.md) with the correct Original Files Path
+- [Configure Clyde](../getting-started/configure.md) with the correct Original Files Path

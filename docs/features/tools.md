@@ -22,11 +22,11 @@ The page has six tabs: **Library**, **Queues & tasks**, **Symlinks**, **Plex Lab
 
 ### Get Collected from Library (Plex)
 
-**What it does:** Scans your Plex library and imports any items that are in Plex but not yet in cli_debrid's database.
+**What it does:** Scans your Plex library and imports any items that are in Plex but not yet in Clyde's database.
 
 **When to use:**
 - After restoring a database backup — re-import what Plex already has
-- When items were added manually to Plex outside cli_debrid
+- When items were added manually to Plex outside Clyde
 
 **Modes:**
 - **All** — scan the entire library
@@ -55,7 +55,7 @@ The page has six tabs: **Library**, **Queues & tasks**, **Symlinks**, **Plex Lab
 
 **What it does:** Triggers a full library scan on your Emby or Jellyfin server and imports any new items into the database.
 
-**When to use:** Items are in Emby/Jellyfin but not showing in cli_debrid's database.
+**When to use:** Items are in Emby/Jellyfin but not showing in Clyde's database.
 
 ### Move Item ID to Upgrading
 
@@ -78,7 +78,7 @@ The page has six tabs: **Library**, **Queues & tasks**, **Symlinks**, **Plex Lab
 
 **What it does:** Tests whether a specific database item can be matched in your Plex library.
 
-**When to use:** Overlays aren't being applied to a specific item — test if cli_debrid can find it in Plex.
+**When to use:** Overlays aren't being applied to a specific item — test if Clyde can find it in Plex.
 
 **How to use:**
 1. Find the Item ID in the Database Browser

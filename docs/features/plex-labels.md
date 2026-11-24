@@ -13,7 +13,7 @@ The Plex Label Manager automatically labels your Plex items based on which conte
 
 ## What are Plex labels?
 
-Plex labels are tags applied to movies and TV shows in your Plex library. cli_debrid manages these automatically based on your content source configuration. Use them to:
+Plex labels are tags applied to movies and TV shows in your Plex library. Clyde manages these automatically based on your content source configuration. Use them to:
 
 - **Track requesters** — see who requested each item (e.g. `Requested by John`)
 - **Identify sources** — know which source added an item (e.g. `Overseerr`, `Trakt: Family Movies`)

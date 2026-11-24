@@ -8,7 +8,7 @@ icon: material/docker
 These GUI tools let you manage Docker containers and compose stacks through a web interface. All three work with the same Docker Compose file — just paste it into the stack editor.
 
 !!! tip "Stack all services in one compose file"
-    You can combine cli_debrid, Zurg/Decypharr, Plex, and Jellyfin into a single compose file by adding each as a separate service under the same `services:` block. This lets you manage your entire media stack from one place and start/stop everything with a single deploy.
+    You can combine Clyde, Zurg/Decypharr, Plex, and Jellyfin into a single compose file by adding each as a separate service under the same `services:` block. This lets you manage your entire media stack from one place and start/stop everything with a single deploy.
 
 ---
 
@@ -66,7 +66,7 @@ These GUI tools let you manage Docker containers and compose stacks through a we
     ```
 
     !!! warning "Container paths must match your media server"
-        The debrid mount and symlink folder must use **identical container paths** in both cli_debrid and your media server. If they differ, symlinks will appear broken. See [Plex](../integrations/plex.md) and [Jellyfin](../integrations/jellyfin.md) guides.
+        The debrid mount and symlink folder must use **identical container paths** in both Clyde and your media server. If they differ, symlinks will appear broken. See [Plex](../integrations/plex.md) and [Jellyfin](../integrations/jellyfin.md) guides.
 
 !!! warning "Unraid users"
     Use the actual pool path for your volumes (e.g. `/mnt/cache/appdata/cli_debrid`), not the user share path (`/mnt/user/...`). This avoids array startup issues.
@@ -85,7 +85,7 @@ These GUI tools let you manage Docker containers and compose stacks through a we
 
 ## Dockge
 
-1. Open Dockge (default port: `5001` — conflicts with cli_debrid's port 5001, adjust if needed)
+1. Open Dockge (default port: `5001` — conflicts with Clyde's port 5001, adjust if needed)
 2. Click **+ Compose** to create a new stack
 3. Name it `cli_debrid`
 4. Paste the compose file above
@@ -104,5 +104,5 @@ These GUI tools let you manage Docker containers and compose stacks through a we
 
 ## Next steps
 
-- [Configure cli_debrid](../getting-started/configure.md)
+- [Configure Clyde](../getting-started/configure.md)
 - [Set up your debrid mount](../getting-started/mount.md)

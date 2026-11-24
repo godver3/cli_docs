@@ -5,7 +5,7 @@ icon: simple/proxmox
 
 # Install on Proxmox
 
-The recommended approach is to run cli_debrid inside a **Debian/Ubuntu LXC container** with Docker installed. This gives you an isolated environment that's easy to snapshot and restore.
+The recommended approach is to run Clyde inside a **Debian/Ubuntu LXC container** with Docker installed. This gives you an isolated environment that's easy to snapshot and restore.
 
 ---
 
@@ -20,7 +20,7 @@ In the Proxmox web UI:
 3. Recommended specs:
     - **CPU:** 2 cores
     - **RAM:** 2 GB (4 GB if running other services)
-    - **Disk:** 10 GB (cli_debrid itself is small — data is on your debrid cloud)
+    - **Disk:** 10 GB (Clyde itself is small — data is on your debrid cloud)
 4. Set a static IP or use DHCP with a reserved address
 
 !!! important "Privileged container for mounts"
@@ -36,11 +36,11 @@ usermod -aG docker $USER
 newgrp docker
 ```
 
-### Step 3 — Deploy cli_debrid
+### Step 3 — Deploy Clyde
 
 === "Docker Compose / Ubuntu guide"
 
-    Follow the [Ubuntu installation guide](ubuntu.md) to create the compose file and start cli_debrid.
+    Follow the [Ubuntu installation guide](ubuntu.md) to create the compose file and start Clyde.
 
 === "Portainer / Dockge / Dockhand"
 
@@ -54,7 +54,7 @@ newgrp docker
 
 ## Passing in your debrid mount
 
-If your debrid mount (Zurg + rclone or Decypharr) is running on the Proxmox host or another LXC, you need to bind-mount the path into your cli_debrid LXC.
+If your debrid mount (Zurg + rclone or Decypharr) is running on the Proxmox host or another LXC, you need to bind-mount the path into your Clyde LXC.
 
 In `/etc/pve/lxc/YOUR_CTID.conf` on the Proxmox host, add a line pointing to your mount path:
 

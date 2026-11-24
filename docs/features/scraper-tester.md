@@ -38,7 +38,7 @@ Change any values in Modified Settings to see how they would affect results.
 
 ### Step 3 — Run the scrape
 
-Click **Run Scrape**. cli_debrid runs two scrapes simultaneously — one with your original settings and one with the modified settings.
+Click **Run Scrape**. Clyde runs two scrapes simultaneously — one with your original settings and one with the modified settings.
 
 ### Step 4 — Analyse results
 

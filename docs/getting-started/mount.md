@@ -5,31 +5,31 @@ icon: material/harddisk
 
 # Step 2 — Mount your storage
 
-Before cli_debrid can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.
+Before Clyde can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.
 
 These tools handle this:
 
 | Tool | Debrid | Usenet | Notes |
 |---|---|---|---|
-| **Built-in mount** | Real-Debrid, AllDebrid, Torbox, Premiumize, Debrid-Link, HighWay | ✓ | **Default.** Runs inside cli_debrid, no extra container |
-| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | All-in-one in its own container, built alongside cli_debrid |
+| **Built-in mount** | Real-Debrid, AllDebrid, Torbox, Premiumize, Debrid-Link, HighWay | ✓ | **Default.** Runs inside Clyde, no extra container |
+| **cli_mount** | Real-Debrid, AllDebrid, Torbox, Premiumize | ✓ | All-in-one in its own container, built alongside Clyde |
 | **Decypharr** | Real-Debrid, AllDebrid, Torbox, Premiumize | | The original project cli_mount is forked from |
 | **Zurg + rclone** | Real-Debrid, AllDebrid, Debrid-Link | ✓ (Zurg 2.0) | Long-standing, well-tested Real-Debrid setup |
 
 Choose one:
 
 - **Most setups** (Usenet, debrid, or both): the **built-in mount**. Nothing to install here; you set it up in [Step 4](configure.md).
-- **A separate mount container**, or a host where cli_debrid can't get FUSE access: **cli_mount** — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
+- **A separate mount container**, or a host where Clyde can't get FUSE access: **cli_mount** — it handles debrid and Usenet in a single container and works directly with Clyde for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.
 
 ---
 
 ## Option A — Built-in mount
 
-cli_debrid's own mount engine runs inside the cli_debrid container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in [Step 3](install.md).
+Clyde's own mount engine runs inside the Clyde container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in [Step 3](install.md).
 
 Full guide: [:octicons-arrow-right-24: Built-in mount](../integrations/builtin-mount.md){ .md-button }
 
-Skip ahead to [Step 3](install.md); the mount appears once cli_debrid runs.
+Skip ahead to [Step 3](install.md); the mount appears once Clyde runs.
 
 ---
 
@@ -40,7 +40,7 @@ cli_mount mounts your debrid library and streams Usenet NZBs from your news serv
 Full setup guide: [:octicons-arrow-right-24: cli_mount](../integrations/cli_mount.md){ .md-button }
 
 !!! tip "Installing both? Use one compose file"
-    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) runs cli_mount and cli_debrid together from one compose file, so this step and [Step 3](install.md) happen at once.
+    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) runs cli_mount and Clyde together from one compose file, so this step and [Step 3](install.md) happen at once.
 
 In short:
 
@@ -87,7 +87,7 @@ Note the path — you'll need it in the next step.
 Before proceeding, confirm the mount is working by listing your mount path:
 
 === "Built-in mount"
-    Check this after Step 4, once cli_debrid runs:
+    Check this after Step 4, once Clyde runs:
     ```bash
     ls /path/to/clid
     ```
@@ -110,10 +110,10 @@ Before proceeding, confirm the mount is working by listing your mount path:
 You should see your files listed (a new Usenet-only setup will be empty until the first NZB is added). If the command fails, fix the mount before continuing.
 
 !!! warning "Mount must be working before installing cli_debrid"
-    cli_debrid needs to be able to read the mount path at startup. If the mount isn't working, cli_debrid won't be able to verify files exist.
+    Clyde needs to be able to read the mount path at startup. If the mount isn't working, Clyde won't be able to verify files exist.
 
 ---
 
 ## Next step
 
-[:octicons-arrow-right-24: Step 3 — Install cli_debrid](install.md){ .md-button .md-button--primary }
+[:octicons-arrow-right-24: Step 3 — Install Clyde](install.md){ .md-button .md-button--primary }

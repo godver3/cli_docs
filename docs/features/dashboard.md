@@ -5,7 +5,7 @@ icon: material/view-dashboard
 
 # Dashboard
 
-The Dashboard is the home screen of cli_debrid. It gives you a real-time snapshot of your collection, active downloads, and what's airing soon.
+The Dashboard is the home screen of Clyde. It gives you a real-time snapshot of your collection, active downloads, and what's airing soon.
 
 ![Dashboard overview](../assets/screenshots/features/dashboard-overview.png)
 
@@ -22,7 +22,7 @@ The top row shows summary counts for your entire library:
 | **Episodes** | Total collected episodes |
 | **Active Downloads** | Current downloads / max slot limit — click to open the [Debrid Manager](debrid-manager.md) Active tab |
 | **Usage** | Current debrid storage usage — click to open the [Debrid Manager](debrid-manager.md) Usage tab |
-| **Uptime** | How long cli_debrid has been running since last restart — click to open the [Performance Dashboard](performance.md) |
+| **Uptime** | How long Clyde has been running since last restart — click to open the [Performance Dashboard](performance.md) |
 
 ![Statistics cards](../assets/screenshots/features/dashboard-stats.png)
 
@@ -52,7 +52,7 @@ Click any episode to open the show detail page. The **Calendar →** link opens 
 
 ## Airing Soon
 
-Episodes from your collected shows scheduled to air in the coming days. Useful for seeing what cli_debrid will be looking for shortly. Shows the episode title and scheduled air time.
+Episodes from your collected shows scheduled to air in the coming days. Useful for seeing what Clyde will be looking for shortly. Shows the episode title and scheduled air time.
 
 Click any episode to open the show detail page. The **Calendar →** link opens the full Calendar view.
 

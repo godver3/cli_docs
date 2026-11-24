@@ -1,11 +1,11 @@
 ---
-title: Configure cli_debrid
+title: Configure Clyde
 icon: material/cog
 ---
 
-# Step 4 — Configure cli_debrid
+# Step 4 — Configure Clyde
 
-With cli_debrid installed and the onboarding wizard open, work through each section below. You will need the API keys and paths gathered in [Step 1](prerequisites.md) and the mount path from [Step 2](mount.md).
+With Clyde installed and the onboarding wizard open, work through each section below. You will need the API keys and paths gathered in [Step 1](prerequisites.md) and the mount path from [Step 2](mount.md).
 
 ---
 
@@ -21,7 +21,7 @@ The wizard runs automatically on first launch. If you leave partway through, log
 | **3a. Versions** | The **Default** version (1080p) is added for you. Keep it, or switch to **Separate 1080p/4K Versions** or **Alternate Default Versions** |
 | **4. Content sources** | Add at least one, e.g. **My Plex Watchlist** |
 | **5. Library management** | Optionally scan or convert an existing library |
-| **5a. Subtitles** (optional) | How cli_debrid handles subtitles, and whether it should. Choose **Yes** to set your languages, your OpenSubtitles.com login and optional SubDL/SubSource API keys, each with a **Test** button. Choose **No**, or just move on, to skip. See [Subtitles](../configuration/subtitles.md). |
+| **5a. Subtitles** (optional) | How Clyde handles subtitles, and whether it should. Choose **Yes** to set your languages, your OpenSubtitles.com login and optional SubDL/SubSource API keys, each with a **Test** button. Choose **No**, or just move on, to skip. See [Subtitles](../configuration/subtitles.md). |
 | **6. Review & start** | A summary of your setup (including whether subtitles are on), a health check of every connection (including whether your media server sees the mount and symlink folder at the same paths), optional **Simple** poster overlays, then **Start Program & Go to Dashboard** (or **Finish Setup** to look around before starting) |
 
 Scrapers and content sources can be edited in the wizard after you add them. You can change everything later under **Settings**.
@@ -32,7 +32,7 @@ The sections below explain the fields in step 2 in more detail.
 
 ## Debrid or Usenet provider
 
-In the wizard's **Where your media comes from** section, tick **Debrid**, **Usenet** or both. cli_debrid needs at least one; you can add the other later under **Settings → Required Settings**.
+In the wizard's **Where your media comes from** section, tick **Debrid**, **Usenet** or both. Clyde needs at least one; you can add the other later under **Settings → Required Settings**.
 
 === "Debrid"
 
@@ -69,16 +69,16 @@ In the wizard's **Where your media comes from** section, tick **Debrid**, **Usen
 
     Click **Test connection** to check the URL and token before moving on. If you pick NzbDAV, the wizard also shows the NzbDAV setup helper.
 
-    Use the server's IP or container name, **not** `localhost` — inside the cli_debrid container that points at cli_debrid itself.
+    Use the server's IP or container name, **not** `localhost` — inside the Clyde container that points at Clyde itself.
 
-    With these, your news server login lives in the mount app ([Step 2](mount.md)), not in cli_debrid. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
+    With these, your news server login lives in the mount app ([Step 2](mount.md)), not in Clyde. To find content you'll also add your indexers as **Newznab** scrapers in [Step 5](scrapers.md).
 
     After onboarding, **Settings → Required Settings → Usenet Mount** has more options:
 
     | Setting | Value |
     |---|---|
     | **Download Folder / Category** | Leave empty for cli_mount's default |
-    | **cli_mount Data Path** | `/climount_data` if you mapped cli_mount's appdata into cli_debrid ([Step 3](install.md)). Enables the cli_mount DB tools. **Detect** (under **Provider**) fills it in |
+    | **cli_mount Data Path** | `/climount_data` if you mapped cli_mount's appdata into Clyde ([Step 3](install.md)). Enables the cli_mount DB tools. **Detect** (under **Provider**) fills it in |
 
 !!! tip "Using both?"
     With debrid and Usenet both configured, torrent and NZB results are scored together using the same quality rules, and the best one wins.
@@ -89,12 +89,12 @@ These live under **Settings → Required Settings** and are worth turning on onc
 
 | Setting | Where | Recommendation |
 |---|---|---|
-| **Disable NZB Season Packs** | Usenet Mount | **Keep on** (it's the default). A single missing article in a season pack fails the whole pack, and the repair re-downloads the entire season. With this on, cli_debrid grabs NZBs per episode, so one bad file only affects one episode. Movies aren't affected. |
-| **Ffprobe All NZBs** | Usenet Mount | Optional. Before an NZB file is collected, cli_debrid opens it with `ffprobe` to make sure it actually plays, on top of the normal missing-article check. |
+| **Disable NZB Season Packs** | Usenet Mount | **Keep on** (it's the default). A single missing article in a season pack fails the whole pack, and the repair re-downloads the entire season. With this on, Clyde grabs NZBs per episode, so one bad file only affects one episode. Movies aren't affected. |
+| **Ffprobe All NZBs** | Usenet Mount | Optional. Before an NZB file is collected, Clyde opens it with `ffprobe` to make sure it actually plays, on top of the normal missing-article check. |
 | **Ffprobe All Debrid Additions** | Debrid Provider | Optional. The same playability check for debrid files. |
 
 !!! info "What the ffprobe checks cost"
-    The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Direct Mount this happens **before** cli_debrid tells Plex about it, so broken files never show up in your library.
+    The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Direct Mount this happens **before** Clyde tells Plex about it, so broken files never show up in your library.
 
     The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.
 
@@ -102,12 +102,12 @@ These live under **Settings → Required Settings** and are worth turning on onc
 
 ## Your mount
 
-cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.md)) shows your debrid and Usenet files as a normal folder, and both cli_debrid and your media server read from it. The wizard's **Your mount** section asks for that folder:
+Clyde doesn't download or store files itself. A mount tool ([Step 2](mount.md)) shows your debrid and Usenet files as a normal folder, and both Clyde and your media server read from it. The wizard's **Your mount** section asks for that folder:
 
 | Field | Value |
 |---|---|
 | **Mount tool** | The tool you set up. It picks the example path shown under the field. **Built-in mount** (the default when the container can run it) also fills in its path, `/mnt/clid/__all__`, and runs the mount for debrid even without Usenet |
-| **Mount Path** | The folder as cli_debrid sees it inside its container, e.g. `/mnt/clid/__all__`, `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
+| **Mount Path** | The folder as Clyde sees it inside its container, e.g. `/mnt/clid/__all__`, `/mnt/cli_mount/__all__`, `/mnt/zurg/__all__` or `/mnt/decypharr/__all__` |
 
 Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.
 
@@ -117,15 +117,15 @@ The mount path is required in Symlink mode. In Direct Mount it's only needed for
 
 ## Your library
 
-The wizard's **Your library** section picks how cli_debrid gets files into your media server. **File Collection Management** is one of the most important settings, and it decides which fields show up below it.
+The wizard's **Your library** section picks how Clyde gets files into your media server. **File Collection Management** is one of the most important settings, and it decides which fields show up below it.
 
 === "Direct Mount"
 
-    Your media server reads straight from your mount, and cli_debrid uses its API to track what's in your library. Called **Plex mode** before 0.8.7.
+    Your media server reads straight from your mount, and Clyde uses its API to track what's in your library. Called **Plex mode** before 0.8.7.
 
     - **Media Server:** Plex, Silo or Jellyfin / Emby. For Silo or Jellyfin / Emby, enter its URL and API key instead of the Plex fields below
     - No symlinks
-    - The media server must see the mount. Jellyfin, Emby and Silo may see it at another path: cli_debrid matches their library folders by name
+    - The media server must see the mount. Jellyfin, Emby and Silo may see it at another path: Clyde matches their library folders by name
 
     Click **Sign in to Plex** to fill the fields in, or enter them yourself (sign-in can fail when Plex can't work out your network; the direct IP and token always work):
 
@@ -135,7 +135,7 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
     | **Plex Token** | Your Plex auth token (see below) |
     | **Movie Libraries** | Comma-separated movie library names or IDs, e.g. `Movies,4K Movies` or `1,3` |
     | **TV Libraries** | Comma-separated TV library names or IDs, e.g. `TV Shows,Anime` or `2,4` |
-    | **Update Plex on file discovery** | Optional. Tells Plex to scan a file as soon as cli_debrid finds it on the mount. Needs the mount path from [Your mount](#your-mount) |
+    | **Update Plex on file discovery** | Optional. Tells Plex to scan a file as soon as Clyde finds it on the mount. Needs the mount path from [Your mount](#your-mount) |
 
     !!! tip "Using library IDs"
         You can use either the library name or its numeric ID. To find the ID, open your Plex library in the browser — the `source=` value at the end of the URL is the library ID. For example, `source=1` means the library ID is `1`.
@@ -150,22 +150,22 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
 
 === "Symlink mode"
 
-    cli_debrid makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is **Symlinked/Local**.
+    Clyde makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is **Symlinked/Local**.
 
     - Works with Plex, Jellyfin and Emby
     - On Windows it's off unless you tick **Allow Symlinks on Windows** (needs Admin or Developer Mode). Without it, use Direct Mount
 
     | Field | Value |
     |---|---|
-    | **Symlinked Files Path** | Where the symlinks go, e.g. `/mnt/symlinks`. cli_debrid creates `Movies` and `TV Shows` folders inside it; point your media server's libraries at those |
-    | **Media Server** | Optional: **None**, **Plex** or **Jellyfin / Emby**. Lets cli_debrid start a library scan when new files are added |
+    | **Symlinked Files Path** | Where the symlinks go, e.g. `/mnt/symlinks`. Clyde creates `Movies` and `TV Shows` folders inside it; point your media server's libraries at those |
+    | **Media Server** | Optional: **None**, **Plex** or **Jellyfin / Emby**. Lets Clyde start a library scan when new files are added |
     | **Plex URL** / **Plex Token** | Shown when you pick Plex |
     | **Jellyfin / Emby URL** / **Jellyfin / Emby API Token** | Shown when you pick Jellyfin / Emby, e.g. `http://YOUR_JELLYFIN_IP:8096`. Create the key under Jellyfin → Dashboard → API Keys |
 
     !!! warning "Volume mounts must match exactly"
         Each symlink points at a file inside the mount. For it to resolve, **cli_debrid and your media server must see the mount and the symlink folder at identical paths**.
 
-        For example, if cli_debrid has:
+        For example, if Clyde has:
         ```
         /mnt/remotes/zurg  →  /media/mount   (debrid mount)
         /mnt/symlinks      →  /mnt/symlinked  (symlink folder)
@@ -183,7 +183,7 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
 
 ## Versions (quality profiles)
 
-A **version** is a quality profile: which resolution you want, how big files can be, which releases to skip, and how results are scored. Every content source is assigned one or more versions, and cli_debrid picks the best result that matches.
+A **version** is a quality profile: which resolution you want, how big files can be, which releases to skip, and how results are scored. Every content source is assigned one or more versions, and Clyde picks the best result that matches.
 
 You can start with **Add Default Version** under **Settings → Version Settings**, or import a ready-made profile.
 
@@ -230,7 +230,7 @@ Full reference for every version setting: [:octicons-arrow-right-24: Versions](.
 
 ## Metadata (TVDB and TMDB)
 
-cli_debrid looks up shows, seasons, episodes and release dates. The wizard's **Metadata** section asks for both keys from [Step 1](prerequisites.md), each with a **Test key** button:
+Clyde looks up shows, seasons, episodes and release dates. The wizard's **Metadata** section asks for both keys from [Step 1](prerequisites.md), each with a **Test key** button:
 
 | Key | Needed? | Used for |
 |---|---|---|
@@ -245,7 +245,7 @@ You can change both later under **Settings → Required Settings**.
 
 ## Trakt (optional)
 
-Trakt is not required to run cli_debrid. Without a TVDB key, cli_debrid looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open **Use Trakt instead (optional)** under Metadata; after setup it's under **Settings → Tracking accounts**. Enter your Trakt **Client ID**, and the **Client Secret** if your Trakt app has one (new Trakt apps don't), then click **Authorize Trakt** and enter the code it shows on Trakt's site.
+Trakt is not required to run Clyde. Without a TVDB key, Clyde looks shows and movies up on Trakt instead, and Trakt is needed for Trakt content sources. In the wizard, open **Use Trakt instead (optional)** under Metadata; after setup it's under **Settings → Tracking accounts**. Enter your Trakt **Client ID**, and the **Client Secret** if your Trakt app has one (new Trakt apps don't), then click **Authorize Trakt** and enter the code it shows on Trakt's site.
 
 ---
 
@@ -257,7 +257,7 @@ If you use [Scrob](https://github.com/ellite/scrob), go to **Settings → Tracki
 |---|---|
 | **URL** | Your Scrob address, e.g. `http://192.168.1.x:7330` |
 | **API Key** | From Scrob's **Settings → Connections → API Key** |
-| **Username / Password** | Optional — only needed if you want items removed from your Scrob lists/collection when you delete them in cli_debrid (Scrob's API key can't delete). Leave blank to skip. |
+| **Username / Password** | Optional — only needed if you want items removed from your Scrob lists/collection when you delete them in Clyde (Scrob's API key can't delete). Leave blank to skip. |
 
 Once connected, Scrob lists show up on the **Discover** page and you can add Scrob content sources in [Step 6](content-sources.md).
 
@@ -271,7 +271,7 @@ If any connection fails:
 
 - Double-check the URL includes `http://` and the correct port
 - Confirm the API key has no extra spaces
-- Make sure cli_debrid can reach the service on your network (same Docker network, correct IP)
+- Make sure Clyde can reach the service on your network (same Docker network, correct IP)
 
 ---
 

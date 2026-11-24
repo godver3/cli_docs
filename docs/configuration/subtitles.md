@@ -5,20 +5,20 @@ icon: material/subtitles
 
 # Subtitles
 
-cli_debrid can download subtitles for everything it collects, in both file management modes, so you don't need Bazarr. Turn it on during [onboarding](../getting-started/configure.md#onboarding-wizard) (the optional **Subtitles** step) or under **Settings → Subtitles**, and manage it from **Tools → Subtitle Manager**.
+Clyde can download subtitles for everything it collects, in both file management modes, so you don't need Bazarr. Turn it on during [onboarding](../getting-started/configure.md#onboarding-wizard) (the optional **Subtitles** step) or under **Settings → Subtitles**, and manage it from **Tools → Subtitle Manager**.
 
 ---
 
 ## How it works
 
-When an item is collected, cli_debrid searches every selected provider for each language you want and picks, best first:
+When an item is collected, Clyde searches every selected provider for each language you want and picks, best first:
 
 1. **A subtitle made for your exact file.** OpenSubtitles matches by file hash, so the timing is right.
 2. **One for the same release group** (and source).
 3. **One from the same master:** a Blu-ray rip of the same title, or a WEB release from the same streaming service.
 4. Otherwise the best match on title, season and episode, then the closest release name, then the most downloaded.
 
-A subtitle for a different episode or movie is never used. cli_debrid uses the IDs and episode numbers from its database, so obfuscated file names (`tGcr.mkv`) don't confuse it.
+A subtitle for a different episode or movie is never used. Clyde uses the IDs and episode numbers from its database, so obfuscated file names (`tGcr.mkv`) don't confuse it.
 
 Where the subtitle goes:
 
@@ -87,7 +87,7 @@ Symlinked/Local only. When a file is replaced, upgraded or repaired, its old sub
 !!! danger "Permanent"
     Deleted files can't be recovered. Only separate subtitle files are removed. Subtitles inside your videos, subtitles that came with a release, and the subtitles of videos still in the folder (including ones the Subtitle Manager added) are never touched. A leftover that was still right for a renamed file is removed too; search again for that item afterwards.
 
-Deleting an item from cli_debrid always removes its own subtitle files with it.
+Deleting an item from Clyde always removes its own subtitle files with it.
 
 Searches and fixes run in the background with their own progress and **Stop** button.
 
@@ -99,11 +99,11 @@ The **Bulk subtitles** task on the [Automation](../features/automation.md) page 
 
 ### Moving from Bazarr
 
-**Subtitle Manager → Import from Bazarr** copies Bazarr's languages, providers, OpenSubtitles.com login and embedded-subtitle settings into Subtitle Settings. Bazarr's subsync isn't copied: cli_debrid doesn't re-time subtitles, it picks ones made for your release. Subtitles Bazarr already synced or matched are marked as checked, so **Fix existing subtitles** leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than `localhost`.
+**Subtitle Manager → Import from Bazarr** copies Bazarr's languages, providers, OpenSubtitles.com login and embedded-subtitle settings into Subtitle Settings. Bazarr's subsync isn't copied: Clyde doesn't re-time subtitles, it picks ones made for your release. Subtitles Bazarr already synced or matched are marked as checked, so **Fix existing subtitles** leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than `localhost`.
 
 ### Keeping Bazarr
 
-cli_debrid can pose as Radarr and Sonarr so Bazarr can download subtitles for your library.
+Clyde can pose as Radarr and Sonarr so Bazarr can download subtitles for your library.
 
 | Setting | Default | Description |
 |---|---|---|

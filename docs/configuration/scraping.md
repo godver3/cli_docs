@@ -25,7 +25,7 @@ These used to be under **Version Settings → Other Scraping Settings** and the 
 | **Filter Trash Releases** | On | Drop releases the parser marks as trash (typically low-quality or badly named) |
 | **Minimum Scrape Score** | `0.0` | Results scoring below this are dropped. Scores come from the version's weights. `0.0` accepts any score. |
 | **Disable Adult** | On | Filter out adult content |
-| **Enable Seadex Priority** | Off | For anime, prefer the release [SeaDex](https://releases.moe) lists as best for the title over cli_debrid's own scoring. Only for items detected as anime, in versions whose Anime Filter Mode isn't "Non-Anime Only". |
+| **Enable Seadex Priority** | Off | For anime, prefer the release [SeaDex](https://releases.moe) lists as best for the title over Clyde's own scoring. Only for items detected as anime, in versions whose Anime Filter Mode isn't "Non-Anime Only". |
 | **Trakt Early Releases** | Off | Check Trakt for early releases |
 | **Trakt Rate Limit Enabled** | On | Rate-limit Trakt calls to avoid 429 errors. Detects VIP or free tier on its own. Leave it on. |
 | **Scraper Timeout** | `5` | Seconds to wait for each scraper (`0` = no timeout). Raise it for slow scrapers such as AIOStreams. |

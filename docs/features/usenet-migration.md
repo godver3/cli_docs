@@ -19,13 +19,13 @@ The tool is in **Tools → All Tools → Usenet → Migrate between usenet provi
 
 ## What each direction needs
 
-cli_debrid runs in a container without Docker access, so it reads NzbDAV over HTTP and reads cli_mount's `.nzb` files from a folder bound into the container.
+Clyde runs in a container without Docker access, so it reads NzbDAV over HTTP and reads cli_mount's `.nzb` files from a folder bound into the container.
 
 === "cli_mount → NzbDAV"
 
     | Field | Value |
     |---|---|
-    | **cli_mount nzb-store path (source)** | cli_mount's stored `.nzb` files as seen inside the cli_debrid container. With the usual bind `- /path/to/appdata/cli_mount:/climount_data` (the same one the cli_mount DB tools use, see [cli_mount Data Path](../configuration/required.md#usenet-mount)), this is `/climount_data/usenet/nzbs`. |
+    | **cli_mount nzb-store path (source)** | cli_mount's stored `.nzb` files as seen inside the Clyde container. With the usual bind `- /path/to/appdata/cli_mount:/climount_data` (the same one the cli_mount DB tools use, see [cli_mount Data Path](../configuration/required.md#usenet-mount)), this is `/climount_data/usenet/nzbs`. |
     | **NzbDAV URL (target)** | e.g. `http://192.168.1.x:3000`. Not `localhost`. |
     | **NzbDAV SAB API token** | NzbDAV's SABnzbd API key |
     | **Target category (NzbDAV)** | cli_mount's nzb store has no categories, so everything lands in this one. It must already exist in NzbDAV. To keep categories, migrate one category at a time by pointing the path at that category's releases. |
@@ -60,26 +60,26 @@ Fields for your current Usenet mount are filled in from **Settings → Required 
 3. Set a small **Limit** and click **Start transfer**. The progress shows submitted, skipped and failed counts, with a reason for each failure.
 4. Check those items play from the new provider, then set **Limit** back to `0` and run it again. With **Skip items already at target** on, the ones you already moved are skipped.
 
-**Cancel** stops after the current item. Progress is kept in memory only, so a cli_debrid restart loses the progress view (items already submitted stay on the target).
+**Cancel** stops after the current item. Progress is kept in memory only, so a Clyde restart loses the progress view (items already submitted stay on the target).
 
 ---
 
 ## After the transfer
 
-The tool only moves the downloads. It doesn't change cli_debrid's settings, database or symlinks. Once you're happy with the new provider:
+The tool only moves the downloads. It doesn't change Clyde's settings, database or symlinks. Once you're happy with the new provider:
 
 1. In **Settings → Required Settings → Usenet Mount**, set **Provider**, **Mount URL** and **API Token** to the new provider.
 2. Point your library at the new provider's mount: the Plex library folders in Direct Mount, or **Original Files Path** in Symlink mode.
 
 !!! warning "Existing library entries still point at the old provider"
-    cli_debrid's database records and symlinks keep the old provider's file paths and job IDs. Keep the old provider running until you've checked that items play from the new one.
+    Clyde's database records and symlinks keep the old provider's file paths and job IDs. Keep the old provider running until you've checked that items play from the new one.
 
 ---
 
 ## Troubleshooting
 
 **"Path not found in this container"**
-:   The cli_mount appdata folder isn't bound into cli_debrid, or the path is wrong. Add the bind to cli_debrid's `docker-compose.yml`, restart it, and use the path as seen inside the container.
+:   The cli_mount appdata folder isn't bound into Clyde, or the path is wrong. Add the bind to Clyde's `docker-compose.yml`, restart it, and use the path as seen inside the container.
 
 **Items fail with `rejected` on NzbDAV**
 :   NzbDAV refused the file. Check that the target category exists in NzbDAV.

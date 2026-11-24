@@ -5,7 +5,7 @@ icon: material/magnify
 
 # Step 5 — Add scrapers
 
-Scrapers are how cli_debrid finds torrents and NZBs for your content. You need at least one scraper configured before cli_debrid can add anything.
+Scrapers are how Clyde finds torrents and NZBs for your content. You need at least one scraper configured before Clyde can add anything.
 
 - **Debrid users** need at least one **torrent** scraper (below).
 - **Usenet users** need at least one **Newznab** indexer ([see below](#newznab-usenet-indexers)).
@@ -49,7 +49,7 @@ https://zileanfortheweebs.midnightignite.me
 
 ### Torrentio
 
-Torrentio is a Stremio addon that also works as a scraper API. No account or URL needed — cli_debrid uses the public instance.
+Torrentio is a Stremio addon that also works as a scraper API. No account or URL needed — Clyde uses the public instance.
 
 Full guide: [:octicons-arrow-right-24: Torrentio setup](../scrapers/torrentio.md){ .md-button }
 

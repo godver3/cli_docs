@@ -1,4 +1,4 @@
-# cli_debrid Documentation
+# Clyde Documentation
 
 MkDocs + Material theme documentation site.
 
@@ -46,12 +46,12 @@ cli/
 
 Drop your logo and favicon into `docs/assets/images/`:
 
-- `docs/assets/images/logo.png` — site logo (shown in top-left nav bar), recommended 48×48px
+- `docs/assets/images/logo.svg` — site logo (shown in top-left nav bar)
 - `docs/assets/images/favicon.png` — browser tab icon, recommended 32×32px
 
 Then uncomment these two lines in `mkdocs.yml`:
 ```yaml
-logo: assets/images/logo.png
+logo: assets/images/logo.svg
 favicon: assets/images/favicon.png
 ```
 And remove (or comment out) the `icon: logo:` line below them.

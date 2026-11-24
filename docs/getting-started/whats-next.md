@@ -5,7 +5,7 @@ icon: material/check-circle
 
 # You're up and running
 
-If you've followed all six steps, cli_debrid is installed, connected to your media server, and actively monitoring your content sources. Items should be flowing through the queue.
+If you've followed all six steps, Clyde is installed, connected to your media server, and actively monitoring your content sources. Items should be flowing through the queue.
 
 ---
 
@@ -21,7 +21,7 @@ If something isn't working, check the **Logs** page for errors or ask on [Discor
 
 ## Explore the features
 
-Now that the basics are running, explore what cli_debrid can do:
+Now that the basics are running, explore what Clyde can do:
 
 <div class="grid cards" markdown>
 

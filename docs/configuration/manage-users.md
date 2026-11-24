@@ -36,7 +36,7 @@ Available for local accounts only. SSO users manage their password through their
 
 ## API Token
 
-Used to access cli_debrid endpoints externally (e.g. homepage widgets, scripts).
+Used to access Clyde endpoints externally (e.g. homepage widgets, scripts).
 
 - Append `?token=<your-token>` to API requests
 - Use **Regenerate** to invalidate the old token and issue a new one immediately
@@ -55,7 +55,7 @@ Used to access cli_debrid endpoints externally (e.g. homepage widgets, scripts).
 | **Default Role for New Users** | Role assigned to new SSO users — `User`, `Requester`, or `Admin` |
 | **Auto-provision New Users** | Automatically create an account on first SSO login |
 | **Disable Local Login** | Hide the username/password form — SSO only. Ensure SSO works correctly before enabling. |
-| **Public Base URL** | Override the base URL used for the OIDC callback. Required if cli_debrid is behind a reverse proxy. Leave blank to auto-detect. |
+| **Public Base URL** | Override the base URL used for the OIDC callback. Required if Clyde is behind a reverse proxy. Leave blank to auto-detect. |
 | **Callback URI** | Read-only. Copy this value into your identity provider (e.g. Authentik application redirect URIs). |
 
 !!! warning "Disable Local Login"

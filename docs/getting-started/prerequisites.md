@@ -13,7 +13,7 @@ Before installing anything, sign up for the required services and gather your AP
 
 ### 1. A download source — debrid, Usenet, or both
 
-cli_debrid needs at least one place to get content from:
+Clyde needs at least one place to get content from:
 
 | Option | What you need | Good for |
 |---|---|---|
@@ -25,7 +25,7 @@ You can start with one and add the other later.
 
 ### 1a. Debrid service
 
-A debrid service is a premium link provider that caches torrents in the cloud. cli_debrid uses it to stream content without downloading locally.
+A debrid service is a premium link provider that caches torrents in the cloud. Clyde uses it to stream content without downloading locally.
 
 If you're using debrid, you need **one** of the following:
 
@@ -38,7 +38,7 @@ If you're using debrid, you need **one** of the following:
 | [Debrid-Link](https://debrid-link.com) | European provider |
 
 !!! tip "Which one?"
-    Real-Debrid has the largest torrent cache and is the most tested with cli_debrid. Start there if you're unsure.
+    Real-Debrid has the largest torrent cache and is the most tested with Clyde. Start there if you're unsure.
 
 After signing up, locate your API key:
 
@@ -57,11 +57,11 @@ After signing up, locate your API key:
 === "Debrid-Link"
     [debrid-link.com/webapp/apikey](https://debrid-link.com/webapp/apikey) — generate a key.
 
-**Save this key — you will need it during cli_debrid setup.**
+**Save this key — you will need it during Clyde setup.**
 
 ### 1b. Usenet
 
-To use Usenet you need two things: a **provider** that serves the files, and an **indexer** that tells cli_debrid what's available.
+To use Usenet you need two things: a **provider** that serves the files, and an **indexer** that tells Clyde what's available.
 
 | What | Examples | Notes |
 |---|---|---|
@@ -76,7 +76,7 @@ Nothing is downloaded to your server — [cli_mount](../integrations/cli_mount.m
 
 ### 2. Media server
 
-cli_debrid works with Plex, Jellyfin, or Emby. You need one installed and accessible on your network.
+Clyde works with Plex, Jellyfin, or Emby. You need one installed and accessible on your network.
 
 | Media server | Notes |
 |---|---|
@@ -85,9 +85,9 @@ cli_debrid works with Plex, Jellyfin, or Emby. You need one installed and access
 | [Emby](https://emby.media) | Supported via Jellyfin-compatible mode. |
 
 !!! info "File management modes"
-    cli_debrid has two file management modes that affect which media servers are supported:
+    Clyde has two file management modes that affect which media servers are supported:
 
-    - **Direct Mount** (called Plex mode before 0.8.7) — your media server (Plex, Silo, Jellyfin or Emby) reads the mount directly, and cli_debrid tracks your library through its API.
+    - **Direct Mount** (called Plex mode before 0.8.7) — your media server (Plex, Silo, Jellyfin or Emby) reads the mount directly, and Clyde tracks your library through its API.
     - **Symlink mode** — creates symlinks on disk. Works with Plex, Jellyfin, and Emby.
 
 You don't need to configure any libraries yet — that happens after the mount is set up. See the integration guides for setup instructions: [Plex](../integrations/plex.md) · [Jellyfin](../integrations/jellyfin.md)
@@ -109,7 +109,7 @@ TMDB (The Movie Database) is used for metadata, posters, the Discover page, and 
 
 ### 4. TVDB API key
 
-TVDB is where cli_debrid looks up shows and movies, and matches episodes. It's required unless you use Trakt instead.
+TVDB is where Clyde looks up shows and movies, and matches episodes. It's required unless you use Trakt instead.
 
 1. Create a free account at [thetvdb.com](https://www.thetvdb.com/register)
 2. Go to **API Keys** under your account: [thetvdb.com/dashboard/account/apikey](https://www.thetvdb.com/dashboard/account/apikey)
@@ -133,7 +133,7 @@ These are not required to get started but are recommended once running:
 
 ### Trakt or Scrob
 
-Both are optional. Trakt is the hosted service; [Scrob](https://github.com/ellite/scrob) is a self-hosted alternative that syncs with Plex, Jellyfin and Emby. Either can feed lists and recommendations into cli_debrid — use whichever you prefer, or both.
+Both are optional. Trakt is the hosted service; [Scrob](https://github.com/ellite/scrob) is a self-hosted alternative that syncs with Plex, Jellyfin and Emby. Either can feed lists and recommendations into Clyde — use whichever you prefer, or both.
 
 **Scrob:** you only need your Scrob URL (e.g. `http://192.168.1.x:7330`) and an API key from **Settings → Connections → API Key** in Scrob.
 

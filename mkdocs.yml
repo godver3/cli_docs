@@ -1,4 +1,4 @@
-site_name: cli_debrid
+site_name: Clyde
 site_description: Automated media management powered by debrid services
 site_url: https://godver3.github.io/cli_docs/
 repo_url: https://github.com/godver3/cli_debrid
@@ -11,7 +11,7 @@ hooks:
 theme:
   name: material
   custom_dir: docs/overrides
-  logo: assets/images/logo.png
+  logo: assets/images/logo.svg
   favicon: assets/images/favicon.png
   palette:
     - media: "(prefers-color-scheme)"
@@ -20,15 +20,15 @@ theme:
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: deep orange
-      accent: deep orange
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Switch to system preference

@@ -5,7 +5,7 @@ icon: material/playlist-plus
 
 # Content Sources
 
-Content sources tell cli_debrid **what to download**. Each source you enable is checked automatically on every processing cycle — any new items are added to the Wanted queue.
+Content sources tell Clyde **what to download**. Each source you enable is checked automatically on every processing cycle — any new items are added to the Wanted queue.
 
 You can have multiple sources active at the same time.
 
@@ -99,7 +99,7 @@ See [Plex Collections](../features/plex-collections.md) for full setup and confi
 | [Scrob Collection](#scrob) | Your Scrob collection |
 | **Requests** | |
 | [Seerr](#seerr) | Approved requests from Seerr (Overseerr / Jellyseerr) |
-| [Agregarr](#agregarr) | Agregarr sends its requests to cli_debrid as if it were Overseerr |
+| [Agregarr](#agregarr) | Agregarr sends its requests to Clyde as if it were Overseerr |
 
 ---|---|
 | [Trakt Watchlist](#trakt-watchlist) | Your personal Trakt watchlist |
@@ -114,7 +114,7 @@ See [Plex Collections](../features/plex-collections.md) for full setup and confi
 | [Plex RSS Watchlists](#plex-rss-watchlists) | Plex watchlist via RSS feed URL |
 | [Plex Watch History](#plex-watch-history) | Items from your Plex watch history |
 | [Agregarr](#agregarr) | Content from an Agregarr instance |
-| [Collected](#collected) | Items already marked as collected in cli_debrid |
+| [Collected](#collected) | Items already marked as collected in Clyde |
 | [Adaptive List](#adaptive-lists) | Dynamic TMDB Discover-based list with custom filters |
 
 ---
@@ -131,14 +131,14 @@ Your personal Trakt watchlist. Any item you add to your watchlist on Trakt will 
 4. Set your preferred **Media Type** and **Versions**
 5. Click **Save**
 
-That's it — no URLs or API keys needed. cli_debrid uses the Trakt account you signed in with under [Settings → Tracking accounts](tracking-accounts.md#trakt).
+That's it — no URLs or API keys needed. Clyde uses the Trakt account you signed in with under [Settings → Tracking accounts](tracking-accounts.md#trakt).
 
 
 ---
 
 ## Trakt Collection
 
-Items you have marked as "Collected" in your Trakt account. Useful if you want cli_debrid to ensure everything in your Trakt collection is actually downloaded.
+Items you have marked as "Collected" in your Trakt account. Useful if you want Clyde to ensure everything in your Trakt collection is actually downloaded.
 
 **Setup:** Same as Trakt Watchlist — just enable and configure. No extra fields required.
 
@@ -213,7 +213,7 @@ Built-in Trakt charts — no URL needed. Choose from trending, popular, anticipa
 
 ## Friends Trakt Watchlist
 
-Download items from a friend's Trakt watchlist. The friend needs to authorise their Trakt account via cli_debrid's built-in friend management page.
+Download items from a friend's Trakt watchlist. The friend needs to authorise their Trakt account via Clyde's built-in friend management page.
 
 **Setting up a friend's Trakt account:**
 
@@ -259,7 +259,7 @@ Automatically downloads approved requests from your Seerr instance.
 The Seerr source supports `requester` as a Label Mode — this automatically labels items in Plex with the name of the person who requested them in Seerr. Great for multi-user setups.
 
 !!! tip "Faster request pickup with webhooks"
-    By default, cli_debrid checks Seerr on its normal processing cycle. For faster pickup (within seconds of approval), configure the Seerr webhook to notify cli_debrid immediately. See the [Integrations](../integrations/index.md) guide.
+    By default, Clyde checks Seerr on its normal processing cycle. For faster pickup (within seconds of approval), configure the Seerr webhook to notify Clyde immediately. See the [Integrations](../integrations/index.md) guide.
 
 
 ---
@@ -318,7 +318,7 @@ Downloads items from another Plex user's watchlist (e.g. a family member or hous
 
 === "Via cli_debrid (easiest)"
 
-    cli_debrid has a built-in tool to collect Plex tokens from other users without needing them to dig through XML or share credentials.
+    Clyde has a built-in tool to collect Plex tokens from other users without needing them to dig through XML or share credentials.
 
     1. Go to `http://YOUR_SERVER_IP:5000/user_token/collect_tokens`
     2. Click **Generate User Login Link**
@@ -414,28 +414,28 @@ Three source types use your [Scrob](https://github.com/ellite/scrob) server. All
 
 ## Agregarr
 
-Agregarr is a self-hosted content aggregation service. Rather than cli_debrid polling Agregarr, Agregarr **pushes** content to cli_debrid via webhook. When Agregarr has new content, it sends a POST request directly to cli_debrid.
+Agregarr is a self-hosted content aggregation service. Rather than Clyde polling Agregarr, Agregarr **pushes** content to Clyde via webhook. When Agregarr has new content, it sends a POST request directly to Clyde.
 
-**Connecting cli_debrid to Agregarr:**
+**Connecting Clyde to Agregarr:**
 
 In Agregarr, go to **Settings → Downloads → Seerr Settings** and add a new Seerr connection:
 
 | Field | Value |
 |---|---|
-| **Hostname or IP Address** | Your cli_debrid server IP |
+| **Hostname or IP Address** | Your Clyde server IP |
 | **Port** | `5000` |
 | **Use SSL** | Off (unless you have SSL configured) |
-| **API Key** | Your cli_debrid API key if user management is enabled — otherwise any non-empty string will work (field cannot be left blank) |
+| **API Key** | Your Clyde API key if user management is enabled — otherwise any non-empty string will work (field cannot be left blank) |
 | **URL Base** | `/webhook` |
-| **External URL** | Leave blank unless cli_debrid is behind a reverse proxy |
+| **External URL** | Leave blank unless Clyde is behind a reverse proxy |
 
-Once saved, Agregarr will push new content directly to cli_debrid as it becomes available.
+Once saved, Agregarr will push new content directly to Clyde as it becomes available.
 
 ---
 
 ## Collected
 
-Monitors items already marked as collected in cli_debrid. Useful to ensure previously collected content is re-downloaded if it goes missing or needs upgrading.
+Monitors items already marked as collected in Clyde. Useful to ensure previously collected content is re-downloaded if it goes missing or needs upgrading.
 
 **Setup:** Enable and configure **Media Type** and **Versions**. No extra fields required.
 
@@ -443,7 +443,7 @@ Monitors items already marked as collected in cli_debrid. Useful to ensure previ
 
 ## Adaptive Lists
 
-Adaptive Lists use TMDB Discover to build a dynamic content list based on filters you define. Instead of pointing at a fixed list, you describe what kind of content you want — and cli_debrid finds it automatically.
+Adaptive Lists use TMDB Discover to build a dynamic content list based on filters you define. Instead of pointing at a fixed list, you describe what kind of content you want — and Clyde finds it automatically.
 
 **Example uses:**
 - "Download all highly-rated sci-fi movies from the last 2 years"

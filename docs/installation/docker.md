@@ -5,7 +5,7 @@ icon: fontawesome/brands/docker
 
 # Install with Docker
 
-This guide covers installing cli_debrid using Docker and Docker Compose on Linux, macOS, or Windows. This is the recommended installation method.
+This guide covers installing Clyde using Docker and Docker Compose on Linux, macOS, or Windows. This is the recommended installation method.
 
 !!! tip "Prefer a GUI?"
     If you use Portainer, Dockge, or Dockhand, the same Docker Compose file works — just paste it into your stack editor.
@@ -20,10 +20,10 @@ Before you begin, confirm you have:
 - [Docker Compose](https://docs.docker.com/compose/install/) v2 or later (`docker compose` command)
 - A debrid account and/or a Usenet provider
 - Plex, Jellyfin, or Emby
-- A mount for your files. The [built-in mount](#easiest-one-container-with-the-built-in-mount) runs inside cli_debrid; the [cli_mount stack](#recommended-cli_debrid-and-cli_mount-in-one-stack) runs a separate mount container; [Zurg + rclone](../integrations/zurg.md) and [Decypharr](../integrations/decypharr.md) also work
+- A mount for your files. The [built-in mount](#easiest-one-container-with-the-built-in-mount) runs inside Clyde; the [cli_mount stack](#recommended-cli_debrid-and-cli_mount-in-one-stack) runs a separate mount container; [Zurg + rclone](../integrations/zurg.md) and [Decypharr](../integrations/decypharr.md) also work
 
 !!! warning "Avoid Docker Desktop on Linux"
-    On Linux servers, install Docker Engine directly — not Docker Desktop. Docker Desktop on Linux runs in a VM which can cause permission and mount issues with cli_debrid.
+    On Linux servers, install Docker Engine directly — not Docker Desktop. Docker Desktop on Linux runs in a VM which can cause permission and mount issues with Clyde.
 
 ---
 
@@ -46,7 +46,7 @@ Every tag is multi-arch: the same tag works on amd64 and arm64 (Raspberry Pi, Ap
 
 ## Easiest: one container with the built-in mount
 
-cli_debrid's [built-in mount](../integrations/builtin-mount.md) streams your debrid account and your Usenet server from inside the cli_debrid container. This needs a Linux host running Docker Engine.
+Clyde's [built-in mount](../integrations/builtin-mount.md) streams your debrid account and your Usenet server from inside the Clyde container. This needs a Linux host running Docker Engine.
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
@@ -54,22 +54,22 @@ curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/
 docker compose up -d
 ```
 
-Open `http://your-server-ip:5000` and follow the [onboarding wizard](../getting-started/configure.md). It picks the built-in mount, fills in `/mnt/clid/__all__`, and its last step checks that cli_debrid and your media server see the same folders. Give your media server `/mnt/clid` (with `:rslave`) and, for Symlink mode, `/mnt/symlinks`, at the same paths. The compose file has a Plex service you can uncomment. Every line is explained on the [built-in mount](../integrations/builtin-mount.md#docker-setup) page.
+Open `http://your-server-ip:5000` and follow the [onboarding wizard](../getting-started/configure.md). It picks the built-in mount, fills in `/mnt/clid/__all__`, and its last step checks that Clyde and your media server see the same folders. Give your media server `/mnt/clid` (with `:rslave`) and, for Symlink mode, `/mnt/symlinks`, at the same paths. The compose file has a Plex service you can uncomment. Every line is explained on the [built-in mount](../integrations/builtin-mount.md#docker-setup) page.
 
 ---
 
-## cli_debrid and cli_mount in one stack { #recommended-cli_debrid-and-cli_mount-in-one-stack }
+## Clyde and cli_mount in one stack { #recommended-cli_debrid-and-cli_mount-in-one-stack }
 
-This setup runs cli_debrid and [cli_mount](../integrations/cli_mount.md) from one compose file. cli_mount mounts your debrid and Usenet files, and cli_debrid reads them from the same folder. This needs a Linux host running Docker Engine. Mount sharing between containers doesn't work in Docker Desktop on macOS or Windows.
+This setup runs Clyde and [cli_mount](../integrations/cli_mount.md) from one compose file. cli_mount mounts your debrid and Usenet files, and Clyde reads them from the same folder. This needs a Linux host running Docker Engine. Mount sharing between containers doesn't work in Docker Desktop on macOS or Windows.
 
 Everything uses two folders on the host, and every container sees them at the **same path** as the host:
 
 | Folder | What's in it |
 |---|---|
 | `/mnt/cli_mount` | The mount: your debrid and Usenet files. All files are in `/mnt/cli_mount/__all__` |
-| `/mnt/symlinks` | Symlink mode only: the library cli_debrid builds with symlinks |
+| `/mnt/symlinks` | Symlink mode only: the library Clyde builds with symlinks |
 
-Keeping the paths identical everywhere (host, cli_mount, cli_debrid and your media server) is what makes file paths and symlinks work without any translation.
+Keeping the paths identical everywhere (host, cli_mount, Clyde and your media server) is what makes file paths and symlinks work without any translation.
 
 ### 1. Create the shared folders
 
@@ -140,11 +140,11 @@ services:
 2. The mount. `rshared` passes the mount cli_mount creates inside its container out to the host, where the other containers can see it
 3. Your timezone — see the [full list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 4. The user cli_mount runs as. It must own `/mnt/cli_mount` on the host (step 1)
-5. cli_debrid waits until cli_mount's web UI is answering
-6. cli_debrid's databases — **back this up regularly**
-7. cli_mount's data folder, shared with cli_debrid. cli_debrid backs up cli_mount's databases into it and reads its log
-8. `rslave` lets cli_debrid see the mount, and see it again whenever cli_mount restarts, without restarting cli_debrid
-9. Only needed in Symlink mode: where cli_debrid writes symlinks
+5. Clyde waits until cli_mount's web UI is answering
+6. Clyde's databases — **back this up regularly**
+7. cli_mount's data folder, shared with Clyde. Clyde backs up cli_mount's databases into it and reads its log
+8. `rslave` lets Clyde see the mount, and see it again whenever cli_mount restarts, without restarting Clyde
+9. Only needed in Symlink mode: where Clyde writes symlinks
 
 ### 3. Start the stack
 
@@ -162,7 +162,7 @@ Open `http://your-server-ip:8282`. The setup wizard asks for:
 | Step | Enter |
 |---|---|
 | Debrid / Usenet | Your debrid API key and/or your Usenet server. At least one is required |
-| Download Folder | `/app/downloads` (cli_debrid doesn't use it) |
+| Download Folder | `/app/downloads` (Clyde doesn't use it) |
 | Mount type | **DFS (cli_mount File System)** |
 | Mount Path | `/mnt/cli_mount` |
 | Cache Directory | `/app/cache` |
@@ -177,7 +177,7 @@ You should see `__all__`, `nzbs`, `torrents` and `version.txt`. If the folder is
 
 See the [cli_mount guide](../integrations/cli_mount.md#configuration) for its other settings.
 
-### 5. Set up cli_debrid
+### 5. Set up Clyde
 
 Open `http://your-server-ip:5000` and follow the onboarding wizard (see [Step 5 — Complete onboarding](#step-5-complete-onboarding) for the full list). For the mount:
 
@@ -200,7 +200,7 @@ Your media server needs the same folders at the same paths. If it runs in Docker
 
 ??? example "Plex in the same compose file"
 
-    Add this under `services:`. Plex uses host networking, so in cli_debrid's onboarding its URL is `http://your-server-ip:32400`, not the service name.
+    Add this under `services:`. Plex uses host networking, so in Clyde's onboarding its URL is `http://your-server-ip:32400`, not the service name.
 
     ```yaml
       plex:
@@ -248,14 +248,14 @@ That container was given the folder without `:rslave`. Add it and recreate the c
 
 ---
 
-## cli_debrid on its own
+## Clyde on its own
 
 Use this if you already have a mount, or use Zurg, Decypharr or NzbDAV.
 
 
 ## Step 1 — Create the directory
 
-Create a directory to store cli_debrid's data:
+Create a directory to store Clyde's data:
 
 ```bash
 mkdir -p ${HOME}/cli_debrid
@@ -279,7 +279,7 @@ nano docker-compose.yml
 ```
 
 !!! tip "Stack all services in one compose file"
-    You can combine cli_debrid, Zurg/Decypharr, Plex, and Jellyfin into a single `docker-compose.yml` by adding each as a separate service under the same `services:` block. This makes it easier to start, stop, and update everything together with one `docker compose up -d` command. The same applies in Portainer, Dockge, and Dockhand — just paste the merged file into your stack editor.
+    You can combine Clyde, Zurg/Decypharr, Plex, and Jellyfin into a single `docker-compose.yml` by adding each as a separate service under the same `services:` block. This makes it easier to start, stop, and update everything together with one `docker compose up -d` command. The same applies in Portainer, Dockge, and Dockhand — just paste the merged file into your stack editor.
 
 Choose the compose file that matches your file management mode:
 
@@ -315,13 +315,13 @@ Choose the compose file that matches your file management mode:
     2. Settings and configuration files
     3. Application log files
     4. Your debrid mount (Zurg or Decypharr) — container path must match your media server exactly
-    5. Where cli_debrid writes symlinks — container path must match your media server exactly
+    5. Where Clyde writes symlinks — container path must match your media server exactly
     6. **Optional** — only needed for the Overlay feature. Path to your Plex Media Server data folder
     7. Set to your local timezone — see [full list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
     8. **Optional** — limits memory arena allocation, reduces memory usage. Recommended for all installs
 
     !!! warning "Container paths must match your media server"
-        The debrid mount and symlink folder must use **identical container paths** in both cli_debrid and your media server (Plex/Jellyfin/Emby). If they differ, symlinks will appear broken. See [Plex](../integrations/plex.md) and [Jellyfin](../integrations/jellyfin.md) guides for matching examples.
+        The debrid mount and symlink folder must use **identical container paths** in both Clyde and your media server (Plex/Jellyfin/Emby). If they differ, symlinks will appear broken. See [Plex](../integrations/plex.md) and [Jellyfin](../integrations/jellyfin.md) guides for matching examples.
 
     !!! warning "Unraid users"
         Use the actual pool path for your volumes (e.g. `/mnt/cache/appdata/cli_debrid`), not the user share path (`/mnt/user/...`). This avoids array startup issues.
@@ -385,7 +385,7 @@ Choose the compose file that matches your file management mode:
           - /dev/dri:/dev/dri                                # (2) optional — hardware transcoding
     ```
 
-    1. Your debrid mount — in Direct Mount the container path does not need to match cli_debrid
+    1. Your debrid mount — in Direct Mount the container path does not need to match Clyde
     2. **Optional** — only needed for hardware transcoding
 
     !!! warning "Unraid users"
@@ -472,7 +472,7 @@ docker compose logs -f cli_debrid
 docker compose restart cli_debrid
 ```
 
-### Stop cli_debrid
+### Stop Clyde
 ```bash
 docker compose down
 ```

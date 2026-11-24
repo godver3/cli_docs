@@ -26,8 +26,8 @@ icon: material/speedometer
 | Setting | Default | Description |
 |---|---|---|
 | **Staleness Threshold (Days)** | `7` | Days before stored metadata is refreshed |
-| **Cpu Threshold Percent** | `75` | CPU use that makes cli_debrid slow down |
-| **Ram Threshold Percent** | `75` | RAM use that makes cli_debrid slow down |
+| **Cpu Threshold Percent** | `75` | CPU use that makes Clyde slow down |
+| **Ram Threshold Percent** | `75` | RAM use that makes Clyde slow down |
 | **Regulation Increase Step Seconds** | `1.0` | How much the pause between tasks grows while load is high |
 | **Regulation Decrease Step Seconds** | `1.0` | How much it shrinks once load is back to normal |
 | **Regulation Max Sleep Seconds** | `60.0` | Longest pause the regulation can set |
