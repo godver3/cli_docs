@@ -129,7 +129,7 @@ For Usenet, pick **Built-in mount** under **Settings → Required Settings → U
 | **Queue** | Every NZB and torrent the mount knows: status, size, errors. Search, filter, retry failed ones or delete |
 | **Browse** | The mount's folders and files |
 | **Settings** | News servers, virtual folders and all mount settings (below). **Save** applies them; **Restart engine** restarts it |
-| **Migrate from cli_mount** | Move an existing cli_mount library over without re-downloading anything ([below](#moving-from-cli_mount)) |
+| **Migrate from cli_mount** | Move an existing cli_mount or Decypharr library over without re-downloading anything ([below](#moving-from-cli_mount-or-decypharr)) |
 
 The engine's own log is on the **Logs** page (**Mount** tab). While something plays from the mount, the home page shows **Now playing**: who is watching, the position, and whether it streams from Usenet or debrid.
 
@@ -234,13 +234,13 @@ Playback over WebDAV gets the same treatment as the mount: playback priority, **
 
 ---
 
-## Moving from cli_mount
+## Moving from cli_mount or Decypharr
 
-The **Migrate from cli_mount** tab moves a cli_mount library into the built-in mount, keeping every download and its ID, so nothing is re-downloaded or re-added:
+The **Migrate from cli_mount** tab moves a cli_mount or Decypharr library into the built-in mount, keeping every download and its ID, so nothing is re-downloaded or re-added. Below, "cli_mount" means whichever of the two you run:
 
 1. Set your news servers on the **Settings** tab.
 2. **Start alongside**: the built-in mount starts on its own path (e.g. `/mnt/clid`) while cli_mount keeps serving.
-3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again.
+3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again: jobs already imported are skipped. Clyde reads the maps from cli_mount's appdata, so bind it into Clyde's container and set **Settings → Usenet Mount → cli_mount Data Path** to it (e.g. `/climount_data` or `/decypharr_data`).
 4. **Compare 10 files**: reads random files through both mounts and compares them.
 5. Stop the cli_mount container, then **Switch to the built-in mount**: it takes over cli_mount's mount path, so your symlinks and Plex keep working, and becomes the Usenet mount. Clyde needs `/dev/fuse`, `SYS_ADMIN` and cli_mount's mount folder bound with `rshared`.
 
@@ -257,6 +257,8 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 **A subtitle couldn't be saved.** Only subtitle files can be written into the mount, and only into a download's folder. The engine has to be running.
 
 **Playback stutters or a read fails on Usenet.** A read that fails without proof (a timeout, a dropped connection, `502 Too many connections`) is tried again for up to 45 seconds before the player gets an error. A server whose copy of an article is the wrong one (a reused Message-ID) is skipped and the next server is asked. Neither marks the file broken: only an article missing or short on every server does.
+
+**Import fails on every job with "unreadable metadata: unsupported protobuf wire type".** Your Decypharr saves its file maps in its newer, compressed format, which older Clyde versions can't read. Update Clyde and run **Import** again.
 
 **Sharing logs for help.** **Logs → Mount → Share Mount Logs** uploads the engine log with a snapshot at the top: engine stats (goroutines, memory, connections, caches, debrid), open streams, and your Mount settings with every password, token and key replaced by `(set)`.
 
