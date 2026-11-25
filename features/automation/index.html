@@ -3497,7 +3497,7 @@
 <td><strong>Plex full library scan</strong></td>
 <td>Plex &amp; Media Server</td>
 <td>Every 30 minutes</td>
-<td>On in Plex file management mode.</td>
+<td>On in Direct Mount.</td>
 </tr>
 <tr>
 <td><strong>Pick up files added outside cli_debrid</strong></td>
@@ -3539,7 +3539,7 @@
 <td><strong>Library maintenance</strong></td>
 <td>Library &amp; Upgrades</td>
 <td>Off, every 12 hours</td>
-<td><strong>Deletes or changes data.</strong> Checks the library against the files on disk: broken and orphaned symlinks in Symlink mode, missing files on the mount in Plex mode. Broken items go back to Wanted if they were the last copy of their version, otherwise they're deleted. It needs cli_debrid to see your mount.</td>
+<td><strong>Deletes or changes data.</strong> Checks the library against the files on disk: broken and orphaned symlinks in Symlink mode, missing files on the mount in Direct Mount. Broken items go back to Wanted if they were the last copy of their version, otherwise they're deleted. It needs cli_debrid to see your mount.</td>
 </tr>
 <tr>
 <td><strong>Clean up debrid account</strong></td>
@@ -3565,7 +3565,7 @@
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
 <ul>
 <li>Turning a queue off now stays off after a restart.</li>
-<li>A setting that turns a feature on (overlays, Plex mode, and so on) still turns its tasks on, even after you've used this page. Only tasks you changed by hand are remembered.</li>
+<li>A setting that turns a feature on (overlays, Direct Mount, and so on) still turns its tasks on, even after you've used this page. Only tasks you changed by hand are remembered.</li>
 <li>To run a task from a script or another page, use <strong>Run now</strong> here, or the <strong>Run Task Manually</strong> card under <a href="../tools/#queues-tasks">Tools → Queues &amp; tasks</a>.</li>
 </ul>
 

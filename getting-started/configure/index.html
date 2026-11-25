@@ -3817,7 +3817,7 @@
 </table>
 <div class="admonition info">
 <p class="admonition-title">What the ffprobe checks cost</p>
-<p>The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Plex mode this happens <strong>before</strong> cli_debrid tells Plex about it, so broken files never show up in your library.</p>
+<p>The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Direct Mount this happens <strong>before</strong> cli_debrid tells Plex about it, so broken files never show up in your library.</p>
 <p>The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.</p>
 </div>
 <hr>
@@ -3842,18 +3842,18 @@
 </tbody>
 </table>
 <p>Click <strong>Check path</strong>. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an <code>__all__</code> folder (point it at <code>__all__</code> itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.</p>
-<p>The mount path is required in Symlink mode. In Plex mode it's only needed for <strong>Update Plex on file discovery</strong>.</p>
+<p>The mount path is required in Symlink mode. In Direct Mount it's only needed for <strong>Update Plex on file discovery</strong>.</p>
 <hr>
 <h2 id="your-library">Your library<a class="headerlink" href="#your-library" title="Permanent link">¶</a></h2>
 <p>The wizard's <strong>Your library</strong> section picks how cli_debrid gets files into your media server. <strong>File Collection Management</strong> is one of the most important settings, and it decides which fields show up below it.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Plex mode</label><label for="__tabbed_2_2">Symlink mode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Direct Mount</label><label for="__tabbed_2_2">Symlink mode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Plex reads straight from your mount, and cli_debrid uses the Plex API to track what's in your library.</p>
+<p>Your media server reads straight from your mount, and cli_debrid uses its API to track what's in your library. Called <strong>Plex mode</strong> before 0.8.7.</p>
 <ul>
-<li>Plex only: doesn't work with Jellyfin or Emby</li>
+<li><strong>Media Server:</strong> Plex, Silo or Jellyfin / Emby. For Silo or Jellyfin / Emby, enter its URL and API key instead of the Plex fields below</li>
 <li>No symlinks</li>
-<li>Plex must see the mount at the same path as cli_debrid</li>
+<li>The media server must see the mount. Jellyfin, Emby and Silo may see it at another path: cli_debrid matches their library folders by name</li>
 </ul>
 <p>Click <strong>Sign in to Plex</strong> to fill the fields in, or enter them yourself (sign-in can fail when Plex can't work out your network; the direct IP and token always work):</p>
 <table>
@@ -3902,8 +3902,7 @@
 <p>cli_debrid makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is <strong>Symlinked/Local</strong>.</p>
 <ul>
 <li>Works with Plex, Jellyfin and Emby</li>
-<li>Required for Jellyfin and Emby</li>
-<li>On Windows it's off unless you tick <strong>Allow Symlinks on Windows</strong> (needs Admin or Developer Mode). Without it, use Plex mode</li>
+<li>On Windows it's off unless you tick <strong>Allow Symlinks on Windows</strong> (needs Admin or Developer Mode). Without it, use Direct Mount</li>
 </ul>
 <table>
 <thead>

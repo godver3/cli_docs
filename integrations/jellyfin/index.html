@@ -1527,6 +1527,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pick-a-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pick a mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-1-expose-the-debrid-mount-to-jellyfin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1573,6 +1584,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-mount-with-jellyfin-or-emby" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Mount with Jellyfin or Emby
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3310,6 +3332,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pick-a-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pick a mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-1-expose-the-debrid-mount-to-jellyfin" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3356,6 +3389,17 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-mount-with-jellyfin-or-emby" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Mount with Jellyfin or Emby
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3457,8 +3501,14 @@
 <li>The mount path accessible inside the Jellyfin container</li>
 </ul>
 <hr>
+<h2 id="pick-a-mode">Pick a mode<a class="headerlink" href="#pick-a-mode" title="Permanent link">¶</a></h2>
+<p>Jellyfin and Emby work in both file management modes:</p>
+<ul>
+<li><strong>Symlinked/Local</strong> (the steps below): cli_debrid builds a symlink folder and Jellyfin scans it. Jellyfin must see the mount and the symlink folder at the same paths as cli_debrid.</li>
+<li><strong>Direct Mount</strong> (since 0.8.7): Jellyfin reads the mount itself, like Plex in Direct Mount. See <a href="#direct-mount-with-jellyfin-or-emby">Direct Mount with Jellyfin or Emby</a> at the end of this page.</li>
+</ul>
 <h2 id="step-1-expose-the-debrid-mount-to-jellyfin">Step 1 — Expose the debrid mount to Jellyfin<a class="headerlink" href="#step-1-expose-the-debrid-mount-to-jellyfin" title="Permanent link">¶</a></h2>
-<p>Jellyfin requires symlink mode. You need to mount both the debrid storage and the symlink folder, and the container paths <strong>must match cli_debrid exactly</strong>.</p>
+<p>In Symlinked/Local mode you mount both the debrid storage and the symlink folder, and the container paths <strong>must match cli_debrid exactly</strong>.</p>
 <table>
 <thead>
 <tr>
@@ -3594,6 +3644,18 @@
 </ol>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/integrations/jellyfin-api-key.png" data-desc-position="bottom"><img alt="Jellyfin API key creation" src="../../assets/screenshots/integrations/jellyfin-api-key.png"></a></p>
 <hr>
+<h2 id="direct-mount-with-jellyfin-or-emby">Direct Mount with Jellyfin or Emby<a class="headerlink" href="#direct-mount-with-jellyfin-or-emby" title="Permanent link">¶</a></h2>
+<p>Since 0.8.7, Direct Mount can run with Jellyfin or Emby instead of Plex: the server reads the mount, and cli_debrid asks it what it has.</p>
+<ol>
+<li>Give Jellyfin the mount (read-only is fine). Its container path doesn't have to match cli_debrid's: cli_debrid matches library folders by name.</li>
+<li>Add a <strong>Movies</strong> library on the mount's <code>Movies</code> folder and a <strong>Shows</strong> library on its <code>TV Shows</code> folder (the built-in mount and cli_mount create these).</li>
+<li>In cli_debrid, set <strong>File Management</strong> to <strong>Direct Mount</strong>, pick <strong>Jellyfin / Emby</strong> as the <strong>Media Server</strong>, and enter the URL and API key.</li>
+</ol>
+<p>New downloads are scanned in and collected once Jellyfin lists them; removals drop out. Plex-only features (labels, collections, reported issues, Plex watch history) stay off.</p>
+<div class="admonition tip">
+<p class="admonition-title">Subtitles on a read-only mount</p>
+<p>Turn off <strong>Save subtitles into media folders</strong> in each library's settings, so Jellyfin can keep subtitles cli_debrid uploads in its own data folder. Emby takes no uploads: it gets subtitles as files next to the video, which needs a mount that accepts them (the built-in mount does).</p>
+</div>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <p><strong>New content not appearing in Jellyfin</strong></p>
 <ul>

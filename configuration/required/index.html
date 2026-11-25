@@ -3600,7 +3600,7 @@
 <tbody>
 <tr>
 <td><strong>Ffprobe All Debrid Additions</strong></td>
-<td>Before collecting a debrid file, open it with <code>ffprobe</code> to confirm it plays, on top of the normal checks. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower.</td>
+<td>Before collecting a debrid file, open it with <code>ffprobe</code> to confirm it plays, on top of the normal checks. Catches broken files before they reach your library (in Direct Mount, before Plex is told about them), but makes every addition slower.</td>
 </tr>
 <tr>
 <td><strong>Enable Debrid Naming</strong></td>
@@ -3678,9 +3678,9 @@
 <p>Full guide: <a class="md-button" href="../../integrations/plex/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Plex integration</a></p>
 </div>
 <div class="tabbed-block">
-<div class="admonition warning">
-<p class="admonition-title">Symlink mode required</p>
-<p>Jellyfin and Emby do not support the Plex API. You must use <strong>Symlinked/Local</strong> file management mode. See <a href="#file-management">File Management</a> below.</p>
+<div class="admonition note">
+<p class="admonition-title">Either mode</p>
+<p>Jellyfin and Emby work in both modes (Direct Mount since 0.8.7). In Direct Mount, pick <strong>Jellyfin / Emby</strong> as the <strong>Media Server</strong> under <a href="#file-management">File Management</a>; in Symlinked/Local, pick it as the <strong>Media Server Type</strong>.</p>
 </div>
 <table>
 <thead>
@@ -3721,14 +3721,15 @@
 <hr>
 <h2 id="file-management">File Management<a class="headerlink" href="#file-management" title="Permanent link">¶</a></h2>
 <p>This is one of the most important settings.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Plex mode</label><label for="__tabbed_3_2">Symlink mode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Direct Mount</label><label for="__tabbed_3_2">Symlink mode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>cli_debrid uses the Plex API to track which files are in your library. Plex reads directly from your debrid mount.</p>
+<p>Your media server reads directly from your debrid mount, and cli_debrid uses its API to track which files are in your library. Called <strong>Plex mode</strong> before 0.8.7.</p>
 <ul>
-<li>Plex only — does not work with Jellyfin or Emby</li>
+<li><strong>Media Server:</strong> Plex, Silo or Jellyfin / Emby (Jellyfin and Emby since 0.8.7)</li>
 <li>No symlinks needed</li>
-<li>Plex must be able to read the mount path</li>
+<li>The media server must be able to read the mount path</li>
+<li>Point the server's libraries at the mount's folders, e.g. a Movies library on <code>Movies/</code> and a TV library on <code>TV Shows/</code></li>
 </ul>
 <p><strong>Mounted File Location:</strong> Set to your mount path, e.g.:</p>
 <ul>
@@ -3740,8 +3741,7 @@
 <div class="tabbed-block">
 <p>cli_debrid creates symlinks from the mount into an organised folder structure. Your media server scans the symlink folder.</p>
 <ul>
-<li>Works with Plex, Jellyfin, and Emby</li>
-<li>Required for Jellyfin and Emby</li>
+<li>Works with Plex, Jellyfin, Emby and Silo</li>
 <li>Required on Windows (use Jellyfin — Plex doesn't support symlinks on Windows)</li>
 </ul>
 <table>
@@ -3794,7 +3794,7 @@ If the paths differ between containers, symlinks will appear as broken files in 
 <tbody>
 <tr>
 <td><strong>File Collection Management</strong></td>
-<td><code>Plex</code> or <code>Symlinked/Local</code> — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks.</td>
+<td><strong>Direct Mount</strong> (saved as <code>Plex</code> in <code>config.json</code>) or <strong>Symlinked/Local</strong> — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks.</td>
 </tr>
 <tr>
 <td><strong>Media Server Type</strong></td>
@@ -3855,7 +3855,7 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </tr>
 <tr>
 <td><strong>Ffprobe All NZBs</strong></td>
-<td>Before collecting an NZB file, open it with <code>ffprobe</code> to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Plex mode, before Plex is told about them), but makes every addition slower. Requires <code>ffprobe</code> (included in the Docker image).</td>
+<td>Before collecting an NZB file, open it with <code>ffprobe</code> to confirm it plays, on top of the missing-article health check. Catches broken files before they reach your library (in Direct Mount, before Plex is told about them), but makes every addition slower. Requires <code>ffprobe</code> (included in the Docker image).</td>
 </tr>
 <tr>
 <td><strong>Enable NZB File Naming</strong></td>

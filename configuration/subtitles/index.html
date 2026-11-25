@@ -3537,11 +3537,19 @@
 <td>A file next to the library file, e.g. <code>Movie (2020).en.srt</code>. Plex, Jellyfin and Emby all pick it up.</td>
 </tr>
 <tr>
-<td><strong>Plex</strong></td>
+<td><strong>Direct Mount with Plex</strong></td>
 <td>Uploaded to the Plex item (the mount is read-only), so it shows in the Plex subtitle menu.</td>
+</tr>
+<tr>
+<td><strong>Direct Mount with Jellyfin, Emby or Silo</strong></td>
+<td>A file next to the video when the mount accepts it (the built-in mount does), then the server is asked to pick it up. On a read-only mount it's uploaded to Jellyfin or Silo instead. Emby takes no uploads, so it needs a mount that accepts files.</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition tip">
+<p class="admonition-title">Jellyfin on a read-only mount</p>
+<p>Jellyfin saves an uploaded subtitle next to the video by default, which fails on a read-only mount. In the Jellyfin library's settings, turn off <strong>Save subtitles into media folders</strong> so Jellyfin keeps them in its own data folder.</p>
+</div>
 <p>With <strong>Probe for Embedded Subtitles</strong> on, a language the file already has as a good embedded text track (not forced, not commentary) is skipped. The Subtitle Manager also shows such languages as present, unless <strong>Ignore Embedded Subtitles</strong> is on.</p>
 <hr>
 <h2 id="subtitle-settings">Subtitle Settings<a class="headerlink" href="#subtitle-settings" title="Permanent link">¶</a></h2>
@@ -3597,7 +3605,7 @@
 <tr>
 <td><strong>Probe for Embedded Subtitles</strong></td>
 <td>Off</td>
-<td>Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Plex mode it uses Plex's own track list.</td>
+<td>Skip languages the file already has embedded. Reuses the add-time ffprobe check when that's on. In Direct Mount it uses the media server's own track list.</td>
 </tr>
 </tbody>
 </table>

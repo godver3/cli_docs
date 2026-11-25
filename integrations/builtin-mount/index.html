@@ -3637,7 +3637,7 @@
 <pre class="mermaid"><code>flowchart LR
     N["News server"] --&gt; E["cli_debrid\nbuilt-in mount"]
     D["Debrid account"] --&gt; E
-    E --&gt;|"Plex mode\ndirect"| M["Media server\nPlex / Jellyfin / Emby"]
+    E --&gt;|"Direct Mount"| M["Media server\nPlex / Jellyfin / Emby"]
     E --&gt;|"Symlink mode\nsymlinks"| S["Symlinks"]
     S --&gt; M</code></pre>
 <div class="admonition note">
@@ -3794,9 +3794,9 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>  realdebrid/   ← one folder per debrid service (alldebrid/, torbox/, premiumize/, debridlink/, highway/)
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>  __bad__/      ← downloads with a broken file
 </code></pre></div>
-<p><strong>Extras.</strong> In a movie download, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": <code>-featurette</code> (extras, featurettes, bonus), <code>-trailer</code>, <code>-deleted</code>, <code>-behindthescenes</code> (also making-of), <code>-interview</code>, and <code>-other</code> (bloopers, or an unnamed video much smaller than the movie). In Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.</p>
+<p><strong>Extras.</strong> In a movie download, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": <code>-featurette</code> (extras, featurettes, bonus), <code>-trailer</code>, <code>-deleted</code>, <code>-behindthescenes</code> (also making-of), <code>-interview</code>, and <code>-other</code> (bloopers, or an unnamed video much smaller than the movie). In Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.</p>
 <h3 id="virtual-folders">Virtual folders<a class="headerlink" href="#virtual-folders" title="Permanent link">¶</a></h3>
-<p>New installs start with <strong>Movies</strong> and <strong>TV Shows</strong>, using the filters from cli_mount's <a href="../cli_mount/#content-routing">Content routing</a>: every download lands in exactly one of the two. In <strong>Plex mode</strong>, point a Movies library at <code>/mnt/clid/Movies</code> and a TV library at <code>/mnt/clid/TV Shows</code>. In Symlink mode they're optional, handy for browsing.</p>
+<p>New installs start with <strong>Movies</strong> and <strong>TV Shows</strong>, using the filters from cli_mount's <a href="../cli_mount/#content-routing">Content routing</a>: every download lands in exactly one of the two. In <strong>Direct Mount</strong>, point a Movies library at <code>/mnt/clid/Movies</code> and a TV library at <code>/mnt/clid/TV Shows</code>. In Symlink mode they're optional, handy for browsing.</p>
 <p>Edit, rename or add folders on the <strong>Settings</strong> tab. On an older install, <strong>Add Movies + TV Shows</strong> adds the two default folders. A folder lists the downloads that match <strong>all</strong> its filters, except that a name regex and a files regex together match either one.</p>
 <hr>
 <h2 id="settings">Settings<a class="headerlink" href="#settings" title="Permanent link">¶</a></h2>

@@ -4626,7 +4626,7 @@
 <div class="admonition info">
 <p class="admonition-title">Do you need content routing?</p>
 <ul>
-<li><strong>Plex mode — yes.</strong> Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a <em>Movies</em> library on <code>Movies/</code> and a <em>TV</em> library on <code>TV Shows/</code>).</li>
+<li><strong>Direct Mount — yes.</strong> Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a <em>Movies</em> library on <code>Movies/</code> and a <em>TV</em> library on <code>TV Shows/</code>).</li>
 <li><strong>Symlink mode — optional.</strong> cli_debrid builds its own organised folder tree from <code>__all__</code>, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the <a href="#example-symlink-mode-setup">symlink mode example</a> below.</li>
 </ul>
 </div>
@@ -4888,7 +4888,7 @@
 <p>Stream protection only affects <strong>Usenet</strong> streams. For debrid-only setups, only show precache applies.</p>
 </div>
 <h3 id="extras-in-movie-folders-2522">Extras in movie folders (2.5.22)<a class="headerlink" href="#extras-in-movie-folders-2522" title="Permanent link">¶</a></h3>
-<p>In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": <code>-featurette</code> (extras, featurettes, bonus), <code>-trailer</code>, <code>-deleted</code>, <code>-behindthescenes</code> (also making-of), <code>-interview</code>, and <code>-other</code> (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Plex mode this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.</p>
+<p>In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": <code>-featurette</code> (extras, featurettes, bonus), <code>-trailer</code>, <code>-deleted</code>, <code>-behindthescenes</code> (also making-of), <code>-interview</code>, and <code>-other</code> (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.</p>
 <h3 id="broken-files-are-only-marked-on-proof-2522">Broken files are only marked on proof (2.5.22)<a class="headerlink" href="#broken-files-are-only-marked-on-proof-2522" title="Permanent link">¶</a></h3>
 <p>A failed playback read marks a Usenet file broken only when the articles are missing (or short) on every provider. A read that failed for another reason (a timeout, a dropped connection, retries used up) no longer sends the file to cli_debrid's repair. The repair sweep's media probe still catches files that really don't play.</p>
 <hr>

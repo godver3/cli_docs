@@ -4089,7 +4089,7 @@
 <a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span>
 <a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VERSION=docker</span>
 </code></pre></div>
-<p>Add libraries pointing at <code>/mnt/symlinks/...</code> (Symlink mode) or <code>/mnt/cli_mount/__all__</code> (Plex mode).</p>
+<p>Add libraries pointing at <code>/mnt/symlinks/...</code> (Symlink mode) or <code>/mnt/cli_mount/__all__</code> (Direct Mount).</p>
 </details>
 <p>If the media server runs directly on the host (not in Docker), point it at <code>/mnt/cli_mount</code> and <code>/mnt/symlinks</code> as they are.</p>
 <h3 id="troubleshooting-the-stack">Troubleshooting the stack<a class="headerlink" href="#troubleshooting-the-stack" title="Permanent link">¶</a></h3>
@@ -4125,7 +4125,7 @@ That container was given the folder without <code>:rslave</code>. Add it and rec
 <p>You can combine cli_debrid, Zurg/Decypharr, Plex, and Jellyfin into a single <code>docker-compose.yml</code> by adding each as a separate service under the same <code>services:</code> block. This makes it easier to start, stop, and update everything together with one <code>docker compose up -d</code> command. The same applies in Portainer, Dockge, and Dockhand — just paste the merged file into your stack editor.</p>
 </div>
 <p>Choose the compose file that matches your file management mode:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Symlink mode</label><label for="__tabbed_1_2">Plex mode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Symlink mode</label><label for="__tabbed_1_2">Direct Mount</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Use this when running Jellyfin, Emby, or Plex with symlinks.</p>
@@ -4171,7 +4171,7 @@ That container was given the folder without <code>:rslave</code>. Add it and rec
 </div>
 </div>
 <div class="tabbed-block">
-<p>Use this when running Plex with Plex mode (no symlinks). Plex reads directly from the debrid mount.</p>
+<p>Use this when running Plex with Direct Mount (no symlinks). Plex reads directly from the debrid mount.</p>
 <p><strong>cli_debrid</strong></p>
 <div class="highlight"><span class="filename">docker-compose.yml (cli_debrid)</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">cli_debrid</span><span class="p">:</span>
@@ -4224,7 +4224,7 @@ That container was given the folder without <code>:rslave</code>. Add it and rec
 <a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/dri:/dev/dri</span><span class="w">                                </span><span class="c1"># (2) optional — hardware transcoding</span>
 </code></pre></div>
 <ol>
-<li>Your debrid mount — in Plex mode the container path does not need to match cli_debrid</li>
+<li>Your debrid mount — in Direct Mount the container path does not need to match cli_debrid</li>
 <li><strong>Optional</strong> — only needed for hardware transcoding</li>
 </ol>
 <div class="admonition warning">

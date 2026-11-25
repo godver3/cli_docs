@@ -3314,7 +3314,7 @@
 </li>
 <li>
 <p><strong>Step 4 — Configure cli_debrid</strong></p>
-<p>Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Plex mode or symlink mode.</p>
+<p>Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Direct Mount or symlink mode.</p>
 <p><a class="md-button md-button--primary" href="configure/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Configure</a></p>
 </li>
 <li>
@@ -3339,7 +3339,7 @@
     E["Media Server\nPlex / Jellyfin / Emby"]
     B --&gt;|"triggers scan"| E</code></pre>
 <h3 id="file-management-modes">File management modes<a class="headerlink" href="#file-management-modes" title="Permanent link">¶</a></h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Plex mode</label><label for="__tabbed_1_2">Symlink mode</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Direct Mount</label><label for="__tabbed_1_2">Symlink mode</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <pre class="mermaid"><code>flowchart LR
@@ -3347,7 +3347,7 @@
     C["cli_debrid"] --&gt; D["Debrid Service / Usenet"]
     D --&gt; A
     C --&gt;|"triggers library scan via API"| B</code></pre>
-<p>Plex reads files directly from the debrid mount. cli_debrid uses the Plex API to trigger scans. <strong>Plex only.</strong></p>
+<p>Your media server (Plex, Silo, Jellyfin or Emby) reads files directly from the debrid mount. cli_debrid uses its API to trigger scans and track your library.</p>
 </div>
 <div class="tabbed-block">
 <pre class="mermaid"><code>flowchart LR
