@@ -46,7 +46,7 @@ Zilean indexes hashes that are cached on Real-Debrid (and other providers). When
 
 ## Upgrade Hub — Direct DB connection
 
-The [Upgrade Hub](../features/upgrade-hub.md) can connect directly to Zilean's PostgreSQL database for fast bulk upgrade scanning instead of going through the API. This is significantly faster for large libraries.
+Zilean is an optional extra source for the [Upgrade Hub](../features/upgrade-hub.md); scans also search your regular scrapers. The hub can connect directly to Zilean's PostgreSQL database for fast bulk upgrade scanning instead of going through the API. This is significantly faster for large libraries.
 
 Enable under **Settings → Scrapers → Zilean → Enable DB Upgrades**:
 

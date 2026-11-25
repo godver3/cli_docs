@@ -12,8 +12,8 @@ Open it from **Tools → Upgrade Hub**.
 !!! warning "Beta feature"
     The Upgrade Hub is in beta. Verify suggestions before queuing and report issues on Discord.
 
-!!! note "Requires self-hosted Zilean"
-    The Upgrade Hub requires a self-hosted Zilean instance. For fast bulk scanning, enable **Direct DB connection** under **Settings → Scrapers → Zilean → Enable DB Upgrades**. See the [Zilean scraper page](../scrapers/zilean.md#upgrade-hub-direct-db-connection) for setup details.
+!!! note "Sources"
+    Scans search with the scrapers you already have set up, so no extra service is needed. A self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance and Newznab indexers can be added as extra sources that check the whole library at once.
 
 ![Upgrade Hub overview](../assets/screenshots/features/upgrade-hub-overview.png)
 
@@ -21,9 +21,26 @@ Open it from **Tools → Upgrade Hub**.
 
 ## How upgrades work
 
-Clyde assigns a **quality score** to each collected item based on resolution, codec, HDR format, audio, and release type. When a torrent with a substantially higher score is found via Zilean, it appears in the Upgrade Hub.
+Clyde gives each collected item a **quality score** from your version settings: resolution, codec, HDR format, audio, release type and size. A release that scores enough higher than the current file is an upgrade.
+
+Upgrades are found in two ways:
+
+| | What it covers | Where it's set |
+|---|---|---|
+| **Upgrading after collecting** | A newly collected recent release is searched again every hour for a while, and replaced as soon as something better turns up. | The **Upgrading** group in the [Settings tab](#settings-tab) |
+| **Upgrade Hub scans** | Your whole library, including items collected long ago. A better release that appears months later shows up here. | The rest of the [Settings tab](#settings-tab) |
 
 The **Score Δ** column shows the improvement percentage and the before→after scores.
+
+### Scan sources
+
+| Source | How it works |
+|---|---|
+| **Your scrapers** | Runs a normal search (Torrentio, Jackett, Prowlarr, Newznab and so on) for a set number of items per scan. Items never checked go first, then the ones checked longest ago, so a daily scan works through the whole library over time. On by default. |
+| **Zilean** | Reads a self-hosted Zilean instance for every collected item. Fast with the [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection). |
+| **NZB indexers** | Reads the latest releases (up to 1000 per category) from your Newznab indexers and matches them to the library. |
+
+When two sources find an upgrade for the same item, the bigger improvement wins.
 
 ---
 
@@ -39,7 +56,9 @@ The **Score Δ** column shows the improvement percentage and the before→after 
 
 Click **Scan for Upgrades** to start a scan. The button shows how long ago the last scan ran (e.g. `2h ago`). During a scan a progress bar shows the current phase and ETA:
 
-- Starting → Loading Zilean data → Scoring episodes & packs → Scanning movies → Done
+- Starting → Loading Zilean data → Scoring episodes & packs → Scanning movies → Checking NZB indexers → Searching with your scrapers → Done
+
+Phases for sources you don't use are skipped. Scheduled scans run in the background, so they don't hold up other tasks.
 
 After scanning, summary chips show: upgrades found, packs found, movies scanned, episodes scanned, and any errors.
 
@@ -73,11 +92,14 @@ Individual movie and episode upgrade candidates.
 
 | Badge | Meaning |
 |---|---|
+| **Live search** | Found by searching with your scrapers during the scan |
 | **Recent** | Candidate indexed ≤90 days ago |
 | **Older · Xd ago** | Candidate age in days |
-| **⚡ Cached Bypass** | Not in recent Zilean but Phalanx confirms it is cached on RealDebrid |
-| **⚡ RD Cached** | Confirmed cached on RealDebrid |
-| **✗ Not Cached** | Not cached on RealDebrid |
+| **⚡ Cached Bypass** | Not in recent Zilean results, but kept because your debrid service reports it cached (only with **Only Show Recent Items** on) |
+| **⚡ Cached** | Your debrid service reports the torrent cached |
+| **✗ Not Cached** | Your debrid service reports the torrent not cached |
+
+Cache status comes from services that can answer without adding the torrent: TorBox's cache check, or [Phalanx](phalanx-db.md) for Real-Debrid. On other providers, and for NZBs, no cache badge is shown and the release is checked when it's queued. **Auto Queue** queues cached candidates first and skips ones reported not cached, unless you accept uncached results.
 
 **Actions:**
 
@@ -113,17 +135,36 @@ Same filters, cache badges, and Queue/Ignore actions as the Upgrades tab.
 
 ## Settings tab
 
+### Upgrading
+
+What happens right after a new release is collected. These used to be under Settings → Scraping and Settings → Queues & Upgrades.
+
+| Setting | Default | Description |
+|---|---|---|
+| **Keep Searching After Collecting** | Off | Send newly collected recent releases to the Upgrading queue, where they're searched again every hour |
+| **Release Age** | `7` days | Only items released this many days ago or less get the upgrade window. Raise it to include older titles, but each one is searched hourly for the whole window, so large values add a lot of searches. Scans cover older items more cheaply. |
+| **Upgrade Window** | `24` hours | How long an item keeps being searched before it settles as Collected |
+| **Score Improvement Needed** | `10%` | How much higher a release must score to replace the current file. Scans use it too. |
+| **Stop at Score** | `0` | Items already scoring this or higher aren't searched again. `0` means no limit. |
+| **One Extra Search After Release** | `0` days | Search once more this many days after release, when better encodes have usually appeared. `0` turns it off. |
+| **Remove the Old Copy** | On | After an upgrade is collected, remove the original from the media server and the debrid service |
+
+### Scans
+
 | Setting | Default | Description |
 |---|---|---|
 | **Automatic Scan** | Off | Run a scan every 24 hours. This is the same switch as the **Upgrade Hub scan** task on the [Automation](automation.md) page. |
 | **Score Threshold** | `0%` | Minimum improvement % to show a candidate. Applied to both Upgrades and Season Packs. |
 | **Only Show Recent Items** | Off | Hide candidates older than the recent threshold from both tabs by default |
 | **Recent Threshold** | `90` days | How many days back defines "recent" |
+| **Search With My Scrapers** | On | Search your configured scrapers for a batch of items each scan, longest-unchecked first |
+| **Items Searched Per Scan** | `50` | How many items the scraper search covers per scan. Each one is a full search, so keep it modest on a daily schedule. |
 | **Scan Limit** | All | Max collected items to scan per run — `100`, `500`, `1000`, `2000`, `5000`, or `All` |
 | **Auto Queue** | Off | Automatically queue candidates above the threshold after each scheduled scan. Respects Upgrades Per Run limit. |
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
 | **Excluded Genres** | — | Skip items from these genres during scan. Applies to movies and shows. |
+| **Bulk Sources** | Both | Which whole-library sources to read on top of the scraper search: Zilean, NZB indexers, both, or none |
 | **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Library & Files → Library → NAS / Network Drive Paths). NAS items will not be scanned or listed. |
 
 **Settings actions:**
@@ -159,8 +200,10 @@ Filter by action type. Paginated at 50 entries per page. Auto-refreshes every 30
 When an item is queued for upgrade:
 
 1. It enters the **Upgrading** queue state
-2. Clyde scrapes for the better torrent
-3. The new version is added to debrid and checked in
-4. Once confirmed, the old version is removed if **Enable Upgrading Cleanup** is on under **Settings → Scraping**
+2. Clyde adds the release the scan found (no new search is needed)
+3. The new version is added to debrid or usenet and checked in
+4. Once confirmed, the old version is removed if **Remove the Old Copy** is on in the Settings tab
+
+If the release can't be added, the item goes back to Collected and that release is skipped in future scans.
 
 The Upgrade Hub polls in the background and automatically removes rows for items that have been successfully upgraded.

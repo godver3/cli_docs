@@ -32,12 +32,7 @@ These used to be under **Version Settings → Other Scraping Settings** and the 
 
 ### Upgrading
 
-| Setting | Default | Description |
-|---|---|---|
-| **Enable Upgrading** | Off | Replace a collected item when a better release turns up |
-| **Upgrading Percentage Threshold** | `0.1` | How much better a result must score to count as an upgrade, as a decimal. `0.1` means at least 10% higher. |
-| **Delayed Upgrade Scrape Days** | `0` | Wait this many days, then try one upgrade scrape. `0` turns it off. |
-| **Enable Upgrading Cleanup** | On | After a successful upgrade, remove the original from your debrid provider |
+Upgrade settings have moved to the **Upgrading** group of the [Upgrade Hub](../features/upgrade-hub.md#upgrading) Settings tab.
 
 ### Scoring and sorting
 

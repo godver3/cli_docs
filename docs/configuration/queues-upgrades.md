@@ -31,17 +31,15 @@ icon: material/tray-full
 
 ---
 
-## Queue & Upgrade Management
+## Queue Management
 
 | Setting | Default | Description |
 |---|---|---|
 | **Checking Queue Period** | `3600` | Seconds an item can stay in Checking before it goes back to Wanted |
 | **Ignore Wanted Queue Throttling** | Off | Let Wanted move every eligible item to Scraping, however full Scraping is. Use with care. |
 | **Disable Not Wanted Check** | Off | Skip the not-wanted check for queued items |
-| **Max Upgrading Score** | `0.0` | Stop upgrading once an item reaches this score. `0` means no limit. |
-| **Upgrade Queue Duration Hours** | `24` | Hours an item stays in Upgrading before it's marked Collected |
 
-Upgrading itself is turned on under [Scraping → Upgrading](scraping.md#upgrading).
+Upgrade settings (turning upgrading on, the upgrade window, score limits) are in the **Upgrading** group of the [Upgrade Hub](../features/upgrade-hub.md#upgrading) Settings tab.
 
 ---
 

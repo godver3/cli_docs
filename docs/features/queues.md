@@ -107,7 +107,7 @@ Clyde processes each queue on its own schedule. These are the default intervals:
 | Checking | 30s | Monitors file availability at mount path |
 | Sleeping | 5 min | Retries items that haven't been found yet |
 | Unreleased | 5 min | Checks if release date has passed |
-| Upgrading | 1 hr | Scrapes for quality upgrades for recently collected items |
+| Upgrading | 5 min | Searches for better releases of recently collected items (each item at most hourly) |
 | Blacklisted | 2 hrs | Periodically reviews blacklisted items |
 | Pending Uncached | 1 hr | Waits for uncached debrid downloads |
 | Final Scrape | 15 min | Last-attempt scrape for long-waiting items |
@@ -120,9 +120,11 @@ Clyde processes each queue on its own schedule. These are the default intervals:
 
 ## Upgrading queue
 
-Items enter the Upgrading queue when they are successfully collected and were released recently. Clyde scrapes for better quality versions every **hour**.
+Items enter the Upgrading queue when they are collected and were released recently (**7 days** or less by default). Each one is searched for a better release once an **hour**.
 
-By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Settings → Queues & Upgrades → Upgrade Queue Duration Hours**.
+By default, items stay in the Upgrading queue for **24 hours** after collection before they settle as Collected. Turning upgrading on, the release age and the window are all set in the **Upgrading** group of the [Upgrade Hub](upgrade-hub.md#upgrading) Settings tab.
+
+The queue runs every 5 minutes and spends at most about 2 minutes searching per run. Items it doesn't reach wait for the next run, so a long window or a big backlog doesn't hold up the other queues. Older items are covered by [Upgrade Hub](upgrade-hub.md) scans instead.
 
 ---
 
