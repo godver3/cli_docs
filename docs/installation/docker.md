@@ -42,6 +42,9 @@ Every tag is multi-arch: the same tag works on amd64 and arm64 (Raspberry Pi, Ap
 !!! note "Which tag should I use?"
     Use `:dev` for day-to-day use. Bugs are caught and fixed fastest on the dev branch. Use `:main` if you prefer less frequent updates.
 
+!!! info "`godver3/clyde`"
+    From version 0.9.0, every build is also published as `godver3/clyde` with the same tags (`godver3/clyde:dev` and so on). It's the same image, so either name works. `godver3/cli_debrid` keeps updating, so there's no need to change your compose file.
+
 ---
 
 ## Easiest: one container with the built-in mount
