@@ -42,7 +42,7 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **Enable Subtitle Downloads** | Off | Download subtitles when an item is collected |
 | **OpenSubtitles Username / Password** | — | Your free [OpenSubtitles.com](https://www.opensubtitles.com/en/users/sign_up) account. Searching works without one, but **downloading needs it**. A free account can download about 20 subtitles a day. |
 | **Subtitle Languages** | `eng,zho` | The languages you want. Pick them from the list. |
-| **Subtitle Providers** | OpenSubtitles.com, Podnapisi, Gestdown, TVsubtitles | Every selected provider is searched. See [Providers](#providers). |
+| **Subtitle Providers** | OpenSubtitles.com, Gestdown, TVsubtitles | Tick each provider to use. Every ticked provider is searched. See [Providers](#providers). |
 | **SubDL API Key** | — | Free key from [subdl.com](https://subdl.com) → account → API. Add **subdl** to the providers to use it. |
 | **SubSource API Key** | — | Free key from [subsource.net](https://subsource.net) → profile → API. Add **subsource** to the providers to use it. |
 | **Avoid Transcoding Formats** | Off | Styled ASS/SSA and image (PGS/VobSub) subtitles make most clients transcode. On: downloaded ASS/SSA is converted to plain SRT, and an embedded image or styled track doesn't count as having that language. |
@@ -56,7 +56,6 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **opensubtitlescom** | Free login, needed to download | The largest catalog, and the only one with file-hash matches |
 | **subdl** | Free API key | Large catalog, strong for TV |
 | **subsource** | Free API key | Large catalog |
-| **podnapisi** | None | |
 | **gestdown** | None | Addic7ed mirror, TV only |
 | **tvsubtitles** | None | TV only |
 | **subtitulamos** | None | Spanish |

@@ -13,7 +13,7 @@ Open it from **Tools → Upgrade Hub**.
     The Upgrade Hub is in beta. Verify suggestions before queuing and report issues on Discord.
 
 !!! note "Sources"
-    Scans check your Newznab indexers' releases and, if you run one, a self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance, against the whole library. They also search your scrapers for a few recently released items. Choose sources under **Bulk Sources** in the Settings tab.
+    Scans check your Newznab indexers' releases and, if you run one, a self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance, against the whole library. With **Fresh Release Search** turned on, they also search your scrapers for a few recently released items. Choose sources under **Bulk Sources** in the Settings tab.
 
 ![Upgrade Hub overview](../assets/screenshots/features/upgrade-hub-overview.png)
 
@@ -38,7 +38,7 @@ The **Score Δ** column shows the improvement percentage and the before→after 
 |---|---|
 | **NZB indexers** | Checks every release your Newznab indexers posted in the last 90 days for your library. The **Upgrade Hub NZB feed sync** task reads what's new on each indexer every hour (usually one or two API calls each) and keeps the releases that match your library; scans match against that history. Releases the indexer tags with an IMDb ID are matched by ID. |
 | **Zilean** | Reads a self-hosted Zilean instance for every collected item. Fast with the [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection), slow without it. |
-| **Fresh Release Search** | Runs a normal search with your scrapers (Torrentio, Jackett, Newznab and so on) for up to 20 items released in the last 30 days, when better encodes keep appearing. Each item costs a search on every indexer, so it's capped. Items checked longest ago go first. |
+| **Fresh Release Search** | Off by default. When on, runs a normal search with your scrapers (Torrentio, Jackett, Newznab and so on) for up to 20 items released in the last 30 days, when better encodes keep appearing. Each item costs a search on every indexer, so it's capped. Items checked longest ago go first. |
 
 When two sources find an upgrade for the same item, the bigger improvement wins.
 
@@ -168,7 +168,7 @@ What happens right after a new release is collected. These used to be under Sett
 | **Score Threshold** | `0%` | Minimum improvement % to show a candidate. Applied to both Upgrades and Season Packs. |
 | **Only Show Recent Items** | Off | Hide candidates older than the recent threshold from both tabs by default |
 | **Recent Threshold** | `90` days | How many days back defines "recent" |
-| **Fresh Release Search** | `30` days, `20` items | Each scan also searches your scrapers for up to this many items released within this many days, longest-unchecked first. `0` items turns it off. |
+| **Fresh Release Search** | Off (`30` days, `20` items) | When on, each scan also searches your scrapers for up to this many items released within this many days, longest-unchecked first. Each item costs a search on every indexer. |
 | **Scan Limit** | All | Max collected items the Zilean and NZB sources check per run — `100`, `500`, `1000`, `2000`, `5000`, or `All`. Fresh Release Search isn't affected. |
 | **Auto Queue** | Off | Automatically queue candidates above the threshold after each scheduled scan. Respects Upgrades Per Run limit. |
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
