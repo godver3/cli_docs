@@ -33,17 +33,17 @@ Every tag is multi-arch: the same tag works on amd64 and arm64 (Raspberry Pi, Ap
 
 | Tag | Branch | Notes |
 |---|---|---|
-| `godver3/cli_debrid:dev` | dev | **Recommended.** New features and fixes first |
-| `godver3/cli_debrid:dev-<version>` | dev | A specific dev release, e.g. `dev-0.7.87` |
-| `godver3/cli_debrid:latest` | dev | Same as `:dev` |
-| `godver3/cli_debrid:main` | main | Updated less often, at the end of each development cycle |
-| `godver3/cli_debrid:main-<version>` | main | A specific main release |
+| `godver3/clyde:dev` | dev | **Recommended.** New features and fixes first |
+| `godver3/clyde:dev-<version>` | dev | A specific dev release, e.g. `dev-0.9.0` |
+| `godver3/clyde:latest` | dev | Same as `:dev` |
+| `godver3/clyde:main` | main | Updated less often, at the end of each development cycle |
+| `godver3/clyde:main-<version>` | main | A specific main release |
 
 !!! note "Which tag should I use?"
     Use `:dev` for day-to-day use. Bugs are caught and fixed fastest on the dev branch. Use `:main` if you prefer less frequent updates.
 
-!!! info "`godver3/clyde`"
-    From version 0.9.0, every build is also published as `godver3/clyde` with the same tags (`godver3/clyde:dev` and so on). It's the same image, so either name works. `godver3/cli_debrid` keeps updating, so there's no need to change your compose file.
+!!! info "Already running `godver3/cli_debrid`?"
+    That's the image's old name, and it gets the same builds under the same tags, so your install keeps updating with no change. To switch, change `godver3/cli_debrid` to `godver3/clyde` in your compose file and recreate the container; your settings and library stay where they are. `godver3/clyde` has builds from version 0.9.0 on; older version tags are only under `godver3/cli_debrid`.
 
 ---
 
@@ -116,7 +116,7 @@ services:
       - PGID=1000
 
   cli_debrid:
-    image: godver3/cli_debrid:dev
+    image: godver3/clyde:dev
     pull_policy: always
     container_name: cli_debrid
     restart: unless-stopped
@@ -293,7 +293,7 @@ Choose the compose file that matches your file management mode:
     ```yaml title="docker-compose.yml"
     services:
       cli_debrid:
-        image: godver3/cli_debrid:dev
+        image: godver3/clyde:dev
         pull_policy: always
         container_name: cli_debrid
         ports:
@@ -338,7 +338,7 @@ Choose the compose file that matches your file management mode:
     ```yaml title="docker-compose.yml (cli_debrid)"
     services:
       cli_debrid:
-        image: godver3/cli_debrid:dev
+        image: godver3/clyde:dev
         pull_policy: always
         container_name: cli_debrid
         ports:
