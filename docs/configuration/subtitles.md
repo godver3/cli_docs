@@ -61,9 +61,9 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **tvsubtitles** | None | TV only |
 | **subtitulamos** | None | Spanish |
 | **bsplayer** | None | |
-| **opensubtitles** | Login | The legacy OpenSubtitles.org API |
+| **opensubtitles** | Login | The legacy OpenSubtitles.org API. It refuses logins that work on OpenSubtitles.com, so use **opensubtitlescom** instead |
 
-When a provider runs out of downloads or its login fails, it's paused (6 hours for the daily limit, 1 hour for a bad login, 15 minutes for a rate limit) and the others carry on. The Subtitle Manager shows which ones are paused.
+When a provider runs out of downloads, its login fails or its site is down, it's paused (6 hours for the daily limit, 1 hour for a bad login, 1 hour when the site can't be reached, 15 minutes for a rate limit, 10 minutes when searches time out) and the others carry on. The Subtitle Manager shows which ones are paused.
 
 ---
 

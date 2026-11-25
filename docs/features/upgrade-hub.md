@@ -36,7 +36,7 @@ The **Score Δ** column shows the improvement percentage and the before→after 
 
 | Source | How it works |
 |---|---|
-| **NZB indexers** | Checks every release your Newznab indexers posted in the last 90 days for your library. The **Upgrade Hub NZB feed sync** task reads what's new on each indexer every 30 minutes (usually one or two API calls each) and keeps the releases that match your library; scans match against that history. Releases the indexer tags with an IMDb ID are matched by ID. |
+| **NZB indexers** | Checks every release your Newznab indexers posted in the last 90 days for your library. The **Upgrade Hub NZB feed sync** task reads what's new on each indexer every hour (usually one or two API calls each) and keeps the releases that match your library; scans match against that history. Releases the indexer tags with an IMDb ID are matched by ID. |
 | **Zilean** | Reads a self-hosted Zilean instance for every collected item. Fast with the [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection), slow without it. |
 
 When two sources find an upgrade for the same item, the bigger improvement wins.
@@ -50,7 +50,7 @@ When two sources find an upgrade for the same item, the bigger improvement wins.
     |---|---|
     | **Upgrade Hub scan** | Every **24 hours** |
     | **Upgrade Hub auto-queue** | Every **24 hours** |
-    | **Upgrade Hub NZB feed sync** | Every **30 minutes**, only while Upgrade Hub scan is on |
+    | **Upgrade Hub NZB feed sync** | Every **hour**, only while Upgrade Hub scan is on |
 
     The scan and auto-queue are off by default. **Automatic Scan** and **Auto Queue** in the Settings tab switch them on (the same switches as on the Automation page). Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
 
