@@ -124,7 +124,7 @@ Items enter the Upgrading queue when they are collected and were released recent
 
 By default, items stay in the Upgrading queue for **24 hours** after collection before they settle as Collected. Turning upgrading on, the release age and the window are all set in the **Upgrading** group of the [Upgrade Hub](upgrade-hub.md#upgrading) Settings tab.
 
-The queue runs every 5 minutes and spends at most about 2 minutes searching per run. Items it doesn't reach wait for the next run, so a long window or a big backlog doesn't hold up the other queues. Older items are covered by [Upgrade Hub](upgrade-hub.md) scans instead.
+The queue runs every 5 minutes and spends at most about 2 minutes searching per run. Items it doesn't reach go first on the next run, so a long window or a big backlog doesn't hold up the other queues, and every item still gets searched. Upgrades queued from the Upgrade Hub go before ordinary searches. Older items are covered by [Upgrade Hub](upgrade-hub.md) scans instead.
 
 ---
 

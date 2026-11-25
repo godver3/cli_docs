@@ -62,6 +62,16 @@ Phases for sources you don't use are skipped. Scheduled scans run in the backgro
 
 After scanning, summary chips show: upgrades found, packs found, movies scanned, episodes scanned, and any errors.
 
+### Search Recent Releases
+
+**Search Recent Releases**, next to **Scan for Upgrades**, searches your scrapers for every collected item released in the last N days. Use it when you want recent titles checked now, without waiting for the scan rotation to reach them. It's handy after raising **Release Age**, which only affects items collected from then on.
+
+1. Enter the number of days. The default is your **Release Age** setting.
+2. Clyde shows how many movies and episodes were released in that window. Click **Search** to start.
+3. A normal scan runs. Its scraper search covers those items instead of the usual batch. Better releases appear in the Upgrades tab to queue as usual, or are picked up by **Auto Queue**.
+
+It isn't limited by **Items Searched Per Scan** and works even with **Search With My Scrapers** off. It searches up to 2,000 items per run, longest-unchecked first. If more were released in the window, run it again for the rest. Items with no known release date, or that aren't out yet, are left out.
+
 ---
 
 ## Upgrades tab
@@ -142,7 +152,7 @@ What happens right after a new release is collected. These used to be under Sett
 | Setting | Default | Description |
 |---|---|---|
 | **Keep Searching After Collecting** | Off | Send newly collected recent releases to the Upgrading queue, where they're searched again every hour |
-| **Release Age** | `7` days | Only items released this many days ago or less get the upgrade window. Raise it to include older titles, but each one is searched hourly for the whole window, so large values add a lot of searches. Scans cover older items more cheaply. |
+| **Release Age** | `7` days | Only items released this many days ago or less get the upgrade window when they're collected, including items found by the local library scan. Raise it to include older titles, but each one is searched hourly for the whole window, so large values add a lot of searches. Scans cover older items more cheaply. To check items you've already collected, use [Search Recent Releases](#search-recent-releases). |
 | **Upgrade Window** | `24` hours | How long an item keeps being searched before it settles as Collected |
 | **Score Improvement Needed** | `10%` | How much higher a release must score to replace the current file. Scans use it too. |
 | **Stop at Score** | `0` | Items already scoring this or higher aren't searched again. `0` means no limit. |
@@ -159,7 +169,7 @@ What happens right after a new release is collected. These used to be under Sett
 | **Recent Threshold** | `90` days | How many days back defines "recent" |
 | **Search With My Scrapers** | On | Search your configured scrapers for a batch of items each scan, longest-unchecked first |
 | **Items Searched Per Scan** | `50` | How many items the scraper search covers per scan. Each one is a full search, so keep it modest on a daily schedule. |
-| **Scan Limit** | All | Max collected items to scan per run — `100`, `500`, `1000`, `2000`, `5000`, or `All` |
+| **Scan Limit** | All | Max collected items the Zilean and NZB sources check per run — `100`, `500`, `1000`, `2000`, `5000`, or `All`. The scraper search isn't affected: it picks its batch from the whole library. |
 | **Auto Queue** | Off | Automatically queue candidates above the threshold after each scheduled scan. Respects Upgrades Per Run limit. |
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
