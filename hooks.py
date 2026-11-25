@@ -14,11 +14,11 @@ log = logging.getLogger("mkdocs.hooks")
 def on_env(env, config, files, **kwargs):
     """Inject {{ version }} and {{ version_url }} into all page templates."""
     version = "latest"
-    version_url = "https://github.com/godver3/cli_debrid/releases"
+    version_url = "https://github.com/godver3/clyde/releases"
 
     try:
         req = urllib.request.Request(
-            "https://api.github.com/repos/godver3/cli_debrid/releases",
+            "https://api.github.com/repos/godver3/clyde/releases",
             headers={"User-Agent": "mkdocs-cli_debrid-docs"},
         )
         with urllib.request.urlopen(req, timeout=5) as resp:

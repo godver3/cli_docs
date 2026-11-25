@@ -89,5 +89,5 @@ Now that the basics are running, explore what Clyde can do:
 ## Get help
 
 - **[FAQ](../faq.md)** — common questions and known issues
-- **[GitHub Issues](https://github.com/godver3/cli_debrid/issues)** — bug reports and feature requests
+- **[GitHub Issues](https://github.com/godver3/clyde/issues)** — bug reports and feature requests
 - **[Discord](https://discord.gg/ynqnXGJ4hU)** — community help and discussion

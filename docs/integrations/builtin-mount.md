@@ -34,7 +34,7 @@ The engine mounts its files inside the Clyde container with FUSE. The container 
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
-curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.builtin.yml
 docker compose up -d
 ```
 
