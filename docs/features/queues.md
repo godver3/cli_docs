@@ -5,7 +5,7 @@ icon: material/format-list-checks
 
 # Queues
 
-The Queues page shows the real-time status of every item being processed by cli_debrid. Each item moves through a series of states from discovery to collection.
+The Queues page shows the real-time status of every item being processed by Clyde. Each item moves through a series of states from discovery to collection.
 
 ![Queue overview](../assets/screenshots/features/queues-overview.png)
 
@@ -13,7 +13,7 @@ The Queues page shows the real-time status of every item being processed by cli_
 
 ## How it works
 
-cli_debrid runs a continuous loop. On each cycle it:
+Clyde runs a continuous loop. On each cycle it:
 
 1. Checks all enabled **Content Sources** for new items and adds them to **Wanted**
 2. **Scrapes** all configured scrapers simultaneously to find torrents for Wanted items
@@ -39,13 +39,13 @@ Wanted → Scraping → Adding → Checking → Collected
 Items that need to be scraped — waiting for their turn in the scraping loop. Items also land here if their release date hasn't arrived yet.
 
 ### Scraping
-cli_debrid is actively searching your configured scrapers for a matching torrent.
+Clyde is actively searching your configured scrapers for a matching torrent.
 
 ### Adding
 A torrent has been found and is being submitted to your debrid provider.
 
 ### Checking
-The item has been added to debrid. cli_debrid is monitoring it:
+The item has been added to debrid. Clyde is monitoring it:
 
 | Sub-state | Description |
 |---|---|
@@ -55,7 +55,7 @@ The item has been added to debrid. cli_debrid is monitoring it:
 Once the file appears at the mount path, the item is marked **Collected**, your media server is notified, and labels/overlays are applied if configured.
 
 ### Unreleased
-The item has a known future release date. cli_debrid will automatically move it to Wanted after release.
+The item has a known future release date. Clyde will automatically move it to Wanted after release.
 
 ### Sleeping
 All available torrents for this item have been tried and blacklisted. The item will automatically retry when the blacklist duration expires.
@@ -95,7 +95,7 @@ Toggle the **Show Filename** button to switch between showing the torrent title 
 
 ## Processing intervals
 
-cli_debrid processes each queue on its own schedule. These are the default intervals:
+Clyde processes each queue on its own schedule. These are the default intervals:
 
 ### Queue intervals
 
@@ -107,7 +107,7 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 | Checking | 30s | Monitors file availability at mount path |
 | Sleeping | 5 min | Retries items that haven't been found yet |
 | Unreleased | 5 min | Checks if release date has passed |
-| Upgrading | 1 hr | Scrapes for quality upgrades for recently collected items |
+| Upgrading | 5 min | Searches for better releases of recently collected items (each item at most hourly) |
 | Blacklisted | 2 hrs | Periodically reviews blacklisted items |
 | Pending Uncached | 1 hr | Waits for uncached debrid downloads |
 | Final Scrape | 15 min | Last-attempt scrape for long-waiting items |
@@ -120,9 +120,11 @@ cli_debrid processes each queue on its own schedule. These are the default inter
 
 ## Upgrading queue
 
-Items enter the Upgrading queue when they are successfully collected and were released recently. cli_debrid scrapes for better quality versions every **hour**.
+Items enter the Upgrading queue when they are collected and were released recently (**7 days** or less by default). Each one is searched for a better release once an **hour**.
 
-By default, items remain in the Upgrading queue for **24 hours** after collection before being considered fully settled. This duration is configurable in **Settings → Queues & Upgrades → Upgrade Queue Duration Hours**.
+By default, items stay in the Upgrading queue for **24 hours** after collection before they settle as Collected. Turning upgrading on, the release age and the window are all set in the **Upgrading** group of the [Upgrade Hub](upgrade-hub.md#upgrading) Settings tab.
+
+The queue runs every 5 minutes and spends at most about 2 minutes searching per run. Items it doesn't reach go first on the next run, so a long window or a big backlog doesn't hold up the other queues, and every item still gets searched. Upgrades queued from the Upgrade Hub go before ordinary searches. Older items are covered by [Upgrade Hub](upgrade-hub.md) scans instead.
 
 ---
 
@@ -166,7 +168,7 @@ When a multi-pack result (e.g. a full season pack) is found and added:
 
 **Item stuck in Wanted**
 
-cli_debrid is searching but finding nothing:
+Clyde is searching but finding nothing:
 
 - No scrapers configured or reachable — check the Connections page
 - Content doesn't exist on your scrapers yet (new release, obscure title)
@@ -182,7 +184,7 @@ The file was added to debrid but isn't appearing at the mount path:
 
 **Item moves to Sleeping**
 
-All known torrents have been tried and blacklisted. cli_debrid will retry when the blacklist expires. To retry immediately, clear the blacklist from the Library page.
+All known torrents have been tried and blacklisted. Clyde will retry when the blacklist expires. To retry immediately, clear the blacklist from the Library page.
 
 **Processing cycle timing**
 

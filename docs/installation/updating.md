@@ -3,9 +3,9 @@ title: Updating
 icon: material/update
 ---
 
-# Updating cli_debrid
+# Updating Clyde
 
-cli_debrid uses Docker image tags — updating is just a matter of pulling the latest image and restarting the container. Your data is never affected by an update.
+Clyde uses Docker image tags — updating is just a matter of pulling the latest image and restarting the container. Your data is never affected by an update.
 
 !!! note "Your data is safe"
     All databases, config, and logs are stored in your host-mounted volumes. Pulling a new image does not touch these.
@@ -27,7 +27,7 @@ This pulls the latest image for your configured tag and recreates the container.
 
 ## Watchtower (automatic updates)
 
-If you run [Watchtower](https://containrrr.dev/watchtower/), cli_debrid will be updated automatically whenever a new image is published.
+If you run [Watchtower](https://containrrr.dev/watchtower/), Clyde will be updated automatically whenever a new image is published.
 
 To add Watchtower to your stack:
 
@@ -48,7 +48,7 @@ services:
 ```
 
 !!! warning "Watchtower restarts your container"
-    Watchtower will stop and restart cli_debrid when an update is available. If you have active downloads in your queue, they will resume after restart but may experience a brief interruption.
+    Watchtower will stop and restart Clyde when an update is available. If you have active downloads in your queue, they will resume after restart but may experience a brief interruption.
 
 ### Tugtainer — GUI alternative to Watchtower
 
@@ -80,7 +80,7 @@ If you use Dockhand, auto-updates are built in — no extra tool needed.
 
 ## Unraid
 
-In the Unraid Docker tab, click the cli_debrid container row and select **Update**.
+In the Unraid Docker tab, click the Clyde container row and select **Update**.
 
 Alternatively, force-pull the latest image:
 
@@ -91,7 +91,7 @@ docker stop cli_debrid && docker start cli_debrid
 
 ### Automatic updates on Unraid
 
-Install the **CA Auto Update Applications** plugin from Community Applications to automatically keep cli_debrid and other containers up to date.
+Install the **CA Auto Update Applications** plugin from Community Applications to automatically keep Clyde and other containers up to date.
 
 1. Go to **Apps** and search for `CA Auto Update Applications`
 2. Install the plugin by **Andrew Zawadzki**
@@ -103,9 +103,9 @@ Install the **CA Auto Update Applications** plugin from Community Applications t
 ## Windows
 
 1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/cli_debrid/releases)
-2. Stop the running cli_debrid process
+2. Stop the running Clyde process
 3. Replace the old `.exe` with the new one in your install directory
-4. Start cli_debrid again
+4. Start Clyde again
 
 ---
 
@@ -117,7 +117,7 @@ You can see the current version in the web UI footer, or by checking the contain
 docker inspect cli_debrid | grep version
 ```
 
-The version is also shown in the top bar of the cli_debrid web interface.
+The version is also shown in the top bar of the Clyde web interface.
 
 ![Version shown in web UI header](../assets/screenshots/installation/updating-version-header.png)
 

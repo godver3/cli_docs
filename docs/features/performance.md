@@ -5,7 +5,7 @@ icon: material/chart-line
 
 # Performance Dashboard
 
-The Performance Dashboard gives you real-time visibility into cli_debrid's CPU and memory usage. Useful for diagnosing slowdowns, memory leaks, or high resource consumption.
+The Performance Dashboard gives you real-time visibility into Clyde's CPU and memory usage. Useful for diagnosing slowdowns, memory leaks, or high resource consumption.
 
 Access it by clicking the **Uptime** card on the Dashboard, or from **System → Performance Dashboard**. Hovering the menu entry opens its tabs directly.
 
@@ -142,11 +142,11 @@ The Diagnostics tab holds the status checks that used to be on the Debug page's 
 
 | Section | What it shows |
 |---|---|
-| **Current Rate Limit State** | Rate limiting for each external API (Trakt, debrid and others), with 5-minute and hourly counts. Warnings show when a limit is exceeded, which tells you whether cli_debrid is being throttled. |
+| **Current Rate Limit State** | Rate limiting for each external API (Trakt, debrid and others), with 5-minute and hourly counts. Warnings show when a limit is exceeded, which tells you whether Clyde is being throttled. |
 | **Plex Token Status** | Every configured Plex token by user: valid or not, Plex username, expiry and when it was last checked |
 | **Personal Trakt Token Status** | Your own Trakt sign-in: valid or not, expiry, hours left and when it was last refreshed |
 | **Torrent Tracking** | A link to the history of every torrent added and its current status |
-| **API Summary** / **Real Time API** | How many calls cli_debrid makes to each API, in total and live |
+| **API Summary** / **Real Time API** | How many calls Clyde makes to each API, in total and live |
 
-To send a test notification, use the **Test** button on the [Notifications](../configuration/notifications.md) settings page. To share logs, use **Share cli_debrid Logs** on the **Logs** page.
+To send a test notification, use the **Test** button on the [Notifications](../configuration/notifications.md) settings page. To share logs, use **Share Clyde Logs** on the **Logs** page.
 

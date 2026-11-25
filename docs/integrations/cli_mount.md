@@ -5,9 +5,9 @@ icon: material/cloud-sync
 
 # cli_mount
 
-cli_mount is an all-in-one debrid client that handles torrent management, mounting, and symlink delivery in a single container. It replaces the Zurg + rclone stack and integrates directly with cli_debrid via a blackhole/symlink workflow.
+cli_mount is an all-in-one debrid client that handles torrent management, mounting, and symlink delivery in a single container. It replaces the Zurg + rclone stack and integrates directly with Clyde via a blackhole/symlink workflow.
 
-cli_mount is a fork of [Decypharr](https://github.com/sirrobot01/decypharr) maintained by mash2k3, optimised for cli_debrid compatibility.
+cli_mount is a fork of [Decypharr](https://github.com/sirrobot01/decypharr) maintained by mash2k3, optimised for Clyde compatibility.
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 ## Installation
 
 !!! tip "Installing cli_debrid too? Use one compose file"
-    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) has a single compose file that runs cli_mount and cli_debrid together, with the mount shared between them. It's the simplest setup on a Linux host.
+    The [Docker guide](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) has a single compose file that runs cli_mount and Clyde together, with the mount shared between them. It's the simplest setup on a Linux host.
 
 === "Docker Compose"
 
@@ -62,7 +62,7 @@ flowchart LR
           - TZ=America/New_York
     ```
 
-    1. Host path where your debrid library will be mounted — point Plex and cli_debrid here
+    1. Host path where your debrid library will be mounted — point Plex and Clyde here
     2. Cache directory for rclone VFS or DFS chunk cache
     3. Config file, database, and downloads folder
 
@@ -458,7 +458,7 @@ cli_mount can sort incoming torrents and NZBs into extra subfolders using `custo
 
 !!! info "Do you need content routing?"
     - **Direct Mount — yes.** Plex reads the mount directly, so your Plex libraries need separate movie and TV folders to point at (e.g. a *Movies* library on `Movies/` and a *TV* library on `TV Shows/`).
-    - **Symlink mode — optional.** cli_debrid builds its own organised folder tree from `__all__`, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the [symlink mode example](#example-symlink-mode-setup) below.
+    - **Symlink mode — optional.** Clyde builds its own organised folder tree from `__all__`, so routing isn't required. It's still handy for browsing the mount yourself, since movies and shows land in separate folders. See the [symlink mode example](#example-symlink-mode-setup) below.
 
 The filters below create a `TV Shows` and a `Movies` folder. You can name the folders whatever you like.
 
@@ -503,11 +503,11 @@ Add **two** filters to this folder. They are the same two patterns as TV Shows, 
 
 The `categories` setting (`sonarr`, `radarr`) maps to qBittorrent-compatible categories so arr apps can route downloads to the correct folder.
 
-`default_download_action` decides what cli_mount does once a download is ready: **Create Symlink** (`symlink`, the default), **Create STRM Files**, **Download Files**, or **No Action** (`none`). cli_debrid doesn't use any of these outputs — it finds files in the mount itself — so `none` avoids a second, unused set of links in cli_mount's download folder. `symlink` also works. Don't use **Download Files**, which copies everything to local disk.
+`default_download_action` decides what cli_mount does once a download is ready: **Create Symlink** (`symlink`, the default), **Create STRM Files**, **Download Files**, or **No Action** (`none`). Clyde doesn't use any of these outputs — it finds files in the mount itself — so `none` avoids a second, unused set of links in cli_mount's download folder. `symlink` also works. Don't use **Download Files**, which copies everything to local disk.
 
 ### Example: symlink mode setup
 
-A working cli_mount + cli_debrid setup using **symlink mode**, with Real-Debrid and Usenet together. Paths are examples — adjust them to your system.
+A working cli_mount + Clyde setup using **symlink mode**, with Real-Debrid and Usenet together. Paths are examples — adjust them to your system.
 
 **What the mount looks like** (host path `/path/to/debrid`, mapped to `/mnt` in cli_mount):
 
@@ -526,7 +526,7 @@ A working cli_mount + cli_debrid setup using **symlink mode**, with Real-Debrid 
 
 | Setting | Value | Why |
 |---|---|---|
-| Default download action | `none` (No Action) | cli_debrid makes its own symlinks |
+| Default download action | `none` (No Action) | Clyde makes its own symlinks |
 | Folder naming | `filename` | |
 | Download folder | `/app/downloads` | Unused with *No Action*, but must be set |
 | Allowed file types | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only video files show up in the mount (no `.nfo`, images or archives) |
@@ -556,13 +556,13 @@ A working cli_mount + cli_debrid setup using **symlink mode**, with Real-Debrid 
 | Symlinked Files Path | `/path/to/symlinks` — point your Plex/Jellyfin libraries here |
 
 !!! warning "Same paths everywhere"
-    cli_debrid and your media server must see the mount and the symlink folder at the **same paths** cli_debrid uses above, or the symlinks show up broken.
+    Clyde and your media server must see the mount and the symlink folder at the **same paths** Clyde uses above, or the symlinks show up broken.
 
 ---
 
 ## Media servers page
 
-cli_mount's **Media servers** page (in the main menu; called **Plex** before 2.5.21) connects cli_mount to Plex and/or Jellyfin or Emby. It reads each server's own list of what's playing, so only real viewers count — library scans, Bazarr, cli_debrid's checks and repairs don't. It powers two features, both optional.
+cli_mount's **Media servers** page (in the main menu; called **Plex** before 2.5.21) connects cli_mount to Plex and/or Jellyfin or Emby. It reads each server's own list of what's playing, so only real viewers count — library scans, Bazarr, Clyde's checks and repairs don't. It powers two features, both optional.
 
 **Connections**
 
@@ -600,23 +600,23 @@ Reserves Usenet (NNTP) connections for people actually watching while bulk impor
 
 ### Extras in movie folders (2.5.22)
 
-In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). With cli_debrid in Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
+In a movie entry, bonus videos are listed with the suffix Plex and Jellyfin read as "this is an extra": `-featurette` (extras, featurettes, bonus), `-trailer`, `-deleted`, `-behindthescenes` (also making-of), `-interview`, and `-other` (bloopers, or an unnamed video much smaller than the movie). With Clyde in Direct Mount this stops a bonus video showing up as another version of the movie. Only the listed name changes: the main video, episodes and words that are part of a title are never renamed, and a file can still be opened by its real name, so existing symlinks keep working.
 
 ### Broken files are only marked on proof (2.5.22)
 
-A failed playback read marks a Usenet file broken only when the articles are missing (or short) on every provider. A read that failed for another reason (a timeout, a dropped connection, retries used up) no longer sends the file to cli_debrid's repair. The repair sweep's media probe still catches files that really don't play.
+A failed playback read marks a Usenet file broken only when the articles are missing (or short) on every provider. A read that failed for another reason (a timeout, a dropped connection, retries used up) no longer sends the file to Clyde's repair. The repair sweep's media probe still catches files that really don't play.
 
 ---
 
-## Configuring cli_debrid
+## Configuring Clyde
 
-In cli_debrid settings, set **Original Files Path** to the host path where your debrid library is mounted:
+In Clyde settings, set **Original Files Path** to the host path where your debrid library is mounted:
 
 ```
 /path/to/debrid
 ```
 
-This is the same path Plex uses — cli_debrid follows symlinks back to this location to check file existence and build its own symlinks.
+This is the same path Plex uses — Clyde follows symlinks back to this location to check file existence and build its own symlinks.
 
 ---
 
@@ -664,7 +664,7 @@ Verify the cache path exists on the host and is writable. Also check `docker log
 
 ## Usenet with cli_mount
 
-cli_mount also supports Usenet downloads. cli_debrid can submit NZBs to cli_mount from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
+cli_mount also supports Usenet downloads. Clyde can submit NZBs to cli_mount from [Newznab scrapers](../scrapers/newznab.md) and manage them through the same queue as debrid torrents.
 
 ### Usenet Mount settings
 
@@ -674,10 +674,10 @@ In **Settings → Required Settings → Usenet Mount**:
 |---|---|
 | **Enable Usenet Mount** | Turn on Usenet support |
 | **Provider** | **cli_mount**. The **Detect** button under it finds cli_mount on your network and fills in **Mount URL** and **cli_mount Data Path** |
-| **Mount URL** | cli_mount base URL, e.g. `http://cli_mount:8282` (default port `8282`). Don't use `localhost` or port `8888`: inside the cli_debrid container those point at cli_debrid and its Phalanx DB |
+| **Mount URL** | cli_mount base URL, e.g. `http://cli_mount:8282` (default port `8282`). Don't use `localhost` or port `8888`: inside the Clyde container those point at Clyde and its Phalanx DB |
 | **API Token** | cli_mount API token, only if you turned on authentication in cli_mount |
 | **Download Folder / Category** | Leave empty to use cli_mount's default download folder |
-| **cli_mount Data Path** | cli_mount's data folder as cli_debrid sees it, default `/climount_data`. Add `- /path/to/appdata/cli_mount:/climount_data` to cli_debrid's volumes. Used by the DB tools below and by **Tools → Usenet → Migrate between usenet providers** |
+| **cli_mount Data Path** | cli_mount's data folder as Clyde sees it, default `/climount_data`. Add `- /path/to/appdata/cli_mount:/climount_data` to Clyde's volumes. Used by the DB tools below and by **Tools → Usenet → Migrate between usenet providers** |
 
 ### cli_mount DB tools
 
@@ -698,4 +698,4 @@ See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider)
 - [Newznab scrapers](../scrapers/newznab.md) — add Usenet indexers
 - [Debrid Manager](../features/debrid-manager.md) — NZB health and the repair engine
 - [Configure Plex](plex.md) to add libraries pointing at your mount path
-- [Configure cli_debrid](../getting-started/configure.md) with the correct Original Files Path
+- [Configure Clyde](../getting-started/configure.md) with the correct Original Files Path

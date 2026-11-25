@@ -5,7 +5,7 @@ icon: material/magnify
 
 # Scrapers
 
-Scrapers are the search engines cli_debrid uses to find torrents for your wanted items. You need at least one scraper configured and enabled.
+Scrapers are the search engines Clyde uses to find torrents for your wanted items. You need at least one scraper configured and enabled.
 
 For detailed setup guides and per-scraper documentation, see the [:octicons-arrow-right-24: Scrapers reference](../scrapers/index.md).
 
@@ -32,7 +32,7 @@ For detailed setup guides and per-scraper documentation, see the [:octicons-arro
 
 ## Adding multiple scrapers
 
-You can enable multiple scrapers simultaneously. cli_debrid queries all enabled scrapers in parallel and combines the results, then ranks them by quality score.
+You can enable multiple scrapers simultaneously. Clyde queries all enabled scrapers in parallel and combines the results, then ranks them by quality score.
 
 ---
 

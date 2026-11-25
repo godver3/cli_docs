@@ -5,7 +5,7 @@ icon: simple/plex
 
 # Plex Movie Box Sets
 
-CLI Debrid automatically discovers which movies in your library belong to TMDB franchise collections, creates matching Plex collections for them, applies franchise posters, and optionally queues missing franchise movies to the wanted list.
+Clyde automatically discovers which movies in your library belong to TMDB franchise collections, creates matching Plex collections for them, applies franchise posters, and optionally queues missing franchise movies to the wanted list.
 
 !!! note "Plex only"
     Plex Movie Box Sets requires Plex as your media server.
@@ -48,7 +48,7 @@ Each run processes in five phases:
 1. **TMDB lookup** — every movie in the database is queried against TMDB to check franchise membership. Already-checked movies are skipped on subsequent runs. The first run takes approximately 30 minutes for large libraries; subsequent runs are near-instant.
 2. **Build box set list** — movies are grouped by franchise. Only franchises with at least the configured minimum number of owned movies are included. Full collection details and posters are fetched from TMDB.
 3. **Sync Plex collections** — Plex collections are created or updated. The configured sort order is applied.
-4. **Apply posters** — the TMDB franchise poster is downloaded and uploaded to Plex. If TMDB has no poster for the franchise, a fallback Layout 1 poster is rendered using the CLI Debrid icon. Collections whose content fingerprint hasn't changed are skipped.
+4. **Apply posters** — the TMDB franchise poster is downloaded and uploaded to Plex. If TMDB has no poster for the franchise, a fallback Layout 1 poster is rendered using the Clyde icon. Collections whose content fingerprint hasn't changed are skipped.
 5. **Queue missing movies** *(optional)* — if **Grab missing movies from box sets** is on, franchise members not in your library are added to the wanted queue.
 
 ---
@@ -99,7 +99,7 @@ This is useful when a poster is missing or incorrect on a specific collection wi
 
 ## State file
 
-CLI Debrid tracks content fingerprints in `plex_boxsets_state.json` to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:
+Clyde tracks content fingerprints in `plex_boxsets_state.json` to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:
 
 **Debug → Manage Cache Files → Plex Box Sets State** — delete the state file, then trigger the task manually.
 

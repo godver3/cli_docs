@@ -5,7 +5,7 @@ icon: simple/ubuntu
 
 # Install on Ubuntu / Debian
 
-This guide covers installing cli_debrid on a bare-metal or VM Ubuntu/Debian server using Docker Engine.
+This guide covers installing Clyde on a bare-metal or VM Ubuntu/Debian server using Docker Engine.
 
 !!! warning "Use Docker Engine, not Docker Desktop"
     On Linux servers, install Docker Engine directly. Docker Desktop on Linux runs in a VM and causes mount and permission issues.

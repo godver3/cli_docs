@@ -110,7 +110,7 @@ Save your current filter configuration as a named preset to reuse later.
 
 ## Adaptive Lists
 
-The **Adaptive List** button in the filter drawer saves your current filters as a live [Content Source](../configuration/content-sources.md#adaptive-lists). cli_debrid will automatically find and add content matching those filters on every processing cycle.
+The **Adaptive List** button in the filter drawer saves your current filters as a live [Content Source](../configuration/content-sources.md#adaptive-lists). Clyde will automatically find and add content matching those filters on every processing cycle.
 
 ---
 

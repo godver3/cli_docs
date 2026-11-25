@@ -8,7 +8,7 @@ hide:
 <div class="md-hero hero-card" markdown>
 <div class="hero-text" markdown>
 
-# cli_debrid
+# Clyde
 
 Automated media management powered by debrid services. Automatically scrape, download, and upgrade your media library — movies and TV shows — using Real-Debrid, AllDebrid, Premiumize, Torbox, or Debrid-Link.
 

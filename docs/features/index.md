@@ -5,7 +5,7 @@ icon: material/star
 
 # Features
 
-cli_debrid is a full media automation suite. Here's everything it can do.
+Clyde is a full media automation suite. Here's everything it can do.
 
 ---
 

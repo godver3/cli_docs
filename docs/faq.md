@@ -36,7 +36,7 @@ Use the **API Key (v3 auth)** from your TMDB account settings — not the Read A
 
 ---
 
-**Can I run cli_debrid on ARM / Raspberry Pi?**
+**Can I run Clyde on ARM / Raspberry Pi?**
 
 Yes, ARM builds are available. Use the same `godver3/cli_debrid:dev` image — it supports `linux/arm64`.
 
@@ -59,9 +59,9 @@ Go to **Settings → UI Settings → System Behavior → Enable User System**. T
 
 ---
 
-**Items appear in cli_debrid as Collected but aren't showing in Plex**
+**Items appear in Clyde as Collected but aren't showing in Plex**
 
-- Check that the mount path inside the Plex container matches exactly what cli_debrid uses
+- Check that the mount path inside the Plex container matches exactly what Clyde uses
 - In symlink mode, both containers must mount the debrid storage and symlink folder at **identical paths**
 - Force a Plex library scan manually
 
@@ -96,7 +96,7 @@ See [Plex integration](integrations/plex.md#finding-your-plex-token) for full de
 
 **Items are stuck in the Checking state**
 
-Checking means cli_debrid is waiting for the file to appear at the mount path. Common causes:
+Checking means Clyde is waiting for the file to appear at the mount path. Common causes:
 
 - The debrid torrent is uncached — it needs to download first (can take hours)
 - The mount path isn't accessible inside the container
@@ -181,7 +181,7 @@ Or use the **Database Browser**, filter by State = Sleeping, select all, and Mov
 
 **How does blacklisting work?**
 
-When a torrent fails (wrong files, download error, mismatch), it's added to the blacklist for that item. cli_debrid won't try that torrent again until the **Blacklist Duration** expires (default 30 days). Items with all torrents blacklisted move to **Sleeping**. Use **Rescrape** to force a fresh search.
+When a torrent fails (wrong files, download error, mismatch), it's added to the blacklist for that item. Clyde won't try that torrent again until the **Blacklist Duration** expires (default 30 days). Items with all torrents blacklisted move to **Sleeping**. Use **Rescrape** to force a fresh search.
 
 ---
 
@@ -233,7 +233,7 @@ Set the **Sanitizer Replacement Character** under **Settings → Library & Files
 - Verify the Seerr content source is enabled in Settings → Content Sources
 - Check the URL (`http://YOUR_SEERR_IP:5055`) and API key are correct
 - Set up the **webhook** for instant pickup: in Seerr go to Settings → Notifications → Webhook → set URL to `http://YOUR_CLI_DEBRID_IP:5000/webhook` and enable **Request Approved**
-- Without the webhook, cli_debrid checks Seerr every ~60 seconds
+- Without the webhook, Clyde checks Seerr every ~60 seconds
 
 ---
 
@@ -279,7 +279,7 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 **Overlays aren't being applied to some items**
 
 - Run **Sync Library** on the Overlays page to match database items to Plex entries
-- Use **Test Plex Item Lookup** (Tools → All Tools → Library) to check if cli_debrid can find the item in Plex
+- Use **Test Plex Item Lookup** (Tools → All Tools → Library) to check if Clyde can find the item in Plex
 - Items without IMDB/TMDB IDs won't sync — use **Fix Missing IMDb ID** on the Tools page
 - The title+year fallback handles items without external IDs, but requires a good title match
 
@@ -298,7 +298,7 @@ Both expose your debrid library as a local mount. Zurg is Real-Debrid specific a
 Click 👁 on the **Cleaned Up** card on the Overlays page. It says what's wrong. Usually it's one of two things:
 
 - **Media Server Data Path** doesn't point at the folder that contains Plex's `Metadata` folder (often one level too high). Overlay Settings offers the right folder.
-- cli_debrid isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time `setfacl` command from [Poster cleanup](features/overlays.md#poster-cleanup).
+- Clyde isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time `setfacl` command from [Poster cleanup](features/overlays.md#poster-cleanup).
 
 ---
 
@@ -340,9 +340,9 @@ Labels are applied automatically when items are collected. If they're missing:
 
 **How do I share logs when reporting a bug?**
 
-Go to **Logs** and click **Share cli_debrid Logs**. This uploads the logs to paste.c-net.org and gives you a link to share. If cli_mount is set up, there are also **Share cli_mount Logs** and **Share Both** buttons.
+Go to **Logs** and click **Share Clyde Logs**. This uploads the logs to paste.c-net.org and gives you a link to share. If cli_mount is set up, there are also **Share cli_mount Logs** and **Share Both** buttons.
 
-The cli_debrid upload includes the app version and a snapshot of your settings, so you don't need to send a settings screenshot. API keys, tokens, passwords and usernames are redacted in both the logs and the settings snapshot. Redaction works by matching known secret values and key names, so skim the link before posting it publicly.
+The Clyde upload includes the app version and a snapshot of your settings, so you don't need to send a settings screenshot. API keys, tokens, passwords and usernames are redacted in both the logs and the settings snapshot. Redaction works by matching known secret values and key names, so skim the link before posting it publicly.
 
 The raw log files are in the `logs` folder of your data directory (`/user/logs` in Docker).
 
@@ -401,7 +401,7 @@ Your TMDB API key is invalid or using the wrong format. Use the **API Key (v3 au
 
 Another service is using port 5000. Either:
 
-- Change cli_debrid's port mapping in docker-compose.yml (e.g. `"5080:5000"`)
+- Change Clyde's port mapping in docker-compose.yml (e.g. `"5080:5000"`)
 - Stop the conflicting service
 
 On macOS, AirPlay Receiver uses port 5000 — disable it in System Settings → General → AirDrop & Handoff.

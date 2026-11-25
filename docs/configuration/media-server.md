@@ -5,7 +5,7 @@ icon: material/plex
 
 # Media Server
 
-**Settings → Media Server** holds the extras cli_debrid can manage in Plex: collection posters and movie box sets, poster overlays, and replacing items people report through Plex.
+**Settings → Media Server** holds the extras Clyde can manage in Plex: collection posters and movie box sets, poster overlays, and replacing items people report through Plex.
 
 Your Plex or Jellyfin/Emby connection itself is under [Required Settings → File Management](required.md).
 
@@ -59,7 +59,7 @@ Poster overlays add media-info badges to your Plex posters. The badges themselve
 |---|---|---|
 | **Overlays Enabled** | Off | Turn on the overlay system and its sync tasks. Needs your Plex URL and token. |
 | **Textless Posters** | Off | Start from a textless TMDB poster and add the title with the **Title Logo** badge. Falls back to the normal poster when TMDB has no textless one. |
-| **Plex Data Path** | — | Plex's data folder as cli_debrid sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data`). Needed for the cleanup task to delete old overlay versions of posters. See [Poster cleanup](../features/overlays.md#poster-cleanup) for the mount and permissions. |
+| **Plex Data Path** | — | Plex's data folder as Clyde sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data`). Needed for the cleanup task to delete old overlay versions of posters. See [Poster cleanup](../features/overlays.md#poster-cleanup) for the mount and permissions. |
 | **Overlay Content Check Interval Days** | `7` | How often to re-check ratings and show status for changes that need a new overlay. `0` checks on every sync. |
 | **Sync Items Per Run** | `200` | Most shows and movies processed per sync. Higher clears a backlog faster, but each run takes longer. |
 

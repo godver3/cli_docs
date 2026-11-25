@@ -419,9 +419,9 @@ flowchart LR
 
 ---
 
-## Webhook — Symlink mode (items added outside cli_debrid)
+## Webhook — Symlink mode (items added outside Clyde)
 
-If you add torrents directly to your debrid account outside of cli_debrid (e.g. via Debrid Media Manager), Zurg can notify cli_debrid to pick them up and create symlinks automatically.
+If you add torrents directly to your debrid account outside of Clyde (e.g. via Debrid Media Manager), Zurg can notify Clyde to pick them up and create symlinks automatically.
 
 Add the following to your `config.yml`:
 
@@ -454,10 +454,10 @@ for arg in "$@"; do
 done
 ```
 
-1. Your cli_debrid URL and port
+1. Your Clyde URL and port
 2. Must match your rclone mount path
 
-The script waits for the folder to exist and contain at least one file before notifying cli_debrid — retrying up to 25 times (~4 minutes). cli_debrid will then create the symlink and add the item to your library.
+The script waits for the folder to exist and contain at least one file before notifying Clyde — retrying up to 25 times (~4 minutes). Clyde will then create the symlink and add the item to your library.
 
 ```bash
 chmod +x cli_update.sh
@@ -500,4 +500,4 @@ fusermount -uz /your/mount/path
 ## Next steps
 
 - [Configure Plex](plex.md) to add libraries pointing at the Zurg mount
-- [Configure cli_debrid](../getting-started/configure.md) with the correct Original Files Path
+- [Configure Clyde](../getting-started/configure.md) with the correct Original Files Path

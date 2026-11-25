@@ -5,7 +5,7 @@ icon: material/microsoft-windows
 
 # Install on Windows
 
-cli_debrid is available as a standalone Windows executable — no Docker, no Python installation required.
+Clyde is available as a standalone Windows executable — no Docker, no Python installation required.
 
 !!! warning "Symlinks on Windows"
     If you plan to use **Symlinked/Local** library management mode, Windows **Developer Mode** must be enabled first. Go to **Settings → System → For developers → Developer Mode → On**.
@@ -42,13 +42,13 @@ C:\cli_debrid\
 ```
 
 !!! warning "Do not run from Downloads"
-    Do not run cli_debrid directly from your Downloads folder. Move it to a dedicated directory first, as it creates data folders relative to where it runs.
+    Do not run Clyde directly from your Downloads folder. Move it to a dedicated directory first, as it creates data folders relative to where it runs.
 
 ---
 
 ## Step 3 — Create data directories
 
-cli_debrid will create its data folders automatically on first run, but you can create them in advance:
+Clyde will create its data folders automatically on first run, but you can create them in advance:
 
 ```
 C:\cli_debrid\
@@ -60,7 +60,7 @@ C:\cli_debrid\
 
 ---
 
-## Step 4 — Run cli_debrid
+## Step 4 — Run Clyde
 
 Double-click `cli_debrid.exe` or run it from a terminal:
 
@@ -77,7 +77,7 @@ Web interface available at http://0.0.0.0:5000
 ```
 
 !!! tip "Run on startup"
-    To start cli_debrid automatically with Windows, create a shortcut to the `.exe` in your Startup folder (`Win+R` → `shell:startup`). For a proper background service, consider using [NSSM](https://nssm.cc/) to wrap it as a Windows service.
+    To start Clyde automatically with Windows, create a shortcut to the `.exe` in your Startup folder (`Win+R` → `shell:startup`). For a proper background service, consider using [NSSM](https://nssm.cc/) to wrap it as a Windows service.
 
 ---
 
@@ -98,9 +98,9 @@ The onboarding wizard will launch on first visit.
 ## Updating on Windows
 
 1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/cli_debrid/releases)
-2. Stop the running cli_debrid process
+2. Stop the running Clyde process
 3. Replace the old `.exe` with the new one
-4. Start cli_debrid again
+4. Start Clyde again
 
 Your data (`db_content\`, `config\`, `logs\`) is preserved between updates.
 

@@ -5,7 +5,7 @@ icon: material/harddisk-plus
 
 # Built-in mount
 
-The built-in mount is cli_debrid's own mount engine. It runs inside the cli_debrid container, so there is no separate mount app to install. It streams your Usenet downloads (NZBs) straight from your news server, and the finished torrents in your debrid account: **Real-Debrid**, **AllDebrid**, **TorBox**, **Premiumize**, **Debrid-Link** or **HighWay**.
+The built-in mount is Clyde's own mount engine. It runs inside the Clyde container, so there is no separate mount app to install. It streams your Usenet downloads (NZBs) straight from your news server, and the finished torrents in your debrid account: **Real-Debrid**, **AllDebrid**, **TorBox**, **Premiumize**, **Debrid-Link** or **HighWay**.
 
 It's the default mount for new installs, for Usenet, debrid, or both. cli_mount, Decypharr, NzbDAV and Zurg are still available, and existing installs keep the mount they already use.
 
@@ -24,13 +24,13 @@ flowchart LR
 **When to use it**
 
 - **Any setup that can run it**: Usenet, debrid, or both. One container, and onboarding sets it up for you.
-- **Use a separate mount instead** if Docker can't give cli_debrid FUSE access (some NAS systems), or you'd rather run the mount in its own container: [cli_mount](cli_mount.md), [Decypharr](decypharr.md) or [Zurg](zurg.md).
+- **Use a separate mount instead** if Docker can't give Clyde FUSE access (some NAS systems), or you'd rather run the mount in its own container: [cli_mount](cli_mount.md), [Decypharr](decypharr.md) or [Zurg](zurg.md).
 
 ---
 
 ## Docker setup
 
-The engine mounts its files inside the cli_debrid container with FUSE. The container needs FUSE access, and the mount folder has to be shared with the host so your media server can see it. The ready-made compose file has all of that:
+The engine mounts its files inside the Clyde container with FUSE. The container needs FUSE access, and the mount folder has to be shared with the host so your media server can see it. The ready-made compose file has all of that:
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
@@ -82,7 +82,7 @@ services:
 ```
 
 !!! warning "Same path everywhere"
-    cli_debrid and your media server must see the mount at the same path (`/mnt/clid` above). In Symlink mode the symlinks point at `/mnt/clid/__all__/...`, so a different path in Plex means broken links. Onboarding's last step checks this for you ([below](#path-checks)).
+    Clyde and your media server must see the mount at the same path (`/mnt/clid` above). In Symlink mode the symlinks point at `/mnt/clid/__all__/...`, so a different path in Plex means broken links. Onboarding's last step checks this for you ([below](#path-checks)).
 
 ??? info "Windows (experimental)"
     On Windows the built-in mount uses [WinFsp](https://winfsp.dev) instead of FUSE. Install WinFsp first and set **Mount path** to a free drive letter such as `M:`. The Mount page lists what's missing if the engine can't start.
@@ -111,7 +111,7 @@ The wizard's last step tests your setup. For the mount it also checks:
 | **Mount shared with host** | `/mnt/clid` is a host folder mapped with `:rshared` |
 | **Symlink folder on host** | The symlink folder is a host folder, not inside the container |
 | **Plex sees the mount** (or Jellyfin / Emby) | Your media server lists the same files at the same path |
-| **Plex sees the symlinks** | A test folder cli_debrid creates in the symlink folder shows up in your media server at the same path (then it's removed) |
+| **Plex sees the symlinks** | A test folder Clyde creates in the symlink folder shows up in your media server at the same path (then it's removed) |
 
 A failed check names the compose line to add or change.
 
@@ -129,12 +129,12 @@ For Usenet, pick **Built-in mount** under **Settings → Required Settings → U
 | **Queue** | Every NZB and torrent the mount knows: status, size, errors. Search, filter, retry failed ones or delete |
 | **Browse** | The mount's folders and files |
 | **Settings** | News servers, virtual folders and all mount settings (below). **Save** applies them; **Restart engine** restarts it |
-| **Migrate from cli_mount** | Move an existing cli_mount library over without re-downloading anything ([below](#moving-from-cli_mount)) |
+| **Migrate from cli_mount** | Move an existing cli_mount or Decypharr library over without re-downloading anything ([below](#moving-from-cli_mount-or-decypharr)) |
 
 The engine's own log is on the **Logs** page (**Mount** tab). While something plays from the mount, the home page shows **Now playing**: who is watching, the position, and whether it streams from Usenet or debrid.
 
 !!! tip "The mount keeps running"
-    The header has a **Start mount / Stop mount** button next to the program's Start/Stop. Stopping the program or restarting cli_debrid doesn't stop the mount, so playback isn't interrupted. Only **Stop mount**, saving a changed mount setting (a quick restart), or stopping the container does.
+    The header has a **Start mount / Stop mount** button next to the program's Start/Stop. Stopping the program or restarting Clyde doesn't stop the mount, so playback isn't interrupted. Only **Stop mount**, saving a changed mount setting (a quick restart), or stopping the container does.
 
 ### News servers
 
@@ -178,7 +178,7 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 | | **WebDAV port / username / password** | `8284` | The share stays off until a username and password are set |
 | Files | **Allowed file extensions** | `mkv, mp4, m4v, avi, mov, mpg, mpeg` | Only these files are listed, so `.nfo`, images and archives stay out of your library. Empty lists everything |
 | | **Deobfuscate mode** | Season/Episode | How new NZB imports name video files whose real name couldn't be found: `S01E01`-style, `Name - 01`, or off |
-| Media servers | **Plex URL / token** | cli_debrid's Plex | Used for stream protection, show precache and Now playing. **Test Plex** checks them |
+| Media servers | **Plex URL / token** | Clyde's Plex | Used for stream protection, show precache and Now playing. **Test Plex** checks them |
 | | **Jellyfin / Emby URL / API key** | Empty | The same for Jellyfin or Emby, next to or instead of Plex |
 | Streaming | **Read ahead (MB)** | `16` | Fetched ahead of playback. A reader that jumps around the file (thumbnails, intro and credit detection) gets only what its own reading earns, so scans don't fill your line |
 | | **Max connections per file** | `15` | Downloads at once for one playing file |
@@ -204,7 +204,7 @@ All of these are on the Mount page's **Settings** tab. The defaults suit most se
 Repair follows cli_mount's rules, so a file is only marked broken on proof. Timeouts, connection errors and rate limits never count.
 
 - **Usenet:** an article missing on every server, or short on every server (it decodes to less than its own yEnc trailer says), found during playback or a health check; a video file whose first bytes aren't its container's header; a download whose saved file map can't be read; and, with **Check playability with ffprobe** on, a video file ffprobe can't open or that has no audio or video stream. That option matches cli_mount's media probe, is off by default, and reads up to 5 MB per file per check. Replacements are always checked with ffprobe. **Migrate → Import** copies cli_mount's repair settings when it can see cli_mount's `config.json`.
-- **Debrid:** health checks ask the service about each file, the same way cli_mount does: Real-Debrid's link check says 404 or a link fails with error 19, 24 or 35; TorBox no longer has the download; AllDebrid's link info reports an error; Premiumize has no link for the item; a Debrid-Link link answers 404/410; HighWay answers 404; or the torrent no longer has the file. The same answers during playback mark the file at once. cli_debrid's debrid repair then re-adds the torrent or finds another release.
+- **Debrid:** health checks ask the service about each file, the same way cli_mount does: Real-Debrid's link check says 404 or a link fails with error 19, 24 or 35; TorBox no longer has the download; AllDebrid's link info reports an error; Premiumize has no link for the item; a Debrid-Link link answers 404/410; HighWay answers 404; or the torrent no longer has the file. The same answers during playback mark the file at once. Clyde's debrid repair then re-adds the torrent or finds another release.
 
 ---
 
@@ -212,13 +212,13 @@ Repair follows cli_mount's rules, so a file is only marked broken on proof. Time
 
 Every 30 seconds (**Account sync interval**) the mount lists the finished torrents in your debrid account, adds new ones to `__all__/` and to the service's own folder, and removes ones that are gone from the account. An empty listing never empties the mount.
 
-Download links are created when a file is first read and kept until they expire, also across restarts (AllDebrid: 48 hours). A busy service (HTTP 429 or 5xx) is waited out on the same link rather than asking for a new one, and a download that stops sending data for 30 seconds is restarted. Links come from cli_debrid itself: while its web app restarts, files already playing keep going, and a file opened in that window waits for it (up to 90 seconds) instead of failing. That matters for **AllDebrid**, which suspends accounts that create many links without downloading. Real-Debrid packs a torrent into one archive link when it can't serve the files one by one; those torrents stay out of the mount.
+Download links are created when a file is first read and kept until they expire, also across restarts (AllDebrid: 48 hours). A busy service (HTTP 429 or 5xx) is waited out on the same link rather than asking for a new one, and a download that stops sending data for 30 seconds is restarted. Links come from Clyde itself: while its web app restarts, files already playing keep going, and a file opened in that window waits for it (up to 90 seconds) instead of failing. That matters for **AllDebrid**, which suspends accounts that create many links without downloading. Real-Debrid packs a torrent into one archive link when it can't serve the files one by one; those torrents stay out of the mount.
 
 ---
 
 ## Subtitles
 
-Subtitle files (`.srt`, `.ass`, `.ssa`, `.sub`, `.vtt`, `.idx`, `.sup`) can be saved into a download's folder in the mount, next to the video. cli_debrid's [subtitle downloader](../configuration/subtitles.md), Bazarr and your media server do this with ordinary file writes. They're stored in cli_debrid's data folder, listed next to the video, and deleted with the download. Everything else in the mount stays read-only.
+Subtitle files (`.srt`, `.ass`, `.ssa`, `.sub`, `.vtt`, `.idx`, `.sup`) can be saved into a download's folder in the mount, next to the video. Clyde's [subtitle downloader](../configuration/subtitles.md), Bazarr and your media server do this with ordinary file writes. They're stored in Clyde's data folder, listed next to the video, and deleted with the download. Everything else in the mount stays read-only.
 
 ---
 
@@ -228,21 +228,21 @@ For a media server on another machine (or Windows without WinFsp), the mount can
 
 1. On the Mount page's **Settings** tab, turn on **Share the mount over WebDAV** and set a **username** and **password**.
 2. Publish the port in docker-compose: `- "8284:8284"`.
-3. On the other machine, mount it with rclone (`rclone mount clid: /mnt/clid --vfs-cache-mode off`, with a `webdav` remote pointing at `http://your-server-ip:8284`, vendor `other`), and give the media server that folder at the same path as on cli_debrid's side (`/mnt/clid`).
+3. On the other machine, mount it with rclone (`rclone mount clid: /mnt/clid --vfs-cache-mode off`, with a `webdav` remote pointing at `http://your-server-ip:8284`, vendor `other`), and give the media server that folder at the same path as on Clyde's side (`/mnt/clid`).
 
 Playback over WebDAV gets the same treatment as the mount: playback priority, **Now playing**, and repair of proven-missing files.
 
 ---
 
-## Moving from cli_mount
+## Moving from cli_mount or Decypharr
 
-The **Migrate from cli_mount** tab moves a cli_mount library into the built-in mount, keeping every download and its ID, so nothing is re-downloaded or re-added:
+The **Migrate from cli_mount** tab moves a cli_mount or Decypharr library into the built-in mount, keeping every download and its ID, so nothing is re-downloaded or re-added. Below, "cli_mount" means whichever of the two you run:
 
 1. Set your news servers on the **Settings** tab.
 2. **Start alongside**: the built-in mount starts on its own path (e.g. `/mnt/clid`) while cli_mount keeps serving.
-3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again.
+3. **Import**: reads cli_mount's job list and saved file maps (no Usenet traffic). Safe to run again: jobs already imported are skipped. Clyde reads the maps from cli_mount's appdata, so bind it into Clyde's container and set **Settings → Usenet Mount → cli_mount Data Path** to it (e.g. `/climount_data` or `/decypharr_data`).
 4. **Compare 10 files**: reads random files through both mounts and compares them.
-5. Stop the cli_mount container, then **Switch to the built-in mount**: it takes over cli_mount's mount path, so your symlinks and Plex keep working, and becomes the Usenet mount. cli_debrid needs `/dev/fuse`, `SYS_ADMIN` and cli_mount's mount folder bound with `rshared`.
+5. Stop the cli_mount container, then **Switch to the built-in mount**: it takes over cli_mount's mount path, so your symlinks and Plex keep working, and becomes the Usenet mount. Clyde needs `/dev/fuse`, `SYS_ADMIN` and cli_mount's mount folder bound with `rshared`.
 
 cli_mount itself is never changed: **Switch back to cli_mount** undoes the switch.
 
@@ -252,14 +252,18 @@ cli_mount itself is never changed: **Switch back to cli_mount** undoes the switc
 
 **The Mount page says the engine can't start.** It lists why: `/dev/fuse` missing (add the `devices` and `cap_add` lines), no news server set, or on Windows WinFsp missing.
 
-**Plex shows an empty folder.** The media server's volume needs `rslave` (or `rshared`) on the same host folder, and cli_debrid's needs `rshared`. Restart the media server after changing it. Onboarding's **Mount shared with host** and **Plex sees the mount** checks catch this.
+**Plex shows an empty folder.** The media server's volume needs `rslave` (or `rshared`) on the same host folder, and Clyde's needs `rshared`. Restart the media server after changing it. Onboarding's **Mount shared with host** and **Plex sees the mount** checks catch this.
 
 **A subtitle couldn't be saved.** Only subtitle files can be written into the mount, and only into a download's folder. The engine has to be running.
 
 **Playback stutters or a read fails on Usenet.** A read that fails without proof (a timeout, a dropped connection, `502 Too many connections`) is tried again for up to 45 seconds before the player gets an error. A server whose copy of an article is the wrong one (a reused Message-ID) is skipped and the next server is asked. Neither marks the file broken: only an article missing or short on every server does.
 
+**Import fails on every job with "unreadable metadata: unsupported protobuf wire type".** Your Decypharr saves its file maps in its newer, compressed format, which older Clyde versions can't read. Update Clyde and run **Import** again.
+
+**Switch says the old mount is still held by Clyde's container.** Clyde's container was created while cli_mount or Decypharr was running, so Docker gave it that mount itself rather than the folder. Stopping cli_mount leaves a dead mount behind that only a new container clears. Keep cli_mount stopped, run `docker compose up -d --force-recreate` for Clyde, then press **Switch** again.
+
 **Sharing logs for help.** **Logs → Mount → Share Mount Logs** uploads the engine log with a snapshot at the top: engine stats (goroutines, memory, connections, caches, debrid), open streams, and your Mount settings with every password, token and key replaced by `(set)`.
 
 **A news server shows errors on the Overview tab.** Hover the error count for the last error. `authentication failed` means a wrong username or password; a timeout usually means a wrong port or SSL setting.
 
-**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; cli_debrid's repair finds another one. RAR, 7z and ZIP sets stream when their files are stored (not compressed), including split and spanned sets (`.zip.001`, `.z01`); compressed archives can't be streamed by any mount. Password-protected RAR5 and 7z archives stream when the NZB carries the password (indexers put it in the NZB as `<meta type="password">`; a `{{password}}` at the end of the download's name works too). `password needed` or `wrong password` fails the download so repair tries another release. Encrypted RAR4 archives aren't supported.
+**A download failed with "nothing streamable".** The Queue tab shows why. A `missing article` is a dead release; Clyde's repair finds another one. RAR, 7z and ZIP sets stream when their files are stored (not compressed), including split and spanned sets (`.zip.001`, `.z01`); compressed archives can't be streamed by any mount. Password-protected RAR5 and 7z archives stream when the NZB carries the password (indexers put it in the NZB as `<meta type="password">`; a `{{password}}` at the end of the download's name works too). `password needed` or `wrong password` fails the download so repair tries another release. Encrypted RAR4 archives aren't supported.

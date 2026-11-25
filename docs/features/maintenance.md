@@ -5,7 +5,7 @@ icon: material/database-cog
 
 # Maintenance
 
-The Maintenance page holds backups, cleanups and repairs for cli_debrid's database and cli_mount's, plus a separate danger zone for deleting data. Open it from **System → Maintenance**.
+The Maintenance page holds backups, cleanups and repairs for Clyde's database and cli_mount's, plus a separate danger zone for deleting data. Open it from **System → Maintenance**.
 
 It has three tabs: **Backups**, **Cleanup & repair** and **Danger zone**.
 
@@ -40,15 +40,15 @@ It has three tabs: **Backups**, **Cleanup & repair** and **Danger zone**.
 
 ### Backup cli_mount Databases
 
-**What it does:** Backs up cli_mount's `entries.db` and `items.db` to `<cli_mount data path>/db/backups/`, keeping four copies of each file. It also runs every day with cli_debrid's own database backup.
+**What it does:** Backs up cli_mount's `entries.db` and `items.db` to `<cli_mount data path>/db/backups/`, keeping four copies of each file. It also runs every day with Clyde's own database backup.
 
-**Needs:** cli_mount's data folder mounted into cli_debrid and **cli_mount Data Path** set under **Settings → Required → Usenet Mount**. The [one-stack compose file](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) sets this up.
+**Needs:** cli_mount's data folder mounted into Clyde and **cli_mount Data Path** set under **Settings → Required → Usenet Mount**. The [one-stack compose file](../installation/docker.md#recommended-cli_debrid-and-cli_mount-in-one-stack) sets this up.
 
 ### Restore cli_mount Database from Backup
 
 **What it does:** Restores `entries.db` or `items.db` from one of those backups.
 
-**How to use:** Stop cli_mount first, restore, then start cli_mount again. cli_debrid doesn't need a restart.
+**How to use:** Stop cli_mount first, restore, then start cli_mount again. Clyde doesn't need a restart.
 
 ### Clean Up Old cli_mount Backup Files
 
@@ -142,7 +142,7 @@ Configure NAS paths in **Settings → Library & Files → Library → NAS / Netw
 
 ### Backfill NZB File Names
 
-**What it does:** Renames collected NZB items, in cli_debrid's database and in cli_mount, to the structured NZB naming format: `Title (Year) - {{imdb-…}} - Version - (Original.Release.Name)`.
+**What it does:** Renames collected NZB items, in Clyde's database and in cli_mount, to the structured NZB naming format: `Title (Year) - {{imdb-…}} - Version - (Original.Release.Name)`.
 
 **Needs:** **Enable NZB File Naming** turned on under **Settings → Required → Usenet Mount**.
 
@@ -162,13 +162,13 @@ Configure NAS paths in **Settings → Library & Files → Library → NAS / Netw
 
 ### Not Wanted list
 
-**What it does:** Opens the list of releases cli_debrid skips because they failed before (magnets and URLs). Remove single entries, or purge the list. The [Automation](automation.md) page's one-time tasks can also purge the not-wanted magnets, URLs and NZBs.
+**What it does:** Opens the list of releases Clyde skips because they failed before (magnets and URLs). Remove single entries, or purge the list. The [Automation](automation.md) page's one-time tasks can also purge the not-wanted magnets, URLs and NZBs.
 
 ### Full cli_mount sync
 
-**What it does:** Re-reads every entry from cli_mount, not just recent changes, and updates cli_debrid's database to match. The queue pauses while it runs and resumes on its own.
+**What it does:** Re-reads every entry from cli_mount, not just recent changes, and updates Clyde's database to match. The queue pauses while it runs and resumes on its own.
 
-**When to use:** cli_debrid and cli_mount disagree about what's in the library, for example after restoring one of them from a backup.
+**When to use:** Clyde and cli_mount disagree about what's in the library, for example after restoring one of them from a backup.
 
 ---
 
@@ -199,7 +199,7 @@ These delete data and can't be undone.
 
 ### Delete Database
 
-**What it does:** Completely deletes `media_items.db` and all cache files. cli_debrid starts fresh with an empty database.
+**What it does:** Completely deletes `media_items.db` and all cache files. Clyde starts fresh with an empty database.
 
 **When to use:** Only as a last resort — database is severely corrupted and cannot be repaired.
 

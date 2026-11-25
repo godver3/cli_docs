@@ -56,7 +56,7 @@ Multi-page selection is supported — use **Select all N matching** to select ac
 
 ## Tracker
 
-A chronological log of every torrent submitted through cli_debrid.
+A chronological log of every torrent submitted through Clyde.
 
 **Columns:** Added (timestamp), Title, Trigger, Rationale, Status
 

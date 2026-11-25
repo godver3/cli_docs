@@ -19,7 +19,7 @@ icon: material/tray-full
 | **Wake Limit** | `24` | How many times a sleeping item is woken before it's blacklisted |
 | **Sleep Duration Minutes** | `30` | How long an item sleeps between attempts |
 | **Blacklist Final Scrape Delay Hours** | `0` | Wait this long, then try one last scrape before blacklisting. `0` turns it off. |
-| **Movie Airtime Offset** | `0` | Hours after midnight on release day to start scraping new movies |
+| **Movie Airtime Offset** | `0` | Hours after midnight at the start of the release date to start scraping new movies. If nothing is found that day, the movie is searched again every hour, and those retries don't count toward the wake limit. Shows use their air time instead. |
 | **Episode Airtime Offset** | `0` | Hours after the show's airtime to start scraping new episodes. Negative values scrape early. Without Trakt, airtime defaults to 19:00. |
 | **Enable Pause Schedule** | Off | Pause the queue every day between the two times below |
 | **Pause Start Time** / **Pause End Time** | `00:00` | The daily pause window (HH:MM) |
@@ -31,17 +31,15 @@ icon: material/tray-full
 
 ---
 
-## Queue & Upgrade Management
+## Queue Management
 
 | Setting | Default | Description |
 |---|---|---|
 | **Checking Queue Period** | `3600` | Seconds an item can stay in Checking before it goes back to Wanted |
 | **Ignore Wanted Queue Throttling** | Off | Let Wanted move every eligible item to Scraping, however full Scraping is. Use with care. |
 | **Disable Not Wanted Check** | Off | Skip the not-wanted check for queued items |
-| **Max Upgrading Score** | `0.0` | Stop upgrading once an item reaches this score. `0` means no limit. |
-| **Upgrade Queue Duration Hours** | `24` | Hours an item stays in Upgrading before it's marked Collected |
 
-Upgrading itself is turned on under [Scraping → Upgrading](scraping.md#upgrading).
+Upgrade settings (turning upgrading on, the upgrade window, score limits) are in the **Upgrading** group of the [Upgrade Hub](../features/upgrade-hub.md#upgrading) Settings tab.
 
 ---
 

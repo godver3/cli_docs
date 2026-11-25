@@ -1,24 +1,24 @@
 ---
-title: Install cli_debrid
+title: Install Clyde
 icon: material/download
 ---
 
-# Step 3 — Install cli_debrid
+# Step 3 — Install Clyde
 
 Select your platform below. All methods install the same app — only the steps differ.
 
 !!! info "Using the built-in mount?"
-    The engine runs inside cli_debrid's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (`/mnt/clid:/mnt/clid:rshared`). [docker-compose.builtin.yml](https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml) has all of it ([Docker guide](../installation/docker.md#easiest-one-container-with-the-built-in-mount)). Give your media server the same folder at the same path with `rslave`.
+    The engine runs inside Clyde's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (`/mnt/clid:/mnt/clid:rshared`). [docker-compose.builtin.yml](https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml) has all of it ([Docker guide](../installation/docker.md#easiest-one-container-with-the-built-in-mount)). Give your media server the same folder at the same path with `rslave`.
 
 !!! info "Using cli_mount?"
-    cli_mount runs as its own container next to cli_debrid (you set it up in [Step 2](mount.md)). Two things to get right:
+    cli_mount runs as its own container next to Clyde (you set it up in [Step 2](mount.md)). Two things to get right:
 
-    - **Same mount path in both containers.** Map your mount folder into cli_debrid (and your media server) at the same path cli_mount uses, so file paths line up.
-    - **Reach cli_mount by IP or container name, not `localhost`.** cli_mount listens on port `8282` by default — use `http://YOUR_SERVER_IP:8282` (or the container name on a shared Docker network). `localhost` inside the cli_debrid container is cli_debrid itself.
+    - **Same mount path in both containers.** Map your mount folder into Clyde (and your media server) at the same path cli_mount uses, so file paths line up.
+    - **Reach cli_mount by IP or container name, not `localhost`.** cli_mount listens on port `8282` by default — use `http://YOUR_SERVER_IP:8282` (or the container name on a shared Docker network). `localhost` inside the Clyde container is Clyde itself.
 
-    - **Keep cli_mount on port `8282`.** That's cli_mount's default. Port `8888` is taken by cli_debrid's built-in Phalanx DB — the cli_debrid `docker-compose.yml` publishes it — so don't move cli_mount to `8888` if both run on the same host.
+    - **Keep cli_mount on port `8282`.** That's cli_mount's default. Port `8888` is taken by Clyde's built-in Phalanx DB — the Clyde `docker-compose.yml` publishes it — so don't move cli_mount to `8888` if both run on the same host.
 
-    Optional: also map cli_mount's appdata folder into cli_debrid as `/climount_data` to enable cli_mount DB backup and cleanup tools.
+    Optional: also map cli_mount's appdata folder into Clyde as `/climount_data` to enable cli_mount DB backup and cleanup tools.
 
 ---
 
@@ -69,7 +69,7 @@ Select your platform below. All methods install the same app — only the steps 
 
 === "Proxmox"
 
-    Run cli_debrid in an LXC container or a VM with Docker.
+    Run Clyde in an LXC container or a VM with Docker.
 
     **Full guide:** [:octicons-arrow-right-24: Proxmox installation](../installation/proxmox.md){ .md-button }
 
@@ -77,7 +77,7 @@ Select your platform below. All methods install the same app — only the steps 
 
 === "TrueNAS"
 
-    Run cli_debrid as a TrueNAS App (SCALE) or in a jail (CORE).
+    Run Clyde as a TrueNAS App (SCALE) or in a jail (CORE).
 
     **Full guide:** [:octicons-arrow-right-24: TrueNAS installation](../installation/truenas.md){ .md-button }
 
@@ -90,7 +90,7 @@ Select your platform below. All methods install the same app — only the steps 
     **Full guide:** [:octicons-arrow-right-24: Windows installation](../installation/windows.md){ .md-button }
 
     !!! warning "Symlinks on Windows"
-        Windows requires Developer Mode enabled for symlink support. Plex does not support symlinks on Windows — use Jellyfin instead, or run cli_debrid in Docker.
+        Windows requires Developer Mode enabled for symlink support. Plex does not support symlinks on Windows — use Jellyfin instead, or run Clyde in Docker.
 
 ---
 
@@ -109,4 +109,4 @@ The **onboarding wizard** will then launch automatically and guide you through i
 
 ## Next step
 
-[:octicons-arrow-right-24: Step 4 — Configure cli_debrid](configure.md){ .md-button .md-button--primary }
+[:octicons-arrow-right-24: Step 4 — Configure Clyde](configure.md){ .md-button .md-button--primary }

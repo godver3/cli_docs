@@ -13,7 +13,7 @@ The Overlay system automatically adds informational badges to your poster artwor
 
 ## How it works
 
-1. **Sync Library** — cli_debrid matches its database items to Plex using IMDB/TMDB IDs
+1. **Sync Library** — Clyde matches its database items to Plex using IMDB/TMDB IDs
 2. For each matched item, a customised poster is generated with badges applied
 3. The modified poster is uploaded back to Plex, replacing the original
 4. Original posters are backed up and can be restored at any time
@@ -38,7 +38,7 @@ The top row shows a live summary of your overlay state:
 
 ## Sync Library
 
-Before overlays can be applied, cli_debrid must match its database items to Plex entries using IMDB/TMDB IDs. Click **Sync Library** to run a full sync.
+Before overlays can be applied, Clyde must match its database items to Plex entries using IMDB/TMDB IDs. Click **Sync Library** to run a full sync.
 
 Required:
 
@@ -270,8 +270,8 @@ Click **Settings** (top right of the Overlay Management page) to open the Overla
 | Setting | Default | Description |
 |---|---|---|
 | **Enable Overlay System** | Off | Master toggle. When enabled, overlay sync tasks run automatically and apply media info badges to Plex posters. Requires Plex URL and token to be configured. |
-| **Enable Textless / Clean Posters** | Off | When enabled, cli_debrid fetches a language-neutral (textless) poster from TMDB as the base image — these have no baked-in title text so the **Title Logo** badge can render cleanly at your chosen position. Use the Title Logo badge in the layout editor to add the show or movie title as a transparent clearlogo PNG (with text fallback if no clearlogo exists). The Title Logo badge is only available in the layout editor when this setting is on. **Note:** Not all titles have textless posters on TMDB — if none is found, the standard English poster is used as fallback. |
-| **Media Server Data Path** | — | Plex's data folder as cli_debrid sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data` with the mount from the install guides). Only used by the [poster cleanup](#poster-cleanup). The modal checks it when you save and offers the right folder if it's one level off. |
+| **Enable Textless / Clean Posters** | Off | When enabled, Clyde fetches a language-neutral (textless) poster from TMDB as the base image — these have no baked-in title text so the **Title Logo** badge can render cleanly at your chosen position. Use the Title Logo badge in the layout editor to add the show or movie title as a transparent clearlogo PNG (with text fallback if no clearlogo exists). The Title Logo badge is only available in the layout editor when this setting is on. **Note:** Not all titles have textless posters on TMDB — if none is found, the standard English poster is used as fallback. |
+| **Media Server Data Path** | — | Plex's data folder as Clyde sees it: the folder that contains Plex's `Metadata` folder (e.g. `/plex_data` with the mount from the install guides). Only used by the [poster cleanup](#poster-cleanup). The modal checks it when you save and offers the right folder if it's one level off. |
 | **Ratings Check Interval (days)** | `7` | How often to re-fetch ratings (IMDb/TMDB/Trakt/RT) and show status to detect changes. Set to `0` to check every sync run. Version count changes are always checked every sync regardless of this setting. |
 | **Items Per Sync Run** | `200` | Maximum number of shows/movies processed per overlay sync run. Higher values clear backlogs faster but each run takes longer (~1s per item). |
 
@@ -290,11 +290,11 @@ Use these when migrating from another overlay app (Kometa, PMM, etc.) or to clea
 
 Every time an overlay is re-rendered, Plex keeps the previous version of the poster on disk. Over months this adds up to gigabytes. The **Poster overlay cleanup** task deletes those old versions.
 
-It only deletes uploaded posters that Plex reports as **not selected**, on items cli_debrid has overlaid. Posters you or other tools (Kometa, PMM) uploaded to other items are never touched, and neither is any poster Plex is currently showing.
+It only deletes uploaded posters that Plex reports as **not selected**, on items Clyde has overlaid. Posters you or other tools (Kometa, PMM) uploaded to other items are never touched, and neither is any poster Plex is currently showing.
 
 ### 1. Mount Plex's data folder and set the path
 
-cli_debrid needs to reach Plex's data folder. The install guides mount it at `/plex_data`:
+Clyde needs to reach Plex's data folder. The install guides mount it at `/plex_data`:
 
 ```yaml
 volumes:
@@ -305,9 +305,9 @@ Then set **Media Server Data Path** to `/plex_data` in Overlay Settings. Don't m
 
 The path must point at the folder that **contains `Metadata`**. A common mistake is one level too high: mounting `/var/lib/plexmediaserver` and setting the path to `/var/lib/plexmediaserver/Library`. The right path there is `/var/lib/plexmediaserver/Library/Application Support/Plex Media Server`. The Overlay Settings modal spots this and offers **Use this**.
 
-### 2. Make sure cli_debrid may delete there
+### 2. Make sure Clyde may delete there
 
-Plex owns its data folder. If cli_debrid runs as a different user, it can read the posters but not delete them. You'll see this as:
+Plex owns its data folder. If Clyde runs as a different user, it can read the posters but not delete them. You'll see this as:
 
 - the **Cleaned Up** card saying old posters couldn't be deleted,
 - the 👁 preview saying files can't be deleted, with the command below,
@@ -315,19 +315,19 @@ Plex owns its data folder. If cli_debrid runs as a different user, it can read t
 
 | Your setup | What to do |
 |---|---|
-| Plex in Docker with the same `PUID` as cli_debrid | Nothing, it already works |
+| Plex in Docker with the same `PUID` as Clyde | Nothing, it already works |
 | Plex installed on the Linux host (runs as the `plex` user) | Run the command below once |
 | Plex in Docker with a different `PUID` | Run the command below once, on the host path of Plex's config folder |
 | Windows | Usually nothing |
 
-On the Linux host, give cli_debrid's user write access to Plex's Metadata folders. Replace `1000` with cli_debrid's `PUID` and use the **host** path to Plex's folder:
+On the Linux host, give Clyde's user write access to Plex's Metadata folders. Replace `1000` with Clyde's `PUID` and use the **host** path to Plex's folder:
 
 ```bash
 sudo find "/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Metadata" \
   -type d -exec setfacl -m u:1000:rwx,d:u:1000:rwx {} +
 ```
 
-This adds an access rule for that one user and doesn't change who owns the files or how Plex runs. The `d:` part makes folders Plex creates later get the same rule. Adding cli_debrid to the `plex` group doesn't work: the container doesn't keep host groups.
+This adds an access rule for that one user and doesn't change who owns the files or how Plex runs. The `d:` part makes folders Plex creates later get the same rule. Adding Clyde to the `plex` group doesn't work: the container doesn't keep host groups.
 
 ### 3. Preview, then run it
 

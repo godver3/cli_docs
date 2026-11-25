@@ -13,7 +13,7 @@ Installation method depends on whether you're running **TrueNAS SCALE** (Linux-b
 
 === "Discover Apps (Electric Eel+)"
 
-    In TrueNAS SCALE 24.10 (Electric Eel) and later, you can search for cli_debrid directly in the app catalog:
+    In TrueNAS SCALE 24.10 (Electric Eel) and later, you can search for Clyde directly in the app catalog:
 
     1. Go to **Apps → Discover Apps**
     2. Search for `cli_debrid`
@@ -22,7 +22,7 @@ Installation method depends on whether you're running **TrueNAS SCALE** (Linux-b
     5. Click **Save**
 
     !!! note
-        If cli_debrid is not yet in the official catalog, use the Custom App method below.
+        If Clyde is not yet in the official catalog, use the Custom App method below.
 
 === "Custom App"
 
@@ -102,7 +102,7 @@ Choose the mode that matches your setup:
     Replace `/mnt/tank` with your actual pool name. Replace the debrid mount path with your actual mount location.
 
 !!! tip "Stack all services in one compose file"
-    You can combine cli_debrid, Zurg/Decypharr, Plex, and Jellyfin into a single compose file by adding each as a separate service under the same `services:` block.
+    You can combine Clyde, Zurg/Decypharr, Plex, and Jellyfin into a single compose file by adding each as a separate service under the same `services:` block.
 
 ---
 

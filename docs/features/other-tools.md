@@ -23,7 +23,7 @@ Real-time log viewer with live streaming via Server-Sent Events.
 | **Search** | Search through displayed logs with Enter/Shift+Enter to navigate matches — shows X/Y position |
 | **Source chips** | Filter by source file group (queues, scraper, database, plex, trakt, etc.) — click Hide All/Show All to manage |
 | **↓ Bottom** | Jump to the latest log entry (appears when you scroll up) |
-| **Share cli_debrid Logs** | Uploads the logs, with your app version and a redacted settings snapshot, to paste.c-net.org and gives you a link. With cli_mount set up there are also **Share cli_mount Logs** and **Share Both** |
+| **Share Clyde Logs** | Uploads the logs, with your app version and a redacted settings snapshot, to paste.c-net.org and gives you a link. With cli_mount set up there are also **Share cli_mount Logs** and **Share Both** |
 
 **Behaviour:**
 - Auto-scrolls to the bottom when new logs arrive — pauses automatically when you scroll up
@@ -124,7 +124,7 @@ Tokens are stored locally in a JSON file. The page polls every 5 seconds and tim
 
 ## Symlink Tools
 
-Manually create a symlink for a media file using custom metadata — useful for files that cli_debrid couldn't automatically match.
+Manually create a symlink for a media file using custom metadata — useful for files that Clyde couldn't automatically match.
 
 **How to use:**
 

@@ -5,7 +5,7 @@ icon: material/newspaper-variant
 
 # Newznab
 
-Newznab is the standard API protocol used by most Usenet indexers. Adding a Newznab scraper lets cli_debrid search Usenet alongside torrents and deliver NZB downloads via your Usenet provider ([cli_mount](../integrations/cli_mount.md), NzbDAV or Zurg).
+Newznab is the standard API protocol used by most Usenet indexers. Adding a Newznab scraper lets Clyde search Usenet alongside torrents and deliver NZB downloads via your Usenet provider ([cli_mount](../integrations/cli_mount.md), NzbDAV or Zurg).
 
 !!! info "Usenet prerequisite"
     Newznab scrapers require a Usenet provider (cli_mount recommended) under **Settings → Required Settings → Usenet Mount**. See [Getting Started](../getting-started/configure.md#debrid-or-usenet-provider) for full setup.
@@ -49,7 +49,7 @@ You can add multiple Newznab indexers. All enabled Newznab scrapers are searched
 
 ## How NZB results work
 
-When cli_debrid searches for content:
+When Clyde searches for content:
 
 - Newznab indexers are queried alongside all other scrapers
 - NZB results appear in scraper results with a **NZB** badge instead of a cache status indicator
@@ -58,7 +58,7 @@ When cli_debrid searches for content:
 
 ### Season packs
 
-For season pack searches, cli_debrid searches each episode individually across all Newznab indexers in parallel, then groups results by release group and resolution. Only groups that cover the complete season are surfaced as virtual season packs.
+For season pack searches, Clyde searches each episode individually across all Newznab indexers in parallel, then groups results by release group and resolution. Only groups that cover the complete season are surfaced as virtual season packs.
 
 ### File list
 

@@ -5,7 +5,7 @@ icon: material/quality-high
 
 # Versions
 
-Versions are quality profiles — they define exactly what cli_debrid should look for when scraping. Each content source is assigned a version, and cli_debrid will only accept results that match the profile's criteria.
+Versions are quality profiles — they define exactly what Clyde should look for when scraping. Each content source is assigned a version, and Clyde will only accept results that match the profile's criteria.
 
 You can create as many versions as you need and assign different ones to different content sources.
 
@@ -15,7 +15,7 @@ You can create as many versions as you need and assign different ones to differe
 
 ## Default versions
 
-cli_debrid ships with a **Default** version pre-configured for balanced quality (1080p WEB-DL). You can edit this or create new ones.
+Clyde ships with a **Default** version pre-configured for balanced quality (1080p WEB-DL). You can edit this or create new ones.
 
 ---
 
@@ -159,7 +159,7 @@ See the [example 1080p version](../getting-started/configure.md#example-a-tuned-
 |---|---|---|
 | **Fallback Version** | None | If no results are found for this version, try this other version instead |
 
-**Example:** Set a `4K` version's fallback to `1080p` — cli_debrid first looks for 4K, and if nothing is found, tries 1080p.
+**Example:** Set a `4K` version's fallback to `1080p` — Clyde first looks for 4K, and if nothing is found, tries 1080p.
 
 | Setting | Default | Description |
 |---|---|---|
@@ -186,7 +186,7 @@ Settings that apply to every version (uncached handling, Minimum Scrape Score, u
 
 Each content source has a **Versions** checkbox list. Check all versions that should apply to that source.
 
-When multiple versions are checked, cli_debrid tries each one in priority order and uses the best match found.
+When multiple versions are checked, Clyde tries each one in priority order and uses the best match found.
 
 ![Versions assigned to a content source](../assets/screenshots/configuration/versions-assigned.png)
 
@@ -294,6 +294,6 @@ Here are some real-world configurations from the community to show how the setti
 
 ## Community versions
 
-The cli_debrid Discord has a dedicated channel where users share and download version profiles. You can export your version and drop it in the channel, or grab one optimised for a specific use case (4K HDR, remux only, anime, small sizes, etc.).
+The Clyde Discord has a dedicated channel where users share and download version profiles. You can export your version and drop it in the channel, or grab one optimised for a specific use case (4K HDR, remux only, anime, small sizes, etc.).
 
 [:fontawesome-brands-discord: Browse & share version profiles](https://discord.com/channels/691282102162948107/1478610851433807953){ .md-button }

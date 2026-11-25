@@ -5,7 +5,7 @@ icon: material/filmstrip
 
 # Library
 
-The Library page shows your entire media collection — every movie and TV episode that cli_debrid has collected, along with their status and quality information.
+The Library page shows your entire media collection — every movie and TV episode that Clyde has collected, along with their status and quality information.
 
 ---
 
