@@ -64,6 +64,7 @@ Some tasks follow a setting instead of their own switch (for example, overlay ta
 | **Library maintenance** | Library & Upgrades | Off, every 12 hours | **Deletes or changes data.** Checks the library against the files on disk: broken and orphaned symlinks in Symlink mode, missing files on the mount in Direct Mount. Broken items go back to Wanted if they were the last copy of their version, otherwise they're deleted. It needs Clyde to see your mount. |
 | **Clean up debrid account** | Library & Upgrades | Off, daily | **Deletes or changes data.** Removes errored torrents, duplicates of the same torrent (keeping the best copy) and torrents stuck at 0% from your debrid account. Each rule can be switched off in its settings. |
 | **Upgrade Hub scan** / **Upgrade Hub auto-queue** | Library & Upgrades | Off, daily | See [Upgrade Hub](upgrade-hub.md). |
+| **Upgrade Hub NZB feed sync** | Library & Upgrades | Every 30 min, only while Upgrade Hub scan is on | Keeps the Upgrade Hub's history of your Newznab indexers' releases current. See [Upgrade Hub](upgrade-hub.md#scan-sources). |
 | **Slow down under high system load** | System | On in limited installs | Applies the load limits under **Settings → Performance & Logging → Performance & Monitoring**. |
 
 ---

@@ -13,7 +13,7 @@ Open it from **Tools → Upgrade Hub**.
     The Upgrade Hub is in beta. Verify suggestions before queuing and report issues on Discord.
 
 !!! note "Sources"
-    Scans search with the scrapers you already have set up, so no extra service is needed. A self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance and Newznab indexers can be added under **Bulk Sources** as extra sources that check the whole library at once. They're off by default.
+    Scans check your Newznab indexers' releases and, if you run one, a self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance, against the whole library. They also search your scrapers for a few recently released items. Choose sources under **Bulk Sources** in the Settings tab.
 
 ![Upgrade Hub overview](../assets/screenshots/features/upgrade-hub-overview.png)
 
@@ -36,9 +36,9 @@ The **Score Δ** column shows the improvement percentage and the before→after 
 
 | Source | How it works |
 |---|---|
-| **Your scrapers** | Runs a normal search (Torrentio, Jackett, Prowlarr, Newznab and so on) for a set number of items per scan. Items never checked go first, then the ones checked longest ago, so a daily scan works through the whole library over time. On by default. |
-| **Zilean** | Reads a self-hosted Zilean instance for every collected item. Fast with the [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection). |
-| **NZB indexers** | Reads the latest releases (up to 1000 per category) from your Newznab indexers and matches them to the library. |
+| **NZB indexers** | Checks every release your Newznab indexers posted in the last 90 days for your library. The **Upgrade Hub NZB feed sync** task reads what's new on each indexer every 30 minutes (usually one or two API calls each) and keeps the releases that match your library; scans match against that history. Releases the indexer tags with an IMDb ID are matched by ID. |
+| **Zilean** | Reads a self-hosted Zilean instance for every collected item. Fast with the [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection), slow without it. |
+| **Fresh Release Search** | Runs a normal search with your scrapers (Torrentio, Jackett, Newznab and so on) for up to 20 items released in the last 30 days, when better encodes keep appearing. Each item costs a search on every indexer, so it's capped. Items checked longest ago go first. |
 
 When two sources find an upgrade for the same item, the bigger improvement wins.
 
@@ -51,12 +51,13 @@ When two sources find an upgrade for the same item, the bigger improvement wins.
     |---|---|
     | **Upgrade Hub scan** | Every **24 hours** |
     | **Upgrade Hub auto-queue** | Every **24 hours** |
+    | **Upgrade Hub NZB feed sync** | Every **30 minutes**, only while Upgrade Hub scan is on |
 
-    They're off by default. **Automatic Scan** and **Auto Queue** in the Settings tab switch them on (the same switches as on the Automation page). Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
+    The scan and auto-queue are off by default. **Automatic Scan** and **Auto Queue** in the Settings tab switch them on (the same switches as on the Automation page). Adjust intervals or run them now on the [Automation](automation.md) page (Library & Upgrades group).
 
 Click **Scan for Upgrades** to start a scan. The button shows how long ago the last scan ran (e.g. `2h ago`). During a scan a progress bar shows the current phase and ETA:
 
-- Starting → Loading Zilean data → Scoring episodes & packs → Scanning movies → Checking NZB indexers → Searching with your scrapers → Done
+- Starting → Loading Zilean data → Scoring episodes & packs → Scanning movies → Checking NZB indexers → Searching fresh releases with your scrapers → Done
 
 Phases for sources you don't use are skipped. Scheduled scans run in the background, so they don't hold up other tasks.
 
@@ -64,13 +65,13 @@ After scanning, summary chips show: upgrades found, packs found, movies scanned,
 
 ### Search Recent Releases
 
-**Search Recent Releases**, next to **Scan for Upgrades**, searches your scrapers for every collected item released in the last N days. Use it when you want recent titles checked now, without waiting for the scan rotation to reach them. It's handy after raising **Release Age**, which only affects items collected from then on.
+**Search Recent Releases**, next to **Scan for Upgrades**, searches your scrapers for every collected item released in the last N days. Use it when you want recent titles checked now, beyond what Fresh Release Search covers each scan. It's handy after raising **Release Age**, which only affects items collected from then on.
 
 1. Enter the number of days. The default is your **Release Age** setting.
 2. Clyde shows how many movies and episodes were released in that window. Click **Search** to start.
-3. A normal scan runs. Its scraper search covers those items instead of the usual batch. Better releases appear in the Upgrades tab to queue as usual, or are picked up by **Auto Queue**.
+3. Only your scrapers are searched (Zilean and the NZB history are skipped), so it starts right away. Better releases are added to the Upgrades tab next to your last scan's results, to queue as usual or for **Auto Queue**.
 
-It isn't limited by **Items Searched Per Scan** and works even with **Search With My Scrapers** off. It searches up to 2,000 items per run, longest-unchecked first. If more were released in the window, run it again for the rest. Items with no known release date, or that aren't out yet, are left out.
+It isn't limited by Fresh Release Search's cap and works even with it off. It searches up to 2,000 items per run, longest-unchecked first. If more were released in the window, run it again for the rest. Items with no known release date, or that aren't out yet, are left out.
 
 ---
 
@@ -102,7 +103,7 @@ Individual movie and episode upgrade candidates.
 
 | Badge | Meaning |
 |---|---|
-| **Live search** | Found by searching with your scrapers during the scan |
+| **Live search** | Found by searching with your scrapers (Fresh Release Search or Search Recent Releases) |
 | **Recent** | Candidate indexed ≤90 days ago |
 | **Older · Xd ago** | Candidate age in days |
 | **⚡ Cached Bypass** | Not in recent Zilean results, but kept because your debrid service reports it cached (only with **Only Show Recent Items** on) |
@@ -167,14 +168,13 @@ What happens right after a new release is collected. These used to be under Sett
 | **Score Threshold** | `0%` | Minimum improvement % to show a candidate. Applied to both Upgrades and Season Packs. |
 | **Only Show Recent Items** | Off | Hide candidates older than the recent threshold from both tabs by default |
 | **Recent Threshold** | `90` days | How many days back defines "recent" |
-| **Search With My Scrapers** | On | Search your configured scrapers for a batch of items each scan, longest-unchecked first |
-| **Items Searched Per Scan** | `50` | How many items the scraper search covers per scan. Each one is a full search, so keep it modest on a daily schedule. |
-| **Scan Limit** | All | Max collected items the Zilean and NZB sources check per run — `100`, `500`, `1000`, `2000`, `5000`, or `All`. The scraper search isn't affected: it picks its batch from the whole library. |
+| **Fresh Release Search** | `30` days, `20` items | Each scan also searches your scrapers for up to this many items released within this many days, longest-unchecked first. `0` items turns it off. |
+| **Scan Limit** | All | Max collected items the Zilean and NZB sources check per run — `100`, `500`, `1000`, `2000`, `5000`, or `All`. Fresh Release Search isn't affected. |
 | **Auto Queue** | Off | Automatically queue candidates above the threshold after each scheduled scan. Respects Upgrades Per Run limit. |
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
 | **Excluded Genres** | — | Skip items from these genres during scan. Applies to movies and shows. |
-| **Bulk Sources** | None | Which whole-library sources to read on top of the scraper search: none (scrapers only), NZB indexers, Zilean, or both. Zilean is fast with its [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection) and slow without it. Installs that ran Upgrade Hub scans before 0.9.0 keep **Both**. |
+| **Bulk Sources** | Both | Which whole-library sources to check: Zilean, NZB indexers, both, or none (Fresh Release Search only). Zilean is fast with its [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection) and slow without it. |
 | **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Library & Files → Library → NAS / Network Drive Paths). NAS items will not be scanned or listed. |
 
 **Settings actions:**
