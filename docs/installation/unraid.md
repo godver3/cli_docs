@@ -53,7 +53,7 @@ Regardless of method, you need:
 
     | Field | Value |
     |---|---|
-    | **Docker Image** | `godver3/cli_debrid:dev` |
+    | **Docker Image** | `godver3/clyde:dev` |
     | **WebUI Port** | `5000` |
     | **DB Content Path** | `/mnt/cache/appdata/cli_debrid/db_content` → `/user/db_content` |
     | **Config Path** | `/mnt/cache/appdata/cli_debrid/config` → `/user/config` |
@@ -62,7 +62,7 @@ Regardless of method, you need:
     | **Timezone** | Your local timezone e.g. `America/New_York` |
 
     !!! warning "Use the :dev tag"
-        Make sure the image is `godver3/cli_debrid:dev`. The `:latest` tag does not include all features or receive new feature updates.
+        Make sure the image is `godver3/clyde:dev`. The `:latest` tag does not include all features or receive new feature updates.
 
     ![CLI_Debrid docker template filled in](../assets/screenshots/installation/unraid-ca-template.png)
 
@@ -95,7 +95,7 @@ Regardless of method, you need:
         ```yaml title="docker-compose.yml"
         services:
           cli_debrid:
-            image: godver3/cli_debrid:dev
+            image: godver3/clyde:dev
             pull_policy: always
             container_name: cli_debrid
             ports:
@@ -120,7 +120,7 @@ Regardless of method, you need:
         ```yaml title="docker-compose.yml"
         services:
           cli_debrid:
-            image: godver3/cli_debrid:dev
+            image: godver3/clyde:dev
             pull_policy: always
             container_name: cli_debrid
             ports:

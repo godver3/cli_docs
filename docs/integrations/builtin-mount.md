@@ -43,7 +43,7 @@ Or add these lines to your own compose file:
 ```yaml title="docker-compose.yml"
 services:
   cli_debrid:
-    image: godver3/cli_debrid:dev
+    image: godver3/clyde:dev
     container_name: cli_debrid
     restart: unless-stopped
     ports:

@@ -17,7 +17,7 @@ The minimum required is: a debrid API key, Plex or Jellyfin URL + token, and a T
 
 **Which Docker image tag should I use?**
 
-Always use `godver3/cli_debrid:dev`. The `:latest` tag does not include all features or receive new feature updates.
+Always use `godver3/clyde:dev`. The `:latest` tag does not include all features or receive new feature updates.
 
 ---
 
@@ -38,7 +38,7 @@ Use the **API Key (v3 auth)** from your TMDB account settings — not the Read A
 
 **Can I run Clyde on ARM / Raspberry Pi?**
 
-Yes, ARM builds are available. Use the same `godver3/cli_debrid:dev` image — it supports `linux/arm64`.
+Yes, ARM builds are available. Use the same `godver3/clyde:dev` image — it supports `linux/arm64`.
 
 ---
 
@@ -364,7 +364,7 @@ The SQLite database is being accessed by multiple processes simultaneously. Usua
 The container image is outdated or didn't pull correctly. Run:
 
 ```bash
-docker pull godver3/cli_debrid:dev
+docker pull godver3/clyde:dev
 docker compose up -d
 ```
 
@@ -385,7 +385,7 @@ Your server has run out of disk space. Common causes:
 Stale Python bytecode from an old version. Pull the latest image:
 
 ```bash
-docker pull godver3/cli_debrid:dev
+docker pull godver3/clyde:dev
 docker compose up -d
 ```
 

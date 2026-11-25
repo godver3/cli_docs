@@ -34,7 +34,7 @@ To add Watchtower to your stack:
 ```yaml title="docker-compose.yml"
 services:
   cli_debrid:
-    image: godver3/cli_debrid:dev
+    image: godver3/clyde:dev
     # ... your existing config ...
 
   watchtower:
@@ -85,7 +85,7 @@ In the Unraid Docker tab, click the Clyde container row and select **Update**.
 Alternatively, force-pull the latest image:
 
 ```bash
-docker pull godver3/cli_debrid:dev
+docker pull godver3/clyde:dev
 docker stop cli_debrid && docker start cli_debrid
 ```
 
@@ -125,10 +125,10 @@ The version is also shown in the top bar of the Clyde web interface.
 
 ## Rollback
 
-If an update causes issues, roll back to a previous image by pinning a specific version tag. Check available tags on [Docker Hub](https://hub.docker.com/r/godver3/cli_debrid/tags).
+If an update causes issues, roll back to a previous image by pinning a specific version tag. Check available tags on [Docker Hub](https://hub.docker.com/r/godver3/clyde/tags).
 
 ```yaml title="docker-compose.yml"
-image: godver3/cli_debrid:dev-0.7.25  # example pinned version tag
+image: godver3/clyde:dev-0.9.0  # example pinned version tag (versions before 0.9.0: godver3/cli_debrid)
 ```
 
 Then run `docker compose up -d` to apply.

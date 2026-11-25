@@ -19,7 +19,7 @@ These GUI tools let you manage Docker containers and compose stacks through a we
     ```yaml title="docker-compose.yml"
     services:
       cli_debrid:
-        image: godver3/cli_debrid:dev
+        image: godver3/clyde:dev
         pull_policy: always
         container_name: cli_debrid
         ports:
@@ -44,7 +44,7 @@ These GUI tools let you manage Docker containers and compose stacks through a we
     ```yaml title="docker-compose.yml"
     services:
       cli_debrid:
-        image: godver3/cli_debrid:dev
+        image: godver3/clyde:dev
         pull_policy: always
         container_name: cli_debrid
         ports:
