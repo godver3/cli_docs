@@ -24,7 +24,7 @@
     
     
       
-        <title>Mount your storage - cli_debrid</title>
+        <title>Mount your storage - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3432,7 +3432,7 @@
 
 
 <h1 id="step-2-mount-your-storage">Step 2 — Mount your storage<a class="headerlink" href="#step-2-mount-your-storage" title="Permanent link">¶</a></h1>
-<p>Before cli_debrid can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.</p>
+<p>Before Clyde can manage your library, your debrid and/or Usenet content needs to be mounted as a local folder. Your media server (Plex/Jellyfin) reads from this folder as if it were a regular hard drive — nothing is downloaded to your server.</p>
 <p>These tools handle this:</p>
 <table>
 <thead>
@@ -3448,13 +3448,13 @@
 <td><strong>Built-in mount</strong></td>
 <td>Real-Debrid, AllDebrid, Torbox, Premiumize, Debrid-Link, HighWay</td>
 <td>✓</td>
-<td><strong>Default.</strong> Runs inside cli_debrid, no extra container</td>
+<td><strong>Default.</strong> Runs inside Clyde, no extra container</td>
 </tr>
 <tr>
 <td><strong>cli_mount</strong></td>
 <td>Real-Debrid, AllDebrid, Torbox, Premiumize</td>
 <td>✓</td>
-<td>All-in-one in its own container, built alongside cli_debrid</td>
+<td>All-in-one in its own container, built alongside Clyde</td>
 </tr>
 <tr>
 <td><strong>Decypharr</strong></td>
@@ -3473,20 +3473,20 @@
 <p>Choose one:</p>
 <ul>
 <li><strong>Most setups</strong> (Usenet, debrid, or both): the <strong>built-in mount</strong>. Nothing to install here; you set it up in <a href="../configure/">Step 4</a>.</li>
-<li><strong>A separate mount container</strong>, or a host where cli_debrid can't get FUSE access: <strong>cli_mount</strong> — it handles debrid and Usenet in a single container and works directly with cli_debrid for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.</li>
+<li><strong>A separate mount container</strong>, or a host where Clyde can't get FUSE access: <strong>cli_mount</strong> — it handles debrid and Usenet in a single container and works directly with Clyde for imports and repairs. If you only use Real-Debrid and already run Zurg, that works too.</li>
 </ul>
 <hr>
 <h2 id="option-a-built-in-mount">Option A — Built-in mount<a class="headerlink" href="#option-a-built-in-mount" title="Permanent link">¶</a></h2>
-<p>cli_debrid's own mount engine runs inside the cli_debrid container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in <a href="../install/">Step 3</a>.</p>
+<p>Clyde's own mount engine runs inside the Clyde container. It streams NZBs from your news server and the finished torrents in your debrid account. The container needs FUSE access and a shared mount folder, covered in <a href="../install/">Step 3</a>.</p>
 <p>Full guide: <a class="md-button" href="../../integrations/builtin-mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Built-in mount</a></p>
-<p>Skip ahead to <a href="../install/">Step 3</a>; the mount appears once cli_debrid runs.</p>
+<p>Skip ahead to <a href="../install/">Step 3</a>; the mount appears once Clyde runs.</p>
 <hr>
 <h2 id="option-b-cli_mount">Option B — cli_mount<a class="headerlink" href="#option-b-cli_mount" title="Permanent link">¶</a></h2>
 <p>cli_mount mounts your debrid library and streams Usenet NZBs from your news server, all in one container. It's a fork of <a href="https://github.com/sirrobot01/decypharr" target="_blank" rel="noopener">Decypharr</a> maintained by mash2k3 (<a href="https://github.com/mash2k3/decypharr/tree/dev" target="_blank" rel="noopener">source</a>).</p>
 <p>Full setup guide: <a class="md-button" href="../../integrations/cli_mount/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> cli_mount</a></p>
 <div class="admonition tip">
 <p class="admonition-title">Installing both? Use one compose file</p>
-<p>The <a href="../../installation/docker/#recommended-cli_debrid-and-cli_mount-in-one-stack">Docker guide</a> runs cli_mount and cli_debrid together from one compose file, so this step and <a href="../install/">Step 3</a> happen at once.</p>
+<p>The <a href="../../installation/docker/#recommended-cli_debrid-and-cli_mount-in-one-stack">Docker guide</a> runs cli_mount and Clyde together from one compose file, so this step and <a href="../install/">Step 3</a> happen at once.</p>
 </div>
 <p>In short:</p>
 <ol>
@@ -3518,7 +3518,7 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Built-in mount</label><label for="__tabbed_1_2">cli_mount</label><label for="__tabbed_1_3">Decypharr</label><label for="__tabbed_1_4">Zurg + rclone</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p>Check this after Step 4, once cli_debrid runs:
+<p>Check this after Step 4, once Clyde runs:
 </p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ls<span class="w"> </span>/path/to/clid
 </code></pre></div><p></p>
 </div>
@@ -3539,11 +3539,11 @@
 <p>You should see your files listed (a new Usenet-only setup will be empty until the first NZB is added). If the command fails, fix the mount before continuing.</p>
 <div class="admonition warning">
 <p class="admonition-title">Mount must be working before installing cli_debrid</p>
-<p>cli_debrid needs to be able to read the mount path at startup. If the mount isn't working, cli_debrid won't be able to verify files exist.</p>
+<p>Clyde needs to be able to read the mount path at startup. If the mount isn't working, Clyde won't be able to verify files exist.</p>
 </div>
 <hr>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">¶</a></h2>
-<p><a class="md-button md-button--primary" href="../install/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 3 — Install cli_debrid</a></p>
+<p><a class="md-button md-button--primary" href="../install/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 3 — Install Clyde</a></p>
 
 
 

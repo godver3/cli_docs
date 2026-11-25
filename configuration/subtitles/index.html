@@ -24,7 +24,7 @@
     
     
       
-        <title>Subtitles - cli_debrid</title>
+        <title>Subtitles - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3512,17 +3512,17 @@
 
 
 <h1 id="subtitles">Subtitles<a class="headerlink" href="#subtitles" title="Permanent link">¶</a></h1>
-<p>cli_debrid can download subtitles for everything it collects, in both file management modes, so you don't need Bazarr. Turn it on during <a href="../../getting-started/configure/#onboarding-wizard">onboarding</a> (the optional <strong>Subtitles</strong> step) or under <strong>Settings → Subtitles</strong>, and manage it from <strong>Tools → Subtitle Manager</strong>.</p>
+<p>Clyde can download subtitles for everything it collects, in both file management modes, so you don't need Bazarr. Turn it on during <a href="../../getting-started/configure/#onboarding-wizard">onboarding</a> (the optional <strong>Subtitles</strong> step) or under <strong>Settings → Subtitles</strong>, and manage it from <strong>Tools → Subtitle Manager</strong>.</p>
 <hr>
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h2>
-<p>When an item is collected, cli_debrid searches every selected provider for each language you want and picks, best first:</p>
+<p>When an item is collected, Clyde searches every selected provider for each language you want and picks, best first:</p>
 <ol>
 <li><strong>A subtitle made for your exact file.</strong> OpenSubtitles matches by file hash, so the timing is right.</li>
 <li><strong>One for the same release group</strong> (and source).</li>
 <li><strong>One from the same master:</strong> a Blu-ray rip of the same title, or a WEB release from the same streaming service.</li>
 <li>Otherwise the best match on title, season and episode, then the closest release name, then the most downloaded.</li>
 </ol>
-<p>A subtitle for a different episode or movie is never used. cli_debrid uses the IDs and episode numbers from its database, so obfuscated file names (<code>tGcr.mkv</code>) don't confuse it.</p>
+<p>A subtitle for a different episode or movie is never used. Clyde uses the IDs and episode numbers from its database, so obfuscated file names (<code>tGcr.mkv</code>) don't confuse it.</p>
 <p>Where the subtitle goes:</p>
 <table>
 <thead>
@@ -3578,9 +3578,14 @@
 <td>The languages you want. Pick them from the list.</td>
 </tr>
 <tr>
+<td><strong>OpenSubtitles.org Username / Password</strong></td>
+<td>—</td>
+<td>Only for the legacy <strong>opensubtitles</strong> provider. Its accounts can differ from OpenSubtitles.com's, and the old API refuses .com logins. Leave blank to use the OpenSubtitles.com login.</td>
+</tr>
+<tr>
 <td><strong>Subtitle Providers</strong></td>
-<td>OpenSubtitles.com, Podnapisi, Gestdown, TVsubtitles</td>
-<td>Every selected provider is searched. See <a href="#providers">Providers</a>.</td>
+<td>OpenSubtitles.com, Gestdown, TVsubtitles</td>
+<td>Tick each provider to use. Every ticked provider is searched. See <a href="#providers">Providers</a>.</td>
 </tr>
 <tr>
 <td><strong>SubDL API Key</strong></td>
@@ -3635,11 +3640,6 @@
 <td>Large catalog</td>
 </tr>
 <tr>
-<td><strong>podnapisi</strong></td>
-<td>None</td>
-<td></td>
-</tr>
-<tr>
 <td><strong>gestdown</strong></td>
 <td>None</td>
 <td>Addic7ed mirror, TV only</td>
@@ -3661,12 +3661,12 @@
 </tr>
 <tr>
 <td><strong>opensubtitles</strong></td>
-<td>Login</td>
-<td>The legacy OpenSubtitles.org API</td>
+<td>OpenSubtitles.org login</td>
+<td>The legacy OpenSubtitles.org API. It refuses logins that work on OpenSubtitles.com, so give it its own .org login, or use <strong>opensubtitlescom</strong> instead</td>
 </tr>
 </tbody>
 </table>
-<p>When a provider runs out of downloads or its login fails, it's paused (6 hours for the daily limit, 1 hour for a bad login, 15 minutes for a rate limit) and the others carry on. The Subtitle Manager shows which ones are paused.</p>
+<p>When a provider runs out of downloads, its login fails or its site is down, it's paused (6 hours for the daily limit, 1 hour for a bad login, 1 hour when the site can't be reached, 15 minutes for a rate limit, 10 minutes when searches time out) and the others carry on. The Subtitle Manager shows which ones are paused.</p>
 <hr>
 <h2 id="subtitle-manager">Subtitle Manager<a class="headerlink" href="#subtitle-manager" title="Permanent link">¶</a></h2>
 <p><strong>Tools → Subtitle Manager</strong> shows every collected movie and episode with the languages it has, grouped by show and season.</p>
@@ -3710,15 +3710,15 @@
 <p class="admonition-title">Permanent</p>
 <p>Deleted files can't be recovered. Only separate subtitle files are removed. Subtitles inside your videos, subtitles that came with a release, and the subtitles of videos still in the folder (including ones the Subtitle Manager added) are never touched. A leftover that was still right for a renamed file is removed too; search again for that item afterwards.</p>
 </div>
-<p>Deleting an item from cli_debrid always removes its own subtitle files with it.</p>
+<p>Deleting an item from Clyde always removes its own subtitle files with it.</p>
 <p>Searches and fixes run in the background with their own progress and <strong>Stop</strong> button.</p>
 <p>The <strong>Bulk subtitles</strong> task on the <a href="../../features/automation/">Automation</a> page (off by default) searches up to 200 items an hour that are missing a language. Items searched in the last 24 hours without a result are skipped.</p>
 <hr>
 <h2 id="bazarr">Bazarr<a class="headerlink" href="#bazarr" title="Permanent link">¶</a></h2>
 <h3 id="moving-from-bazarr">Moving from Bazarr<a class="headerlink" href="#moving-from-bazarr" title="Permanent link">¶</a></h3>
-<p><strong>Subtitle Manager → Import from Bazarr</strong> copies Bazarr's languages, providers, OpenSubtitles.com login and embedded-subtitle settings into Subtitle Settings. Bazarr's subsync isn't copied: cli_debrid doesn't re-time subtitles, it picks ones made for your release. Subtitles Bazarr already synced or matched are marked as checked, so <strong>Fix existing subtitles</strong> leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than <code>localhost</code>.</p>
+<p><strong>Subtitle Manager → Import from Bazarr</strong> copies Bazarr's languages, providers, OpenSubtitles.com login and embedded-subtitle settings into Subtitle Settings. Bazarr's subsync isn't copied: Clyde doesn't re-time subtitles, it picks ones made for your release. Subtitles Bazarr already synced or matched are marked as checked, so <strong>Fix existing subtitles</strong> leaves them alone. Nothing in Bazarr is changed. You'll need Bazarr's URL and API key (Bazarr → Settings → General → Security). From Docker, use the host's IP rather than <code>localhost</code>.</p>
 <h3 id="keeping-bazarr">Keeping Bazarr<a class="headerlink" href="#keeping-bazarr" title="Permanent link">¶</a></h3>
-<p>cli_debrid can pose as Radarr and Sonarr so Bazarr can download subtitles for your library.</p>
+<p>Clyde can pose as Radarr and Sonarr so Bazarr can download subtitles for your library.</p>
 <table>
 <thead>
 <tr>

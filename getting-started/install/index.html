@@ -24,7 +24,7 @@
     
     
       
-        <title>Install cli_debrid - cli_debrid</title>
+        <title>Install Clyde - Clyde</title>
       
     
     
@@ -116,7 +116,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#step-3-install-cli_debrid" class="md-skip">
+        <a href="#step-3-install-clyde" class="md-skip">
           Skip to content
         </a>
       
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,13 +172,13 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Install cli_debrid
+              Install Clyde
             
           </span>
         </div>
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3343,25 +3343,25 @@
   
 
 
-<h1 id="step-3-install-cli_debrid">Step 3 — Install cli_debrid<a class="headerlink" href="#step-3-install-cli_debrid" title="Permanent link">¶</a></h1>
+<h1 id="step-3-install-clyde">Step 3 — Install Clyde<a class="headerlink" href="#step-3-install-clyde" title="Permanent link">¶</a></h1>
 <p>Select your platform below. All methods install the same app — only the steps differ.</p>
 <div class="admonition info">
 <p class="admonition-title">Using the built-in mount?</p>
-<p>The engine runs inside cli_debrid's container, so the container needs <code>devices: [/dev/fuse]</code>, <code>cap_add: [SYS_ADMIN]</code>, <code>security_opt: [apparmor:unconfined]</code> and the mount folder bound with <code>rshared</code> (<code>/mnt/clid:/mnt/clid:rshared</code>). <a href="https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml" target="_blank" rel="noopener">docker-compose.builtin.yml</a> has all of it (<a href="../../installation/docker/#easiest-one-container-with-the-built-in-mount">Docker guide</a>). Give your media server the same folder at the same path with <code>rslave</code>.</p>
+<p>The engine runs inside Clyde's container, so the container needs <code>devices: [/dev/fuse]</code>, <code>cap_add: [SYS_ADMIN]</code>, <code>security_opt: [apparmor:unconfined]</code> and the mount folder bound with <code>rshared</code> (<code>/mnt/clid:/mnt/clid:rshared</code>). <a href="https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml" target="_blank" rel="noopener">docker-compose.builtin.yml</a> has all of it (<a href="../../installation/docker/#easiest-one-container-with-the-built-in-mount">Docker guide</a>). Give your media server the same folder at the same path with <code>rslave</code>.</p>
 </div>
 <div class="admonition info">
 <p class="admonition-title">Using cli_mount?</p>
-<p>cli_mount runs as its own container next to cli_debrid (you set it up in <a href="../mount/">Step 2</a>). Two things to get right:</p>
+<p>cli_mount runs as its own container next to Clyde (you set it up in <a href="../mount/">Step 2</a>). Two things to get right:</p>
 <ul>
-<li><strong>Same mount path in both containers.</strong> Map your mount folder into cli_debrid (and your media server) at the same path cli_mount uses, so file paths line up.</li>
+<li><strong>Same mount path in both containers.</strong> Map your mount folder into Clyde (and your media server) at the same path cli_mount uses, so file paths line up.</li>
 <li>
-<p><strong>Reach cli_mount by IP or container name, not <code>localhost</code>.</strong> cli_mount listens on port <code>8282</code> by default — use <code>http://YOUR_SERVER_IP:8282</code> (or the container name on a shared Docker network). <code>localhost</code> inside the cli_debrid container is cli_debrid itself.</p>
+<p><strong>Reach cli_mount by IP or container name, not <code>localhost</code>.</strong> cli_mount listens on port <code>8282</code> by default — use <code>http://YOUR_SERVER_IP:8282</code> (or the container name on a shared Docker network). <code>localhost</code> inside the Clyde container is Clyde itself.</p>
 </li>
 <li>
-<p><strong>Keep cli_mount on port <code>8282</code>.</strong> That's cli_mount's default. Port <code>8888</code> is taken by cli_debrid's built-in Phalanx DB — the cli_debrid <code>docker-compose.yml</code> publishes it — so don't move cli_mount to <code>8888</code> if both run on the same host.</p>
+<p><strong>Keep cli_mount on port <code>8282</code>.</strong> That's cli_mount's default. Port <code>8888</code> is taken by Clyde's built-in Phalanx DB — the Clyde <code>docker-compose.yml</code> publishes it — so don't move cli_mount to <code>8888</code> if both run on the same host.</p>
 </li>
 </ul>
-<p>Optional: also map cli_mount's appdata folder into cli_debrid as <code>/climount_data</code> to enable cli_mount DB backup and cleanup tools.</p>
+<p>Optional: also map cli_mount's appdata folder into Clyde as <code>/climount_data</code> to enable cli_mount DB backup and cleanup tools.</p>
 </div>
 <hr>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Unraid</label><label for="__tabbed_1_2">Docker / Linux</label><label for="__tabbed_1_3">Ubuntu / Debian</label><label for="__tabbed_1_4">Proxmox</label><label for="__tabbed_1_5">TrueNAS</label><label for="__tabbed_1_6">Windows</label></div>
@@ -3401,12 +3401,12 @@
 <p>Once running, go to <code>http://YOUR_SERVER_IP:5000</code></p>
 </div>
 <div class="tabbed-block">
-<p>Run cli_debrid in an LXC container or a VM with Docker.</p>
+<p>Run Clyde in an LXC container or a VM with Docker.</p>
 <p><strong>Full guide:</strong> <a class="md-button" href="../../installation/proxmox/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Proxmox installation</a></p>
 <p><strong>Recommended approach:</strong> Use a Debian/Ubuntu LXC, install Docker inside it, then follow the Docker steps.</p>
 </div>
 <div class="tabbed-block">
-<p>Run cli_debrid as a TrueNAS App (SCALE) or in a jail (CORE).</p>
+<p>Run Clyde as a TrueNAS App (SCALE) or in a jail (CORE).</p>
 <p><strong>Full guide:</strong> <a class="md-button" href="../../installation/truenas/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> TrueNAS installation</a></p>
 <p><strong>TrueNAS SCALE:</strong> Use the Docker Compose method inside a Custom App or deploy via TrueCharts if available.</p>
 </div>
@@ -3415,7 +3415,7 @@
 <p><strong>Full guide:</strong> <a class="md-button" href="../../installation/windows/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Windows installation</a></p>
 <div class="admonition warning">
 <p class="admonition-title">Symlinks on Windows</p>
-<p>Windows requires Developer Mode enabled for symlink support. Plex does not support symlinks on Windows — use Jellyfin instead, or run cli_debrid in Docker.</p>
+<p>Windows requires Developer Mode enabled for symlink support. Plex does not support symlinks on Windows — use Jellyfin instead, or run Clyde in Docker.</p>
 </div>
 </div>
 </div>
@@ -3431,7 +3431,7 @@
 </div>
 <hr>
 <h2 id="next-step">Next step<a class="headerlink" href="#next-step" title="Permanent link">¶</a></h2>
-<p><a class="md-button md-button--primary" href="../configure/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 4 — Configure cli_debrid</a></p>
+<p><a class="md-button md-button--primary" href="../configure/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0"></path></svg></span> Step 4 — Configure Clyde</a></p>
 
 
 

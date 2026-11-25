@@ -24,7 +24,7 @@
     
     
       
-        <title>Maintenance - cli_debrid</title>
+        <title>Maintenance - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3798,7 +3798,7 @@
 
 
 <h1 id="maintenance">Maintenance<a class="headerlink" href="#maintenance" title="Permanent link">¶</a></h1>
-<p>The Maintenance page holds backups, cleanups and repairs for cli_debrid's database and cli_mount's, plus a separate danger zone for deleting data. Open it from <strong>System → Maintenance</strong>.</p>
+<p>The Maintenance page holds backups, cleanups and repairs for Clyde's database and cli_mount's, plus a separate danger zone for deleting data. Open it from <strong>System → Maintenance</strong>.</p>
 <p>It has three tabs: <strong>Backups</strong>, <strong>Cleanup &amp; repair</strong> and <strong>Danger zone</strong>.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/maintenance-overview.png" data-desc-position="bottom"><img alt="Maintenance page" src="../../assets/screenshots/features/maintenance-overview.png"></a></p>
 <div class="admonition warning">
@@ -3821,11 +3821,11 @@
 2. Review the list
 3. Click <strong>Delete Selected</strong> to free up disk space</p>
 <h3 id="backup-cli_mount-databases">Backup cli_mount Databases<a class="headerlink" href="#backup-cli_mount-databases" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Backs up cli_mount's <code>entries.db</code> and <code>items.db</code> to <code>&lt;cli_mount data path&gt;/db/backups/</code>, keeping four copies of each file. It also runs every day with cli_debrid's own database backup.</p>
-<p><strong>Needs:</strong> cli_mount's data folder mounted into cli_debrid and <strong>cli_mount Data Path</strong> set under <strong>Settings → Required → Usenet Mount</strong>. The <a href="../../installation/docker/#recommended-cli_debrid-and-cli_mount-in-one-stack">one-stack compose file</a> sets this up.</p>
+<p><strong>What it does:</strong> Backs up cli_mount's <code>entries.db</code> and <code>items.db</code> to <code>&lt;cli_mount data path&gt;/db/backups/</code>, keeping four copies of each file. It also runs every day with Clyde's own database backup.</p>
+<p><strong>Needs:</strong> cli_mount's data folder mounted into Clyde and <strong>cli_mount Data Path</strong> set under <strong>Settings → Required → Usenet Mount</strong>. The <a href="../../installation/docker/#recommended-cli_debrid-and-cli_mount-in-one-stack">one-stack compose file</a> sets this up.</p>
 <h3 id="restore-cli_mount-database-from-backup">Restore cli_mount Database from Backup<a class="headerlink" href="#restore-cli_mount-database-from-backup" title="Permanent link">¶</a></h3>
 <p><strong>What it does:</strong> Restores <code>entries.db</code> or <code>items.db</code> from one of those backups.</p>
-<p><strong>How to use:</strong> Stop cli_mount first, restore, then start cli_mount again. cli_debrid doesn't need a restart.</p>
+<p><strong>How to use:</strong> Stop cli_mount first, restore, then start cli_mount again. Clyde doesn't need a restart.</p>
 <h3 id="clean-up-old-cli_mount-backup-files">Clean Up Old cli_mount Backup Files<a class="headerlink" href="#clean-up-old-cli_mount-backup-files" title="Permanent link">¶</a></h3>
 <p><strong>What it does:</strong> Finds old cli_mount database backups and removes the ones you select, to free disk space.</p>
 <hr>
@@ -3942,7 +3942,7 @@
 <p><strong>What it does:</strong> Removes every entry for one debrid provider from cli_mount's databases, matched by infohash. Folders that mix files from several providers are rebuilt with only the other providers' files.</p>
 <p><strong>When to use:</strong> You stopped using a debrid provider and want its entries gone from cli_mount.</p>
 <h3 id="backfill-nzb-file-names">Backfill NZB File Names<a class="headerlink" href="#backfill-nzb-file-names" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Renames collected NZB items, in cli_debrid's database and in cli_mount, to the structured NZB naming format: <code>Title (Year) - {{imdb-…}} - Version - (Original.Release.Name)</code>.</p>
+<p><strong>What it does:</strong> Renames collected NZB items, in Clyde's database and in cli_mount, to the structured NZB naming format: <code>Title (Year) - {{imdb-…}} - Version - (Original.Release.Name)</code>.</p>
 <p><strong>Needs:</strong> <strong>Enable NZB File Naming</strong> turned on under <strong>Settings → Required → Usenet Mount</strong>.</p>
 <h3 id="cleanup-my-plex-watchlist-and-other-plex-watchlists">Cleanup My Plex Watchlist and Other Plex Watchlists<a class="headerlink" href="#cleanup-my-plex-watchlist-and-other-plex-watchlists" title="Permanent link">¶</a></h3>
 <p><strong>What it does:</strong> Removes all Collected items from My Plex Watchlist and every configured Other Plex Watchlist. Plex automatically adds items to your watchlist when they're not in your library — this cleans them up after collection.</p>
@@ -3952,10 +3952,10 @@
 <p><strong>When to use:</strong> Shows are showing incorrect statuses — e.g. a show is marked "Ended" when it was actually just "Cancelled", or a returning show is still marked "Ended".</p>
 <p><strong>After running:</strong> run <strong>Update show status (ended/airing)</strong> on the <a href="../automation/">Automation</a> page to apply the refresh right away.</p>
 <h3 id="not-wanted-list">Not Wanted list<a class="headerlink" href="#not-wanted-list" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Opens the list of releases cli_debrid skips because they failed before (magnets and URLs). Remove single entries, or purge the list. The <a href="../automation/">Automation</a> page's one-time tasks can also purge the not-wanted magnets, URLs and NZBs.</p>
+<p><strong>What it does:</strong> Opens the list of releases Clyde skips because they failed before (magnets and URLs). Remove single entries, or purge the list. The <a href="../automation/">Automation</a> page's one-time tasks can also purge the not-wanted magnets, URLs and NZBs.</p>
 <h3 id="full-cli_mount-sync">Full cli_mount sync<a class="headerlink" href="#full-cli_mount-sync" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Re-reads every entry from cli_mount, not just recent changes, and updates cli_debrid's database to match. The queue pauses while it runs and resumes on its own.</p>
-<p><strong>When to use:</strong> cli_debrid and cli_mount disagree about what's in the library, for example after restoring one of them from a backup.</p>
+<p><strong>What it does:</strong> Re-reads every entry from cli_mount, not just recent changes, and updates Clyde's database to match. The queue pauses while it runs and resumes on its own.</p>
+<p><strong>When to use:</strong> Clyde and cli_mount disagree about what's in the library, for example after restoring one of them from a backup.</p>
 <hr>
 <h2 id="danger-zone">Danger zone<a class="headerlink" href="#danger-zone" title="Permanent link">¶</a></h2>
 <p>These delete data and can't be undone.</p>
@@ -3975,7 +3975,7 @@
 <p>After deleting, metadata will need to be re-fetched for all items. This may take time and cause temporary issues with overlay generation and upgrade scoring.</p>
 </div>
 <h3 id="delete-database">Delete Database<a class="headerlink" href="#delete-database" title="Permanent link">¶</a></h3>
-<p><strong>What it does:</strong> Completely deletes <code>media_items.db</code> and all cache files. cli_debrid starts fresh with an empty database.</p>
+<p><strong>What it does:</strong> Completely deletes <code>media_items.db</code> and all cache files. Clyde starts fresh with an empty database.</p>
 <p><strong>When to use:</strong> Only as a last resort — database is severely corrupted and cannot be repaired.</p>
 <p><strong>How to use:</strong>
 1. Type <code>DELETE</code> in the confirmation box

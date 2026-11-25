@@ -22,7 +22,7 @@
     
     
       
-        <title>FAQ - cli_debrid</title>
+        <title>FAQ - Clyde</title>
       
     
     
@@ -157,9 +157,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href=".." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -170,7 +170,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -199,7 +199,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -209,7 +209,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -520,12 +520,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href=".." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../assets/images/logo.png" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3472,7 +3472,7 @@
 <li>Check the Logs page for any errors during save</li>
 </ul>
 <hr>
-<p><strong>Can I run cli_debrid on ARM / Raspberry Pi?</strong></p>
+<p><strong>Can I run Clyde on ARM / Raspberry Pi?</strong></p>
 <p>Yes, ARM builds are available. Use the same <code>godver3/cli_debrid:dev</code> image — it supports <code>linux/arm64</code>.</p>
 <hr>
 <p><strong>How do I enable multi-user access?</strong></p>
@@ -3487,9 +3487,9 @@
 <li>Manually trigger a scan: Library → ⋮ → <strong>Scan Library Files</strong></li>
 </ul>
 <hr>
-<p><strong>Items appear in cli_debrid as Collected but aren't showing in Plex</strong></p>
+<p><strong>Items appear in Clyde as Collected but aren't showing in Plex</strong></p>
 <ul>
-<li>Check that the mount path inside the Plex container matches exactly what cli_debrid uses</li>
+<li>Check that the mount path inside the Plex container matches exactly what Clyde uses</li>
 <li>In symlink mode, both containers must mount the debrid storage and symlink folder at <strong>identical paths</strong></li>
 <li>Force a Plex library scan manually</li>
 </ul>
@@ -3517,7 +3517,7 @@
 <hr>
 <h2 id="debrid-scraping">Debrid &amp; Scraping<a class="headerlink" href="#debrid-scraping" title="Permanent link">¶</a></h2>
 <p><strong>Items are stuck in the Checking state</strong></p>
-<p>Checking means cli_debrid is waiting for the file to appear at the mount path. Common causes:</p>
+<p>Checking means Clyde is waiting for the file to appear at the mount path. Common causes:</p>
 <ul>
 <li>The debrid torrent is uncached — it needs to download first (can take hours)</li>
 <li>The mount path isn't accessible inside the container</li>
@@ -3615,7 +3615,7 @@
 <p>Or use the <strong>Database Browser</strong>, filter by State = Sleeping, select all, and Move to Queue → Wanted.</p>
 <hr>
 <p><strong>How does blacklisting work?</strong></p>
-<p>When a torrent fails (wrong files, download error, mismatch), it's added to the blacklist for that item. cli_debrid won't try that torrent again until the <strong>Blacklist Duration</strong> expires (default 30 days). Items with all torrents blacklisted move to <strong>Sleeping</strong>. Use <strong>Rescrape</strong> to force a fresh search.</p>
+<p>When a torrent fails (wrong files, download error, mismatch), it's added to the blacklist for that item. Clyde won't try that torrent again until the <strong>Blacklist Duration</strong> expires (default 30 days). Items with all torrents blacklisted move to <strong>Sleeping</strong>. Use <strong>Rescrape</strong> to force a fresh search.</p>
 <hr>
 <p><strong>The program stopped running / queue isn't processing</strong></p>
 <ul>
@@ -3653,7 +3653,7 @@
 <li>Verify the Seerr content source is enabled in Settings → Content Sources</li>
 <li>Check the URL (<code>http://YOUR_SEERR_IP:5055</code>) and API key are correct</li>
 <li>Set up the <strong>webhook</strong> for instant pickup: in Seerr go to Settings → Notifications → Webhook → set URL to <code>http://YOUR_CLI_DEBRID_IP:5000/webhook</code> and enable <strong>Request Approved</strong></li>
-<li>Without the webhook, cli_debrid checks Seerr every ~60 seconds</li>
+<li>Without the webhook, Clyde checks Seerr every ~60 seconds</li>
 </ul>
 <hr>
 <p><strong>Overseerr status isn't updating to "Available" after download</strong></p>
@@ -3688,7 +3688,7 @@
 <p><strong>Overlays aren't being applied to some items</strong></p>
 <ul>
 <li>Run <strong>Sync Library</strong> on the Overlays page to match database items to Plex entries</li>
-<li>Use <strong>Test Plex Item Lookup</strong> (Tools → All Tools → Library) to check if cli_debrid can find the item in Plex</li>
+<li>Use <strong>Test Plex Item Lookup</strong> (Tools → All Tools → Library) to check if Clyde can find the item in Plex</li>
 <li>Items without IMDB/TMDB IDs won't sync — use <strong>Fix Missing IMDb ID</strong> on the Tools page</li>
 <li>The title+year fallback handles items without external IDs, but requires a good title match</li>
 </ul>
@@ -3704,7 +3704,7 @@
 <p>Click 👁 on the <strong>Cleaned Up</strong> card on the Overlays page. It says what's wrong. Usually it's one of two things:</p>
 <ul>
 <li><strong>Media Server Data Path</strong> doesn't point at the folder that contains Plex's <code>Metadata</code> folder (often one level too high). Overlay Settings offers the right folder.</li>
-<li>cli_debrid isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time <code>setfacl</code> command from <a href="../features/overlays/#poster-cleanup">Poster cleanup</a>.</li>
+<li>Clyde isn't allowed to delete in Plex's folder, because Plex runs as a different user. Run the one-time <code>setfacl</code> command from <a href="../features/overlays/#poster-cleanup">Poster cleanup</a>.</li>
 </ul>
 <hr>
 <p><strong>Plex labels show "Unknown" instead of requester names</strong></p>
@@ -3736,8 +3736,8 @@
 </ul>
 <hr>
 <p><strong>How do I share logs when reporting a bug?</strong></p>
-<p>Go to <strong>Logs</strong> and click <strong>Share cli_debrid Logs</strong>. This uploads the logs to paste.c-net.org and gives you a link to share. If cli_mount is set up, there are also <strong>Share cli_mount Logs</strong> and <strong>Share Both</strong> buttons.</p>
-<p>The cli_debrid upload includes the app version and a snapshot of your settings, so you don't need to send a settings screenshot. API keys, tokens, passwords and usernames are redacted in both the logs and the settings snapshot. Redaction works by matching known secret values and key names, so skim the link before posting it publicly.</p>
+<p>Go to <strong>Logs</strong> and click <strong>Share Clyde Logs</strong>. This uploads the logs to paste.c-net.org and gives you a link to share. If cli_mount is set up, there are also <strong>Share cli_mount Logs</strong> and <strong>Share Both</strong> buttons.</p>
+<p>The Clyde upload includes the app version and a snapshot of your settings, so you don't need to send a settings screenshot. API keys, tokens, passwords and usernames are redacted in both the logs and the settings snapshot. Redaction works by matching known secret values and key names, so skim the link before posting it publicly.</p>
 <p>The raw log files are in the <code>logs</code> folder of your data directory (<code>/user/logs</code> in Docker).</p>
 <hr>
 <h2 id="common-errors">Common Errors<a class="headerlink" href="#common-errors" title="Permanent link">¶</a></h2>
@@ -3774,7 +3774,7 @@
 <p><strong>Port 5000 already in use</strong></p>
 <p>Another service is using port 5000. Either:</p>
 <ul>
-<li>Change cli_debrid's port mapping in docker-compose.yml (e.g. <code>"5080:5000"</code>)</li>
+<li>Change Clyde's port mapping in docker-compose.yml (e.g. <code>"5080:5000"</code>)</li>
 <li>Stop the conflicting service</li>
 </ul>
 <p>On macOS, AirPlay Receiver uses port 5000 — disable it in System Settings → General → AirDrop &amp; Handoff.</p>

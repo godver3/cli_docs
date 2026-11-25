@@ -24,7 +24,7 @@
     
     
       
-        <title>Usenet Migration - cli_debrid</title>
+        <title>Usenet Migration - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3435,7 +3435,7 @@
 </div>
 <hr>
 <h2 id="what-each-direction-needs">What each direction needs<a class="headerlink" href="#what-each-direction-needs" title="Permanent link">¶</a></h2>
-<p>cli_debrid runs in a container without Docker access, so it reads NzbDAV over HTTP and reads cli_mount's <code>.nzb</code> files from a folder bound into the container.</p>
+<p>Clyde runs in a container without Docker access, so it reads NzbDAV over HTTP and reads cli_mount's <code>.nzb</code> files from a folder bound into the container.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">cli_mount → NzbDAV</label><label for="__tabbed_1_2">NzbDAV → cli_mount</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -3449,7 +3449,7 @@
 <tbody>
 <tr>
 <td><strong>cli_mount nzb-store path (source)</strong></td>
-<td>cli_mount's stored <code>.nzb</code> files as seen inside the cli_debrid container. With the usual bind <code>- /path/to/appdata/cli_mount:/climount_data</code> (the same one the cli_mount DB tools use, see <a href="../../configuration/required/#usenet-mount">cli_mount Data Path</a>), this is <code>/climount_data/usenet/nzbs</code>.</td>
+<td>cli_mount's stored <code>.nzb</code> files as seen inside the Clyde container. With the usual bind <code>- /path/to/appdata/cli_mount:/climount_data</code> (the same one the cli_mount DB tools use, see <a href="../../configuration/required/#usenet-mount">cli_mount Data Path</a>), this is <code>/climount_data/usenet/nzbs</code>.</td>
 </tr>
 <tr>
 <td><strong>NzbDAV URL (target)</strong></td>
@@ -3533,22 +3533,22 @@
 <li>Set a small <strong>Limit</strong> and click <strong>Start transfer</strong>. The progress shows submitted, skipped and failed counts, with a reason for each failure.</li>
 <li>Check those items play from the new provider, then set <strong>Limit</strong> back to <code>0</code> and run it again. With <strong>Skip items already at target</strong> on, the ones you already moved are skipped.</li>
 </ol>
-<p><strong>Cancel</strong> stops after the current item. Progress is kept in memory only, so a cli_debrid restart loses the progress view (items already submitted stay on the target).</p>
+<p><strong>Cancel</strong> stops after the current item. Progress is kept in memory only, so a Clyde restart loses the progress view (items already submitted stay on the target).</p>
 <hr>
 <h2 id="after-the-transfer">After the transfer<a class="headerlink" href="#after-the-transfer" title="Permanent link">¶</a></h2>
-<p>The tool only moves the downloads. It doesn't change cli_debrid's settings, database or symlinks. Once you're happy with the new provider:</p>
+<p>The tool only moves the downloads. It doesn't change Clyde's settings, database or symlinks. Once you're happy with the new provider:</p>
 <ol>
 <li>In <strong>Settings → Required Settings → Usenet Mount</strong>, set <strong>Provider</strong>, <strong>Mount URL</strong> and <strong>API Token</strong> to the new provider.</li>
 <li>Point your library at the new provider's mount: the Plex library folders in Direct Mount, or <strong>Original Files Path</strong> in Symlink mode.</li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Existing library entries still point at the old provider</p>
-<p>cli_debrid's database records and symlinks keep the old provider's file paths and job IDs. Keep the old provider running until you've checked that items play from the new one.</p>
+<p>Clyde's database records and symlinks keep the old provider's file paths and job IDs. Keep the old provider running until you've checked that items play from the new one.</p>
 </div>
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <p><strong>"Path not found in this container"</strong>
-:   The cli_mount appdata folder isn't bound into cli_debrid, or the path is wrong. Add the bind to cli_debrid's <code>docker-compose.yml</code>, restart it, and use the path as seen inside the container.</p>
+:   The cli_mount appdata folder isn't bound into Clyde, or the path is wrong. Add the bind to Clyde's <code>docker-compose.yml</code>, restart it, and use the path as seen inside the container.</p>
 <p><strong>Items fail with <code>rejected</code> on NzbDAV</strong>
 :   NzbDAV refused the file. Check that the target category exists in NzbDAV.</p>
 <p><strong>Fewer items than expected in Preview</strong>

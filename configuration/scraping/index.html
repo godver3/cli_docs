@@ -24,7 +24,7 @@
     
     
       
-        <title>Scraping - cli_debrid</title>
+        <title>Scraping - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3487,7 +3487,7 @@
 <tr>
 <td><strong>Enable Seadex Priority</strong></td>
 <td>Off</td>
-<td>For anime, prefer the release <a href="https://releases.moe" target="_blank" rel="noopener">SeaDex</a> lists as best for the title over cli_debrid's own scoring. Only for items detected as anime, in versions whose Anime Filter Mode isn't "Non-Anime Only".</td>
+<td>For anime, prefer the release <a href="https://releases.moe" target="_blank" rel="noopener">SeaDex</a> lists as best for the title over Clyde's own scoring. Only for items detected as anime, in versions whose Anime Filter Mode isn't "Non-Anime Only".</td>
 </tr>
 <tr>
 <td><strong>Trakt Early Releases</strong></td>
@@ -3507,37 +3507,7 @@
 </tbody>
 </table>
 <h3 id="upgrading">Upgrading<a class="headerlink" href="#upgrading" title="Permanent link">¶</a></h3>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Enable Upgrading</strong></td>
-<td>Off</td>
-<td>Replace a collected item when a better release turns up</td>
-</tr>
-<tr>
-<td><strong>Upgrading Percentage Threshold</strong></td>
-<td><code>0.1</code></td>
-<td>How much better a result must score to count as an upgrade, as a decimal. <code>0.1</code> means at least 10% higher.</td>
-</tr>
-<tr>
-<td><strong>Delayed Upgrade Scrape Days</strong></td>
-<td><code>0</code></td>
-<td>Wait this many days, then try one upgrade scrape. <code>0</code> turns it off.</td>
-</tr>
-<tr>
-<td><strong>Enable Upgrading Cleanup</strong></td>
-<td>On</td>
-<td>After a successful upgrade, remove the original from your debrid provider</td>
-</tr>
-</tbody>
-</table>
+<p>Upgrade settings have moved to the <strong>Upgrading</strong> group of the <a href="../../features/upgrade-hub/#upgrading">Upgrade Hub</a> Settings tab.</p>
 <h3 id="scoring-and-sorting">Scoring and sorting<a class="headerlink" href="#scoring-and-sorting" title="Permanent link">¶</a></h3>
 <table>
 <thead>

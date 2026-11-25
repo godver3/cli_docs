@@ -24,7 +24,7 @@
     
     
       
-        <title>Plex Movie Box Sets - cli_debrid</title>
+        <title>Plex Movie Box Sets - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3520,7 +3520,7 @@
 
 
 <h1 id="plex-movie-box-sets">Plex Movie Box Sets<a class="headerlink" href="#plex-movie-box-sets" title="Permanent link">¶</a></h1>
-<p>CLI Debrid automatically discovers which movies in your library belong to TMDB franchise collections, creates matching Plex collections for them, applies franchise posters, and optionally queues missing franchise movies to the wanted list.</p>
+<p>Clyde automatically discovers which movies in your library belong to TMDB franchise collections, creates matching Plex collections for them, applies franchise posters, and optionally queues missing franchise movies to the wanted list.</p>
 <div class="admonition note">
 <p class="admonition-title">Plex only</p>
 <p>Plex Movie Box Sets requires Plex as your media server.</p>
@@ -3589,7 +3589,7 @@
 <li><strong>TMDB lookup</strong> — every movie in the database is queried against TMDB to check franchise membership. Already-checked movies are skipped on subsequent runs. The first run takes approximately 30 minutes for large libraries; subsequent runs are near-instant.</li>
 <li><strong>Build box set list</strong> — movies are grouped by franchise. Only franchises with at least the configured minimum number of owned movies are included. Full collection details and posters are fetched from TMDB.</li>
 <li><strong>Sync Plex collections</strong> — Plex collections are created or updated. The configured sort order is applied.</li>
-<li><strong>Apply posters</strong> — the TMDB franchise poster is downloaded and uploaded to Plex. If TMDB has no poster for the franchise, a fallback Layout 1 poster is rendered using the CLI Debrid icon. Collections whose content fingerprint hasn't changed are skipped.</li>
+<li><strong>Apply posters</strong> — the TMDB franchise poster is downloaded and uploaded to Plex. If TMDB has no poster for the franchise, a fallback Layout 1 poster is rendered using the Clyde icon. Collections whose content fingerprint hasn't changed are skipped.</li>
 <li><strong>Queue missing movies</strong> <em>(optional)</em> — if <strong>Grab missing movies from box sets</strong> is on, franchise members not in your library are added to the wanted queue.</li>
 </ol>
 <hr>
@@ -3625,7 +3625,7 @@ Pattern <code>{title} Box Set</code> → <strong>The Godfather Box Set</strong><
 <p>This is useful when a poster is missing or incorrect on a specific collection without waiting for the next scheduled run or affecting other collections.</p>
 <hr>
 <h2 id="state-file">State file<a class="headerlink" href="#state-file" title="Permanent link">¶</a></h2>
-<p>CLI Debrid tracks content fingerprints in <code>plex_boxsets_state.json</code> to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:</p>
+<p>Clyde tracks content fingerprints in <code>plex_boxsets_state.json</code> to avoid re-uploading unchanged posters. To force a full poster re-apply for all collections on the next run:</p>
 <p><strong>Debug → Manage Cache Files → Plex Box Sets State</strong> — delete the state file, then trigger the task manually.</p>
 <p>For individual collections, use <strong>Manage Posters</strong> instead.</p>
 <hr>

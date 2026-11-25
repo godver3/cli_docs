@@ -24,7 +24,7 @@
     
     
       
-        <title>Queues - cli_debrid</title>
+        <title>Queues - Clyde</title>
       
     
     
@@ -159,9 +159,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="cli_debrid" class="md-header__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-header__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -172,7 +172,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            cli_debrid
+            Clyde
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -201,7 +201,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -211,7 +211,7 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to system preference" type="radio" name="__palette" id="__palette_2">
     
       <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden="">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
@@ -522,12 +522,12 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="cli_debrid" class="md-nav__button md-logo" aria-label="cli_debrid" data-md-component="logo">
+    <a href="../.." title="Clyde" class="md-nav__button md-logo" aria-label="Clyde" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../assets/images/logo.svg" alt="logo">
 
     </a>
-    cli_debrid
+    Clyde
   </label>
   
     <div class="md-nav__source">
@@ -3786,11 +3786,11 @@
 
 
 <h1 id="queues">Queues<a class="headerlink" href="#queues" title="Permanent link">¶</a></h1>
-<p>The Queues page shows the real-time status of every item being processed by cli_debrid. Each item moves through a series of states from discovery to collection.</p>
+<p>The Queues page shows the real-time status of every item being processed by Clyde. Each item moves through a series of states from discovery to collection.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/screenshots/features/queues-overview.png" data-desc-position="bottom"><img alt="Queue overview" src="../../assets/screenshots/features/queues-overview.png"></a></p>
 <hr>
 <h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">¶</a></h2>
-<p>cli_debrid runs a continuous loop. On each cycle it:</p>
+<p>Clyde runs a continuous loop. On each cycle it:</p>
 <ol>
 <li>Checks all enabled <strong>Content Sources</strong> for new items and adds them to <strong>Wanted</strong></li>
 <li><strong>Scrapes</strong> all configured scrapers simultaneously to find torrents for Wanted items</li>
@@ -3809,11 +3809,11 @@
 <h3 id="wanted">Wanted<a class="headerlink" href="#wanted" title="Permanent link">¶</a></h3>
 <p>Items that need to be scraped — waiting for their turn in the scraping loop. Items also land here if their release date hasn't arrived yet.</p>
 <h3 id="scraping">Scraping<a class="headerlink" href="#scraping" title="Permanent link">¶</a></h3>
-<p>cli_debrid is actively searching your configured scrapers for a matching torrent.</p>
+<p>Clyde is actively searching your configured scrapers for a matching torrent.</p>
 <h3 id="adding">Adding<a class="headerlink" href="#adding" title="Permanent link">¶</a></h3>
 <p>A torrent has been found and is being submitted to your debrid provider.</p>
 <h3 id="checking">Checking<a class="headerlink" href="#checking" title="Permanent link">¶</a></h3>
-<p>The item has been added to debrid. cli_debrid is monitoring it:</p>
+<p>The item has been added to debrid. Clyde is monitoring it:</p>
 <table>
 <thead>
 <tr>
@@ -3834,7 +3834,7 @@
 </table>
 <p>Once the file appears at the mount path, the item is marked <strong>Collected</strong>, your media server is notified, and labels/overlays are applied if configured.</p>
 <h3 id="unreleased">Unreleased<a class="headerlink" href="#unreleased" title="Permanent link">¶</a></h3>
-<p>The item has a known future release date. cli_debrid will automatically move it to Wanted after release.</p>
+<p>The item has a known future release date. Clyde will automatically move it to Wanted after release.</p>
 <h3 id="sleeping">Sleeping<a class="headerlink" href="#sleeping" title="Permanent link">¶</a></h3>
 <p>All available torrents for this item have been tried and blacklisted. The item will automatically retry when the blacklist duration expires.</p>
 <h3 id="pending-uncached">Pending Uncached<a class="headerlink" href="#pending-uncached" title="Permanent link">¶</a></h3>
@@ -3860,7 +3860,7 @@
 <p>Toggle the <strong>Show Filename</strong> button to switch between showing the torrent title and the matched file path.</p>
 <hr>
 <h2 id="processing-intervals">Processing intervals<a class="headerlink" href="#processing-intervals" title="Permanent link">¶</a></h2>
-<p>cli_debrid processes each queue on its own schedule. These are the default intervals:</p>
+<p>Clyde processes each queue on its own schedule. These are the default intervals:</p>
 <h3 id="queue-intervals">Queue intervals<a class="headerlink" href="#queue-intervals" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -3903,8 +3903,8 @@
 </tr>
 <tr>
 <td>Upgrading</td>
-<td>1 hr</td>
-<td>Scrapes for quality upgrades for recently collected items</td>
+<td>5 min</td>
+<td>Searches for better releases of recently collected items (each item at most hourly)</td>
 </tr>
 <tr>
 <td>Blacklisted</td>
@@ -3934,8 +3934,9 @@
 </div>
 <hr>
 <h2 id="upgrading-queue">Upgrading queue<a class="headerlink" href="#upgrading-queue" title="Permanent link">¶</a></h2>
-<p>Items enter the Upgrading queue when they are successfully collected and were released recently. cli_debrid scrapes for better quality versions every <strong>hour</strong>.</p>
-<p>By default, items remain in the Upgrading queue for <strong>24 hours</strong> after collection before being considered fully settled. This duration is configurable in <strong>Settings → Queues &amp; Upgrades → Upgrade Queue Duration Hours</strong>.</p>
+<p>Items enter the Upgrading queue when they are collected and were released recently (<strong>7 days</strong> or less by default). Each one is searched for a better release once an <strong>hour</strong>.</p>
+<p>By default, items stay in the Upgrading queue for <strong>24 hours</strong> after collection before they settle as Collected. Turning upgrading on, the release age and the window are all set in the <strong>Upgrading</strong> group of the <a href="../upgrade-hub/#upgrading">Upgrade Hub</a> Settings tab.</p>
+<p>The queue runs every 5 minutes and spends at most about 2 minutes searching per run. Items it doesn't reach go first on the next run, so a long window or a big backlog doesn't hold up the other queues, and every item still gets searched. Upgrades queued from the Upgrade Hub go before ordinary searches. Older items are covered by <a href="../upgrade-hub/">Upgrade Hub</a> scans instead.</p>
 <hr>
 <h2 id="sleep-and-wake-mechanism">Sleep and wake mechanism<a class="headerlink" href="#sleep-and-wake-mechanism" title="Permanent link">¶</a></h2>
 <p>Items that can't be found go to <strong>Sleeping</strong>. Each time an item wakes and is retried without success, its <strong>wake count</strong> increments.</p>
@@ -3978,7 +3979,7 @@
 <hr>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
 <p><strong>Item stuck in Wanted</strong></p>
-<p>cli_debrid is searching but finding nothing:</p>
+<p>Clyde is searching but finding nothing:</p>
 <ul>
 <li>No scrapers configured or reachable — check the Connections page</li>
 <li>Content doesn't exist on your scrapers yet (new release, obscure title)</li>
@@ -3992,7 +3993,7 @@
 <li>Wrong mount path in <strong>Required Settings → Original Files Path</strong></li>
 </ul>
 <p><strong>Item moves to Sleeping</strong></p>
-<p>All known torrents have been tried and blacklisted. cli_debrid will retry when the blacklist expires. To retry immediately, clear the blacklist from the Library page.</p>
+<p>All known torrents have been tried and blacklisted. Clyde will retry when the blacklist expires. To retry immediately, clear the blacklist from the Library page.</p>
 <p><strong>Processing cycle timing</strong></p>
 <p>The main loop runs every <strong>60 seconds</strong> by default (configurable in Scraping settings). For large libraries with many Wanted items, a single cycle may take several minutes.</p>
 
