@@ -3459,7 +3459,7 @@
 <p>The minimum required is: a debrid API key, Plex or Jellyfin URL + token, and a TMDB API key. Trakt is optional — it can be used as a content source and as a metadata fallback if you don't configure a TVDB key.</p>
 <hr>
 <p><strong>Which Docker image tag should I use?</strong></p>
-<p>Always use <code>godver3/cli_debrid:dev</code>. The <code>:latest</code> tag does not include all features or receive new feature updates.</p>
+<p>Always use <code>godver3/clyde:dev</code>. The <code>:latest</code> tag does not include all features or receive new feature updates.</p>
 <hr>
 <p><strong>What TMDB API key format do I need?</strong></p>
 <p>Use the <strong>API Key (v3 auth)</strong> from your TMDB account settings — not the Read Access Token. Go to <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">themoviedb.org</a> → Settings → API.</p>
@@ -3473,7 +3473,7 @@
 </ul>
 <hr>
 <p><strong>Can I run Clyde on ARM / Raspberry Pi?</strong></p>
-<p>Yes, ARM builds are available. Use the same <code>godver3/cli_debrid:dev</code> image — it supports <code>linux/arm64</code>.</p>
+<p>Yes, ARM builds are available. Use the same <code>godver3/clyde:dev</code> image — it supports <code>linux/arm64</code>.</p>
 <hr>
 <p><strong>How do I enable multi-user access?</strong></p>
 <p>Go to <strong>Settings → UI Settings → System Behavior → Enable User System</strong>. Then manage users under <strong>Manage Users</strong> in the sidebar.</p>
@@ -3750,7 +3750,7 @@
 <hr>
 <p><strong><code>ModuleNotFoundError: No module named 'flask_session'</code></strong></p>
 <p>The container image is outdated or didn't pull correctly. Run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>godver3/cli_debrid:dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>godver3/clyde:dev
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <hr>
@@ -3764,7 +3764,7 @@
 <hr>
 <p><strong><code>WantedQueue object has no attribute 'contains_item_id'</code></strong></p>
 <p>Stale Python bytecode from an old version. Pull the latest image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>godver3/cli_debrid:dev
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>pull<span class="w"> </span>godver3/clyde:dev
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </code></pre></div>
 <hr>

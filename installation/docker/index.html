@@ -3884,27 +3884,27 @@
 </thead>
 <tbody>
 <tr>
-<td><code>godver3/cli_debrid:dev</code></td>
+<td><code>godver3/clyde:dev</code></td>
 <td>dev</td>
 <td><strong>Recommended.</strong> New features and fixes first</td>
 </tr>
 <tr>
-<td><code>godver3/cli_debrid:dev-&lt;version&gt;</code></td>
+<td><code>godver3/clyde:dev-&lt;version&gt;</code></td>
 <td>dev</td>
-<td>A specific dev release, e.g. <code>dev-0.7.87</code></td>
+<td>A specific dev release, e.g. <code>dev-0.9.0</code></td>
 </tr>
 <tr>
-<td><code>godver3/cli_debrid:latest</code></td>
+<td><code>godver3/clyde:latest</code></td>
 <td>dev</td>
 <td>Same as <code>:dev</code></td>
 </tr>
 <tr>
-<td><code>godver3/cli_debrid:main</code></td>
+<td><code>godver3/clyde:main</code></td>
 <td>main</td>
 <td>Updated less often, at the end of each development cycle</td>
 </tr>
 <tr>
-<td><code>godver3/cli_debrid:main-&lt;version&gt;</code></td>
+<td><code>godver3/clyde:main-&lt;version&gt;</code></td>
 <td>main</td>
 <td>A specific main release</td>
 </tr>
@@ -3915,8 +3915,8 @@
 <p>Use <code>:dev</code> for day-to-day use. Bugs are caught and fixed fastest on the dev branch. Use <code>:main</code> if you prefer less frequent updates.</p>
 </div>
 <div class="admonition info">
-<p class="admonition-title"><code>godver3/clyde</code></p>
-<p>From version 0.9.0, every build is also published as <code>godver3/clyde</code> with the same tags (<code>godver3/clyde:dev</code> and so on). It's the same image, so either name works. <code>godver3/cli_debrid</code> keeps updating, so there's no need to change your compose file.</p>
+<p class="admonition-title">Already running <code>godver3/cli_debrid</code>?</p>
+<p>That's the image's old name, and it gets the same builds under the same tags, so your install keeps updating with no change. To switch, change <code>godver3/cli_debrid</code> to <code>godver3/clyde</code> in your compose file and recreate the container; your settings and library stay where they are. <code>godver3/clyde</code> has builds from version 0.9.0 on; older version tags are only under <code>godver3/cli_debrid</code>.</p>
 </div>
 <hr>
 <h2 id="easiest-one-container-with-the-built-in-mount">Easiest: one container with the built-in mount<a class="headerlink" href="#easiest-one-container-with-the-built-in-mount" title="Permanent link">¶</a></h2>
@@ -3982,7 +3982,7 @@
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PGID=1000</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">  </span><span class="nt">cli_debrid</span><span class="p">:</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/cli_debrid:dev</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/clyde:dev</span>
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">    </span><span class="nt">pull_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cli_debrid</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
@@ -4135,7 +4135,7 @@ That container was given the folder without <code>:rslave</code>. Add it and rec
 <p>Use this when running Jellyfin, Emby, or Plex with symlinks.</p>
 <div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">cli_debrid</span><span class="p">:</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/cli_debrid:dev</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/clyde:dev</span>
 <a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nt">pull_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 <a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cli_debrid</span>
 <a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
@@ -4179,7 +4179,7 @@ That container was given the folder without <code>:rslave</code>. Add it and rec
 <p><strong>cli_debrid</strong></p>
 <div class="highlight"><span class="filename">docker-compose.yml (cli_debrid)</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">services</span><span class="p">:</span>
 <a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">cli_debrid</span><span class="p">:</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/cli_debrid:dev</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">godver3/clyde:dev</span>
 <a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="nt">pull_policy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
 <a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cli_debrid</span>
 <a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
