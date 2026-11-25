@@ -13,7 +13,7 @@ Open it from **Tools → Upgrade Hub**.
     The Upgrade Hub is in beta. Verify suggestions before queuing and report issues on Discord.
 
 !!! note "Sources"
-    Scans search with the scrapers you already have set up, so no extra service is needed. A self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance and Newznab indexers can be added as extra sources that check the whole library at once.
+    Scans search with the scrapers you already have set up, so no extra service is needed. A self-hosted [Zilean](../scrapers/zilean.md#upgrade-hub-direct-db-connection) instance and Newznab indexers can be added under **Bulk Sources** as extra sources that check the whole library at once. They're off by default.
 
 ![Upgrade Hub overview](../assets/screenshots/features/upgrade-hub-overview.png)
 
@@ -174,7 +174,7 @@ What happens right after a new release is collected. These used to be under Sett
 | **Hide Episodes Already in Season Packs** | Off | Don't show individual episode upgrades in the Upgrades tab if they are already covered by a Season Pack candidate |
 | **Upgrades Per Run** | `10` | Max items queued per category (upgrades and packs independently) per auto-queue run |
 | **Excluded Genres** | — | Skip items from these genres during scan. Applies to movies and shows. |
-| **Bulk Sources** | Both | Which whole-library sources to read on top of the scraper search: Zilean, NZB indexers, both, or none |
+| **Bulk Sources** | None | Which whole-library sources to read on top of the scraper search: none (scrapers only), NZB indexers, Zilean, or both. Zilean is fast with its [direct DB connection](../scrapers/zilean.md#upgrade-hub-direct-db-connection) and slow without it. Installs that ran Upgrade Hub scans before 0.9.0 keep **Both**. |
 | **Exclude NAS Items** | Off | Skip items whose file path matches a configured NAS path prefix (set in Settings → Library & Files → Library → NAS / Network Drive Paths). NAS items will not be scanned or listed. |
 
 **Settings actions:**
