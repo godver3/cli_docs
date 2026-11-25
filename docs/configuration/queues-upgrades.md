@@ -19,7 +19,7 @@ icon: material/tray-full
 | **Wake Limit** | `24` | How many times a sleeping item is woken before it's blacklisted |
 | **Sleep Duration Minutes** | `30` | How long an item sleeps between attempts |
 | **Blacklist Final Scrape Delay Hours** | `0` | Wait this long, then try one last scrape before blacklisting. `0` turns it off. |
-| **Movie Airtime Offset** | `0` | Hours after midnight on release day to start scraping new movies |
+| **Movie Airtime Offset** | `0` | Hours after midnight at the start of the release date to start scraping new movies. If nothing is found that day, the movie is searched again every hour, and those retries don't count toward the wake limit. Shows use their air time instead. |
 | **Episode Airtime Offset** | `0` | Hours after the show's airtime to start scraping new episodes. Negative values scrape early. Without Trakt, airtime defaults to 19:00. |
 | **Enable Pause Schedule** | Off | Pause the queue every day between the two times below |
 | **Pause Start Time** / **Pause End Time** | `00:00` | The daily pause window (HH:MM) |
