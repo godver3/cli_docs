@@ -42,6 +42,7 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **Enable Subtitle Downloads** | Off | Download subtitles when an item is collected |
 | **OpenSubtitles Username / Password** | — | Your free [OpenSubtitles.com](https://www.opensubtitles.com/en/users/sign_up) account. Searching works without one, but **downloading needs it**. A free account can download about 20 subtitles a day. |
 | **Subtitle Languages** | `eng,zho` | The languages you want. Pick them from the list. |
+| **OpenSubtitles.org Username / Password** | — | Only for the legacy **opensubtitles** provider. Its accounts can differ from OpenSubtitles.com's, and the old API refuses .com logins. Leave blank to use the OpenSubtitles.com login. |
 | **Subtitle Providers** | OpenSubtitles.com, Gestdown, TVsubtitles | Tick each provider to use. Every ticked provider is searched. See [Providers](#providers). |
 | **SubDL API Key** | — | Free key from [subdl.com](https://subdl.com) → account → API. Add **subdl** to the providers to use it. |
 | **SubSource API Key** | — | Free key from [subsource.net](https://subsource.net) → profile → API. Add **subsource** to the providers to use it. |
@@ -60,7 +61,7 @@ With **Probe for Embedded Subtitles** on, a language the file already has as a g
 | **tvsubtitles** | None | TV only |
 | **subtitulamos** | None | Spanish |
 | **bsplayer** | None | |
-| **opensubtitles** | Login | The legacy OpenSubtitles.org API. It refuses logins that work on OpenSubtitles.com, so use **opensubtitlescom** instead |
+| **opensubtitles** | OpenSubtitles.org login | The legacy OpenSubtitles.org API. It refuses logins that work on OpenSubtitles.com, so give it its own .org login, or use **opensubtitlescom** instead |
 
 When a provider runs out of downloads, its login fails or its site is down, it's paused (6 hours for the daily limit, 1 hour for a bad login, 1 hour when the site can't be reached, 15 minutes for a rate limit, 10 minutes when searches time out) and the others carry on. The Subtitle Manager shows which ones are paused.
 
