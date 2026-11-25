@@ -14,7 +14,7 @@ Automated media management powered by debrid services. Automatically scrape, dow
 
 <div class="hero-actions" markdown>
 [:octicons-rocket-24: Get Started](getting-started/){ .md-button .md-button--primary }
-[:octicons-mark-github-16: GitHub](https://github.com/godver3/cli_debrid/tree/dev){ .md-button }
+[:octicons-mark-github-16: GitHub](https://github.com/godver3/clyde/tree/dev){ .md-button }
 </div>
 </div>
 </div>

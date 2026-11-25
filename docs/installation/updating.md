@@ -102,7 +102,7 @@ Install the **CA Auto Update Applications** plugin from Community Applications t
 
 ## Windows
 
-1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/cli_debrid/releases)
+1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/clyde/releases)
 2. Stop the running Clyde process
 3. Replace the old `.exe` with the new one in your install directory
 4. Start Clyde again

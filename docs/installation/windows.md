@@ -25,7 +25,7 @@ Clyde is available as a standalone Windows executable — no Docker, no Python i
 
 ## Step 1 — Download the executable
 
-Go to the [Releases page](https://github.com/godver3/cli_debrid/releases) on GitHub and download the latest Windows build.
+Go to the [Releases page](https://github.com/godver3/clyde/releases) on GitHub and download the latest Windows build.
 
 ![GitHub releases page showing Windows download](../assets/screenshots/installation/windows-github-releases.png)
 
@@ -97,7 +97,7 @@ The onboarding wizard will launch on first visit.
 
 ## Updating on Windows
 
-1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/cli_debrid/releases)
+1. Download the latest `.exe` from the [Releases page](https://github.com/godver3/clyde/releases)
 2. Stop the running Clyde process
 3. Replace the old `.exe` with the new one
 4. Start Clyde again

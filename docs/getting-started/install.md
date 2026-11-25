@@ -8,7 +8,7 @@ icon: material/download
 Select your platform below. All methods install the same app — only the steps differ.
 
 !!! info "Using the built-in mount?"
-    The engine runs inside Clyde's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (`/mnt/clid:/mnt/clid:rshared`). [docker-compose.builtin.yml](https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml) has all of it ([Docker guide](../installation/docker.md#easiest-one-container-with-the-built-in-mount)). Give your media server the same folder at the same path with `rslave`.
+    The engine runs inside Clyde's container, so the container needs `devices: [/dev/fuse]`, `cap_add: [SYS_ADMIN]`, `security_opt: [apparmor:unconfined]` and the mount folder bound with `rshared` (`/mnt/clid:/mnt/clid:rshared`). [docker-compose.builtin.yml](https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.builtin.yml) has all of it ([Docker guide](../installation/docker.md#easiest-one-container-with-the-built-in-mount)). Give your media server the same folder at the same path with `rslave`.
 
 !!! info "Using cli_mount?"
     cli_mount runs as its own container next to Clyde (you set it up in [Step 2](mount.md)). Two things to get right:
@@ -48,7 +48,7 @@ Select your platform below. All methods install the same app — only the steps 
 
     ```bash
     mkdir -p ~/cli_debrid && cd ~/cli_debrid
-    curl -O https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.yml
+    curl -O https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.yml
     # Edit docker-compose.yml — update volume paths and timezone
     docker compose up -d
     ```

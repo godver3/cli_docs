@@ -53,7 +53,7 @@ Clyde's [built-in mount](../integrations/builtin-mount.md) streams your debrid a
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
-curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.builtin.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.builtin.yml
 docker compose up -d
 ```
 
@@ -87,7 +87,7 @@ cli_mount runs as user `1000` (the `PUID` in the compose file) and can only moun
 
 ```bash
 mkdir -p ${HOME}/cli_debrid && cd ${HOME}/cli_debrid
-curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.cli_mount.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.cli_mount.yml
 ```
 
 Or create `docker-compose.yml` with this content:
@@ -272,7 +272,7 @@ cd ${HOME}/cli_debrid
 Download the default compose file:
 
 ```bash
-curl -O https://raw.githubusercontent.com/godver3/cli_debrid/dev/docker-compose.yml
+curl -O https://raw.githubusercontent.com/godver3/clyde/dev/docker-compose.yml
 ```
 
 Or create it manually:
