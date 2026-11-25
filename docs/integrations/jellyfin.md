@@ -20,9 +20,16 @@ Jellyfin is a free, open-source alternative to Plex. CLI_Debrid supports Jellyfi
 
 ---
 
+## Pick a mode
+
+Jellyfin and Emby work in both file management modes:
+
+- **Symlinked/Local** (the steps below): cli_debrid builds a symlink folder and Jellyfin scans it. Jellyfin must see the mount and the symlink folder at the same paths as cli_debrid.
+- **Direct Mount** (since 0.8.7): Jellyfin reads the mount itself, like Plex in Direct Mount. See [Direct Mount with Jellyfin or Emby](#direct-mount-with-jellyfin-or-emby) at the end of this page.
+
 ## Step 1 — Expose the debrid mount to Jellyfin
 
-Jellyfin requires symlink mode. You need to mount both the debrid storage and the symlink folder, and the container paths **must match cli_debrid exactly**.
+In Symlinked/Local mode you mount both the debrid storage and the symlink folder, and the container paths **must match cli_debrid exactly**.
 
 | Host Path | Container Path |
 |---|---|
@@ -122,6 +129,19 @@ In CLI_Debrid, go to **Settings → Required Settings**:
 ![Jellyfin API key creation](../assets/screenshots/integrations/jellyfin-api-key.png)
 
 ---
+
+## Direct Mount with Jellyfin or Emby
+
+Since 0.8.7, Direct Mount can run with Jellyfin or Emby instead of Plex: the server reads the mount, and cli_debrid asks it what it has.
+
+1. Give Jellyfin the mount (read-only is fine). Its container path doesn't have to match cli_debrid's: cli_debrid matches library folders by name.
+2. Add a **Movies** library on the mount's `Movies` folder and a **Shows** library on its `TV Shows` folder (the built-in mount and cli_mount create these).
+3. In cli_debrid, set **File Management** to **Direct Mount**, pick **Jellyfin / Emby** as the **Media Server**, and enter the URL and API key.
+
+New downloads are scanned in and collected once Jellyfin lists them; removals drop out. Plex-only features (labels, collections, reported issues, Plex watch history) stay off.
+
+!!! tip "Subtitles on a read-only mount"
+    Turn off **Save subtitles into media folders** in each library's settings, so Jellyfin can keep subtitles cli_debrid uploads in its own data folder. Emby takes no uploads: it gets subtitles as files next to the video, which needs a mount that accepts them (the built-in mount does).
 
 ## Troubleshooting
 

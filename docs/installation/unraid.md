@@ -90,7 +90,7 @@ Regardless of method, you need:
 
     Click the **Edit** icon on your new stack and paste:
 
-    === "Plex mode"
+    === "Direct Mount"
 
         ```yaml title="docker-compose.yml"
         services:

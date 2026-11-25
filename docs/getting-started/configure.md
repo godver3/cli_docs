@@ -94,7 +94,7 @@ These live under **Settings → Required Settings** and are worth turning on onc
 | **Ffprobe All Debrid Additions** | Debrid Provider | Optional. The same playability check for debrid files. |
 
 !!! info "What the ffprobe checks cost"
-    The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Plex mode this happens **before** cli_debrid tells Plex about it, so broken files never show up in your library.
+    The ffprobe checks catch files that look complete but won't play — corrupt or truncated files, wrong content, broken archives. A file that fails is rejected and scraped again, and in Direct Mount this happens **before** cli_debrid tells Plex about it, so broken files never show up in your library.
 
     The trade-off is speed: every new file has to be opened and read before it's collected, so additions take noticeably longer, especially for big batches. If additions feel slow, turn these off. A probe that only times out (rather than finding an actual problem) lets the file through.
 
@@ -111,7 +111,7 @@ cli_debrid doesn't download or store files itself. A mount tool ([Step 2](mount.
 
 Click **Check path**. It tells you if the folder doesn't exist, can't be read, is empty, or is the parent of an `__all__` folder (point it at `__all__` itself). An empty folder is only a warning: a new Usenet-only setup stays empty until the first download.
 
-The mount path is required in Symlink mode. In Plex mode it's only needed for **Update Plex on file discovery**.
+The mount path is required in Symlink mode. In Direct Mount it's only needed for **Update Plex on file discovery**.
 
 ---
 
@@ -119,13 +119,13 @@ The mount path is required in Symlink mode. In Plex mode it's only needed for **
 
 The wizard's **Your library** section picks how cli_debrid gets files into your media server. **File Collection Management** is one of the most important settings, and it decides which fields show up below it.
 
-=== "Plex mode"
+=== "Direct Mount"
 
-    Plex reads straight from your mount, and cli_debrid uses the Plex API to track what's in your library.
+    Your media server reads straight from your mount, and cli_debrid uses its API to track what's in your library. Called **Plex mode** before 0.8.7.
 
-    - Plex only: doesn't work with Jellyfin or Emby
+    - **Media Server:** Plex, Silo or Jellyfin / Emby. For Silo or Jellyfin / Emby, enter its URL and API key instead of the Plex fields below
     - No symlinks
-    - Plex must see the mount at the same path as cli_debrid
+    - The media server must see the mount. Jellyfin, Emby and Silo may see it at another path: cli_debrid matches their library folders by name
 
     Click **Sign in to Plex** to fill the fields in, or enter them yourself (sign-in can fail when Plex can't work out your network; the direct IP and token always work):
 
@@ -153,8 +153,7 @@ The wizard's **Your library** section picks how cli_debrid gets files into your 
     cli_debrid makes a tidy folder of symlinks pointing into your mount, and your media server scans that folder. In the wizard this is **Symlinked/Local**.
 
     - Works with Plex, Jellyfin and Emby
-    - Required for Jellyfin and Emby
-    - On Windows it's off unless you tick **Allow Symlinks on Windows** (needs Admin or Developer Mode). Without it, use Plex mode
+    - On Windows it's off unless you tick **Allow Symlinks on Windows** (needs Admin or Developer Mode). Without it, use Direct Mount
 
     | Field | Value |
     |---|---|

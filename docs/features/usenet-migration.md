@@ -69,7 +69,7 @@ Fields for your current Usenet mount are filled in from **Settings → Required 
 The tool only moves the downloads. It doesn't change cli_debrid's settings, database or symlinks. Once you're happy with the new provider:
 
 1. In **Settings → Required Settings → Usenet Mount**, set **Provider**, **Mount URL** and **API Token** to the new provider.
-2. Point your library at the new provider's mount: the Plex library folders in Plex mode, or **Original Files Path** in Symlink mode.
+2. Point your library at the new provider's mount: the Plex library folders in Direct Mount, or **Original Files Path** in Symlink mode.
 
 !!! warning "Existing library entries still point at the old provider"
     cli_debrid's database records and symlinks keep the old provider's file paths and job IDs. Keep the old provider running until you've checked that items play from the new one.

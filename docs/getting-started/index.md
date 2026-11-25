@@ -37,7 +37,7 @@ Follow the steps in order. Each page ends with a link to the next step.
 
 - **Step 4 — Configure cli_debrid**
 
-    Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Plex mode or symlink mode.
+    Connect your debrid service and/or Usenet provider, media server, and mount path. Choose Direct Mount or symlink mode.
 
     [:octicons-arrow-right-24: Configure](configure.md){ .md-button .md-button--primary }
 
@@ -71,7 +71,7 @@ flowchart LR
 
 ### File management modes
 
-=== "Plex mode"
+=== "Direct Mount"
 
     ```mermaid
     flowchart LR
@@ -81,7 +81,7 @@ flowchart LR
         C -->|"triggers library scan via API"| B
     ```
 
-    Plex reads files directly from the debrid mount. cli_debrid uses the Plex API to trigger scans. **Plex only.**
+    Your media server (Plex, Silo, Jellyfin or Emby) reads files directly from the debrid mount. cli_debrid uses its API to trigger scans and track your library.
 
 === "Symlink mode"
 
