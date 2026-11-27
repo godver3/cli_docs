@@ -238,6 +238,7 @@ Links to tools that have a page of their own:
 | [Overlays](overlays.md) | Design the badges drawn on your posters |
 | [Subtitle Manager](../configuration/subtitles.md#subtitle-manager) | See which items are missing subtitles, search providers and pick one by hand, fix existing subtitles, import from Bazarr |
 | [Upgrade Hub](upgrade-hub.md) | Find collected items with a much better release available and queue upgrades |
+| [NFO Files](nfo-files.md) | Write NFO files for the TV library, snapshot Plex's episode details, set up the Plex NFO agent |
 | Trakt Friends | Link friends' Trakt accounts |
 | Plex User Tokens | Collect Plex tokens for friends' watchlists |
 

@@ -38,6 +38,12 @@ Clyde is a full media automation suite. Here's everything it can do.
 - ## :material-label:{ .lg .middle } [Plex Labels](plex-labels.md)
   Automatically label Plex items by content source or requester.
 
+- ## :material-movie-filter:{ .lg .middle } [Plex Preset Collections](plex-preset-collections.md)
+  Kometa-style collections from your library: Christmas, Blockbusters, decades, award winners, studios.
+
+- ## :material-file-document-outline:{ .lg .middle } [NFO Files](nfo-files.md)
+  Keep Plex on Clyde's episode numbering after Plex drops TheTVDB, and snapshot Plex's current details.
+
 - ## :material-chart-line:{ .lg .middle } [Performance](performance.md)
   Real-time CPU and memory monitoring dashboard.
 
