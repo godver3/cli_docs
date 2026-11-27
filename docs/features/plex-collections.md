@@ -13,6 +13,9 @@ Clyde can automatically create and maintain Plex collections that mirror your co
 !!! note "Plex only"
     Plex Collections requires Plex as your media server. The section is hidden in content source settings when using Jellyfin/Emby.
 
+!!! tip "Ready-made collections"
+    For collections built from what you already own (Christmas, Blockbusters, decades, award winners, studios), without adding a content source, see [Plex Preset Collections](plex-preset-collections.md).
+
 ---
 
 ## Overview
