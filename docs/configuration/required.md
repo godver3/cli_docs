@@ -33,10 +33,17 @@ These settings must be configured for Clyde to function. They are collected duri
 
 ### More than one provider
 
-When the first provider can't deliver a release (rate limits, DMCA blocks, errors), Clyde tries the next one in the list. Deleting from your library removes each torrent from the provider that added it. With two or more providers, the [Debrid Manager](../features/debrid-manager.md) has a provider picker.
+The list is an ordered chain. For each release Clyde checks the providers in order and adds it to the first one that has it cached. If a provider fails (rate limit, DMCA block, outage), Clyde tries the next one. Each provider needs its own API key. Use the arrows to change the order. Deleting from your library removes each torrent from the provider that added it. With two or more providers, the [Debrid Manager](../features/debrid-manager.md) has a provider picker.
 
 !!! warning "AllDebrid"
     AllDebrid can't say whether a release is cached without adding it to your account, and it has suspended accounts that add many releases without downloading them. Clyde limits AllDebrid cache checks to 150 an hour and 10 per item, removes the ones it doesn't use, and only asks AllDebrid when no provider higher in the list has the release cached. Put AllDebrid lower in the list if you have another provider.
+
+### Streaming only
+
+!!! note "Built-in mount only"
+    The **Streaming only** box on a fallback row only shows, and only applies, when the [built-in mount](../integrations/builtin-mount.md) serves your debrid. With cli_mount or Zurg the setting is ignored.
+
+Tick **Streaming only** on a fallback to stop sending new releases to that account. Files it already holds keep playing through the built-in mount. They also stay visible in the Debrid Manager and the repair tools. The first provider in the list can't be streaming only.
 
 ### More debrid options
 
@@ -157,7 +164,23 @@ Symlink naming and folder options are under [Library & Files → Symlink Setting
 | **File Collection Management** | **Direct Mount** (saved as `Plex` in `config.json`) or **Symlinked/Local** — the mode chosen above. On Windows, Symlinked/Local uses hardlinks instead of symlinks. |
 | **Media Server Type** | `plex` or `jellyfin` — which server to notify about new symlinks. |
 | **Plex URL For Symlink** / **Plex Token For Symlink** | The Plex server to scan after creating symlinks (symlink mode). |
-| **Scan Mount For External Adds** | Regularly scan the original files path for content added *outside* Clyde (e.g. via DMM or your debrid provider's website) and import it — symlink it and trigger a scan. Use this if your mount has no library-update hook (cli_mount, Decypharr, plain rclone); Zurg users get this through Zurg's `on_library_update`. The first run only records what's already there, without importing it. |
+| **Scan Mount For External Adds** | Regularly scan the mount for content added *outside* Clyde (e.g. via DMM or your debrid provider's website) and import it. See [Picking up files added outside Clyde](#picking-up-files-added-outside-clyde). |
+
+#### Picking up files added outside Clyde
+
+Use **Scan Mount For External Adds** if your mount has no library-update hook (cli_mount, Decypharr, plain rclone). Zurg users get this through Zurg's `on_library_update`.
+
+- **Symlink mode:** new content is symlinked and your media server is told.
+- **Direct Mount mode:** Clyde asks your media server to scan each new folder. Clyde's library sync then adds it. This needs the library sync to be running, and a library that holds the folder. If none does, Clyde logs a warning.
+- **First run:** it only records what is already in the mount. It imports nothing.
+- **Settle time:** a new folder is imported once a later run has seen it again and it is at least 10 minutes old, so a torrent that is still filling is not imported half done.
+- **Clyde's own leftovers are skipped.** Cache-check probes and failed grabs stay in your account, and Clyde does not import them.
+- **A second release** of something you already have imports as another version.
+- **File types:** on the built-in mount the scan follows that mount's allowed extensions. On any other mount it uses a fixed list of video types, including `.m4v`.
+- **Mount paths:** a path that points at a cli_mount, Decypharr or built-in mount root is read from its `__all__` folder. Your usenet mount is scanned too, including NzbDAV's category folders.
+- **Retries:** a folder with no video yet is checked again on every run, for up to 24 hours. A failed import is retried, up to 3 attempts, then Clyde gives up and logs it.
+- **State file:** Clyde keeps a state file of what it has seen, with a backup. A damaged file is restored from the backup. To start over, delete the state file and Clyde records a new baseline.
+- A season pack triggers one media server scan and one notification, not one per episode.
 
 ---
 
