@@ -11,19 +11,13 @@ The Database Browser lets you view, filter, sort, and take actions on every item
 
 ---
 
-## Views
+## Top bar and stats
 
-The Database Browser has two views toggled from the header:
+The top bar shows **Total Items**, **Unique Items** (versions of the same movie or episode count once), **Pages** and a **Per Page** menu (100, 250, 500 or 1000). Total and Unique cover everything your filter matches, not just the loaded page. Row numbers keep counting across pages.
 
-**Table view** — the default. Full filtering, sorting, column customisation, and bulk actions.
+Click the chart icon to expand the Stats panel showing total Movies, Shows and Episodes in your database.
 
-**Visual Grid view** — poster card layout. Search by title and scroll through your library visually. Cards show poster, title, year, and type.
-
----
-
-## Stats panel
-
-Click the chart icon to expand the Stats panel showing total Movies, Shows, and Episodes in your database.
+Rows load as you scroll. When you reach the end of the loaded rows, the next page loads. Changing a filter, sort or letter does not reset **Per Page**.
 
 ---
 
@@ -51,7 +45,13 @@ Click **Add Filter** to build multi-condition filters. Quick filter buttons for 
 
 ## Sorting
 
-Use the **Sort Column** dropdown and **Ascending / Descending** toggle. Click **Apply** to update results.
+Use the **Sort Column** dropdown and **Ascending / Descending** toggle, or click a column header. Click **Apply** to update results.
+
+---
+
+## Saved presets
+
+Click **Save Preset** to keep the current filters and sort. Your presets are listed under **Saved Presets**. Presets are stored in your browser.
 
 ---
 
@@ -64,7 +64,7 @@ Click **Select Columns to Display** to open the column manager:
 - Drag column headers to resize widths
 - All choices persist in your browser (localStorage)
 
-**Available columns:** id, imdb\_id, tmdb\_id, title, year, release\_date, state, type, episode\_title, season\_number, episode\_number, airtime, collected\_at, version, content\_source, upgraded, early\_release, size
+Every column of the items table can be shown, plus **size** (in GB). **Reset Cols** restores the default column widths.
 
 ---
 
@@ -76,6 +76,9 @@ Each row has inline action buttons:
 |---|---|
 | **Delete (×)** | Remove item from the database. Optionally blacklist to prevent re-adding. |
 | **Rescrape (↻)** | Delete and move back to the Wanted queue for a fresh scrape |
+| **Open in Library** | Open the item in the Library |
+| **Move to Wanted** | Move the item back to Wanted |
+| **Blacklist** | Blacklist the item |
 
 ---
 
@@ -89,13 +92,14 @@ Select items using checkboxes. Use **Shift+click** to select a range. Then choos
 | **Rescrape Selected** | Move all selected back to Wanted |
 | **Move to Queue** | Move all selected to a specific queue state |
 | **Change Version** | Apply a different quality profile to all selected |
+| **Tags** | Assign one of your tags to all selected |
 | **Early Release** | Flag selected items for early-release handling |
 | **Force Priority** | Mark items to jump to the front of the queue |
 | **Resync Selected** | Resync symlinks and database paths for selected items |
 | **Verify Symlinks** | Add selected items to the symlink verification queue |
 
 !!! tip "Select across all pages"
-    After clicking **Select All**, a **Select all N matching** button appears to select every item matching the current filter — not just the visible page.
+    **Select All** ticks the rows loaded on screen. A **Select all N matching** link then appears to select every item the current filter matches. Ticks stay put as you scroll, even for rows that scrolled out of view.
 
 Bulk operations are batched (450 items per batch) to avoid database lock issues.
 

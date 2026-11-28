@@ -55,7 +55,7 @@ Some tasks follow a setting instead of their own switch (for example, overlay ta
 |---|---|---|---|
 | **Check Plex for new files** | Plex & Media Server | Every minute | On when Plex checks are in use (Settings → Required). Marks Checking items Collected once they're found. |
 | **Plex full library scan** | Plex & Media Server | Every 30 minutes | On in Direct Mount. |
-| **Pick up files added outside Clyde** | Plex & Media Server | Every 15 minutes | On with **Scan Mount For External Adds** (Settings → Required → File Management). |
+| **Pick up files added outside Clyde** | Plex & Media Server | Every 15 minutes | On with **Scan Mount For External Adds** (Settings → Required → File Management). Works in Symlink and Direct Mount modes. See [Picking up files added outside Clyde](../configuration/required.md#picking-up-files-added-outside-clyde). |
 | **Replace items reported in Plex** | Plex & Media Server | Every 30 seconds | Follows **Settings → Media Server → Plex Reported Issues**. |
 | **Poster overlays** / **Poster overlay cleanup** | Plex & Media Server | Hourly / daily | Follow **Enable overlays** on the [Overlays](overlays.md) page. |
 | **Watch usenet downloads** | Usenet & Mount | Every 10 seconds | Follows NZB downloads in the Adding queue: a finished job moves to Checking, and a failed or timed-out one goes back to Wanted with that release marked not wanted. It also repairs files cli_mount reports as broken within about 5 minutes. |

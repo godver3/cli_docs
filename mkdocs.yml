@@ -128,6 +128,7 @@ nav:
     - scrapers/index.md
     - Zilean: scrapers/zilean.md
     - Torrentio: scrapers/torrentio.md
+    - Comet: scrapers/comet.md
     - MediaFusion: scrapers/mediafusion.md
     - AIOStreams: scrapers/aiostreams.md
     - Jackett: scrapers/jackett.md
@@ -172,6 +173,7 @@ nav:
     - Scraper Tester: features/scraper-tester.md
     - Database Browser: features/database.md
     - Tools: features/tools.md
+    - AI Assistant (MCP): features/ai-assistant-mcp.md
     - Maintenance: features/maintenance.md
     - Usenet Migration: features/usenet-migration.md
     - Other Tools: features/other-tools.md

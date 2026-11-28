@@ -15,6 +15,7 @@ Scrapers are the search engines CLI_Debrid uses to find torrents for your wanted
 |---|---|---|
 | [Zilean](zilean.md) | Fast debrid cache lookups, upgrades | URL only |
 | [Torrentio](torrentio.md) | General movies and TV | URL only |
+| [Comet](comet.md) | Backup when Torrentio is blocked | URL only |
 | [MediaFusion](mediafusion.md) | Configurable multi-source | Web configurator |
 | [AIOStreams](aiostreams.md) | Aggregates multiple Stremio addons via one endpoint | URL or API |
 | [Jackett](jackett.md) | Any tracker via one interface | Self-hosted |

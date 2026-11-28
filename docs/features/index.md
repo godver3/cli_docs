@@ -44,6 +44,9 @@ Clyde is a full media automation suite. Here's everything it can do.
 - ## :material-file-document-outline:{ .lg .middle } [NFO Files](nfo-files.md)
   Keep Plex on Clyde's episode numbering after Plex drops TheTVDB, and snapshot Plex's current details.
 
+- ## :material-robot-outline:{ .lg .middle } [AI Assistant (MCP)](ai-assistant-mcp.md)
+  Let Claude or another AI assistant read your settings and logs to explain and troubleshoot. Read-only.
+
 - ## :material-chart-line:{ .lg .middle } [Performance](performance.md)
   Real-time CPU and memory monitoring dashboard.
 
