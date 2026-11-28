@@ -1538,6 +1538,8 @@
       
         
       
+        
+      
     
     
     
@@ -1643,6 +1645,36 @@
     
   
     Torrentio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scrapers/comet/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 9 9l-8 3 8 3 3 8 3-8 8-3-8-3z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Comet
   
 
     
@@ -2062,6 +2094,17 @@
     <span class="md-ellipsis">
       
         More than one provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming only
       
     </span>
   </a>
@@ -2560,6 +2603,8 @@
       
         
           
+        
+      
         
       
         
@@ -3273,6 +3318,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../../features/ai-assistant-mcp/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.5 15.5c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2m-9-2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.89 2-2-.89-2-2-2M23 15v3c0 .55-.45 1-1 1h-1v1c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2v-1H2c-.55 0-1-.45-1-1v-3c0-.55.45-1 1-1h1c0-3.87 3.13-7 7-7h1V5.73c-.6-.34-1-.99-1-1.73 0-1.1.9-2 2-2s2 .9 2 2c0 .74-.4 1.39-1 1.73V7h1c3.87 0 7 3.13 7 7h1c.55 0 1 .45 1 1m-2 1h-2v-2c0-2.76-2.24-5-5-5h-4c-2.76 0-5 2.24-5 5v2H3v1h2v3h14v-3h2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Assistant (MCP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../features/maintenance/" class="md-nav__link">
         
   
@@ -3435,6 +3510,17 @@
     <span class="md-ellipsis">
       
         More than one provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streaming-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming only
       
     </span>
   </a>
@@ -3648,11 +3734,17 @@
 </div>
 </div>
 <h3 id="more-than-one-provider">More than one provider<a class="headerlink" href="#more-than-one-provider" title="Permanent link">¶</a></h3>
-<p>When the first provider can't deliver a release (rate limits, DMCA blocks, errors), Clyde tries the next one in the list. Deleting from your library removes each torrent from the provider that added it. With two or more providers, the <a href="../../features/debrid-manager/">Debrid Manager</a> has a provider picker.</p>
+<p>The list is an ordered chain. For each release Clyde checks the providers in order and adds it to the first one that has it cached. If a provider fails (rate limit, DMCA block, outage), Clyde tries the next one. Each provider needs its own API key. Use the arrows to change the order. Deleting from your library removes each torrent from the provider that added it. With two or more providers, the <a href="../../features/debrid-manager/">Debrid Manager</a> has a provider picker.</p>
 <div class="admonition warning">
 <p class="admonition-title">AllDebrid</p>
 <p>AllDebrid can't say whether a release is cached without adding it to your account, and it has suspended accounts that add many releases without downloading them. Clyde limits AllDebrid cache checks to 150 an hour and 10 per item, removes the ones it doesn't use, and only asks AllDebrid when no provider higher in the list has the release cached. Put AllDebrid lower in the list if you have another provider.</p>
 </div>
+<h3 id="streaming-only">Streaming only<a class="headerlink" href="#streaming-only" title="Permanent link">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Built-in mount only</p>
+<p>The <strong>Streaming only</strong> box on a fallback row only shows, and only applies, when the <a href="../../integrations/builtin-mount/">built-in mount</a> serves your debrid. With cli_mount or Zurg the setting is ignored.</p>
+</div>
+<p>Tick <strong>Streaming only</strong> on a fallback to stop sending new releases to that account. Files it already holds keep playing through the built-in mount. They also stay visible in the Debrid Manager and the repair tools. The first provider in the list can't be streaming only.</p>
 <h3 id="more-debrid-options">More debrid options<a class="headerlink" href="#more-debrid-options" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -3870,10 +3962,25 @@ If the paths differ between containers, symlinks will appear as broken files in 
 </tr>
 <tr>
 <td><strong>Scan Mount For External Adds</strong></td>
-<td>Regularly scan the original files path for content added <em>outside</em> Clyde (e.g. via DMM or your debrid provider's website) and import it — symlink it and trigger a scan. Use this if your mount has no library-update hook (cli_mount, Decypharr, plain rclone); Zurg users get this through Zurg's <code>on_library_update</code>. The first run only records what's already there, without importing it.</td>
+<td>Regularly scan the mount for content added <em>outside</em> Clyde (e.g. via DMM or your debrid provider's website) and import it. See <a href="#picking-up-files-added-outside-clyde">Picking up files added outside Clyde</a>.</td>
 </tr>
 </tbody>
 </table>
+<h4 id="picking-up-files-added-outside-clyde">Picking up files added outside Clyde<a class="headerlink" href="#picking-up-files-added-outside-clyde" title="Permanent link">¶</a></h4>
+<p>Use <strong>Scan Mount For External Adds</strong> if your mount has no library-update hook (cli_mount, Decypharr, plain rclone). Zurg users get this through Zurg's <code>on_library_update</code>.</p>
+<ul>
+<li><strong>Symlink mode:</strong> new content is symlinked and your media server is told.</li>
+<li><strong>Direct Mount mode:</strong> Clyde asks your media server to scan each new folder. Clyde's library sync then adds it. This needs the library sync to be running, and a library that holds the folder. If none does, Clyde logs a warning.</li>
+<li><strong>First run:</strong> it only records what is already in the mount. It imports nothing.</li>
+<li><strong>Settle time:</strong> a new folder is imported once a later run has seen it again and it is at least 10 minutes old, so a torrent that is still filling is not imported half done.</li>
+<li><strong>Clyde's own leftovers are skipped.</strong> Cache-check probes and failed grabs stay in your account, and Clyde does not import them.</li>
+<li><strong>A second release</strong> of something you already have imports as another version.</li>
+<li><strong>File types:</strong> on the built-in mount the scan follows that mount's allowed extensions. On any other mount it uses a fixed list of video types, including <code>.m4v</code>.</li>
+<li><strong>Mount paths:</strong> a path that points at a cli_mount, Decypharr or built-in mount root is read from its <code>__all__</code> folder. Your usenet mount is scanned too, including NzbDAV's category folders.</li>
+<li><strong>Retries:</strong> a folder with no video yet is checked again on every run, for up to 24 hours. A failed import is retried, up to 3 attempts, then Clyde gives up and logs it.</li>
+<li><strong>State file:</strong> Clyde keeps a state file of what it has seen, with a backup. A damaged file is restored from the backup. To start over, delete the state file and Clyde records a new baseline.</li>
+<li>A season pack triggers one media server scan and one notification, not one per episode.</li>
+</ul>
 <hr>
 <h2 id="usenet-mount">Usenet Mount<a class="headerlink" href="#usenet-mount" title="Permanent link">¶</a></h2>
 <p>Optional. Needed to download NZBs found by <a href="../../scrapers/newznab/">Newznab scrapers</a>. Works alongside a debrid provider, or on its own (leave the debrid API key empty for a Usenet-only setup).</p>
